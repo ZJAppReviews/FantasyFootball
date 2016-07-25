@@ -1,0 +1,101 @@
+{
+    "teams" : [
+        {
+            "teamName" : "Motley Crue",
+            "managerName" : "Mr M Riley",
+            "points" : "1424",
+            "goals" : 25
+        },
+        {
+            "teamName" : "Team2",
+            "managerName" : "Mr C Attrill",
+            "points" : "1324",
+            "goals" : 35	
+        },
+        {
+            "teamName" : "Team3",
+            "managerName" : "Mr J Appleby",
+            "points" : "1224",
+            "goals" : 34	
+        },
+        {
+            "teamName" : "Team4",
+            "managerName" : "Mr D Lin",
+            "points" : "1124",
+            "goals" : 23	
+        },
+        {
+            "teamName" : "Team4",
+            "managerName" : "Mr M Mitchell",
+            "points" : "1124",
+            "goals" : 34
+        },
+        {
+            "teamName" : "Team4",
+            "managerName" : "Mr J Hitchins",
+            "points" : "1124",
+            "goals" : 25	
+        },
+        {
+            "teamName" : "Team4",
+            "managerName" : "Mr P Pritchard",
+            "points" : "1124",
+            "chairman" : true,
+            "goals" : 89
+        },
+        {
+            "teamName" : "Team4",
+            "managerName" : "Mr C Emmerson",
+            "points" : "1124",
+            "goals" : 76
+        },
+        {
+            "teamName" : "Team4",
+            "managerName" : "Mr T Lewis",
+            "points" : "1124",
+            "goals" : 87
+        },
+        {
+            "teamName" : "Team4",
+            "managerName" : "Mr C Cowpertwait",
+            "points" : "1124",
+            "goals" : 34
+        },
+        {
+            "teamName" : "Team4",
+            "managerName" : "Mr P Attrill",
+            "points" : "1124",
+            "goals" : 66
+        },
+        {
+            "teamName" : "Team4",
+            "managerName" : "Mr S Dowe",
+            "points" : "1124",
+            "goals" : 19
+        },
+        {
+            "teamName" : "Team4",
+            "managerName" : "Mr C Foxall",
+            "points" : "1124"	,
+            "goals" : 7
+        },
+        {
+            "teamName" : "Team4",
+            "managerName" : "Mr J Free",
+            "points" : "1024",
+            "goals" : 45	
+        },
+        {
+            "teamName" : "Team4",
+            "managerName" : "Mr J Ransley",
+            "points" : "1124",
+            "goals" : 76
+        },
+        {
+            "teamName" : "Team4",
+            "managerName" : "Mr P Gill",
+            "points" : "1124",
+            "goals" : 123	
+        }
+    ]
+}

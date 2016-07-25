@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "LeagueViewController.h"
+#import "SettingsManager.h"
 
 @interface AppDelegate ()
 
@@ -16,7 +18,13 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    
+    UITabBarController *tabBarController = (UITabBarController *)self.window.rootViewController;
+    UINavigationController *navigationController = [tabBarController viewControllers][0];
+    LeagueViewController *teamViewController = [navigationController viewControllers][0];
+    
+    [SettingsManager loadSettings];
+    
     return YES;
 }
 
@@ -32,6 +40,7 @@
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+    [SettingsManager loadSettings];
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {

@@ -15,6 +15,12 @@
 		4D3B56771D44E1EA00267C95 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D3B56761D44E1EA00267C95 /* Assets.xcassets */; };
 		4D3B567A1D44E1EA00267C95 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D3B56781D44E1EA00267C95 /* LaunchScreen.storyboard */; };
 		4D3B56851D44E1EA00267C95 /* FantasyFootballUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D3B56841D44E1EA00267C95 /* FantasyFootballUITests.m */; };
+		4D3B56961D44FD7000267C95 /* LeagueViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D3B56951D44FD7000267C95 /* LeagueViewController.m */; };
+		4D3B56991D4504F400267C95 /* Team.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D3B56981D4504F400267C95 /* Team.m */; };
+		4D3B569C1D4512D400267C95 /* teams.json in Resources */ = {isa = PBXBuildFile; fileRef = 4D3B569B1D4512D400267C95 /* teams.json */; };
+		4D3B569F1D45137F00267C95 /* SettingsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D3B569E1D45137F00267C95 /* SettingsManager.m */; };
+		4D3B56A21D4515F000267C95 /* TeamManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D3B56A11D4515F000267C95 /* TeamManager.m */; };
+		4D3B56A71D453D0300267C95 /* GoldenBootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D3B56A61D453D0300267C95 /* GoldenBootViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +49,17 @@
 		4D3B56801D44E1EA00267C95 /* FantasyFootballUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FantasyFootballUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D3B56841D44E1EA00267C95 /* FantasyFootballUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FantasyFootballUITests.m; sourceTree = "<group>"; };
 		4D3B56861D44E1EA00267C95 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4D3B56941D44FD7000267C95 /* LeagueViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeagueViewController.h; sourceTree = "<group>"; };
+		4D3B56951D44FD7000267C95 /* LeagueViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeagueViewController.m; sourceTree = "<group>"; };
+		4D3B56971D4504F400267C95 /* Team.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Team.h; sourceTree = "<group>"; };
+		4D3B56981D4504F400267C95 /* Team.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Team.m; sourceTree = "<group>"; };
+		4D3B569B1D4512D400267C95 /* teams.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = teams.json; sourceTree = "<group>"; };
+		4D3B569D1D45137F00267C95 /* SettingsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsManager.h; sourceTree = "<group>"; };
+		4D3B569E1D45137F00267C95 /* SettingsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsManager.m; sourceTree = "<group>"; };
+		4D3B56A01D4515F000267C95 /* TeamManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeamManager.h; sourceTree = "<group>"; };
+		4D3B56A11D4515F000267C95 /* TeamManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeamManager.m; sourceTree = "<group>"; };
+		4D3B56A51D453CF900267C95 /* GoldenBootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoldenBootViewController.h; sourceTree = "<group>"; };
+		4D3B56A61D453D0300267C95 /* GoldenBootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoldenBootViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,16 +101,19 @@
 		4D3B56661D44E1EA00267C95 /* FantasyFootball */ = {
 			isa = PBXGroup;
 			children = (
+				4D3B569A1D4504FE00267C95 /* Models */,
+				4D3B56A31D45165600267C95 /* Managers */,
 				4D3B566A1D44E1EA00267C95 /* AppDelegate.h */,
 				4D3B566B1D44E1EA00267C95 /* AppDelegate.m */,
 				4D3B566D1D44E1EA00267C95 /* FirstViewController.h */,
 				4D3B566E1D44E1EA00267C95 /* FirstViewController.m */,
 				4D3B56701D44E1EA00267C95 /* SecondViewController.h */,
 				4D3B56711D44E1EA00267C95 /* SecondViewController.m */,
-				4D3B56731D44E1EA00267C95 /* Main.storyboard */,
-				4D3B56761D44E1EA00267C95 /* Assets.xcassets */,
-				4D3B56781D44E1EA00267C95 /* LaunchScreen.storyboard */,
-				4D3B567B1D44E1EA00267C95 /* Info.plist */,
+				4D3B56941D44FD7000267C95 /* LeagueViewController.h */,
+				4D3B56951D44FD7000267C95 /* LeagueViewController.m */,
+				4D3B56A51D453CF900267C95 /* GoldenBootViewController.h */,
+				4D3B56A61D453D0300267C95 /* GoldenBootViewController.m */,
+				4D3B56A41D45167900267C95 /* Resources */,
 				4D3B56671D44E1EA00267C95 /* Supporting Files */,
 			);
 			path = FantasyFootball;
@@ -114,6 +134,38 @@
 				4D3B56861D44E1EA00267C95 /* Info.plist */,
 			);
 			path = FantasyFootballUITests;
+			sourceTree = "<group>";
+		};
+		4D3B569A1D4504FE00267C95 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				4D3B56971D4504F400267C95 /* Team.h */,
+				4D3B56981D4504F400267C95 /* Team.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		4D3B56A31D45165600267C95 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				4D3B56A01D4515F000267C95 /* TeamManager.h */,
+				4D3B56A11D4515F000267C95 /* TeamManager.m */,
+				4D3B569D1D45137F00267C95 /* SettingsManager.h */,
+				4D3B569E1D45137F00267C95 /* SettingsManager.m */,
+			);
+			name = Managers;
+			sourceTree = "<group>";
+		};
+		4D3B56A41D45167900267C95 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				4D3B56731D44E1EA00267C95 /* Main.storyboard */,
+				4D3B56781D44E1EA00267C95 /* LaunchScreen.storyboard */,
+				4D3B56761D44E1EA00267C95 /* Assets.xcassets */,
+				4D3B567B1D44E1EA00267C95 /* Info.plist */,
+				4D3B569B1D4512D400267C95 /* teams.json */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -165,6 +217,7 @@
 				TargetAttributes = {
 					4D3B56631D44E1EA00267C95 = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = W2V2ML3BSE;
 					};
 					4D3B567F1D44E1EA00267C95 = {
 						CreatedOnToolsVersion = 7.2;
@@ -196,6 +249,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D3B569C1D4512D400267C95 /* teams.json in Resources */,
 				4D3B567A1D44E1EA00267C95 /* LaunchScreen.storyboard in Resources */,
 				4D3B56771D44E1EA00267C95 /* Assets.xcassets in Resources */,
 				4D3B56751D44E1EA00267C95 /* Main.storyboard in Resources */,
@@ -216,9 +270,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D3B56961D44FD7000267C95 /* LeagueViewController.m in Sources */,
 				4D3B56721D44E1EA00267C95 /* SecondViewController.m in Sources */,
+				4D3B56A21D4515F000267C95 /* TeamManager.m in Sources */,
+				4D3B569F1D45137F00267C95 /* SettingsManager.m in Sources */,
+				4D3B56A71D453D0300267C95 /* GoldenBootViewController.m in Sources */,
 				4D3B566C1D44E1EA00267C95 /* AppDelegate.m in Sources */,
 				4D3B566F1D44E1EA00267C95 /* FirstViewController.m in Sources */,
+				4D3B56991D4504F400267C95 /* Team.m in Sources */,
 				4D3B56691D44E1EA00267C95 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -347,7 +406,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = FantasyFootball/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mhriley.FantasyFootball;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -358,7 +419,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = FantasyFootball/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mhriley.FantasyFootball;
 				PRODUCT_NAME = "$(TARGET_NAME)";
