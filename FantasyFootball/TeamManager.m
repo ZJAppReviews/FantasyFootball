@@ -45,8 +45,6 @@
     }
     
     // months sorted by reverse date
-    //NSSortDescriptor *descriptor = [[NSSortDescriptor alloc] initWithKey:@"monthNumber" ascending:NO];
-    //_months = [months sortedArrayUsingDescriptors:@[descriptor]];
     _months = [NSMutableArray arrayWithArray:[months sortedArrayUsingComparator:^(id obj1, id obj2) {
         return -1 * [[NSNumber numberWithLong:((Month *) obj1).monthNumber] compare:[NSNumber numberWithLong:((Month *)obj2).monthNumber]];
     }]];
@@ -59,8 +57,15 @@
         team.points = [[teamJSON objectForKey:@"points"] intValue];
         team.goals = [[teamJSON objectForKey:@"goals"] intValue];
         team.chairman = [[teamJSON objectForKey:@"chairman"] boolValue];
+        if ([[teamJSON objectForKey:@"momentum"] isEqualToString:@"up"])
+            team.momentum = Up;
+        else if ([[teamJSON objectForKey:@"momentum"] isEqualToString:@"down"])
+            team.momentum = Down;
+        else
+            team.momentum = Same;
         [teams addObject:team];
         
+        // motm the month data is in a dictionary, one entry per month number
         NSDictionary *months = [teamJSON objectForKey:@"months"];
         for (NSNumber *monthNumber in months.allKeys) {
             NSUInteger index = [_months indexOfObjectPassingTest:^BOOL(NSDictionary *item, NSUInteger idx, BOOL *stop) {
@@ -89,7 +94,7 @@
         return -1 * [[NSNumber numberWithLong:((Team *) obj1).points] compare:[NSNumber numberWithLong:((Team *)obj2).points]];
     }]];
     
-    // go through and assign the positions
+    // go through and assign the league positions
     long previousPoints = 0, previousPosition = 0;
     for (int i = 0; i < _league.count; i++) {
         Team *team = [_league objectAtIndex:i];
@@ -104,7 +109,7 @@
         return -1 * [[NSNumber numberWithLong:((Team *) obj1).goals] compare:[NSNumber numberWithLong:((Team *)obj2).goals]];
     }]];
     
-    // go through and assign the positions
+    // go through and assign the golden boot positions
     long previousGoals = 0;
     previousPosition = 0;
     for (int i = 0; i < _goldenBoot.count; i++) {
@@ -114,9 +119,12 @@
         previousGoals = team.goals;
         previousPosition = team.goldenBootPosition;
     }
+}
 
-    
-    //_motm = [NSMutableArray arrayWithArray:motmsJSON];
+- (Team *) getTeam:(NSString *) managerName {
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"managerName == %@", managerName];
+    NSArray *results = [_league filteredArrayUsingPredicate:predicate];
+    return results.count > 0 ? [results objectAtIndex:0] : nil;
 }
 
 @end

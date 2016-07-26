@@ -8,6 +8,15 @@
 
 #import "Util.h"
 #import "AppDelegate.h"
+#import "Team.h"
+
+NSString* getManagerName(Team *team) {
+    if (!team.chairman)
+        return team.managerName;
+  
+    NSString *editedName = [team.managerName substringFromIndex:5];
+    return [NSString stringWithFormat:@"Chairman %@ *", editedName];
+}
 
 BOOL hasProUpgrade() {
 #if TARGET_IPHONE_SIMULATOR

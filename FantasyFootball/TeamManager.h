@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+@class Team;
+
 @interface TeamManager : NSObject
 
 @property (nonatomic, strong) NSMutableArray *league;
@@ -17,5 +19,6 @@
 
 + (TeamManager *) getInstance;
 - (void) loadData:(NSDictionary *) data;
+- (Team *) getTeam:(NSString *) managerName;
 
 @end

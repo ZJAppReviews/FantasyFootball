@@ -37,6 +37,7 @@
     self.tableView.rowHeight = 56;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     self.tableView.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0);
+    self.tableView.allowsSelection = NO;
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
     _teams = [TeamManager getInstance].goldenBoot;
@@ -69,7 +70,7 @@
     teamLabel.text = team.teamName;
     
     UILabel *managerLabel = (UILabel *)[cell viewWithTag:3];
-    managerLabel.text = team.managerName;
+    managerLabel.text = getManagerName(team);
     
     UILabel *goalsLabel = (UILabel *)[cell viewWithTag:4];
     goalsLabel.text = [NSString stringWithFormat:@"%li", team.goals];

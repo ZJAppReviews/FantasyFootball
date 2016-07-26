@@ -79,24 +79,34 @@
     teamLabel.text = team.teamName;
     
     UILabel *managerLabel = (UILabel *)[cell viewWithTag:3];
-    managerLabel.text = team.managerName;
-    if (team.chairman) {
-        managerLabel.text = [managerLabel.text substringFromIndex:5];
-        managerLabel.text = [NSString stringWithFormat:@"Chairman %@ *", managerLabel.text];
-    }
+    managerLabel.text = getManagerName(team);
     
     UILabel *pointsLabel = (UILabel *)[cell viewWithTag:4];
     pointsLabel.text = [NSString stringWithFormat:@"%li", team.points];
     
-    UIView *medalView = (UILabel *)[cell viewWithTag:5];
-    medalView.layer.cornerRadius = 12;
+    UIImageView *momentumView = (UIImageView *)[cell viewWithTag:5];
+    enum Momentum momentum = team.momentum;
+    switch (momentum) {
+        case Up:
+            momentumView.image = [UIImage imageNamed:@"arrow_up"];
+            break;
+        case Down:
+            momentumView.image = [UIImage imageNamed:@"arrow_down"];
+            break;
+        case Same:
+            momentumView.image = [UIImage imageNamed:@"arrow_right"];
+            break;
+    }
+    
+    /*medalView.layer.cornerRadius = 12;
     medalView.layer.masksToBounds = YES;
     if (team.leaguePosition <= 3)
         medalView.backgroundColor = [UIColor colorWithRed:255.0/255 green:215.0/255 blue:0 alpha:1.0];
     else if (team.leaguePosition <= 10)
         medalView.backgroundColor = [UIColor colorWithRed:192.0/255 green:192.0/255 blue:192.0/255 alpha:1.0];
     else
-        medalView.backgroundColor = [UIColor colorWithRed:205.0/255 green:127.0/255 blue:50.0/255 alpha:1.0];
+        medalView.backgroundColor = [UIColor colorWithRed:205.0/255 green:127.0/255 blue:50.0/255 alpha:1.0];*/
+    
     
     if ([team.managerName isEqualToString:getOptionValueForKey(@"managerName")])
         cell.backgroundColor = getAppDelegate().userBackground;

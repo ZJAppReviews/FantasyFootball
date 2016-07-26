@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+enum Momentum {Up, Down, Same};
+
 @interface Team : NSObject
 
 @property (nonatomic) NSString *teamName;
@@ -18,5 +20,6 @@
 @property (nonatomic) long goals;
 @property (nonatomic) BOOL chairman;
 @property (nonatomic) NSArray *months;
+@property (nonatomic) enum Momentum momentum;
 
 @end

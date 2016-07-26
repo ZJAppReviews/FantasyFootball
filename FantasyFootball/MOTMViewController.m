@@ -35,6 +35,7 @@
     self.tableView.backgroundColor = [UIColor colorWithRed:229/255.0 green:249/255.0 blue:255/255.0 alpha:1];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     self.tableView.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0);
+    self.tableView.allowsSelection = NO;
     
     _months = [TeamManager getInstance].months;
 }
@@ -74,7 +75,8 @@
     NSString *managerName = manager[@"managerName"];
     int points = [manager[@"points"] intValue];
     
-    cell.textLabel.text = managerName;
+    Team *team = [[TeamManager getInstance] getTeam:managerName];
+    cell.textLabel.text = team ? getManagerName(team) : managerName;
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%i", points];
     
     if ([managerName isEqualToString:getOptionValueForKey(@"managerName")])
