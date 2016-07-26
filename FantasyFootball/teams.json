@@ -1,101 +1,173 @@
 {
+    "weekNumber" : 1,
     "teams" : [
+    	{
+            "teamName" : "Team2",
+            "managerName" : "Mr C Attrill",
+            "points" : 1324,
+            "goals" : 35,
+            "months" : {
+            	"1" : 114,
+            	"2" : 63
+            }
+        },
         {
             "teamName" : "Motley Crue",
             "managerName" : "Mr M Riley",
-            "points" : "1424",
-            "goals" : 25
-        },
-        {
-            "teamName" : "Team2",
-            "managerName" : "Mr C Attrill",
-            "points" : "1324",
-            "goals" : 35	
+            "points" : 1424,
+            "goals" : 25,
+            "months" : {
+            	"1" : 234,
+            	"2" : 187
+            }
         },
         {
             "teamName" : "Team3",
             "managerName" : "Mr J Appleby",
-            "points" : "1224",
-            "goals" : 34	
+            "points" : 1124,
+            "goals" : 34,
+            "months" : {
+            	"1" : 114,
+            	"2" : 63
+            }	
         },
         {
             "teamName" : "Team4",
             "managerName" : "Mr D Lin",
-            "points" : "1124",
-            "goals" : 23	
+            "points" : 1024,
+            "goals" : 23,
+            "months" : {
+            	"1" : 114,
+            	"2" : 63
+            }	
         },
         {
             "teamName" : "Team4",
             "managerName" : "Mr M Mitchell",
-            "points" : "1124",
-            "goals" : 34
+            "points" : 124,
+            "goals" : 34,
+            "months" : {
+            	"1" : 114,
+            	"2" : 63
+            }
         },
         {
             "teamName" : "Team4",
             "managerName" : "Mr J Hitchins",
-            "points" : "1124",
-            "goals" : 25	
+            "points" : 24,
+            "goals" : 25,
+            "months" : {
+            	"1" : 114,
+            	"2" : 63
+            }
         },
         {
             "teamName" : "Team4",
             "managerName" : "Mr P Pritchard",
-            "points" : "1124",
+            "points" : 543,
             "chairman" : true,
-            "goals" : 89
+            "goals" : 89,
+            "months" : {
+            	"1" : 114,
+            	"2" : 63
+            }
         },
         {
             "teamName" : "Team4",
             "managerName" : "Mr C Emmerson",
-            "points" : "1124",
-            "goals" : 76
+            "points" : 264,
+            "goals" : 76,
+            "months" : {
+            	"1" : 114,
+            	"2" : 63
+            }
         },
         {
             "teamName" : "Team4",
             "managerName" : "Mr T Lewis",
-            "points" : "1124",
-            "goals" : 87
+            "points" : 986,
+            "goals" : 87,
+            "months" : {
+            	"1" : 114,
+            	"2" : 63
+            }
         },
         {
             "teamName" : "Team4",
             "managerName" : "Mr C Cowpertwait",
-            "points" : "1124",
-            "goals" : 34
+            "points" : 765,
+            "goals" : 34,
+            "months" : {
+            	"1" : 114,
+            	"2" : 63
+            }
         },
         {
             "teamName" : "Team4",
             "managerName" : "Mr P Attrill",
-            "points" : "1124",
-            "goals" : 66
+            "points" : 355,
+            "goals" : 66,
+            "months" : {
+            	"1" : 114,
+            	"2" : 63
+            }
         },
         {
             "teamName" : "Team4",
             "managerName" : "Mr S Dowe",
-            "points" : "1124",
-            "goals" : 19
+            "points" : 134,
+            "goals" : 19,
+            "months" : {
+            	"1" : 114,
+            	"2" : 63
+            }
         },
         {
             "teamName" : "Team4",
             "managerName" : "Mr C Foxall",
-            "points" : "1124"	,
-            "goals" : 7
+            "points" : 543,
+            "goals" : 7,
+            "months" : {
+            	"1" : 114,
+            	"2" : 63
+            }
         },
         {
             "teamName" : "Team4",
             "managerName" : "Mr J Free",
-            "points" : "1024",
-            "goals" : 45	
+            "points" : 1111,
+            "goals" : 45,
+            "months" : {
+            	"1" : 114,
+            	"2" : 63
+            }	
         },
         {
             "teamName" : "Team4",
             "managerName" : "Mr J Ransley",
-            "points" : "1124",
-            "goals" : 76
+            "points" : 654,
+            "goals" : 76,
+            "months" : {
+            	"1" : 114,
+            	"2" : 63
+            }
         },
         {
             "teamName" : "Team4",
             "managerName" : "Mr P Gill",
-            "points" : "1124",
-            "goals" : 123	
+            "points" : 446,
+            "goals" : 123,
+            "months" : {
+            	"1" : 114,
+            	"2" : 63
+            }
+        }
+    ],
+    "months" : [
+        {
+			"monthNumber" : 1,
+			"monthName" : "August",
+			"dateRange" : "13th - 30th"
         }
     ]
 }

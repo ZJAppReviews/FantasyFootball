@@ -7,8 +7,10 @@
 //
 
 #import "LeagueViewController.h"
+#import "TeamDetailViewController.h"
 #import "Team.h"
 #import "TeamManager.h"
+#import "Util.h"
 
 @interface LeagueViewController () {
     
@@ -20,18 +22,34 @@
 
 @implementation LeagueViewController
 
+- (instancetype)initWithCoder:(NSCoder *)aDecoder {
+    if ((self = [super initWithCoder:aDecoder])) {
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(reloadData:)
+                                                     name:@"ReloadData"
+                                                   object:nil];
+    }
+    return [super initWithCoder:aDecoder];
+}
+
 - (void) viewDidLoad {
     [super viewDidLoad];
     
     self.tableView.rowHeight = 56;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+    self.tableView.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0);
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
     _teams = [TeamManager getInstance].league;
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(reloadData:)
-                                                 name:@"ReloadData"
-                                               object:nil];
+    if (!getOptionValueForKey(@"managerName")) {
+        // need to show the screen to choose your name
+        [self performSegueWithIdentifier:@"WhoAreYa" sender: self];
+    }
 }
 
 - (void) reloadData:(NSNotification *)notification {
@@ -62,9 +80,36 @@
     
     UILabel *managerLabel = (UILabel *)[cell viewWithTag:3];
     managerLabel.text = team.managerName;
+    if (team.chairman) {
+        managerLabel.text = [managerLabel.text substringFromIndex:5];
+        managerLabel.text = [NSString stringWithFormat:@"Chairman %@ *", managerLabel.text];
+    }
     
     UILabel *pointsLabel = (UILabel *)[cell viewWithTag:4];
     pointsLabel.text = [NSString stringWithFormat:@"%li", team.points];
+    
+    UIView *medalView = (UILabel *)[cell viewWithTag:5];
+    medalView.layer.cornerRadius = 12;
+    medalView.layer.masksToBounds = YES;
+    if (team.leaguePosition <= 3)
+        medalView.backgroundColor = [UIColor colorWithRed:255.0/255 green:215.0/255 blue:0 alpha:1.0];
+    else if (team.leaguePosition <= 10)
+        medalView.backgroundColor = [UIColor colorWithRed:192.0/255 green:192.0/255 blue:192.0/255 alpha:1.0];
+    else
+        medalView.backgroundColor = [UIColor colorWithRed:205.0/255 green:127.0/255 blue:50.0/255 alpha:1.0];
+    
+    if ([team.managerName isEqualToString:getOptionValueForKey(@"managerName")])
+        cell.backgroundColor = getAppDelegate().userBackground;
+    else
+        cell.backgroundColor = getAppDelegate().rowBackground;
+    
+    UIView *bView = [[UIView alloc] initWithFrame:cell.bounds];
+    bView.backgroundColor = [UIColor colorWithRed:224/255.0 green:228/255.0 blue:240/255.0 alpha:1.0];
+    cell.selectedBackgroundView = bView;
+    
+    // extend the separator to the left edge
+    if ([cell respondsToSelector:@selector(setLayoutMargins:)])
+        [cell setLayoutMargins:UIEdgeInsetsZero];
     
     return cell;
 }
@@ -85,6 +130,16 @@
     }
     
     [self.tableView reloadData];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"WhoAreYa"])
+        return;
+    
+    TeamDetailViewController *vc = [segue destinationViewController];
+    
+    Team *team = [_teams objectAtIndex:[self.tableView indexPathForSelectedRow].row];
+    vc.team = team;
 }
 
 - (void)dealloc {

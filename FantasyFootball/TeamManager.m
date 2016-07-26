@@ -8,6 +8,7 @@
 
 #import "TeamManager.h"
 #import "Team.h"
+#import "Month.h"
 
 @implementation TeamManager
 
@@ -27,9 +28,30 @@
     return self;
 }
 
-- (void) loadTeams:(NSArray *) teamsJSON {
+- (void) loadData:(NSDictionary *) data {
+    NSArray *teamsJSON = [data objectForKey:@"teams"];
+    NSArray *monthsJSON = [data objectForKey:@"months"];
     NSMutableArray *teams = [NSMutableArray new];
+    NSMutableArray *months = [NSMutableArray new];
+
+    // create the month objects
+    for (NSDictionary *monthJSON in monthsJSON) {
+        Month *month = [Month new];
+        month.monthNumber = [[monthJSON objectForKey:@"monthNumber"] intValue];
+        month.monthName = [monthJSON objectForKey:@"monthName"];
+        month.dateRange = [monthJSON objectForKey:@"dateRange"];
+        month.managers = [NSMutableArray new];
+        [months addObject:month];
+    }
     
+    // months sorted by reverse date
+    //NSSortDescriptor *descriptor = [[NSSortDescriptor alloc] initWithKey:@"monthNumber" ascending:NO];
+    //_months = [months sortedArrayUsingDescriptors:@[descriptor]];
+    _months = [NSMutableArray arrayWithArray:[months sortedArrayUsingComparator:^(id obj1, id obj2) {
+        return -1 * [[NSNumber numberWithLong:((Month *) obj1).monthNumber] compare:[NSNumber numberWithLong:((Month *)obj2).monthNumber]];
+    }]];
+    
+    // create the team objects
     for (NSDictionary *teamJSON in teamsJSON) {
         Team *team = [Team new];
         team.teamName = [teamJSON objectForKey:@"teamName"];
@@ -38,8 +60,30 @@
         team.goals = [[teamJSON objectForKey:@"goals"] intValue];
         team.chairman = [[teamJSON objectForKey:@"chairman"] boolValue];
         [teams addObject:team];
+        
+        NSDictionary *months = [teamJSON objectForKey:@"months"];
+        for (NSNumber *monthNumber in months.allKeys) {
+            NSUInteger index = [_months indexOfObjectPassingTest:^BOOL(NSDictionary *item, NSUInteger idx, BOOL *stop) {
+                BOOL found = (((Month *) item).monthNumber == [monthNumber intValue]);
+                return found;
+            }];
+            
+            if (index != NSNotFound) {
+                Month *month = _months[index];
+                NSMutableDictionary *manager = [NSMutableDictionary new];
+                manager[@"managerName"] = team.managerName;
+                manager[@"points"] = months[monthNumber];
+                [month.managers addObject:manager];
+            }
+        }
     }
     
+    // sort the motm by points
+    for (Month *month in _months) {
+        NSSortDescriptor *descriptor = [[NSSortDescriptor alloc] initWithKey:@"points" ascending:NO];
+        month.managers = [NSMutableArray arrayWithArray:[month.managers sortedArrayUsingDescriptors:@[descriptor]]];
+    }
+ 
     // league sorted by points
     _league = [NSMutableArray arrayWithArray:[teams sortedArrayUsingComparator:^(id obj1, id obj2) {
         return -1 * [[NSNumber numberWithLong:((Team *) obj1).points] compare:[NSNumber numberWithLong:((Team *)obj2).points]];
@@ -70,6 +114,9 @@
         previousGoals = team.goals;
         previousPosition = team.goldenBootPosition;
     }
+
+    
+    //_motm = [NSMutableArray arrayWithArray:motmsJSON];
 }
 
 @end

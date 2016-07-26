@@ -17,5 +17,6 @@
 @property (nonatomic) long points;
 @property (nonatomic) long goals;
 @property (nonatomic) BOOL chairman;
+@property (nonatomic) NSArray *months;
 
 @end

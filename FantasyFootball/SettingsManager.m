@@ -18,10 +18,12 @@
 static SettingsManager* _instance = nil;
 
 - (void) _applySettings {
-    NSArray *teams = [remoteSettings objectForKey:@"teams"];
-    [[TeamManager getInstance] loadTeams:teams];
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"ReloadData" object:self];
+    [[TeamManager getInstance] loadData:remoteSettings];
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"ReloadData" object:self];
+    });
 }
 
 - (void) _loadSettings {
@@ -37,7 +39,33 @@ static SettingsManager* _instance = nil;
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:URL];
     [request setHTTPMethod:@"GET"];
     [request setCachePolicy:NSURLRequestReloadIgnoringLocalCacheData];
-    [[NSURLConnection alloc] initWithRequest:request delegate:self];
+    //[[NSURLConnection alloc] initWithRequest:request delegate:self];
+    
+    NSURLSession *session = [NSURLSession sharedSession];
+    NSURLSessionDataTask *task = [session dataTaskWithRequest:request
+                                            completionHandler:
+    ^(NSData *data, NSURLResponse *response, NSError *error) {
+        if (data) {
+            NSError *error2 = nil;
+            remoteSettings = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error2];
+            
+            if (!error) {
+                //NSLog(@"JSON Settings: %@", remoteSettings);
+                [self _applySettings];
+            }
+            else {
+                NSLog(@"JSON Deserialization failed: %@", [error userInfo]);
+            }
+        }
+        else {
+            NSLog(@"Connection failed: %@", [error userInfo]);
+        }
+        
+        isLoading = NO;
+        
+    }];
+    
+    [task resume];
 }
 
 + (void) loadSettings {
@@ -76,37 +104,12 @@ static SettingsManager* _instance = nil;
 
 + (SettingsManager *) getInstance
 {
-	@synchronized([SettingsManager class])
-	{
-		if (!_instance) {
-			[[self alloc] init];
-		}
-		
-		return _instance;
-	}
-	
-	return nil;
-}
-
-+ (id) alloc
-{
-	@synchronized([SettingsManager class])
-	{
-		NSAssert(_instance == nil, @"Attempted to allocate a second instance of SettingsManager.");
-		_instance = [super alloc];
-		return _instance;
-	}
-	
-	return nil;
-}
-
--(id)init {
-	self = [super init];
-	if (self != nil) {
-		// initialize stuff here
-	}
-	
-	return self;
+    static SettingsManager *sharedManager = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        sharedManager = [[self alloc] init];
+    });
+    return sharedManager;
 }
 
 @end

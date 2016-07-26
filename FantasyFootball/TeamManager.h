@@ -12,8 +12,10 @@
 
 @property (nonatomic, strong) NSMutableArray *league;
 @property (nonatomic, strong) NSMutableArray *goldenBoot;
+@property (nonatomic, strong) NSArray *months;
+@property (nonatomic, strong) NSMutableArray *motm;
 
 + (TeamManager *) getInstance;
-- (void) loadTeams:(NSArray *) teamsJSON;
+- (void) loadData:(NSDictionary *) data;
 
 @end

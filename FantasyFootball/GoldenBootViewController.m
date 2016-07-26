@@ -9,6 +9,7 @@
 #import "GoldenBootViewController.h"
 #import "Team.h"
 #import "TeamManager.h"
+#import "Util.h"
 
 @interface GoldenBootViewController () {
     
@@ -20,18 +21,25 @@
 
 @implementation GoldenBootViewController
 
+- (instancetype)initWithCoder:(NSCoder *)aDecoder {
+    if ((self = [super initWithCoder:aDecoder])) {
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(reloadData:)
+                                                     name:@"ReloadData"
+                                                   object:nil];
+    }
+    return [super initWithCoder:aDecoder];
+}
+
 - (void) viewDidLoad {
     [super viewDidLoad];
     
     self.tableView.rowHeight = 56;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+    self.tableView.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0);
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
     _teams = [TeamManager getInstance].goldenBoot;
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(reloadData:)
-                                                 name:@"ReloadData"
-                                               object:nil];
 }
 
 - (void) reloadData:(NSNotification *)notification {
@@ -66,6 +74,19 @@
     UILabel *goalsLabel = (UILabel *)[cell viewWithTag:4];
     goalsLabel.text = [NSString stringWithFormat:@"%li", team.goals];
     
+    if ([team.managerName isEqualToString:getOptionValueForKey(@"managerName")])
+        cell.backgroundColor = getAppDelegate().userBackground;
+    else
+        cell.backgroundColor = getAppDelegate().rowBackground;
+    
+    UIView *bView = [[UIView alloc] initWithFrame:cell.bounds];
+    bView.backgroundColor = [UIColor colorWithRed:224/255.0 green:228/255.0 blue:240/255.0 alpha:1.0];
+    cell.selectedBackgroundView = bView;
+    
+    // extend the separator to the left edge
+    if ([cell respondsToSelector:@selector(setLayoutMargins:)])
+        [cell setLayoutMargins:UIEdgeInsetsZero];
+    
     return cell;
 }
 
@@ -81,7 +102,7 @@
     long start = MIN(sourceIndexPath.row, destinationIndexPath.row);
     for (long i = start; i < _teams.count; i++) {
         Team *team = _teams[i];
-        team.leaguePosition = i + 1;
+        team.goldenBootPosition = i + 1;
     }
     
     [self.tableView reloadData];
