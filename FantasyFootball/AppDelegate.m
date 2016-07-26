@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "LeagueViewController.h"
 #import "SettingsManager.h"
+#import <AirshipKit/AirshipKit.h>
 
 @interface AppDelegate ()
 
@@ -29,6 +30,16 @@
     
     [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:236.0/255 green:246.0/255 blue:234.0/255 alpha:1.0]];
     [[UITabBar appearance] setBarTintColor:[UIColor colorWithRed:236.0/255 green:246.0/255 blue:234.0/255 alpha:1.0]];
+    
+    UIUserNotificationSettings* requestedSettings
+        = [UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeBadge
+                                                      | UIUserNotificationTypeAlert
+                                                      | UIUserNotificationTypeSound)
+                                            categories:nil];
+    [[UIApplication sharedApplication] registerUserNotificationSettings:requestedSettings];
+    
+    [UAirship takeOff];
+    [UAirship push].userPushNotificationsEnabled = YES;
     
     [SettingsManager loadSettings];
     
@@ -56,6 +67,28 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+- (bool) canChangeBadge {
+    UIUserNotificationSettings* notificationSettings = [[UIApplication sharedApplication] currentUserNotificationSettings];
+    return (notificationSettings.types & UIUserNotificationTypeBadge);
+}
+
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+    NSLog(@"Remote notif success: %@", [deviceToken description]);
+}
+
+- (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
+    NSLog(@"Remote notif failure: %@", [error description]);
+}
+
+- (void)application:(UIApplication *)application didRegisterUserNotificationSettings:(UIUserNotificationSettings *)notificationSettings {
+    NSLog(@"Can send push: %@", (notificationSettings.types & UIUserNotificationTypeAlert) ? @"yes" : @"no");
+    NSLog(@"Can set badge: %@", (notificationSettings.types & UIUserNotificationTypeBadge) ? @"yes" : @"no");
+    NSLog(@"Can play sound: %@", (notificationSettings.types & UIUserNotificationTypeSound) ? @"yes" : @"no");
+    
+    //NSLog(@"Push status: %d", [[UIApplication sharedApplication] isRegisteredForRemoteNotifications]);
+    [[UIApplication sharedApplication] registerForRemoteNotifications];
 }
 
 @end
