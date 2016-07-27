@@ -35,7 +35,7 @@ static SettingsManager* _instance = nil;
     remoteSettingsData = [[NSMutableData alloc] init];
 
     NSURL *URL = [NSURL URLWithString:@"http://www.mhriley.com/fantasyfootball/teams.json"];
-    URL = [NSURL URLWithString:@"http://www.mhriley.com/fantasyfootball/teams_test.json"]; int remove_me;
+    //URL = [NSURL URLWithString:@"http://www.mhriley.com/fantasyfootball/teams_test.json"]; int remove_me;
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:URL];
     [request setHTTPMethod:@"GET"];
     [request setCachePolicy:NSURLRequestReloadIgnoringLocalCacheData];
