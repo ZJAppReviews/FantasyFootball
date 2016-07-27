@@ -1,5 +1,6 @@
 {
-    "weekNumber" : 1,
+	"year" : "2016/17",
+    "week" : 9,
     "teams" : [
     	{
             "teamName" : "Team2",
@@ -7,9 +8,16 @@
             "points" : 1324,
             "goals" : 35,
             "momentum" : "up",
-            "months" : {
+            "weeks" : {
             	"1" : 114,
-            	"2" : 63
+            	"2" : 63,
+            	"3" : 63,
+            	"4" : 63,
+            	"5" : 60,
+            	"6" : 60,
+            	"7" : 60,
+            	"8" : 61,
+            	"9" : 64
             }
         },
         {
@@ -18,20 +26,34 @@
             "points" : 1424,
             "goals" : 25,
             "momentum" : "up",
-            "months" : {
+            "weeks" : {
             	"1" : 234,
-            	"2" : 187
+            	"2" : 187,
+            	"3" : 63,
+            	"4" : 63,
+            	"5" : 60,
+            	"6" : 60,
+            	"7" : 60,
+            	"8" : 60,
+            	"9" : 60
             }
         },
         {
             "teamName" : "Team3",
             "managerName" : "Mr J Appleby",
-            "points" : 1124,
-            "goals" : 34,
+            "points" : 1000406544,
+            "goals" : 2334,
             "momentum" : "down",
-            "months" : {
+            "weeks" : {
             	"1" : 114,
-            	"2" : 63
+            	"2" : 63,
+            	"3" : 63,
+            	"4" : 63,
+            	"5" : 60,
+            	"6" : 60,
+            	"7" : 60,
+            	"8" : 60,
+            	"9" : 60
             }	
         },
         {
@@ -39,9 +61,16 @@
             "managerName" : "Mr D Lin",
             "points" : 1024,
             "goals" : 23,
-            "months" : {
+            "weeks" : {
             	"1" : 114,
-            	"2" : 63
+            	"2" : 63,
+            	"3" : 63,
+            	"4" : 63,
+            	"5" : 60,
+            	"6" : 60,
+            	"7" : 60,
+            	"8" : 60,
+            	"9" : 60
             }	
         },
         {
@@ -50,9 +79,16 @@
             "points" : 124,
             "goals" : 34,
             "momentum" : "down",
-            "months" : {
+            "weeks" : {
             	"1" : 114,
-            	"2" : 63
+            	"2" : 63,
+            	"3" : 63,
+            	"4" : 63,
+            	"5" : 60,
+            	"6" : 60,
+            	"7" : 60,
+            	"8" : 60,
+            	"9" : 60
             }
         },
         {
@@ -61,9 +97,16 @@
             "points" : 24,
             "goals" : 25,
             "momentum" : "same",
-            "months" : {
+            "weeks" : {
             	"1" : 114,
-            	"2" : 63
+            	"2" : 63,
+            	"3" : 63,
+            	"4" : 63,
+            	"5" : 60,
+            	"6" : 60,
+            	"7" : 60,
+            	"8" : 60,
+            	"9" : 60
             }
         },
         {
@@ -73,9 +116,16 @@
             "chairman" : true,
             "goals" : 89,
             "momentum" : "up",
-            "months" : {
+            "weeks" : {
             	"1" : 114,
-            	"2" : 63
+            	"2" : 63,
+            	"3" : 63,
+            	"4" : 63,
+            	"5" : 60,
+            	"6" : 60,
+            	"7" : 60,
+            	"8" : 60,
+            	"9" : 60
             }
         },
         {
@@ -84,9 +134,16 @@
             "points" : 264,
             "goals" : 76,
             "momentum" : "down",
-            "months" : {
+            "weeks" : {
             	"1" : 114,
-            	"2" : 63
+            	"2" : 63,
+            	"3" : 63,
+            	"4" : 63,
+            	"5" : 60,
+            	"6" : 60,
+            	"7" : 60,
+            	"8" : 60,
+            	"9" : 60
             }
         },
         {
@@ -95,20 +152,34 @@
             "points" : 986,
             "goals" : 87,
             "momentum" : "same",
-            "months" : {
+            "weeks" : {
             	"1" : 114,
-            	"2" : 63
+            	"2" : 63,
+            	"3" : 63,
+            	"4" : 63,
+            	"5" : 60,
+            	"6" : 60,
+            	"7" : 60,
+            	"8" : 60,
+            	"9" : 60
             }
         },
         {
             "teamName" : "Team4",
             "managerName" : "Mr C Cowpertwait",
-            "points" : 765,
+            "points" : 965,
             "goals" : 34,
             "momentum" : "same",
-            "months" : {
+            "weeks" : {
             	"1" : 114,
-            	"2" : 63
+            	"2" : 63,
+            	"3" : 63,
+            	"4" : 63,
+            	"5" : 60,
+            	"6" : 60,
+            	"7" : 60,
+            	"8" : 60,
+            	"9" : 60
             }
         },
         {
@@ -117,9 +188,16 @@
             "points" : 355,
             "goals" : 66,
             "momentum" : "up",
-            "months" : {
+            "weeks" : {
             	"1" : 114,
-            	"2" : 63
+            	"2" : 63,
+            	"3" : 63,
+            	"4" : 63,
+            	"5" : 60,
+            	"6" : 60,
+            	"7" : 60,
+            	"8" : 60,
+            	"9" : 60
             }
         },
         {
@@ -128,9 +206,16 @@
             "points" : 134,
             "goals" : 19,
             "momentum" : "up",
-            "months" : {
+            "weeks" : {
             	"1" : 114,
-            	"2" : 63
+            	"2" : 63,
+            	"3" : 63,
+            	"4" : 63,
+            	"5" : 60,
+            	"6" : 60,
+            	"7" : 60,
+            	"8" : 60,
+            	"9" : 60
             }
         },
         {
@@ -139,9 +224,16 @@
             "points" : 543,
             "goals" : 7,
             "momentum" : "down",
-            "months" : {
+            "weeks" : {
             	"1" : 114,
-            	"2" : 63
+            	"2" : 63,
+            	"3" : 63,
+            	"4" : 63,
+            	"5" : 60,
+            	"6" : 60,
+            	"7" : 60,
+            	"8" : 60,
+            	"9" : 60
             }
         },
         {
@@ -150,9 +242,16 @@
             "points" : 1111,
             "goals" : 45,
             "momentum" : "same",
-            "months" : {
+            "weeks" : {
             	"1" : 114,
-            	"2" : 63
+            	"2" : 63,
+            	"3" : 63,
+            	"4" : 63,
+            	"5" : 60,
+            	"6" : 60,
+            	"7" : 60,
+            	"8" : 60,
+            	"9" : 60
             }	
         },
         {
@@ -161,9 +260,16 @@
             "points" : 654,
             "goals" : 76,
             "momentum" : "same",
-            "months" : {
+            "weeks" : {
             	"1" : 114,
-            	"2" : 63
+            	"2" : 63,
+            	"3" : 63,
+            	"4" : 63,
+            	"5" : 60,
+            	"6" : 60,
+            	"7" : 60,
+            	"8" : 60,
+            	"9" : 60
             }
         },
         {
@@ -172,9 +278,16 @@
             "points" : 446,
             "goals" : 123,
             "momentum" : "same",
-            "months" : {
+            "weeks" : {
             	"1" : 114,
-            	"2" : 63
+            	"2" : 63,
+            	"3" : 63,
+            	"4" : 63,
+            	"5" : 60,
+            	"6" : 60,
+            	"7" : 60,
+            	"8" : 60,
+            	"9" : 60
             }
         }
     ],
@@ -182,7 +295,62 @@
         {
 			"monthNumber" : 1,
 			"monthName" : "August",
-			"dateRange" : "13th - 30th"
+			"dateRange" : "13th Aug - 29th Aug",
+			"weeks" : 3
+        },
+        {
+			"monthNumber" : 2,
+			"monthName" : "September",
+			"dateRange" : "30th Aug - 26th Sep",
+			"weeks" : 4
+        },
+        {
+			"monthNumber" : 3,
+			"monthName" : "October",
+			"dateRange" : "27th Sep - 31st Oct",
+			"weeks" : 5
+        },
+        {
+			"monthNumber" : 4,
+			"monthName" : "November",
+			"dateRange" : "1st Nov - 28th Nov",
+			"weeks" : 4
+        },
+        {
+			"monthNumber" : 5,
+			"monthName" : "December",
+			"dateRange" : "29th Nov - 26th Dec",
+			"weeks" : 4
+        },
+        {
+			"monthNumber" : 6,
+			"monthName" : "January",
+			"dateRange" : "27th Dec - 30th Jan",
+			"weeks" : 5
+        },
+        {
+			"monthNumber" : 7,
+			"monthName" : "February",
+			"dateRange" : "31st Jan - 27th Feb",
+			"weeks" : 4
+        },
+        {
+			"monthNumber" : 8,
+			"monthName" : "March",
+			"dateRange" : "28th Feb - 27th Mar",
+			"weeks" : 4
+        },
+        {
+			"monthNumber" : 9,
+			"monthName" : "April",
+			"dateRange" : "28th Mar - 24th Apr",
+			"weeks" : 4
+        },
+        {
+			"monthNumber" : 10,
+			"monthName" : "May",
+			"dateRange" : "25th Apr - 21st May",
+			"weeks" : 4
         }
     ]
 }

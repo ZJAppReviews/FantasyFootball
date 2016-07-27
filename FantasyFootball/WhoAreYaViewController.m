@@ -7,9 +7,12 @@
 //
 
 #import "WhoAreYaViewController.h"
+#import "TeamManager.h"
 #import "Util.h"
 
 @interface WhoAreYaViewController ()
+
+@property (weak, nonatomic) IBOutlet UIPickerView *pickerView;
 
 @end
 
@@ -18,6 +21,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    if (getOptionValueForKey(@"managerName"))
+        [(UIPickerView *) _pickerView selectRow:[[TeamManager managerNames] indexOfObject:getOptionValueForKey(@"managerName")] inComponent:0 animated:NO];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -26,24 +31,9 @@
 }
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
-    switch (row) {
-        case 0: setOptionValueForKey(@"managerName", @"Mr C Attrill"); break;
-        case 1: setOptionValueForKey(@"managerName", @"Mr P Attrill"); break;
-        case 2: setOptionValueForKey(@"managerName", @"Mr J Appleby"); break;
-        case 3: setOptionValueForKey(@"managerName", @"Mr C Cowpertwait"); break;
-        case 4: setOptionValueForKey(@"managerName", @"Mr S Dowe"); break;
-        case 5: setOptionValueForKey(@"managerName", @"Mr C Emmerson"); break;
-        case 6: setOptionValueForKey(@"managerName", @"Mr C Foxall"); break;
-        case 7: setOptionValueForKey(@"managerName", @"Mr J Free"); break;
-        case 8: setOptionValueForKey(@"managerName", @"Mr P Gill"); break;
-        case 9: setOptionValueForKey(@"managerName", @"Mr J Hitchins"); break;
-        case 10: setOptionValueForKey(@"managerName", @"Mr T Lewis"); break;
-        case 11: setOptionValueForKey(@"managerName", @"Mr D Lin"); break;
-        case 12: setOptionValueForKey(@"managerName", @"Mr M Mitchell"); break;
-        case 13: setOptionValueForKey(@"managerName", @"Mr P Pritchard"); break;
-        case 14: setOptionValueForKey(@"managerName", @"Mr J Ransley"); break;
-        case 15: setOptionValueForKey(@"managerName", @"Mr M Riley"); break;
-    }
+    setOptionValueForKey(@"managerName", [TeamManager managerNames][row]);
+    [[TeamManager getInstance] updatePosition:[TeamManager managerNames][row]];
+    
     [[NSNotificationCenter defaultCenter] postNotificationName:@"ReloadData" object:self];
 }
 
@@ -52,30 +42,11 @@
 }
 
 - (NSInteger) pickerView:(UIPickerView *) pickerView numberOfRowsInComponent: (NSInteger) component {
-    return 16;
+    return [TeamManager managerNames].count;
 }
 
 - (NSString *) pickerView:(UIPickerView *)pickerView titleForRow: (NSInteger) row forComponent: (NSInteger) component {
-    switch (row) {
-        case 0: return @"Mr C Attrill";
-        case 1: return @"Mr P Attrill";
-        case 2: return @"Mr J Appleby";
-        case 3: return @"Mr C Cowpertwait";
-        case 4: return @"Mr S Dowe";
-        case 5: return @"Mr C Emmerson";
-        case 6: return @"Mr C Foxall";
-        case 7: return @"Mr J Free";
-        case 8: return @"Mr P Gill";
-        case 9: return @"Mr J Hitchins";
-        case 10: return @"Mr T Lewis";
-        case 11: return @"Mr D Lin";
-        case 12: return @"Mr M Mitchell";
-        case 13: return @"Mr P Pritchard";
-        case 14: return @"Mr J Ransley";
-        case 15: return @"Mr M Riley";
-    }
-    
-    return nil;
+    return [TeamManager managerNames][row];
 }
 
 /*

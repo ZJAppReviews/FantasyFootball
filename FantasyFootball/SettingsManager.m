@@ -35,7 +35,7 @@ static SettingsManager* _instance = nil;
     remoteSettingsData = [[NSMutableData alloc] init];
 
     NSURL *URL = [NSURL URLWithString:@"http://www.mhriley.com/fantasyfootball/teams.json"];
-    //URL = [NSURL URLWithString:@"http://www.mhriley.com/fantasyfootball/teams_test.json"]; int remove_me;
+    URL = [NSURL URLWithString:@"http://www.mhriley.com/fantasyfootball/teams_test.json"]; int remove_me;
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:URL];
     [request setHTTPMethod:@"GET"];
     [request setCachePolicy:NSURLRequestReloadIgnoringLocalCacheData];
@@ -49,12 +49,12 @@ static SettingsManager* _instance = nil;
             NSError *error2 = nil;
             remoteSettings = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error2];
             
-            if (!error) {
+            if (!error2) {
                 //NSLog(@"JSON Settings: %@", remoteSettings);
                 [self _applySettings];
             }
             else {
-                NSLog(@"JSON Deserialization failed: %@", [error userInfo]);
+                NSLog(@"JSON Deserialization failed: %@", [error2 userInfo]);
             }
         }
         else {

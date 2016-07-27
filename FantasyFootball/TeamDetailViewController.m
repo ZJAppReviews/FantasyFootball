@@ -68,7 +68,7 @@
             
             UITextField *value = (UITextField *)[cell viewWithTag:2];
             value.delegate = self;
-            value.text = [NSString stringWithFormat:@"%li", _team.points];
+            value.text = [NSString stringWithFormat:@"%li", _team.totalPoints];
             value.alpha = 0.99999;
             break;
         }
@@ -95,7 +95,7 @@
         [[NSNotificationCenter defaultCenter] postNotificationName:@"ReloadData" object:self];
     }
     else if ([self doubleValues:alpha equalsDoubleValue:0.99999 withAccuracy:0.00001]) {
-        _team.points = [textField.text intValue];
+        _team.totalPoints = [textField.text intValue];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"ReloadData" object:self];
     }
     else if ([self doubleValues:alpha equalsDoubleValue:0.9999 withAccuracy:0.0001]) {

@@ -41,6 +41,12 @@
     [UAirship takeOff];
     [UAirship push].userPushNotificationsEnabled = YES;
     
+    if (launchOptions[UIApplicationLaunchOptionsRemoteNotificationKey]) {
+        NSLog(@"Push received");
+        if ([self canChangeBadge])
+            application.applicationIconBadgeNumber = 0;
+    }
+    
     [SettingsManager loadSettings];
     
     return YES;
@@ -89,6 +95,12 @@
     
     //NSLog(@"Push status: %d", [[UIApplication sharedApplication] isRegisteredForRemoteNotifications]);
     [[UIApplication sharedApplication] registerForRemoteNotifications];
+}
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
+    NSLog(@"Push received");
+    if ([self canChangeBadge])
+        application.applicationIconBadgeNumber = 0;
 }
 
 @end

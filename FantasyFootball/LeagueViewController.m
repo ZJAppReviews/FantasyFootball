@@ -39,8 +39,10 @@
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     self.tableView.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0);
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.navigationItem.backBarButtonItem =	[[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil];
     
     _teams = [TeamManager getInstance].league;
+    self.navigationItem.title = [NSString stringWithFormat:@"%@ Week - %i", [TeamManager getInstance].year, [TeamManager getInstance].weekNumber];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -50,11 +52,99 @@
         // need to show the screen to choose your name
         [self performSegueWithIdentifier:@"WhoAreYa" sender: self];
     }
+    else {
+        [self showNewWeekAlert];
+    }
 }
 
 - (void) reloadData:(NSNotification *)notification {
     _teams = [TeamManager getInstance].league;
+    self.navigationItem.title = [NSString stringWithFormat:@"%@ - Week %i", [TeamManager getInstance].year, [TeamManager getInstance].weekNumber];
     [self.tableView reloadData];
+    
+    if (self.isViewLoaded && self.view.window) {
+        [self showNewWeekAlert];
+    }
+}
+
+- (void) showNewWeekAlert {
+    if (optionEnabled(@"newWeek")) {
+        setOptionBoolForKey(@"newWeek", NO);
+        
+        int week = [getOptionValueForKey(@"newWeek") intValue];
+        int oldPosition = [getOptionValueForKey(@"position") intValue];
+        int newPosition = [getOptionValueForKey(@"newPosition") intValue];
+        
+        NSString *subscript = (newPosition == 1) ? @"st" : (newPosition == 2) ? @"nd" : (newPosition == 3) ? @"rd" : @"th";
+        NSString *title = [NSString stringWithFormat:@"%i%@ in the League", newPosition, subscript];
+        NSString *message;
+        
+        if (week == 1 || oldPosition == 0) {
+            switch (newPosition) {
+                case 1:
+                    message = [NSString stringWithFormat:@"Woo Hoo, You're Top of the Pops!"];
+                    break;
+                case 2:
+                case 3:
+                case 4:
+                case 5:
+                    message = [NSString stringWithFormat:@"Good Start, Top 5!"];
+                    break;
+                case 6:
+                case 7:
+                case 8:
+                case 9:
+                case 10:
+                    message = [NSString stringWithFormat:@"Mid table mediocrity for you!"];
+                    break;
+                case 11:
+                case 12:
+                case 13:
+                case 14:
+                case 15:
+                    message = [NSString stringWithFormat:@"Near the bottom, must try harder!"];
+                    break;
+                case 16:
+                    message = [NSString stringWithFormat:@"D'oh, a Bottom Dweller already!"];
+                    break;
+            }
+        }
+        else if (newPosition > 0) {
+            int movement = oldPosition - newPosition;
+            
+            NSString *places = abs(movement) > 1 ? @"places" : @"place";
+            if (movement > 0) {
+                if (newPosition == 1)
+                    message = [NSString stringWithFormat:@"You made it to the summit! Respect, blud."];
+                else
+                    message = [NSString stringWithFormat:@"Yessss! Up %i %@, heading in the right direction!", movement, places];
+            }
+            else if (movement < 0) {
+                if (newPosition == 16)
+                    message = [NSString stringWithFormat:@"Oh no no no, Wooden Cock time!"];
+                else
+                    message = [NSString stringWithFormat:@"Noooo! Down %i %@, oh dear oh dear!", abs(movement), places];
+            }
+            else {
+                if (newPosition == 16)
+                    message = [NSString stringWithFormat:@"Still a Bottom Dweller, a Wooden Cock could be heading your way!"];
+                else if (newPosition == 1)
+                    message = [NSString stringWithFormat:@"Still Top of the Pops, nice one!"];
+                else
+                    message = [NSString stringWithFormat:@"Same spot as last week, could be worse I suppose!"];
+            }
+        }
+        
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title
+                                                                                 message:message
+                                                                          preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction* ok = [UIAlertAction actionWithTitle:@"Close" style:UIAlertActionStyleDefault handler:nil];
+        [alertController addAction:ok];
+        [self presentViewController:alertController animated:YES completion:nil];
+        
+        setOptionValueForKey(@"position", [NSNumber numberWithInt:newPosition]);
+        setOptionValueForKey(@"newPosition", @0);
+    }
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -81,10 +171,13 @@
     UILabel *managerLabel = (UILabel *)[cell viewWithTag:3];
     managerLabel.text = getManagerName(team);
     
-    UILabel *pointsLabel = (UILabel *)[cell viewWithTag:4];
-    pointsLabel.text = [NSString stringWithFormat:@"%li", team.points];
+    UILabel *totalPointsLabel = (UILabel *)[cell viewWithTag:4];
+    totalPointsLabel.text = [NSString stringWithFormat:@"%li", team.totalPoints];
     
-    UIImageView *momentumView = (UIImageView *)[cell viewWithTag:5];
+    UILabel *weeklyPointsLabel = (UILabel *)[cell viewWithTag:5];
+    weeklyPointsLabel.text = [NSString stringWithFormat:@"%li", team.weeklyPoints];
+    
+    UIImageView *momentumView = (UIImageView *)[cell viewWithTag:6];
     enum Momentum momentum = team.momentum;
     switch (momentum) {
         case Up:
@@ -155,6 +248,5 @@
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
-
 
 @end

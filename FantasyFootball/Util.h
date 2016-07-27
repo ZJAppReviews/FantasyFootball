@@ -15,7 +15,6 @@
 @class Team;
 
 NSString* getManagerName(Team *team);
-BOOL hasProUpgrade();
 BOOL isIPhone();
 BOOL isIPhone5();
 BOOL isIPhone6();

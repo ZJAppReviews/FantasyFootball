@@ -18,14 +18,6 @@ NSString* getManagerName(Team *team) {
     return [NSString stringWithFormat:@"Chairman %@ *", editedName];
 }
 
-BOOL hasProUpgrade() {
-#if TARGET_IPHONE_SIMULATOR
-    return YES;
-#endif
-    //return YES; int remove_me_2;
-    return optionEnabled(PRO_UPGRADE);
-}
-
 BOOL isIPhone() {
     return (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone);
 }

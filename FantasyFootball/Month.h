@@ -13,6 +13,7 @@
 @property (nonatomic) int monthNumber;
 @property (nonatomic) NSString *monthName;
 @property (nonatomic) NSString *dateRange;
+@property (nonatomic) int weeks;
 @property (nonatomic) NSMutableArray *managers;
 
 - (void) addManager:(NSDictionary *) manager;

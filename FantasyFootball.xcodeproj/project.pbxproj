@@ -81,6 +81,7 @@
 		4D2A9A491D47DF0100DCDB15 /* AirshipKit */ = {isa = PBXFileReference; lastKnownFileType = folder; path = AirshipKit; sourceTree = "<group>"; };
 		4D2A9A4B1D47DF2000DCDB15 /* AirshipKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = AirshipKit.xcodeproj; path = "../UrbanAirship-7.2.0/AirshipKit/AirshipKit.xcodeproj"; sourceTree = "<group>"; };
 		4D2A9A561D47DFC700DCDB15 /* AirshipConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AirshipConfig.plist; sourceTree = "<group>"; };
+		4D2A9A581D48B49E00DCDB15 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		4D3B56641D44E1EA00267C95 /* FantasyFootball.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FantasyFootball.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D3B56681D44E1EA00267C95 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4D3B566A1D44E1EA00267C95 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -181,6 +182,7 @@
 				4D2A99CD1D47628500DCDB15 /* DismissSegue.m */,
 				4D2A99C91D47566800DCDB15 /* Util.h */,
 				4D2A99CA1D47566800DCDB15 /* Util.m */,
+				4D2A9A581D48B49E00DCDB15 /* Constants.h */,
 				4D3B56A41D45167900267C95 /* Resources */,
 				4D3B56671D44E1EA00267C95 /* Supporting Files */,
 			);

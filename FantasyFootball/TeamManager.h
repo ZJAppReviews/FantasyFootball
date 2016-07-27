@@ -12,6 +12,9 @@
 
 @interface TeamManager : NSObject
 
+@property (nonatomic) int weekNumber;
+@property (nonatomic) int monthNumber;
+@property (nonatomic, strong) NSString *year;
 @property (nonatomic, strong) NSMutableArray *league;
 @property (nonatomic, strong) NSMutableArray *goldenBoot;
 @property (nonatomic, strong) NSArray *months;
@@ -20,5 +23,7 @@
 + (TeamManager *) getInstance;
 - (void) loadData:(NSDictionary *) data;
 - (Team *) getTeam:(NSString *) managerName;
+- (void) updatePosition:(NSString *) managerName;
++ (NSArray *) managerNames;
 
 @end

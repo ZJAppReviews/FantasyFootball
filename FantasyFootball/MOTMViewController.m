@@ -40,6 +40,15 @@
     _months = [TeamManager getInstance].months;
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    // always 10 months in a season so use this to get the correct month considering they are listed in reverse order
+    int monthNumber = [TeamManager getInstance].monthNumber;
+    if (monthNumber > 0 && ((Month *)[TeamManager getInstance].months[10 - monthNumber]).managers.count > 0)
+         [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:(10 - monthNumber)] atScrollPosition:UITableViewScrollPositionTop animated:YES];
+}
+
 - (void) reloadData:(NSNotification *)notification {
     _months = [TeamManager getInstance].months;
     [self.tableView reloadData];
