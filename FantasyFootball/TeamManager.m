@@ -142,6 +142,9 @@
         if (userPosition > 0)
             setOptionValueForKey(@"newPosition", [NSNumber numberWithLong:userPosition]);
     }
+    else if (cache && userPosition > 0) {
+        setOptionValueForKey(@"position", [NSNumber numberWithLong:userPosition]);
+    }
     setOptionValueForKey(@"week", [NSNumber numberWithInt:_weekNumber]);
     
     // golden boot sort by goals
@@ -196,8 +199,10 @@
 
 - (void) updatePosition:(NSString *) managerName {
     Team *team = [self getTeam:managerName];
-    if (team)
+    if (team) {
+        setOptionValueForKey(@"position", @0);
         setOptionValueForKey(@"newPosition", [NSNumber numberWithLong:team.leaguePosition]);
+    }
 }
 
 + (NSArray *)managerNames

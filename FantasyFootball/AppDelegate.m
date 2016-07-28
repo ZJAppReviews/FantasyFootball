@@ -10,6 +10,8 @@
 #import "LeagueViewController.h"
 #import "SettingsManager.h"
 #import "TeamManager.h"
+#import <Fabric/Fabric.h>
+#import <Crashlytics/Crashlytics.h>
 #import <AirshipKit/AirshipKit.h>
 
 @interface AppDelegate ()
@@ -21,10 +23,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    //UITabBarController *tabBarController = (UITabBarController *)self.window.rootViewController;
-    //UINavigationController *navigationController = [tabBarController viewControllers][0];
-    //LeagueViewController *teamViewController = [navigationController viewControllers][0];
-    
+    [[Fabric sharedSDK] setDebug: YES];
+    [Fabric with:@[[Crashlytics class]]];
+
     self.window.tintColor = [UIColor colorWithRed:44.0/255 green:176.0/255 blue:55.0/255 alpha:1];
     self.rowBackground = [UIColor colorWithRed:253.0/255.0 green:251.0/255.0 blue:248.0/255.0 alpha:1.0];
     self.userBackground = [UIColor colorWithRed:204.0/255 green:255.0/255 blue:217.0/255 alpha:1];
@@ -32,21 +33,24 @@
     [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:236.0/255 green:246.0/255 blue:234.0/255 alpha:1.0]];
     [[UITabBar appearance] setBarTintColor:[UIColor colorWithRed:236.0/255 green:246.0/255 blue:234.0/255 alpha:1.0]];
     
-    UIUserNotificationSettings* requestedSettings
+    /*UIUserNotificationSettings* requestedSettings
         = [UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeBadge
                                                       | UIUserNotificationTypeAlert
                                                       | UIUserNotificationTypeSound)
                                             categories:nil];
-    [[UIApplication sharedApplication] registerUserNotificationSettings:requestedSettings];
+    [[UIApplication sharedApplication] registerUserNotificationSettings:requestedSettings];*/
     
     [UAirship takeOff];
+    [UAirship push].userNotificationTypes = (UIUserNotificationTypeAlert |
+                                             UIUserNotificationTypeBadge |
+                                             UIUserNotificationTypeSound);
     [UAirship push].userPushNotificationsEnabled = YES;
     
     if (launchOptions[UIApplicationLaunchOptionsRemoteNotificationKey]) {
         NSLog(@"Push received");
-        if ([self canChangeBadge])
-            application.applicationIconBadgeNumber = 0;
     }
+    if ([self canChangeBadge])
+        application.applicationIconBadgeNumber = 0;
     
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
                                                          NSUserDomainMask, YES);
@@ -72,6 +76,8 @@
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+    if ([self canChangeBadge])
+        application.applicationIconBadgeNumber = 0;
     [SettingsManager loadSettings];
 }
 
@@ -88,7 +94,7 @@
     return (notificationSettings.types & UIUserNotificationTypeBadge);
 }
 
-- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+/*- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
     NSLog(@"Remote notif success: %@", [deviceToken description]);
 }
 
@@ -103,7 +109,7 @@
     
     //NSLog(@"Push status: %d", [[UIApplication sharedApplication] isRegisteredForRemoteNotifications]);
     [[UIApplication sharedApplication] registerForRemoteNotifications];
-}
+}*/
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
     NSLog(@"Push received");

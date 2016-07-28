@@ -27,6 +27,9 @@
 		4D3B569F1D45137F00267C95 /* SettingsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D3B569E1D45137F00267C95 /* SettingsManager.m */; };
 		4D3B56A21D4515F000267C95 /* TeamManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D3B56A11D4515F000267C95 /* TeamManager.m */; };
 		4D3B56A71D453D0300267C95 /* GoldenBootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D3B56A61D453D0300267C95 /* GoldenBootViewController.m */; };
+		4D70546E1D4A4FF80039B4AE /* teams_test.json in Resources */ = {isa = PBXBuildFile; fileRef = 4D70546D1D4A4FF80039B4AE /* teams_test.json */; };
+		4D7054721D4A6EDB0039B4AE /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D7054701D4A6EDB0039B4AE /* Fabric.framework */; };
+		4D7054731D4A6EDB0039B4AE /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D7054711D4A6EDB0039B4AE /* Crashlytics.framework */; };
 		4DF2411D1D461F0600AF4F1A /* MOTMViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DF2411C1D461F0600AF4F1A /* MOTMViewController.m */; };
 		4DF241201D46302100AF4F1A /* Month.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DF2411F1D46302100AF4F1A /* Month.m */; };
 		4DF241231D463F9900AF4F1A /* TeamDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DF241221D463F9900AF4F1A /* TeamDetailViewController.m */; };
@@ -104,6 +107,9 @@
 		4D3B56A11D4515F000267C95 /* TeamManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeamManager.m; sourceTree = "<group>"; };
 		4D3B56A51D453CF900267C95 /* GoldenBootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoldenBootViewController.h; sourceTree = "<group>"; };
 		4D3B56A61D453D0300267C95 /* GoldenBootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoldenBootViewController.m; sourceTree = "<group>"; };
+		4D70546D1D4A4FF80039B4AE /* teams_test.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = teams_test.json; sourceTree = "<group>"; };
+		4D7054701D4A6EDB0039B4AE /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
+		4D7054711D4A6EDB0039B4AE /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		4DF2411B1D461F0600AF4F1A /* MOTMViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOTMViewController.h; sourceTree = "<group>"; };
 		4DF2411C1D461F0600AF4F1A /* MOTMViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOTMViewController.m; sourceTree = "<group>"; };
 		4DF2411E1D46302100AF4F1A /* Month.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Month.h; sourceTree = "<group>"; };
@@ -118,6 +124,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D2A9A511D47DF6700DCDB15 /* AirshipKit.framework in Frameworks */,
+				4D7054731D4A6EDB0039B4AE /* Crashlytics.framework in Frameworks */,
+				4D7054721D4A6EDB0039B4AE /* Fabric.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -142,6 +150,8 @@
 		4D3B565B1D44E1EA00267C95 = {
 			isa = PBXGroup;
 			children = (
+				4D7054701D4A6EDB0039B4AE /* Fabric.framework */,
+				4D7054711D4A6EDB0039B4AE /* Crashlytics.framework */,
 				4D2A9A561D47DFC700DCDB15 /* AirshipConfig.plist */,
 				4D2A9A4B1D47DF2000DCDB15 /* AirshipKit.xcodeproj */,
 				4D2A9A471D47DEF600DCDB15 /* Airship */,
@@ -236,6 +246,7 @@
 				4D3B56761D44E1EA00267C95 /* Assets.xcassets */,
 				4D3B567B1D44E1EA00267C95 /* Info.plist */,
 				4D3B569B1D4512D400267C95 /* teams.json */,
+				4D70546D1D4A4FF80039B4AE /* teams_test.json */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -251,6 +262,7 @@
 				4D3B56611D44E1EA00267C95 /* Frameworks */,
 				4D3B56621D44E1EA00267C95 /* Resources */,
 				4D2A9A551D47DF6800DCDB15 /* Embed Frameworks */,
+				4D70546F1D4A6EA80039B4AE /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -344,6 +356,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D70546E1D4A4FF80039B4AE /* teams_test.json in Resources */,
 				4D3B569C1D4512D400267C95 /* teams.json in Resources */,
 				4D2A9A571D47DFC700DCDB15 /* AirshipConfig.plist in Resources */,
 				4D3B567A1D44E1EA00267C95 /* LaunchScreen.storyboard in Resources */,
@@ -362,6 +375,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4D70546F1D4A6EA80039B4AE /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Fabric.framework/run 2ee48ac33199b3be2faeaee514e2a7208e7e0f13 820dd44aafa688841cece3950a84c29cb49215e2b6e7e7bc8b4d34094b100839";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		4D3B56601D44E1EA00267C95 /* Sources */ = {
@@ -514,6 +543,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = FantasyFootball/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -531,6 +565,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = FantasyFootball/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -538,6 +576,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Airship",
 				);
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mhriley.FantasyFootball;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

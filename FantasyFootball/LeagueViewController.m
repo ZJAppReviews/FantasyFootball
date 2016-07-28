@@ -11,6 +11,7 @@
 #import "Team.h"
 #import "TeamManager.h"
 #import "Util.h"
+#import <Crashlytics/Crashlytics.h>
 
 @interface LeagueViewController () {
     
@@ -42,30 +43,49 @@
     self.navigationItem.backBarButtonItem =	[[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil];
     
     _teams = [TeamManager getInstance].league;
-    self.navigationItem.title = [NSString stringWithFormat:@"%@ Week - %i", [TeamManager getInstance].year, [TeamManager getInstance].weekNumber];
+    if ([TeamManager getInstance].year)
+        self.navigationItem.title = [NSString stringWithFormat:@"%@ - Week %i", [TeamManager getInstance].year, [TeamManager getInstance].weekNumber];
+    else
+        self.navigationItem.title = @"No Data";
     NSLog(@"viewDidLoad %@ data", ([TeamManager getInstance].year ? @"with" : @"without"));
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
+    NSLog(@"viewDidAppear");
     if (!getOptionValueForKey(@"managerName")) {
         // need to show the screen to choose your name
         [self performSegueWithIdentifier:@"WhoAreYa" sender: self];
     }
-    /*else {
+    else {
         [self showNewWeekAlert];
-    }*/
+    }
 }
 
 - (void) reloadData:(NSNotification *)notification {
     NSLog(@"Refresh data");
     
     _teams = [TeamManager getInstance].league;
-    self.navigationItem.title = [NSString stringWithFormat:@"%@ - Week %i", [TeamManager getInstance].year, [TeamManager getInstance].weekNumber];
+    if ([TeamManager getInstance].year)
+        self.navigationItem.title = [NSString stringWithFormat:@"%@ - Week %i", [TeamManager getInstance].year, [TeamManager getInstance].weekNumber];
+    else
+        self.navigationItem.title = @"No Data";
     
     if (self.isViewLoaded && self.view.window) {
-        [self showNewWeekAlert];
+        // don't alert if WhoAreYa screen is overlaid
+        UITabBarController *tabBarController = (UITabBarController *)self.view.window.rootViewController;
+        id controller = [tabBarController presentedViewController];
+        UIViewController *modalViewController = nil;
+        
+        if (![controller isKindOfClass:UIAlertController.class]) {
+            modalViewController = ((UINavigationController *) controller).visibleViewController;
+        
+            if (!modalViewController)
+                [self showNewWeekAlert];
+            else
+                [self.tableView reloadData];
+        }
     }
     else {
         [self.tableView reloadData];
@@ -254,6 +274,8 @@
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    //[[Crashlytics sharedInstance] crash];
+    
     if ([segue.identifier isEqualToString:@"WhoAreYa"])
         return;
     

@@ -20,7 +20,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+
     if (getOptionValueForKey(@"managerName"))
         [(UIPickerView *) _pickerView selectRow:[[TeamManager managerNames] indexOfObject:getOptionValueForKey(@"managerName")] inComponent:0 animated:NO];
     else {
