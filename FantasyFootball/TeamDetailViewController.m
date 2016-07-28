@@ -11,6 +11,12 @@
 
 @interface TeamDetailViewController ()
 
+@property (weak, nonatomic) IBOutlet UITextField *teamName;
+@property (weak, nonatomic) IBOutlet UITextField *managerName;
+@property (weak, nonatomic) IBOutlet UITextField *totalPoints;
+@property (weak, nonatomic) IBOutlet UITextField *goals;
+@property (weak, nonatomic) IBOutlet UITableView *weeklyPointsTable;
+
 @end
 
 @implementation TeamDetailViewController
@@ -20,6 +26,14 @@
     // Do any additional setup after loading the view.
     
     self.title = _team.teamName;
+    _teamName.text = [NSString stringWithFormat:@"%@", _team.teamName];
+    _managerName.text = [NSString stringWithFormat:@"%@", _team.managerName];
+    _totalPoints.text = [NSString stringWithFormat:@"%li", _team.totalPoints];
+    _goals.text = [NSString stringWithFormat:@"%li", _team.goals];
+    
+    _weeklyPointsTable.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+    _weeklyPointsTable.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0);
+    _weeklyPointsTable.allowsSelection = NO;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -34,75 +48,40 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 4;
+    return _team.weeks.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Detail"];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Points"];
+    cell.textLabel.text = [NSString stringWithFormat:@"%li", indexPath.row + 1];
     
-    switch (indexPath.row) {
-        case 0: {
-            UILabel *label = (UILabel *)[cell viewWithTag:1];
-            label.text = @"Team Name";
-            
-            UITextField *value = (UITextField *)[cell viewWithTag:2];
-            value.delegate = self;
-            value.text = [NSString stringWithFormat:@"%@", _team.teamName];
-            value.alpha = 0.999;
-            break;
-        }
-        case 1: {
-            UILabel *label = (UILabel *)[cell viewWithTag:1];
-            label.text = @"Manager Name";
-            
-            UITextField *value = (UITextField *)[cell viewWithTag:2];
-            value.delegate = self;
-            value.text = [NSString stringWithFormat:@"%@", _team.managerName];
-            value.alpha = 0.9999;
-            break;
-        }
-        case 2: {
-            UILabel *label = (UILabel *)[cell viewWithTag:1];
-            label.text = @"Points";
-            
-            UITextField *value = (UITextField *)[cell viewWithTag:2];
-            value.delegate = self;
-            value.text = [NSString stringWithFormat:@"%li", _team.totalPoints];
-            value.alpha = 0.99999;
-            break;
-        }
-        case 3: {
-            UILabel *label = (UILabel *)[cell viewWithTag:1];
-            label.text = @"Goals";
-            
-            UITextField *value = (UITextField *)[cell viewWithTag:2];
-            value.delegate = self;
-            value.text = [NSString stringWithFormat:@"%li", _team.goals];
-            value.alpha = 0.999999;
-            break;
-        }
-    }
+    NSString *key = [NSString stringWithFormat:@"%li", indexPath.row + 1];
+    NSNumber *points = [_team.weeks objectForKey:key];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%i", [points intValue]];
+    
+    // extend the separator to the left edge
+    if ([cell respondsToSelector:@selector(setLayoutMargins:)])
+        [cell setLayoutMargins:UIEdgeInsetsZero];
     
     return cell;
 }
 
 - (BOOL) textFieldShouldEndEditing:(UITextField *)textField {
     
-    CGFloat alpha = textField.alpha;
-    if ([self doubleValues:alpha equalsDoubleValue:0.999999 withAccuracy:0.000001]) {
+    if (textField == _goals) {
         _team.goals = [textField.text intValue];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"ReloadData" object:self];
     }
-    else if ([self doubleValues:alpha equalsDoubleValue:0.99999 withAccuracy:0.00001]) {
+    else if (textField == _totalPoints) {
         _team.totalPoints = [textField.text intValue];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"ReloadData" object:self];
     }
-    else if ([self doubleValues:alpha equalsDoubleValue:0.9999 withAccuracy:0.0001]) {
+    else if (textField == _managerName) {
         _team.managerName = textField.text;
         [[NSNotificationCenter defaultCenter] postNotificationName:@"ReloadData" object:self];
     }
-    else if ([self doubleValues:alpha equalsDoubleValue:0.999 withAccuracy:0.001]) {
+    else if (textField == _teamName) {
         _team.teamName = textField.text;
         [[NSNotificationCenter defaultCenter] postNotificationName:@"ReloadData" object:self];
     }

@@ -23,6 +23,12 @@
     // Do any additional setup after loading the view.
     if (getOptionValueForKey(@"managerName"))
         [(UIPickerView *) _pickerView selectRow:[[TeamManager managerNames] indexOfObject:getOptionValueForKey(@"managerName")] inComponent:0 animated:NO];
+    else {
+        setOptionValueForKey(@"managerName", [TeamManager managerNames][0]);
+        [[TeamManager getInstance] updatePosition:[TeamManager managerNames][0]];
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"ReloadData" object:self];
+    }
 }
 
 - (void)didReceiveMemoryWarning {

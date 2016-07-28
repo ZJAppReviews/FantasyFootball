@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "LeagueViewController.h"
 #import "SettingsManager.h"
+#import "TeamManager.h"
 #import <AirshipKit/AirshipKit.h>
 
 @interface AppDelegate ()
@@ -46,6 +47,13 @@
         if ([self canChangeBadge])
             application.applicationIconBadgeNumber = 0;
     }
+    
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
+                                                         NSUserDomainMask, YES);
+    NSString *cachePath = [[paths objectAtIndex:0] stringByAppendingPathComponent:@"cache.dat"];
+    NSDictionary *cacheData = [NSDictionary dictionaryWithContentsOfFile:cachePath];
+    if (cacheData)
+        [[TeamManager getInstance] loadData:cacheData cache:NO];
     
     [SettingsManager loadSettings];
     

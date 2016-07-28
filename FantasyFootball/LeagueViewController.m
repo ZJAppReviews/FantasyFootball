@@ -43,6 +43,7 @@
     
     _teams = [TeamManager getInstance].league;
     self.navigationItem.title = [NSString stringWithFormat:@"%@ Week - %i", [TeamManager getInstance].year, [TeamManager getInstance].weekNumber];
+    NSLog(@"viewDidLoad %@ data", ([TeamManager getInstance].year ? @"with" : @"without"));
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -52,18 +53,22 @@
         // need to show the screen to choose your name
         [self performSegueWithIdentifier:@"WhoAreYa" sender: self];
     }
-    else {
+    /*else {
         [self showNewWeekAlert];
-    }
+    }*/
 }
 
 - (void) reloadData:(NSNotification *)notification {
+    NSLog(@"Refresh data");
+    
     _teams = [TeamManager getInstance].league;
     self.navigationItem.title = [NSString stringWithFormat:@"%@ - Week %i", [TeamManager getInstance].year, [TeamManager getInstance].weekNumber];
-    [self.tableView reloadData];
     
     if (self.isViewLoaded && self.view.window) {
         [self showNewWeekAlert];
+    }
+    else {
+        [self.tableView reloadData];
     }
 }
 
@@ -108,6 +113,7 @@
                     message = [NSString stringWithFormat:@"D'oh, a Bottom Dweller already!"];
                     break;
             }
+            [self.tableView reloadData];
         }
         else if (newPosition > 0) {
             int movement = oldPosition - newPosition;
@@ -138,12 +144,22 @@
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title
                                                                                  message:message
                                                                           preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction* ok = [UIAlertAction actionWithTitle:@"Close" style:UIAlertActionStyleDefault handler:nil];
+        UIAlertAction* ok = [UIAlertAction actionWithTitle:@"Close" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action){
+            [self.tableView moveRowAtIndexPath:[NSIndexPath indexPathForRow:(oldPosition - 1) inSection:0] toIndexPath:[NSIndexPath indexPathForRow:(newPosition - 1) inSection:0]];
+            
+            dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, 0.6 * NSEC_PER_SEC);
+            dispatch_after(popTime, dispatch_get_main_queue(), ^{
+                [self.tableView reloadData];
+            });
+        }];
         [alertController addAction:ok];
         [self presentViewController:alertController animated:YES completion:nil];
         
         setOptionValueForKey(@"position", [NSNumber numberWithInt:newPosition]);
         setOptionValueForKey(@"newPosition", @0);
+    }
+    else {
+        [self.tableView reloadData];
     }
 }
 
@@ -213,6 +229,8 @@
     // extend the separator to the left edge
     if ([cell respondsToSelector:@selector(setLayoutMargins:)])
         [cell setLayoutMargins:UIEdgeInsetsZero];
+    
+    NSLog(@"Cell: %@, Points: %@", managerLabel.text, totalPointsLabel.text);
     
     return cell;
 }

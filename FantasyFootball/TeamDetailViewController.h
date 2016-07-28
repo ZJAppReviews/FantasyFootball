@@ -10,7 +10,7 @@
 
 @class Team;
 
-@interface TeamDetailViewController : UITableViewController <UITextFieldDelegate>
+@interface TeamDetailViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate>
 
 @property (nonatomic, strong) Team *team;
 

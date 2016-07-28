@@ -29,7 +29,7 @@
     return self;
 }
 
-- (void) loadData:(NSDictionary *) data {
+- (NSMutableArray *) loadData:(NSDictionary *) data cache:(BOOL) cache {
     int oldWeek = [getOptionValueForKey(@"week") intValue];
     _weekNumber = [[data objectForKey:@"week"] intValue];
     _year = [data objectForKey:@"year"];
@@ -72,24 +72,8 @@
             team.momentum = Down;
         else
             team.momentum = Same;
+        team.weeks = [NSMutableDictionary new];
         [teams addObject:team];
-        
-        // motm the month data is in a dictionary, one entry per month number
-        /*NSDictionary *months = [teamJSON objectForKey:@"months"];
-        for (NSNumber *monthNumber in months.allKeys) {
-            NSUInteger index = [_months indexOfObjectPassingTest:^BOOL(NSDictionary *item, NSUInteger idx, BOOL *stop) {
-                BOOL found = (((Month *) item).monthNumber == [monthNumber intValue]);
-                return found;
-            }];
-            
-            if (index != NSNotFound) {
-                Month *month = _months[index];
-                NSMutableDictionary *manager = [NSMutableDictionary new];
-                manager[@"managerName"] = team.managerName;
-                manager[@"points"] = months[monthNumber];
-                [month.managers addObject:manager];
-            }
-        }*/
         
         // the points scored are in a dictionary, one entry per week
         // use this to work out the total points and the motm data
@@ -99,6 +83,7 @@
             team.totalPoints += weekPoints;
             if ([weekNumber intValue] == _weekNumber)
                 team.weeklyPoints += weekPoints;
+            [team.weeks setObject:[NSNumber numberWithInt:weekPoints] forKey:weekNumber];
             
             int monthNumber = [self getMonthWithin:_months forWeek:[weekNumber intValue]];
             
@@ -134,14 +119,14 @@
     }
  
     // league sorted by points
-    _league = [NSMutableArray arrayWithArray:[teams sortedArrayUsingComparator:^(id obj1, id obj2) {
+    NSMutableArray *league = [NSMutableArray arrayWithArray:[teams sortedArrayUsingComparator:^(id obj1, id obj2) {
         return -1 * [[NSNumber numberWithLong:((Team *) obj1).totalPoints] compare:[NSNumber numberWithLong:((Team *)obj2).totalPoints]];
     }]];
     
     // go through and assign the league positions
     long previousPoints = 0, previousPosition = 0, userPosition = 0;
-    for (int i = 0; i < _league.count; i++) {
-        Team *team = [_league objectAtIndex:i];
+    for (int i = 0; i < league.count; i++) {
+        Team *team = [league objectAtIndex:i];
         team.leaguePosition = (team.totalPoints == previousPoints) ? previousPosition : i + 1;
         
         previousPoints = team.totalPoints;
@@ -154,10 +139,10 @@
 
     if (_weekNumber > oldWeek) {
         setOptionBoolForKey(@"newWeek", YES);
-        setOptionValueForKey(@"week", [NSNumber numberWithInt:_weekNumber]);
         if (userPosition > 0)
             setOptionValueForKey(@"newPosition", [NSNumber numberWithLong:userPosition]);
     }
+    setOptionValueForKey(@"week", [NSNumber numberWithInt:_weekNumber]);
     
     // golden boot sort by goals
     _goldenBoot = [NSMutableArray arrayWithArray:[teams sortedArrayUsingComparator:^(id obj1, id obj2) {
@@ -174,6 +159,21 @@
         previousGoals = team.goals;
         previousPosition = team.goldenBootPosition;
     }
+    
+    // save the cache to disk for pre-population next time app is opened
+    BOOL success = NO;
+    if (cache) {
+        NSLog(@"Cache data");
+        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
+                                                             NSUserDomainMask, YES);
+        NSString *cachePath = [[paths objectAtIndex:0] stringByAppendingPathComponent:@"cache.dat"];
+        success = [data writeToFile:cachePath atomically:YES];
+    }
+    else {
+        _league = league;
+    }
+    
+    return league;
 }
 
 // months are listed in reverse order

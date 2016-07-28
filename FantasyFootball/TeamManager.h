@@ -21,7 +21,7 @@
 @property (nonatomic, strong) NSMutableArray *motm;
 
 + (TeamManager *) getInstance;
-- (void) loadData:(NSDictionary *) data;
+- (NSMutableArray *) loadData:(NSDictionary *) data cache:(BOOL) cache;
 - (Team *) getTeam:(NSString *) managerName;
 - (void) updatePosition:(NSString *) managerName;
 + (NSArray *) managerNames;
