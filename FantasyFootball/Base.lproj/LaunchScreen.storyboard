@@ -15,7 +15,24 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="graham_taylor" translatesAutoresizingMaskIntoConstraints="NO" id="vjr-up-ciQ">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="vjr-up-ciQ" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="21H-34-ZzM"/>
+                            <constraint firstItem="vjr-up-ciQ" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="74" id="J6K-r5-oSB"/>
+                            <constraint firstItem="vjr-up-ciQ" firstAttribute="height" secondItem="Ze5-6b-2t3" secondAttribute="height" id="LeG-3k-Ryd"/>
+                            <constraint firstItem="vjr-up-ciQ" firstAttribute="width" secondItem="Ze5-6b-2t3" secondAttribute="width" id="buQ-CT-LDK"/>
+                            <constraint firstItem="vjr-up-ciQ" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="qVP-Sz-gDP"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="J6K-r5-oSB"/>
+                            </mask>
+                        </variation>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -23,4 +40,7 @@
             <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="graham_taylor" width="180" height="180"/>
+    </resources>
 </document>

@@ -14,6 +14,7 @@
 @interface MOTMViewController ()
 
 @property (nonatomic, strong) NSArray* months;
+@property (nonatomic, strong) NSMutableDictionary* sectionExpanded;
 
 @end
 
@@ -35,9 +36,15 @@
     self.tableView.backgroundColor = [UIColor colorWithRed:229/255.0 green:249/255.0 blue:255/255.0 alpha:1];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     self.tableView.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0);
-    self.tableView.allowsSelection = NO;
+    //self.tableView.allowsSelection = NO;
+    self.tableView.sectionHeaderHeight = 30;
     
     _months = [TeamManager getInstance].months;
+    
+    _sectionExpanded = [NSMutableDictionary new];
+    for (NSInteger i = 0; i < _months.count; i++) {
+        [_sectionExpanded setObject:@NO forKey:[NSNumber numberWithInteger:i]];
+    }
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -47,6 +54,17 @@
     int monthNumber = [TeamManager getInstance].monthNumber;
     if (monthNumber > 0 && ((Month *)[TeamManager getInstance].months[10 - monthNumber]).managers.count > 0)
          [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:(10 - monthNumber)] atScrollPosition:UITableViewScrollPositionTop animated:YES];
+}
+
+- (void)handleSectionHeaderTap:(UITapGestureRecognizer *)sender
+{
+    if (sender.state == UIGestureRecognizerStateEnded)
+    {
+        UIView *view = (UITableViewHeaderFooterView *) sender.view;
+        NSNumber *expanded = [_sectionExpanded objectForKey:[NSNumber numberWithInteger:view.tag - 1]];
+        [_sectionExpanded setObject:[NSNumber numberWithBool:![expanded boolValue]] forKey:[NSNumber numberWithInteger:view.tag - 1]];
+        [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:view.tag - 1] withRowAnimation:UITableViewRowAnimationFade];
+    }
 }
 
 - (void) reloadData:(NSNotification *)notification {
@@ -67,12 +85,43 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     Month *month = [_months objectAtIndex:section];
+    
+    if (section > (10 - [TeamManager getInstance].monthNumber) && month.managers.count > 0)
+        return [[_sectionExpanded objectForKey:[NSNumber numberWithInteger:section]] boolValue] ? month.managers.count : 1;
+    
     return month.managers.count;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 30;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    UIView *view = [[UIView alloc] initWithFrame:CGRectZero];
+    view.tag = section + 1;
+    
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectZero];
+    label.text = [self tableView:self.tableView titleForHeaderInSection:section];
+    label.adjustsFontSizeToFitWidth = YES;
+    label.font = [UIFont systemFontOfSize:12];
+    label.textColor = [UIColor grayColor];
+    [label sizeToFit];
+    label.frame = CGRectMake(label.frame.origin.x, 10, label.frame.size.width, label.frame.size.height);
+    [view sizeToFit];
+    [view addSubview:label];
+    
+    // listen for taps once we know the header has been drawn
+    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSectionHeaderTap:)];
+    singleTap.numberOfTapsRequired = 1;
+    singleTap.numberOfTouchesRequired = 1;
+    [view addGestureRecognizer:singleTap];
+    
+    return view;
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     Month *month = [_months objectAtIndex:section];
-    return [NSString stringWithFormat:@"     %@ (%@)", month.monthName, month.dateRange];
+    return [[NSString stringWithFormat:@"     %@ (%@)", month.monthName, month.dateRange]  uppercaseString];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -88,7 +137,10 @@
     cell.textLabel.text = team ? getManagerName(team) : managerName;
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%i", points];
     
-    if ([managerName isEqualToString:getOptionValueForKey(@"managerName")])
+    if (indexPath.row == 0 && (indexPath.section > (10 - [TeamManager getInstance].monthNumber) ||
+                                (indexPath.section == (10 - [TeamManager getInstance].monthNumber) && [[TeamManager getInstance] isLastWeekOfMonth])))
+        cell.backgroundColor = [UIColor colorWithRed:255.0/255 green:215.0/255 blue:0 alpha:1.0];
+    else if ([managerName isEqualToString:getOptionValueForKey(@"managerName")])
         cell.backgroundColor = getAppDelegate().userBackground;
     else
         cell.backgroundColor = getAppDelegate().rowBackground;
@@ -104,6 +156,13 @@
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSNumber *expanded = [_sectionExpanded objectForKey:[NSNumber numberWithInteger:indexPath.section]];
+    [_sectionExpanded setObject:[NSNumber numberWithBool:![expanded boolValue]] forKey:[NSNumber numberWithInteger:indexPath.section]];
+    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:UITableViewRowAnimationFade];
+    
+    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
 
 /*
 // Override to support conditional editing of the table view.

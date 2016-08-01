@@ -14,7 +14,7 @@ NSString* getManagerName(Team *team) {
     if (!team.chairman)
         return team.managerName;
   
-    NSString *editedName = [team.managerName substringFromIndex:5];
+    NSString *editedName = (team.managerName.length > 5) ? [team.managerName substringFromIndex:5] : @"";
     return [NSString stringWithFormat:@"Chairman %@ *", editedName];
 }
 

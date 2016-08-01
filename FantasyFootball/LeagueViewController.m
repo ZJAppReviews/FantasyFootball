@@ -10,6 +10,7 @@
 #import "TeamDetailViewController.h"
 #import "Team.h"
 #import "TeamManager.h"
+#import "Month.h"
 #import "Util.h"
 #import <Crashlytics/Crashlytics.h>
 
@@ -39,7 +40,7 @@
     self.tableView.rowHeight = 56;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     self.tableView.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0);
-    self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    //self.navigationItem.rightBarButtonItem = self.editButtonItem;
     self.navigationItem.backBarButtonItem =	[[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil];
     
     _teams = [TeamManager getInstance].league;
@@ -104,69 +105,129 @@
         NSString *title = [NSString stringWithFormat:@"%i%@ in the League", newPosition, subscript];
         NSString *message;
         
-        if (week == 1 || oldPosition == 0) {
+        if (optionEnabled(@"motmWin")) {
+            setOptionBoolForKey(@"motmWin", NO);
+            title = @"Manager Of The Month";
+            message = [NSString stringWithFormat:@"Congratulation! You are Manager Of The Month for %@. Slip a pair of Ladies into your back pocket.", ((Month *)[TeamManager getInstance].months[10 - [TeamManager getInstance].monthNumber]).monthName];
+        }
+        else if (week == 1 || oldPosition == 0) {
             switch (newPosition) {
                 case 1:
-                    message = [NSString stringWithFormat:@"Woo Hoo, You're Top of the Pops!"];
+                    message = [NSString stringWithFormat:@"Back of the net, you're Top of the Pops!"];
                     break;
                 case 2:
                 case 3:
                 case 4:
                 case 5:
-                    message = [NSString stringWithFormat:@"Good Start, Top 5!"];
+                    message = [NSString stringWithFormat:@"Top 5, you must be over the moon with that!"];
                     break;
                 case 6:
                 case 7:
                 case 8:
                 case 9:
                 case 10:
-                    message = [NSString stringWithFormat:@"Mid table mediocrity for you!"];
-                    break;
                 case 11:
+                    message = [NSString stringWithFormat:@"Mid table mediocrity, but safely above the Wooden Cock zone for now."];
+                    break;
                 case 12:
                 case 13:
                 case 14:
                 case 15:
-                    message = [NSString stringWithFormat:@"Near the bottom, must try harder!"];
+                    message = [NSString stringWithFormat:@"Maybe you have just found it hard to settle into the pace of the Premier League."];
                     break;
                 case 16:
-                    message = [NSString stringWithFormat:@"D'oh, a Bottom Dweller already!"];
+                    message = [NSString stringWithFormat:@"You can't win the title in August, but you sure can lose it."];
                     break;
             }
             [self.tableView reloadData];
         }
         else if (newPosition > 0) {
             int movement = oldPosition - newPosition;
-            
+  
             NSString *places = abs(movement) > 1 ? @"places" : @"place";
             if (movement > 0) {
+                NSArray *upCliches = @[
+                    @"Heading in the right direction, Shooting for the stars, Dribbling in your sleep, you get the idea...",
+                    @"Back of the net. Order a round of Jagermeisters!",
+                    @"You've got to be hitting the target from there. And it looks like you did!",
+                    @"He almost hit it too well there, Ray. Still went in the back of the net though!",
+                    @"It’s just handbags Geoff. Not a yellow card for me.",
+                    @"That Betting Ring is really starting to pay off.",
+                    @"Keep taking that EPO and HGH."
+                ];
+                NSArray *topCliches = @[
+                    @"Congratulations! The cream always rises and you just creamed yourself.",
+                    @"Respect Blud! King of the Castle.",
+                    @"Woo Hoo, You the Main Man! Double Jagermeisters all round."
+                ];
+                
                 if (newPosition == 1)
-                    message = [NSString stringWithFormat:@"You made it to the summit! Respect, blud."];
+                    message = topCliches[arc4random_uniform((int) topCliches.count)];
                 else
-                    message = [NSString stringWithFormat:@"Yessss! Up %i %@, heading in the right direction!", movement, places];
+                    message = [NSString stringWithFormat:@"%@ Up %i %@", upCliches[arc4random_uniform((int) upCliches.count)], movement, places];
             }
             else if (movement < 0) {
+                NSArray *cliches = @[
+                    @"The lads gave 110% but it just wasn't enough.",
+                    @"You can blame it on Fergie Time if you like...",
+                    @"Some schoolboy defending has cost you dear.",
+                    @"Looks like you've lost the dressing room.",
+                    @"Some real six pointers out there, and you lost them all.",
+                    @"Looks like the performance enhancing drugs are starting to wear off.",
+                    @"Mental fatigue must be setting in. Maybe have a spa day."
+                ];
+                
                 if (newPosition == 16)
-                    message = [NSString stringWithFormat:@"Oh no no no, Wooden Cock time!"];
+                    message = [NSString stringWithFormat:@"Ouch, you just sat on a Wooden Cock."];
                 else
-                    message = [NSString stringWithFormat:@"Noooo! Down %i %@, oh dear oh dear!", abs(movement), places];
+                    message = [NSString stringWithFormat:@"%@ Down %i %@", cliches[arc4random_uniform((int) cliches.count)], abs(movement), places];
             }
             else {
+                NSArray *sameCliches = @[
+                    @"It's a game of two halves, which probably explains why you haven't moved an inch.",
+                    @"They ran their socks off, but got nothing for it. Points shared!",
+                    @"Some tired legs out there. Might explain why you are treading water.",
+                    @"Nothing to see here. Move along, move along.",
+                    @"Cue tuneless whistling...",
+                    @"Stuck in a rut? Consult Andy Townsend for tactical inspiration.",
+                    @"Not going anywhere fast? Consider a change of formation, throw on 4 strikers and pray.",
+                    @"Still in the same old position. Visit Mystic Meg for a change of fortune."
+                ];
+                NSArray *topCliches = @[
+                     @"Still Top of the Pops, nice one son!",
+                     @"Still King of the Castle, keep up the good work.",
+                     @"Still Numero Uno, Booooooom!",
+                     @"Still The Main Man, Chase Me, Chase Me...",
+                     @"Still The Boss, keep those subordinates in order.",
+                     @"Still Mr Big, Eat My Cheese!"
+                ];
+                NSArray *bottomCliches = @[
+                     @"Still a Bottom Dweller, feeding off those above you.",
+                     @"Remember those things called Transfers? Maybe time to use some...",
+                     @"Still at the bottom rung of the ladder. Time to start climbing.",
+                     @"Still propping up the table I'm afraid. Do you have a lot of Sunderland players?",
+                     @"The Wooden Cock could be yours to keep this year.",
+                     @"Maybe a different strategy is required. Give David Moyes a call.",
+                     @"You may need some time away managing a team in the Saudi Arabian league to get your confidence back and get over the alcohol dependence.",
+                     @"Time to invoke the Unlimited Transfers In-App Purchase."
+                ];
+                
                 if (newPosition == 16)
-                    message = [NSString stringWithFormat:@"Still a Bottom Dweller, a Wooden Cock could be heading your way!"];
+                    message = bottomCliches[arc4random_uniform((int) bottomCliches.count)];
                 else if (newPosition == 1)
-                    message = [NSString stringWithFormat:@"Still Top of the Pops, nice one!"];
+                    message = topCliches[arc4random_uniform((int) topCliches.count)];
                 else
-                    message = [NSString stringWithFormat:@"Same spot as last week, could be worse I suppose!"];
+                    message = sameCliches[arc4random_uniform((int) sameCliches.count)];
             }
         }
-        
+
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title
                                                                                  message:message
                                                                           preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction* ok = [UIAlertAction actionWithTitle:@"Close" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action){
             [self.tableView moveRowAtIndexPath:[NSIndexPath indexPathForRow:(oldPosition - 1) inSection:0] toIndexPath:[NSIndexPath indexPathForRow:(newPosition - 1) inSection:0]];
             
+            // wait a bit for the row move animation to finish
             dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, 0.6 * NSEC_PER_SEC);
             dispatch_after(popTime, dispatch_get_main_queue(), ^{
                 [self.tableView reloadData];
@@ -255,7 +316,7 @@
     return cell;
 }
 
-- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
+/*- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
     return UITableViewCellEditingStyleNone;
 }
 
@@ -271,12 +332,12 @@
     }
     
     [self.tableView reloadData];
-}
+}*/
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     //[[Crashlytics sharedInstance] crash];
     
-    if ([segue.identifier isEqualToString:@"WhoAreYa"])
+    if ([segue.identifier isEqualToString:@"WhoAreYa"] || [segue.identifier isEqualToString:@"Stats"])
         return;
     
     TeamDetailViewController *vc = [segue destinationViewController];

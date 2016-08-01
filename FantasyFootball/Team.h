@@ -20,7 +20,8 @@ enum Momentum {Up, Down, Same};
 @property (nonatomic) long weeklyPoints;
 @property (nonatomic) long goals;
 @property (nonatomic) BOOL chairman;
-@property (nonatomic) NSMutableDictionary *weeks;
+@property (nonatomic) NSMutableArray *weeks;
+@property (nonatomic) NSMutableArray *motms;
 @property (nonatomic) enum Momentum momentum;
 
 @end

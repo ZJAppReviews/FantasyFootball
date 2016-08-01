@@ -38,7 +38,7 @@
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     self.tableView.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0);
     self.tableView.allowsSelection = NO;
-    self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    //self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
     _teams = [TeamManager getInstance].goldenBoot;
 }
@@ -91,7 +91,7 @@
     return cell;
 }
 
-- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
+/*- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
     return UITableViewCellEditingStyleNone;
 }
 
@@ -107,7 +107,7 @@
     }
     
     [self.tableView reloadData];
-}
+}*/
 
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];

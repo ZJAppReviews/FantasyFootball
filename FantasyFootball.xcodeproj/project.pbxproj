@@ -30,6 +30,9 @@
 		4D70546E1D4A4FF80039B4AE /* teams_test.json in Resources */ = {isa = PBXBuildFile; fileRef = 4D70546D1D4A4FF80039B4AE /* teams_test.json */; };
 		4D7054721D4A6EDB0039B4AE /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D7054701D4A6EDB0039B4AE /* Fabric.framework */; };
 		4D7054731D4A6EDB0039B4AE /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D7054711D4A6EDB0039B4AE /* Crashlytics.framework */; };
+		4DB621BF1D4E199800E1F528 /* TeamWeek.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DB621BE1D4E199800E1F528 /* TeamWeek.m */; };
+		4DB621C21D4E56B700E1F528 /* Week.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DB621C11D4E56B700E1F528 /* Week.m */; };
+		4DD47C991D4D3240008D64A7 /* StatsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DD47C981D4D3240008D64A7 /* StatsViewController.m */; };
 		4DF2411D1D461F0600AF4F1A /* MOTMViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DF2411C1D461F0600AF4F1A /* MOTMViewController.m */; };
 		4DF241201D46302100AF4F1A /* Month.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DF2411F1D46302100AF4F1A /* Month.m */; };
 		4DF241231D463F9900AF4F1A /* TeamDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DF241221D463F9900AF4F1A /* TeamDetailViewController.m */; };
@@ -110,6 +113,12 @@
 		4D70546D1D4A4FF80039B4AE /* teams_test.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = teams_test.json; sourceTree = "<group>"; };
 		4D7054701D4A6EDB0039B4AE /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		4D7054711D4A6EDB0039B4AE /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
+		4DB621BD1D4E199800E1F528 /* TeamWeek.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeamWeek.h; sourceTree = "<group>"; };
+		4DB621BE1D4E199800E1F528 /* TeamWeek.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeamWeek.m; sourceTree = "<group>"; };
+		4DB621C01D4E56B700E1F528 /* Week.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Week.h; sourceTree = "<group>"; };
+		4DB621C11D4E56B700E1F528 /* Week.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Week.m; sourceTree = "<group>"; };
+		4DD47C971D4D3240008D64A7 /* StatsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatsViewController.h; sourceTree = "<group>"; };
+		4DD47C981D4D3240008D64A7 /* StatsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatsViewController.m; sourceTree = "<group>"; };
 		4DF2411B1D461F0600AF4F1A /* MOTMViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOTMViewController.h; sourceTree = "<group>"; };
 		4DF2411C1D461F0600AF4F1A /* MOTMViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOTMViewController.m; sourceTree = "<group>"; };
 		4DF2411E1D46302100AF4F1A /* Month.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Month.h; sourceTree = "<group>"; };
@@ -188,6 +197,8 @@
 				4DF241221D463F9900AF4F1A /* TeamDetailViewController.m */,
 				4D2A99CF1D4762FA00DCDB15 /* WhoAreYaViewController.h */,
 				4D2A99D01D4762FA00DCDB15 /* WhoAreYaViewController.m */,
+				4DD47C971D4D3240008D64A7 /* StatsViewController.h */,
+				4DD47C981D4D3240008D64A7 /* StatsViewController.m */,
 				4D2A99CC1D47628500DCDB15 /* DismissSegue.h */,
 				4D2A99CD1D47628500DCDB15 /* DismissSegue.m */,
 				4D2A99C91D47566800DCDB15 /* Util.h */,
@@ -221,8 +232,12 @@
 			children = (
 				4D3B56971D4504F400267C95 /* Team.h */,
 				4D3B56981D4504F400267C95 /* Team.m */,
+				4DB621BD1D4E199800E1F528 /* TeamWeek.h */,
+				4DB621BE1D4E199800E1F528 /* TeamWeek.m */,
 				4DF2411E1D46302100AF4F1A /* Month.h */,
 				4DF2411F1D46302100AF4F1A /* Month.m */,
+				4DB621C01D4E56B700E1F528 /* Week.h */,
+				4DB621C11D4E56B700E1F528 /* Week.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -409,6 +424,9 @@
 				4D3B56991D4504F400267C95 /* Team.m in Sources */,
 				4D2A99D11D4762FA00DCDB15 /* WhoAreYaViewController.m in Sources */,
 				4DF241231D463F9900AF4F1A /* TeamDetailViewController.m in Sources */,
+				4DD47C991D4D3240008D64A7 /* StatsViewController.m in Sources */,
+				4DB621C21D4E56B700E1F528 /* Week.m in Sources */,
+				4DB621BF1D4E199800E1F528 /* TeamWeek.m in Sources */,
 				4D3B56691D44E1EA00267C95 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -545,6 +563,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -568,6 +587,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -582,7 +602,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mhriley.FantasyFootball;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "0b5ddd8b-2193-484d-97a7-0769ca7be137";
+				PROVISIONING_PROFILE = "fc9bfaa2-bcba-4fdc-a3cb-9fc789c18dd9";
 			};
 			name = Release;
 		};

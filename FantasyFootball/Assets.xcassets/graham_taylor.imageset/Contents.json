@@ -2,11 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
+      "filename" : "GrahamTaylor.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "851-calendar@2x.png",
       "scale" : "2x"
     },
     {

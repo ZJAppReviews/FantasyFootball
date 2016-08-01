@@ -24,6 +24,9 @@
 - (NSMutableArray *) loadData:(NSDictionary *) data cache:(BOOL) cache;
 - (Team *) getTeam:(NSString *) managerName;
 - (void) updatePosition:(NSString *) managerName;
+- (void) sortLeague;
+- (void) sortGoals;
+- (BOOL) isLastWeekOfMonth;
 + (NSArray *) managerNames;
 
 @end
