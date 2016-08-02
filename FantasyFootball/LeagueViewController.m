@@ -10,15 +10,16 @@
 #import "TeamDetailViewController.h"
 #import "Team.h"
 #import "TeamManager.h"
+#import "SettingsManager.h"
 #import "Month.h"
 #import "Util.h"
 #import <Crashlytics/Crashlytics.h>
 
 @interface LeagueViewController () {
-    
 }
 
 @property (nonatomic, strong) NSMutableArray *teams;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *settingsButton;
 
 @end
 
@@ -44,10 +45,12 @@
     self.navigationItem.backBarButtonItem =	[[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil];
     
     _teams = [TeamManager getInstance].league;
-    if ([TeamManager getInstance].year)
-        self.navigationItem.title = [NSString stringWithFormat:@"%@ - Week %i", [TeamManager getInstance].year, [TeamManager getInstance].weekNumber];
-    else
-        self.navigationItem.title = @"No Data";
+    [self setTitle];
+    
+    UILongPressGestureRecognizer* longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleLongPress:)];
+    longPress.minimumPressDuration = 2;
+    [[_settingsButton valueForKey:@"view"] addGestureRecognizer:longPress];
+    
     NSLog(@"viewDidLoad %@ data", ([TeamManager getInstance].year ? @"with" : @"without"));
 }
 
@@ -64,14 +67,18 @@
     }
 }
 
+- (void) setTitle {
+    if ([TeamManager getInstance].year)
+        self.navigationItem.title = [NSString stringWithFormat:@"%@ - Week %i", (optionEnabled(@"testMode") ? @"Test Data" : [TeamManager getInstance].year), [TeamManager getInstance].weekNumber];
+    else
+        self.navigationItem.title = @"No Data";
+}
+
 - (void) reloadData:(NSNotification *)notification {
     NSLog(@"Refresh data");
     
     _teams = [TeamManager getInstance].league;
-    if ([TeamManager getInstance].year)
-        self.navigationItem.title = [NSString stringWithFormat:@"%@ - Week %i", [TeamManager getInstance].year, [TeamManager getInstance].weekNumber];
-    else
-        self.navigationItem.title = @"No Data";
+    [self setTitle];
     
     if (self.isViewLoaded && self.view.window) {
         // don't alert if WhoAreYa screen is overlaid
@@ -90,6 +97,23 @@
     }
     else {
         [self.tableView reloadData];
+    }
+}
+
+- (void)handleLongPress:(UITapGestureRecognizer *)sender {
+    if (sender.state == UIGestureRecognizerStateBegan) {
+        setOptionBoolForKey(@"testMode", !optionEnabled(@"testMode"));
+        
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Info"
+                                                                                 message:[NSString stringWithFormat:@"Test Mode: %@", optionEnabled(@"testMode") ? @"On" : @"Off"]
+                                                                          preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction* ok = [UIAlertAction actionWithTitle:@"Close" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [SettingsManager loadSettings];
+            });
+        }];
+        [alertController addAction:ok];
+        [self presentViewController:alertController animated:YES completion:nil];
     }
 }
 
@@ -234,7 +258,9 @@
             });
         }];
         [alertController addAction:ok];
-        [self presentViewController:alertController animated:YES completion:nil];
+        
+        if (!optionEnabled(@"testMode"))
+            [self presentViewController:alertController animated:YES completion:nil];
         
         setOptionValueForKey(@"position", [NSNumber numberWithInt:newPosition]);
         setOptionValueForKey(@"newPosition", @0);

@@ -8,6 +8,7 @@
 
 #import "SettingsManager.h"
 #import "TeamManager.h"
+#import "Util.h"
 
 @interface SettingsManager ()
 
@@ -36,7 +37,8 @@ static SettingsManager* _instance = nil;
     remoteSettingsData = [[NSMutableData alloc] init];
 
     NSURL *URL = [NSURL URLWithString:@"http://www.mhriley.com/fantasyfootball/teams.json"];
-    URL = [NSURL URLWithString:@"http://www.mhriley.com/fantasyfootball/teams_test.json"]; int remove_me;
+    if (optionEnabled(@"testMode"))
+        URL = [NSURL URLWithString:@"http://www.mhriley.com/fantasyfootball/teams_test.json"];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:URL];
     [request setHTTPMethod:@"GET"];
     [request setCachePolicy:NSURLRequestReloadIgnoringLocalCacheData];
