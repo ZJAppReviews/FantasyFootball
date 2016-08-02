@@ -42,33 +42,37 @@ static SettingsManager* _instance = nil;
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:URL];
     [request setHTTPMethod:@"GET"];
     [request setCachePolicy:NSURLRequestReloadIgnoringLocalCacheData];
-    //[[NSURLConnection alloc] initWithRequest:request delegate:self];
-    
-    NSURLSession *session = [NSURLSession sharedSession];
-    NSURLSessionDataTask *task = [session dataTaskWithRequest:request
-                                            completionHandler:
-    ^(NSData *data, NSURLResponse *response, NSError *error) {
-        if (data) {
-            NSError *error2 = nil;
-            remoteSettings = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error2];
-            
-            if (!error2) {
-                //NSLog(@"JSON Settings: %@", remoteSettings);
-                [self _applySettings];
+
+    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"9.0")) {
+        NSURLSession *session = [NSURLSession sharedSession];
+        NSURLSessionDataTask *task = [session dataTaskWithRequest:request
+                                                completionHandler:
+        ^(NSData *data, NSURLResponse *response, NSError *error) {
+            if (data) {
+                NSError *error2 = nil;
+                remoteSettings = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error2];
+                
+                if (!error2) {
+                    //NSLog(@"JSON Settings: %@", remoteSettings);
+                    [self _applySettings];
+                }
+                else {
+                    NSLog(@"JSON Deserialization failed: %@", [error2 userInfo]);
+                }
             }
             else {
-                NSLog(@"JSON Deserialization failed: %@", [error2 userInfo]);
+                NSLog(@"Connection failed: %@", [error userInfo]);
             }
-        }
-        else {
-            NSLog(@"Connection failed: %@", [error userInfo]);
-        }
+            
+            isLoading = NO;
+            
+        }];
         
-        isLoading = NO;
-        
-    }];
-    
-    [task resume];
+        [task resume];
+    }
+    else {
+        [[NSURLConnection alloc] initWithRequest:request delegate:self];
+    }
 }
 
 + (void) loadSettings {
