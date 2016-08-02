@@ -30,6 +30,8 @@
 		4D70546E1D4A4FF80039B4AE /* teams_test.json in Resources */ = {isa = PBXBuildFile; fileRef = 4D70546D1D4A4FF80039B4AE /* teams_test.json */; };
 		4D7054721D4A6EDB0039B4AE /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D7054701D4A6EDB0039B4AE /* Fabric.framework */; };
 		4D7054731D4A6EDB0039B4AE /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D7054711D4A6EDB0039B4AE /* Crashlytics.framework */; };
+		4DA456271D50F08E004D24D8 /* SideBetsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DA456261D50F08E004D24D8 /* SideBetsViewController.m */; };
+		4DA456291D50FD59004D24D8 /* side_bets.json in Resources */ = {isa = PBXBuildFile; fileRef = 4DA456281D50FD59004D24D8 /* side_bets.json */; };
 		4DB621BF1D4E199800E1F528 /* TeamWeek.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DB621BE1D4E199800E1F528 /* TeamWeek.m */; };
 		4DB621C21D4E56B700E1F528 /* Week.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DB621C11D4E56B700E1F528 /* Week.m */; };
 		4DD47C991D4D3240008D64A7 /* StatsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DD47C981D4D3240008D64A7 /* StatsViewController.m */; };
@@ -113,6 +115,9 @@
 		4D70546D1D4A4FF80039B4AE /* teams_test.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = teams_test.json; sourceTree = "<group>"; };
 		4D7054701D4A6EDB0039B4AE /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		4D7054711D4A6EDB0039B4AE /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
+		4DA456251D50F08E004D24D8 /* SideBetsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideBetsViewController.h; sourceTree = "<group>"; };
+		4DA456261D50F08E004D24D8 /* SideBetsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideBetsViewController.m; sourceTree = "<group>"; };
+		4DA456281D50FD59004D24D8 /* side_bets.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = side_bets.json; sourceTree = "<group>"; };
 		4DB621BD1D4E199800E1F528 /* TeamWeek.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeamWeek.h; sourceTree = "<group>"; };
 		4DB621BE1D4E199800E1F528 /* TeamWeek.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeamWeek.m; sourceTree = "<group>"; };
 		4DB621C01D4E56B700E1F528 /* Week.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Week.h; sourceTree = "<group>"; };
@@ -195,6 +200,8 @@
 				4D3B56A61D453D0300267C95 /* GoldenBootViewController.m */,
 				4DF241211D463F9900AF4F1A /* TeamDetailViewController.h */,
 				4DF241221D463F9900AF4F1A /* TeamDetailViewController.m */,
+				4DA456251D50F08E004D24D8 /* SideBetsViewController.h */,
+				4DA456261D50F08E004D24D8 /* SideBetsViewController.m */,
 				4D2A99CF1D4762FA00DCDB15 /* WhoAreYaViewController.h */,
 				4D2A99D01D4762FA00DCDB15 /* WhoAreYaViewController.m */,
 				4DD47C971D4D3240008D64A7 /* StatsViewController.h */,
@@ -261,6 +268,7 @@
 				4D3B56761D44E1EA00267C95 /* Assets.xcassets */,
 				4D3B567B1D44E1EA00267C95 /* Info.plist */,
 				4D3B569B1D4512D400267C95 /* teams.json */,
+				4DA456281D50FD59004D24D8 /* side_bets.json */,
 				4D70546D1D4A4FF80039B4AE /* teams_test.json */,
 			);
 			name = Resources;
@@ -378,6 +386,7 @@
 				4D3B56771D44E1EA00267C95 /* Assets.xcassets in Resources */,
 				4D2A9A481D47DEF600DCDB15 /* Airship in Resources */,
 				4D2A9A4A1D47DF0100DCDB15 /* AirshipKit in Resources */,
+				4DA456291D50FD59004D24D8 /* side_bets.json in Resources */,
 				4D3B56751D44E1EA00267C95 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -415,6 +424,7 @@
 				4D2A99CE1D47628500DCDB15 /* DismissSegue.m in Sources */,
 				4D2A99CB1D47566800DCDB15 /* Util.m in Sources */,
 				4D3B56961D44FD7000267C95 /* LeagueViewController.m in Sources */,
+				4DA456271D50F08E004D24D8 /* SideBetsViewController.m in Sources */,
 				4D3B56A21D4515F000267C95 /* TeamManager.m in Sources */,
 				4D3B569F1D45137F00267C95 /* SettingsManager.m in Sources */,
 				4D3B56A71D453D0300267C95 /* GoldenBootViewController.m in Sources */,

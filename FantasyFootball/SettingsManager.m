@@ -36,6 +36,19 @@ static SettingsManager* _instance = nil;
     isLoading = YES;
     remoteSettingsData = [[NSMutableData alloc] init];
 
+    /*NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
+    NSURL *URL = [NSURL URLWithString:@"http://httpbin.org/get"];
+    NSURLRequest *request = [NSURLRequest requestWithURL:URL];
+    NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
+        if (error) {
+            NSLog(@"Error: %@", error);
+        } else {
+            NSLog(@"%@ %@", response, responseObject);
+        }
+    }];
+    [dataTask resume];*/
+    
     NSURL *URL = [NSURL URLWithString:@"http://www.mhriley.com/fantasyfootball/teams.json"];
     if (optionEnabled(@"testMode"))
         URL = [NSURL URLWithString:@"http://www.mhriley.com/fantasyfootball/teams_test.json"];
@@ -43,36 +56,34 @@ static SettingsManager* _instance = nil;
     [request setHTTPMethod:@"GET"];
     [request setCachePolicy:NSURLRequestReloadIgnoringLocalCacheData];
 
-    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"9.0")) {
-        NSURLSession *session = [NSURLSession sharedSession];
-        NSURLSessionDataTask *task = [session dataTaskWithRequest:request
-                                                completionHandler:
-        ^(NSData *data, NSURLResponse *response, NSError *error) {
-            if (data) {
-                NSError *error2 = nil;
-                remoteSettings = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error2];
-                
-                if (!error2) {
-                    //NSLog(@"JSON Settings: %@", remoteSettings);
-                    [self _applySettings];
-                }
-                else {
-                    NSLog(@"JSON Deserialization failed: %@", [error2 userInfo]);
-                }
+    NSURLSession *session = [NSURLSession sharedSession];
+    NSURLSessionDataTask *task = [session dataTaskWithRequest:request
+                                            completionHandler:
+    ^(NSData *data, NSURLResponse *response, NSError *error) {
+        if (!error && data) {
+            NSError *error2 = nil;
+            remoteSettings = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error2];
+            
+            if (!error2) {
+                //NSLog(@"JSON Settings: %@", remoteSettings);
+                [self _applySettings];
             }
             else {
-                NSLog(@"Connection failed: %@", [error userInfo]);
+                NSLog(@"JSON Deserialization failed: %@", [error2 userInfo]);
             }
-            
-            isLoading = NO;
-            
-        }];
+        }
+        else {
+            NSLog(@"Connection failed: %@", [error userInfo]);
+        }
         
-        [task resume];
-    }
-    else {
-        [[NSURLConnection alloc] initWithRequest:request delegate:self];
-    }
+        isLoading = NO;
+    }];
+    /*NSURLSessionDownloadTask *task = [session downloadTaskWithRequest:request completionHandler:
+                                  ^(NSURL *location, NSURLResponse *response, NSError *error) {
+                                      NSLog(@"%@", [error localizedDescription]);
+                                  }];*/
+                                  
+    [task resume];
 }
 
 + (void) loadSettings {
