@@ -5,94 +5,107 @@
             "name1" : "Enz",
             "managerName2" : "Mr M Riley",
             "name2" : "Riley",
-            "amount" : "£20"
+            "amount" : 20,
+            "type" : "league"
         },
         {
             "managerName1" : "Mr M Riley",
             "name1" : "Riley",
             "managerName2" : "Mr M Mitchell",
             "name2" : "Mark M",
-            "amount" : "£20"
+            "amount" : 20,
+            "type" : "league"
         },
         {
             "managerName1" : "Mr J Appleby",
             "name1" : "Enz",
             "managerName2" : "Mr C Cowpertwait",
             "name2" : "Cowpers",
-            "amount" : "£20"
+            "amount" : 20,
+            "type" : "league"
         },
         {
             "managerName1" : "Mr C Foxall",
             "name1" : "Chris",
             "managerName2" : "Mr J Appleby",
             "name2" : "Enz",
-            "amount" : "£20",
-            "bet" : "+ Watersports"
+            "amount" : 20,
+            "bet" : "+ Watersports",
+            "type" : "league"
         },
         {
             "managerName1" : "Mr D Lin",
             "name1" : "Del",
             "managerName2" : "Mr J Appleby",
             "name2" : "Enz",
-            "amount" : "£10",
-            "bet" : "Del bets he won't be last"
+            "amount" : 10,
+            "bet" : "Del bets he won't be last",
+            "type" : "other"
         },
         {
             "managerName1" : "Mr C Cowpertwait",
             "name1" : "Cowpers",
             "managerName2" : "Mr C Foxall",
             "name2" : "Chris",
-            "amount" : "£20"
+            "amount" : 20,
+            "type" : "league"
         },
         {
             "managerName1" : "Mr M Mitchell",
             "name1" : "Mark M",
             "managerName2" : "Mr C Cowpertwait",
             "name2" : "Cowpers",
-            "amount" : "£20"
+            "amount" : 20,
+            "type" : "league"
         },
         {
             "managerName1" : "Mr P Attrill",
             "name1" : "Pebbles",
             "managerName2" : "Mr C Cowpertwait",
             "name2" : "Cowpers",
-            "amount" : "£15"
+            "amount" : 15,
+            "type" : "league"
         },
         {
             "managerName1" : "Mr C Foxall",
             "name1" : "Chris",
             "managerName2" : "Mr M Mitchell",
             "name2" : "Mark M",
-            "amount" : "£20",
-            "bet" : "1st to be 4 time winner"
+            "amount" : 20,
+            "bet" : "1st to be 4 time winner",
+            "type" : "other"
         },
         {
-            "managerName1" : "Mr c Attrill",
+            "managerName1" : "Mr C Attrill",
             "name1" : "Wobbles",
             "managerName2" : "Mr C Cowpertwait",
             "name2" : "Cowpers",
-            "amount" : "£10"
+            "amount" : 10,
+            "type" : "league"
         },
         {
             "managerName1" : "Mr C Cowpertwait",
             "name1" : "Cowpers",
             "managerName2" : "Mr C Emmerson",
             "name2" : "Carl",
-            "amount" : "£10"
+            "amount" : 10,
+            "type" : "league"
         },
         {
-            "managerName1" : "Mr C Appleby",
+            "managerName1" : "Mr J Appleby",
             "name1" : "Enz",
             "managerName2" : "Mr C Emmerson",
             "name2" : "Carl",
-            "amount" : "£20"
+            "amount" : 20,
+            "type" : "league"
         },
         {
             "managerName1" : "Mr P Attrill",
             "name1" : "Pebbles",
-            "managerName2" : "Mr A Attrill",
+            "managerName2" : "Mr C Attrill",
             "name2" : "Wobbles",
-            "amount" : "£10"
+            "amount" : 10,
+            "type" : "league"
         },
         {
             "managerName1" : "Mr C Emmerson",
@@ -101,112 +114,137 @@
             "name2" : "Steve",
             "managerName3" : "Mr P Pritchard",
             "name3" : "Phil P",
-            "amount" : "£10 each"
+            "amount" : 10,
+            "type" : "league"
         },
         {
             "managerName1" : "Mr J Hitchins",
             "name1" : "Jason H",
             "managerName2" : "Mr J Appleby",
             "name2" : "Enz",
-            "amount" : "£15"
+            "amount" : 15,
+            "type" : "league"
         },
         {
             "managerName1" : "Mr J Hitchins",
             "name1" : "Jason H",
             "managerName2" : "Mr J Appleby",
             "name2" : "Enz",
-            "amount" : "£10",
-            "bet" : "Arsenal v Man United"
+            "amount" : 10,
+            "bet" : "Arsenal v Man United",
+            "type" : "other"
         },
         {
             "managerName1" : "Mr J Appleby",
             "name1" : "Enz",
             "managerName2" : "Mr C Attrill",
             "name2" : "Wobbles",
-            "amount" : "£11"
+            "amount" : 11,
+            "type" : "league"
         },
         {
             "managerName1" : "Mr S Dowe",
             "name1" : "Steve",
             "managerName2" : "Mr P Attrill",
             "name2" : "Pebbles",
-            "amount" : "£10"
+            "amount" : 10,
+            "type" : "league"
         },
         {
             "managerName1" : "Mr S Dowe",
             "name1" : "Steve",
             "managerName2" : "Mr P Attrill",
             "name2" : "Pebbles",
-            "amount" : "£10",
-            "bet" : "Furthest in FU Cup"
+            "amount" : 10,
+            "bet" : "Furthest in FU Cup",
+            "type" : "cup"
         },
         {
             "managerName1" : "Mr J Hitchins",
             "name1" : "Jason H",
             "managerName2" : "Mr P Attrill",
             "name2" : "Pebbles",
-            "amount" : "£10",
-            "bet" : "Furthest in FU Cup"
+            "amount" : 10,
+            "bet" : "Furthest in FU Cup",
+            "type" : "cup"
         },
         {
             "managerName1" : "Mr S Dowe",
             "name1" : "Steve",
             "managerName2" : "Mr J Hitchins",
             "name2" : "Jason H",
-            "amount" : "£10",
-            "bet" : "Golden Boot"
+            "amount" : 10,
+            "bet" : "Golden Boot",
+            "type" : "goals"
         },
         {
             "managerName1" : "Mr J Hitchins",
             "name1" : "Jason H",
             "managerName2" : "Mr C Cowpertwait",
             "name2" : "Cowpers",
-            "amount" : "£10"
+            "amount" : 10,
+            "type" : "league"
         },
         {
             "managerName1" : "Mr P Attrill",
             "name1" : "Pebbles",
             "managerName2" : "Mr J Appleby",
             "name2" : "Enz",
-            "amount" : "£20",
-            "bet" : "+ Teabagging"
+            "amount" : 20,
+            "bet" : "+ Teabagging",
+            "type" : "league"
         },
         {
             "managerName1" : "Mr S Dowe",
             "name1" : "Steve",
             "managerName2" : "Mr C Cowpertwait",
             "name2" : "Cowpers",
-            "amount" : "£10"
+            "amount" : 10,
+            "type" : "league"
         },
         {
         	"managerName1" : "Mr C Cowpertwait",
             "name1" : "Cowpers",
             "managerName2" : "Mr S Dowe",
             "name2" : "Steve",
-            "amount" : "£10",
-            "bet" : "Furthest in FU Cup"
+            "amount" : 10,
+            "bet" : "Furthest in FU Cup",
+            "type" : "cup"
         },
         {
             "managerName1" : "Mr C Emmerson",
             "name1" : "Carl",
             "managerName2" : "Mr P Attrill",
             "name2" : "Pebbles",
-            "amount" : "£10"
+            "amount" : 10,
+            "type" : "league"
         },
         {
             "managerName1" : "Mr C Foxall",
             "name1" : "Chris",
             "managerName2" : "Mr M Riley",
             "name2" : "Riley",
-            "amount" : "£10"
+            "amount" : 10,
+            "type" : "league"
         },
         {
             "managerName1" : "Mr M Riley",
             "name1" : "Riley",
             "managerName2" : "Mr T Lewis",
             "name2" : "Tim",
-            "amount" : "£5.01",
-            "bet" : "Furthest in FU Cup"
+            "amount" : 5.01,
+            "bet" : "Furthest in FU Cup",
+            "type" : "cup"
+        }
+        ,
+        {
+          	"managerName1" : "Mr T Lewis",
+          	"name1" : "Tim",
+          	"managerName2" : "Mr P Attrill",
+          	"name2" : "Pebbles",
+          	"amount" : 7.70,
+          	"bet" : "Highest of Chris (Tim) and Jason R (Phil)",
+            "type" : "other"
         }
     ]
 }

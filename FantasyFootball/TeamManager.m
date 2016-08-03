@@ -299,6 +299,56 @@
     }
 }
 
+- (Team *) whoIsWinningBetOfType:(NSString *) type betweenTeam1:(Team *) team1 team2:(Team *) team2 team3:(Team *) team3 {
+    if (team1 && team2) {
+        if ([type isEqualToString:@"league"]) {
+            if (team1.leaguePosition < team2.leaguePosition && (!team3 || team1.leaguePosition < team3.leaguePosition))
+                return team1;
+            else if (team2.leaguePosition < team1.leaguePosition && (!team3 || team2.leaguePosition < team3.leaguePosition))
+                return team2;
+            else if (team3.leaguePosition < team1.leaguePosition && team3.leaguePosition < team2.leaguePosition)
+                return team3;
+        }
+        else if ([type isEqualToString:@"goals"]) {
+            if (team1.goldenBootPosition < team2.goldenBootPosition)
+                return team1;
+            else if (team1.goldenBootPosition > team2.goldenBootPosition)
+                return team2;
+        }
+        /*else if ([sideBet[@"type"] isEqualToString:@"cup"]) {
+            if (thisTeam.goldenBootPosition > opponentTeam1.goldenBootPosition)
+            winnings += [sideBet[@"amount"] doubleValue];
+        }*/
+    }
+    
+    return nil;
+}
+
+- (Team *) whoIsLosingBetOfType:(NSString *) type betweenTeam1:(Team *) team1 team2:(Team *) team2 team3:(Team *) team3 {
+    if (team1 && team2) {
+        if ([type isEqualToString:@"league"]) {
+            if (team1.leaguePosition > team2.leaguePosition && (!team3 || team1.leaguePosition > team3.leaguePosition))
+                return team1;
+            else if (team2.leaguePosition > team1.leaguePosition && (!team3 || team2.leaguePosition > team3.leaguePosition))
+                return team2;
+            else if (team3.leaguePosition > team1.leaguePosition && team3.leaguePosition > team2.leaguePosition)
+                return team3;
+        }
+        else if ([type isEqualToString:@"goals"]) {
+            if (team1.goldenBootPosition > team2.goldenBootPosition)
+                return team1;
+            else if (team1.goldenBootPosition < team2.goldenBootPosition)
+                return team2;
+        }
+        /*else if ([sideBet[@"type"] isEqualToString:@"cup"]) {
+         if (thisTeam.goldenBootPosition > opponentTeam1.goldenBootPosition)
+         winnings += [sideBet[@"amount"] doubleValue];
+         }*/
+    }
+    
+    return nil;
+}
+
 + (NSArray *)managerNames
 {
     static NSArray *_managerNames;
