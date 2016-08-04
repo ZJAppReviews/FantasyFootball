@@ -11,6 +11,9 @@
 #import "TeamWeek.h"
 #import "TeamManager.h"
 #import "Month.h"
+#import "AnimatedNumericLabel.h"
+#import "SoundEffect.h"
+#import "SoundEffects.h"
 
 @interface TeamDetailViewController ()
 
@@ -20,8 +23,9 @@
 @property (weak, nonatomic) IBOutlet UITextField *goals;
 @property (weak, nonatomic) IBOutlet UILabel *fuCup;
 @property (weak, nonatomic) IBOutlet UILabel *motm;
-@property (weak, nonatomic) IBOutlet UILabel *predictedWinnings;
+@property (weak, nonatomic) IBOutlet AnimatedNumericLabel *predictedWinnings;
 @property (weak, nonatomic) IBOutlet UITableView *weeklyPointsTable;
+@property (weak, nonatomic) SoundEffect	*cashSound;
 
 @end
 
@@ -89,14 +93,14 @@
         Team *team2 = [[TeamManager getInstance] getTeam:sideBet[@"managerName2"]];
         Team *team3 = [[TeamManager getInstance] getTeam:sideBet[@"managerName3"]];
         
-        Team *winningTeam = [[TeamManager getInstance] whoIsWinningBetOfType:type betweenTeam1:team1 team2:team2 team3:team3];
-        Team *losingTeam = [[TeamManager getInstance] whoIsLosingBetOfType:type betweenTeam1:team1 team2:team2 team3:team3];
+        Team *winningTeam = [[TeamManager getInstance] whoIsWinningBetOfType:sideBet betweenTeam1:team1 team2:team2 team3:team3];
+        Team *losingTeam = [[TeamManager getInstance] whoIsLosingBetOfType:sideBet betweenTeam1:team1 team2:team2 team3:team3];
         
         if ([winningTeam.managerName isEqualToString:_team.managerName]) {
             if ([type isEqualToString:@"league"]) {
                 winnings += team3 ? 2 * [sideBet[@"amount"] doubleValue] : [sideBet[@"amount"] doubleValue];
             }
-            else if ([type isEqualToString:@"goals"]) {
+            else {
                 winnings += [sideBet[@"amount"] doubleValue];
             }
         }
@@ -104,7 +108,7 @@
             if ([type isEqualToString:@"league"]) {
                 winnings -= (team3 ? 2 * [sideBet[@"amount"] doubleValue] : [sideBet[@"amount"] doubleValue]);
             }
-            else if ([type isEqualToString:@"goals"]) {
+            else {
                 winnings -= [sideBet[@"amount"] doubleValue];
             }
         }
@@ -120,14 +124,37 @@
     [currencyFormatter setCurrencySymbol:@"£"];
     [currencyFormatter setNegativeFormat:[@"-" stringByAppendingString:[currencyFormatter positiveFormat]]];
 
-    if (_team.leaguePosition == 16)
-        _predictedWinnings.text = [NSString stringWithFormat:@"%@ + WC", [currencyFormatter stringFromNumber:[NSNumber numberWithDouble:winnings]]];
-    else
-        _predictedWinnings.text = [NSString stringWithFormat:@"%@", [currencyFormatter stringFromNumber:[NSNumber numberWithDouble:winnings]]];
+    _predictedWinnings.delegate = self;
+    if (_team.leaguePosition == 16) {
+        //_predictedWinnings.text = [NSString stringWithFormat:@"%@ + WC", [currencyFormatter stringFromNumber:[NSNumber numberWithDouble:winnings]]];
+        
+        _predictedWinnings.currentValue = 0;
+        [_predictedWinnings setText:winnings animated:YES];
+    }
+    else {
+        //_predictedWinnings.text = [NSString stringWithFormat:@"%@", [currencyFormatter stringFromNumber:[NSNumber numberWithDouble:winnings]]];
+        _predictedWinnings.currentValue = 0;
+        [_predictedWinnings setText:winnings animated:YES];
+    }
     
     _weeklyPointsTable.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     _weeklyPointsTable.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0);
     _weeklyPointsTable.allowsSelection = NO;
+    
+    if (winnings >= 5 || winnings <= -5) {
+        _cashSound = cashSound();
+        [_cashSound playOnLoop];
+    }
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [_cashSound stop];
+}
+
+- (void) labelAnimationComplete {
+    if (_team.leaguePosition == 16)
+        _predictedWinnings.text = [NSString stringWithFormat:@"%@ + WC", _predictedWinnings.text];
+    [_cashSound stop];
 }
 
 - (void)didReceiveMemoryWarning {

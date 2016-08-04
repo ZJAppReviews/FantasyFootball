@@ -27,8 +27,8 @@
 - (void) sortLeague;
 - (void) sortGoals;
 - (BOOL) isLastWeekOfMonth;
-- (Team *) whoIsWinningBetOfType:(NSString *) type betweenTeam1:(Team *) team1 team2:(Team *) team2 team3:(Team *) team3;
-- (Team *) whoIsLosingBetOfType:(NSString *) type betweenTeam1:(Team *) team1 team2:(Team *) team2 team3:(Team *) team3;
+- (Team *) whoIsWinningBetOfType:(NSDictionary *) sideBet betweenTeam1:(Team *) team1 team2:(Team *) team2 team3:(Team *) team3;
+- (Team *) whoIsLosingBetOfType:(NSDictionary *) sideBet betweenTeam1:(Team *) team1 team2:(Team *) team2 team3:(Team *) team3;
 + (NSArray *) managerNames;
 
 @end

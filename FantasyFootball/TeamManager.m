@@ -299,7 +299,8 @@
     }
 }
 
-- (Team *) whoIsWinningBetOfType:(NSString *) type betweenTeam1:(Team *) team1 team2:(Team *) team2 team3:(Team *) team3 {
+- (Team *) whoIsWinningBetOfType:(NSDictionary *) sideBet betweenTeam1:(Team *) team1 team2:(Team *) team2 team3:(Team *) team3 {
+    NSString *type = sideBet[@"type"];
     if (team1 && team2) {
         if ([type isEqualToString:@"league"]) {
             if (team1.leaguePosition < team2.leaguePosition && (!team3 || team1.leaguePosition < team3.leaguePosition))
@@ -315,6 +316,11 @@
             else if (team1.goldenBootPosition > team2.goldenBootPosition)
                 return team2;
         }
+        else if ([type isEqualToString:@"other"]) {
+            NSString *winningTeam = sideBet[@"winning"];
+            if (winningTeam)
+                return [self getTeam:sideBet[winningTeam]];
+        }
         /*else if ([sideBet[@"type"] isEqualToString:@"cup"]) {
             if (thisTeam.goldenBootPosition > opponentTeam1.goldenBootPosition)
             winnings += [sideBet[@"amount"] doubleValue];
@@ -324,7 +330,8 @@
     return nil;
 }
 
-- (Team *) whoIsLosingBetOfType:(NSString *) type betweenTeam1:(Team *) team1 team2:(Team *) team2 team3:(Team *) team3 {
+- (Team *) whoIsLosingBetOfType:(NSDictionary *) sideBet betweenTeam1:(Team *) team1 team2:(Team *) team2 team3:(Team *) team3 {
+    NSString *type = sideBet[@"type"];
     if (team1 && team2) {
         if ([type isEqualToString:@"league"]) {
             if (team1.leaguePosition > team2.leaguePosition && (!team3 || team1.leaguePosition > team3.leaguePosition))
@@ -339,6 +346,15 @@
                 return team1;
             else if (team1.goldenBootPosition < team2.goldenBootPosition)
                 return team2;
+        }
+        else if ([type isEqualToString:@"other"]) {
+            NSString *winningTeam = sideBet[@"winning"];
+            if (winningTeam) {
+                if ([winningTeam isEqualToString:@"managerName1"])
+                    return [self getTeam:sideBet[sideBet[@"managerName2"]]];
+                else
+                    return [self getTeam:sideBet[sideBet[@"managerName1"]]];
+            }
         }
         /*else if ([sideBet[@"type"] isEqualToString:@"cup"]) {
          if (thisTeam.goldenBootPosition > opponentTeam1.goldenBootPosition)

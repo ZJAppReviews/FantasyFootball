@@ -15,6 +15,12 @@
 		4D2A9A511D47DF6700DCDB15 /* AirshipKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D2A9A501D47DF2000DCDB15 /* AirshipKit.framework */; };
 		4D2A9A521D47DF6700DCDB15 /* AirshipKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4D2A9A501D47DF2000DCDB15 /* AirshipKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4D2A9A571D47DFC700DCDB15 /* AirshipConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4D2A9A561D47DFC700DCDB15 /* AirshipConfig.plist */; };
+		4D2F6C061D5349DB005FD9BE /* LaunchScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2F6C051D5349DB005FD9BE /* LaunchScreenViewController.m */; };
+		4D2F6C0B1D534BC2005FD9BE /* Splash.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D2F6C091D534BC2005FD9BE /* Splash.xib */; };
+		4D2F6C0F1D535B1F005FD9BE /* AnimatedNumericLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2F6C0E1D535B1F005FD9BE /* AnimatedNumericLabel.m */; };
+		4D2F6C141D5362D4005FD9BE /* SoundEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2F6C111D5362D4005FD9BE /* SoundEffect.m */; };
+		4D2F6C151D5362D4005FD9BE /* SoundEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2F6C131D5362D4005FD9BE /* SoundEffects.m */; };
+		4D2F6C171D5363A3005FD9BE /* cash.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4D2F6C161D5363A3005FD9BE /* cash.wav */; };
 		4D3B56691D44E1EA00267C95 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D3B56681D44E1EA00267C95 /* main.m */; };
 		4D3B566C1D44E1EA00267C95 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D3B566B1D44E1EA00267C95 /* AppDelegate.m */; };
 		4D3B56751D44E1EA00267C95 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D3B56731D44E1EA00267C95 /* Main.storyboard */; };
@@ -90,6 +96,16 @@
 		4D2A9A4B1D47DF2000DCDB15 /* AirshipKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = AirshipKit.xcodeproj; path = "../UrbanAirship-7.2.0/AirshipKit/AirshipKit.xcodeproj"; sourceTree = "<group>"; };
 		4D2A9A561D47DFC700DCDB15 /* AirshipConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AirshipConfig.plist; sourceTree = "<group>"; };
 		4D2A9A581D48B49E00DCDB15 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		4D2F6C041D5349DB005FD9BE /* LaunchScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LaunchScreenViewController.h; sourceTree = "<group>"; };
+		4D2F6C051D5349DB005FD9BE /* LaunchScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LaunchScreenViewController.m; sourceTree = "<group>"; };
+		4D2F6C091D534BC2005FD9BE /* Splash.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Splash.xib; sourceTree = "<group>"; };
+		4D2F6C0D1D535B1F005FD9BE /* AnimatedNumericLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimatedNumericLabel.h; sourceTree = "<group>"; };
+		4D2F6C0E1D535B1F005FD9BE /* AnimatedNumericLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimatedNumericLabel.m; sourceTree = "<group>"; };
+		4D2F6C101D5362D4005FD9BE /* SoundEffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundEffect.h; sourceTree = "<group>"; };
+		4D2F6C111D5362D4005FD9BE /* SoundEffect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundEffect.m; sourceTree = "<group>"; };
+		4D2F6C121D5362D4005FD9BE /* SoundEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundEffects.h; sourceTree = "<group>"; };
+		4D2F6C131D5362D4005FD9BE /* SoundEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundEffects.m; sourceTree = "<group>"; };
+		4D2F6C161D5363A3005FD9BE /* cash.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = cash.wav; sourceTree = "<group>"; };
 		4D3B56641D44E1EA00267C95 /* FantasyFootball.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FantasyFootball.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D3B56681D44E1EA00267C95 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4D3B566A1D44E1EA00267C95 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -206,10 +222,18 @@
 				4D2A99D01D4762FA00DCDB15 /* WhoAreYaViewController.m */,
 				4DD47C971D4D3240008D64A7 /* StatsViewController.h */,
 				4DD47C981D4D3240008D64A7 /* StatsViewController.m */,
+				4D2F6C041D5349DB005FD9BE /* LaunchScreenViewController.h */,
+				4D2F6C051D5349DB005FD9BE /* LaunchScreenViewController.m */,
 				4D2A99CC1D47628500DCDB15 /* DismissSegue.h */,
 				4D2A99CD1D47628500DCDB15 /* DismissSegue.m */,
+				4D2F6C0D1D535B1F005FD9BE /* AnimatedNumericLabel.h */,
+				4D2F6C0E1D535B1F005FD9BE /* AnimatedNumericLabel.m */,
 				4D2A99C91D47566800DCDB15 /* Util.h */,
 				4D2A99CA1D47566800DCDB15 /* Util.m */,
+				4D2F6C101D5362D4005FD9BE /* SoundEffect.h */,
+				4D2F6C111D5362D4005FD9BE /* SoundEffect.m */,
+				4D2F6C121D5362D4005FD9BE /* SoundEffects.h */,
+				4D2F6C131D5362D4005FD9BE /* SoundEffects.m */,
 				4D2A9A581D48B49E00DCDB15 /* Constants.h */,
 				4D3B56A41D45167900267C95 /* Resources */,
 				4D3B56671D44E1EA00267C95 /* Supporting Files */,
@@ -265,6 +289,8 @@
 			children = (
 				4D3B56731D44E1EA00267C95 /* Main.storyboard */,
 				4D3B56781D44E1EA00267C95 /* LaunchScreen.storyboard */,
+				4D2F6C091D534BC2005FD9BE /* Splash.xib */,
+				4D2F6C161D5363A3005FD9BE /* cash.wav */,
 				4D3B56761D44E1EA00267C95 /* Assets.xcassets */,
 				4D3B567B1D44E1EA00267C95 /* Info.plist */,
 				4D3B569B1D4512D400267C95 /* teams.json */,
@@ -383,6 +409,8 @@
 				4D3B569C1D4512D400267C95 /* teams.json in Resources */,
 				4D2A9A571D47DFC700DCDB15 /* AirshipConfig.plist in Resources */,
 				4D3B567A1D44E1EA00267C95 /* LaunchScreen.storyboard in Resources */,
+				4D2F6C0B1D534BC2005FD9BE /* Splash.xib in Resources */,
+				4D2F6C171D5363A3005FD9BE /* cash.wav in Resources */,
 				4D3B56771D44E1EA00267C95 /* Assets.xcassets in Resources */,
 				4D2A9A481D47DEF600DCDB15 /* Airship in Resources */,
 				4D2A9A4A1D47DF0100DCDB15 /* AirshipKit in Resources */,
@@ -425,13 +453,17 @@
 				4D2A99CB1D47566800DCDB15 /* Util.m in Sources */,
 				4D3B56961D44FD7000267C95 /* LeagueViewController.m in Sources */,
 				4DA456271D50F08E004D24D8 /* SideBetsViewController.m in Sources */,
+				4D2F6C0F1D535B1F005FD9BE /* AnimatedNumericLabel.m in Sources */,
 				4D3B56A21D4515F000267C95 /* TeamManager.m in Sources */,
 				4D3B569F1D45137F00267C95 /* SettingsManager.m in Sources */,
 				4D3B56A71D453D0300267C95 /* GoldenBootViewController.m in Sources */,
 				4DF241201D46302100AF4F1A /* Month.m in Sources */,
 				4DF2411D1D461F0600AF4F1A /* MOTMViewController.m in Sources */,
+				4D2F6C141D5362D4005FD9BE /* SoundEffect.m in Sources */,
 				4D3B566C1D44E1EA00267C95 /* AppDelegate.m in Sources */,
+				4D2F6C151D5362D4005FD9BE /* SoundEffects.m in Sources */,
 				4D3B56991D4504F400267C95 /* Team.m in Sources */,
+				4D2F6C061D5349DB005FD9BE /* LaunchScreenViewController.m in Sources */,
 				4D2A99D11D4762FA00DCDB15 /* WhoAreYaViewController.m in Sources */,
 				4DF241231D463F9900AF4F1A /* TeamDetailViewController.m in Sources */,
 				4DD47C991D4D3240008D64A7 /* StatsViewController.m in Sources */,

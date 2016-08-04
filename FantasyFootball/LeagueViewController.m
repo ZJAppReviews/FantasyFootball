@@ -8,6 +8,7 @@
 
 #import "LeagueViewController.h"
 #import "TeamDetailViewController.h"
+#import "LaunchScreenViewController.h"
 #import "Team.h"
 #import "TeamManager.h"
 #import "SettingsManager.h"
@@ -16,10 +17,13 @@
 #import <Crashlytics/Crashlytics.h>
 
 @interface LeagueViewController () {
+    BOOL taylorOnScreen, showNewWeekAlert;
 }
 
 @property (nonatomic, strong) NSMutableArray *teams;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *settingsButton;
+@property (nonatomic, strong) LaunchScreenViewController *launchScreenVC;
+@property (nonatomic) UIImageView *taylor;
 
 @end
 
@@ -52,6 +56,50 @@
     [[_settingsButton valueForKey:@"view"] addGestureRecognizer:longPress];
     
     NSLog(@"viewDidLoad %@ data", ([TeamManager getInstance].year ? @"with" : @"without"));
+    
+    if (getOptionValueForKey(@"managerName")) {
+        taylorOnScreen = YES;
+        self.launchScreenVC = [[LaunchScreenViewController alloc] initFromStoryboard:self.storyboard];
+        
+        UIView *v = _launchScreenVC.view;
+        v.tag = 666;
+        [self.view addSubview:v];
+        
+        _taylor = [v viewWithTag:1];
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+        
+        [UIView animateWithDuration:1.0
+                              delay:0.0
+                            options:0
+                         animations:^{
+                             _taylor.alpha = 1.0;
+                             _taylor.layer.transform = CATransform3DScale(CATransform3DIdentity, 0.001, 0.001, 0.001);
+                             CATransform3D scaleTransform = CATransform3DScale(_taylor.layer.transform, 1000, 1000, 1000);
+                             _taylor.layer.transform = scaleTransform;
+                         } completion:^(BOOL finished) {
+                             [NSThread sleepForTimeInterval:1];
+                             _taylor.tag = 20;
+                             [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(removeWithSinkAnimationRotateTimer:) userInfo:nil repeats:YES];
+                         }];
+    }
+}
+
+- (void) removeWithSinkAnimationRotateTimer:(NSTimer*) timer {
+    CGAffineTransform trans = CGAffineTransformRotate(CGAffineTransformScale(_taylor.transform, 0.8, 0.8),0.314 * 2);
+    _taylor.transform = trans;
+    _taylor.alpha = _taylor.alpha * 0.98;
+    _taylor.tag = _taylor.tag - 1;
+    if (_taylor.tag <= 0) {
+        [timer invalidate];
+        [[self.view viewWithTag:666] removeFromSuperview];
+        self.edgesForExtendedLayout = UIRectEdgeAll;
+        taylorOnScreen = NO;
+        if (showNewWeekAlert) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self showNewWeekAlert];
+            });
+        }
+    }
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -63,7 +111,10 @@
         [self performSegueWithIdentifier:@"WhoAreYa" sender: self];
     }
     else {
-        [self showNewWeekAlert];
+        if (taylorOnScreen)
+            showNewWeekAlert = YES;
+        else
+            [self showNewWeekAlert];
     }
 }
 
@@ -89,8 +140,12 @@
         if (![controller isKindOfClass:UIAlertController.class]) {
             modalViewController = ((UINavigationController *) controller).visibleViewController;
         
-            if (!modalViewController)
-                [self showNewWeekAlert];
+            if (!modalViewController) {
+                if (taylorOnScreen)
+                    showNewWeekAlert = YES;
+                else
+                    [self showNewWeekAlert];
+            }
             else
                 [self.tableView reloadData];
         }
@@ -132,7 +187,7 @@
         if (optionEnabled(@"motmWin")) {
             setOptionBoolForKey(@"motmWin", NO);
             title = @"Manager Of The Month";
-            message = [NSString stringWithFormat:@"Congratulation! You are Manager Of The Month for %@. Slip a pair of Ladies into your back pocket.", ((Month *)[TeamManager getInstance].months[10 - [TeamManager getInstance].monthNumber]).monthName];
+            message = [NSString stringWithFormat:@"Congratulations! You are Manager Of The Month for %@. Slip a pair of Ladies into your back pocket.", ((Month *)[TeamManager getInstance].months[10 - [TeamManager getInstance].monthNumber]).monthName];
         }
         else if (week == 1 || oldPosition == 0) {
             switch (newPosition) {
@@ -151,7 +206,7 @@
                 case 9:
                 case 10:
                 case 11:
-                    message = [NSString stringWithFormat:@"Mid table mediocrity, but safely above the Wooden Cock zone for now."];
+                    message = [NSString stringWithFormat:@"Mid table mediocrity looms, but safely above the Wooden Cock zone for now."];
                     break;
                 case 12:
                 case 13:
@@ -172,7 +227,7 @@
             if (movement > 0) {
                 NSArray *upCliches = @[
                     @"Heading in the right direction, Shooting for the stars, Dribbling in your sleep, you get the idea...",
-                    @"Back of the net. Order a round of Jagermeisters!",
+                    @"Back of the net. Order a round of Jagerbombs!",
                     @"You've got to be hitting the target from there. And it looks like you did!",
                     @"He almost hit it too well there, Ray. Still went in the back of the net though!",
                     @"It’s just handbags Geoff. Not a yellow card for me.",
@@ -182,7 +237,7 @@
                 NSArray *topCliches = @[
                     @"Congratulations! The cream always rises and you just creamed yourself.",
                     @"Respect Blud! King of the Castle.",
-                    @"Woo Hoo, You the Main Man! Double Jagermeisters all round."
+                    @"Woo Hoo, You the Main Man! Double Jagerbombs all round."
                 ];
                 
                 if (newPosition == 1)
@@ -208,13 +263,11 @@
             }
             else {
                 NSArray *sameCliches = @[
-                    @"It's a game of two halves, which probably explains why you haven't moved an inch.",
+                    @"It's a game of two halves apparently, which probably explains why you haven't moved an inch.",
                     @"They ran their socks off, but got nothing for it. Points shared!",
                     @"Some tired legs out there. Might explain why you are treading water.",
-                    @"Nothing to see here. Move along, move along.",
-                    @"Cue tuneless whistling...",
                     @"Stuck in a rut? Consult Andy Townsend for tactical inspiration.",
-                    @"Not going anywhere fast? Consider a change of formation, throw on 4 strikers and pray.",
+                    @"Not going anywhere fast? Consider a change of formation, throw on 4 strikers and hope for the best.",
                     @"Still in the same old position. Visit Mystic Meg for a change of fortune."
                 ];
                 NSArray *topCliches = @[
@@ -229,11 +282,10 @@
                      @"Still a Bottom Dweller, feeding off those above you.",
                      @"Remember those things called Transfers? Maybe time to use some...",
                      @"Still at the bottom rung of the ladder. Time to start climbing.",
-                     @"Still propping up the table I'm afraid. Do you have a lot of Sunderland players?",
+                     @"Still propping up the table I'm afraid. Time to make a move (upwards).",
                      @"The Wooden Cock could be yours to keep this year.",
                      @"Maybe a different strategy is required. Give David Moyes a call.",
-                     @"You may need some time away managing a team in the Saudi Arabian league to get your confidence back and get over the alcohol dependence.",
-                     @"Time to invoke the Unlimited Transfers In-App Purchase."
+                     @"Time to buy the Unlimited Transfers In-App Purchase."
                 ];
                 
                 if (newPosition == 16)

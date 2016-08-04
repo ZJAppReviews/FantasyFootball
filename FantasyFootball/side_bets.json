@@ -40,7 +40,8 @@
             "name2" : "Enz",
             "amount" : 10,
             "bet" : "Del bets he won't be last",
-            "type" : "other"
+            "type" : "other",
+            "winning" : ""
         },
         {
             "managerName1" : "Mr C Cowpertwait",
@@ -132,7 +133,8 @@
             "name2" : "Enz",
             "amount" : 10,
             "bet" : "Arsenal v Man United",
-            "type" : "other"
+            "type" : "other",
+            "winning" : ""
         },
         {
             "managerName1" : "Mr J Appleby",
@@ -235,8 +237,7 @@
             "amount" : 5.01,
             "bet" : "Furthest in FU Cup",
             "type" : "cup"
-        }
-        ,
+        },
         {
           	"managerName1" : "Mr T Lewis",
           	"name1" : "Tim",
@@ -244,7 +245,8 @@
           	"name2" : "Pebbles",
           	"amount" : 7.70,
           	"bet" : "Highest of Chris (Tim) and Jason R (Phil)",
-            "type" : "other"
+            "type" : "other",
+            "winning" : ""
         }
     ]
 }

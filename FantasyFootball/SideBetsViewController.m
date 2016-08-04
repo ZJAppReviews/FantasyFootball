@@ -117,7 +117,7 @@
         Team *team1 = [[TeamManager getInstance] getTeam:sideBet[@"managerName1"]];
         Team *team2 = [[TeamManager getInstance] getTeam:sideBet[@"managerName2"]];
         Team *team3 = [[TeamManager getInstance] getTeam:sideBet[@"managerName3"]];
-        Team *winningTeam = [[TeamManager getInstance] whoIsWinningBetOfType:sideBet[@"type"] betweenTeam1:team1 team2:team2 team3:team3];
+        Team *winningTeam = [[TeamManager getInstance] whoIsWinningBetOfType:sideBet betweenTeam1:team1 team2:team2 team3:team3];
         if ([winningTeam.managerName isEqualToString:sideBet[@"managerName1"]]) {
             name1.textColor = getAppDelegate().goldText;
             //name1.font = [self font:name1.font withWeight:UIFontDescriptorTraitBold];

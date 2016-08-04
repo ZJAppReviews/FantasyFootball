@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AnimatedNumericLabel.h"
 
 @class Team;
 
-@interface TeamDetailViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate>
+@interface TeamDetailViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, AnimatedNumericLabelDelegate>
 
 @property (nonatomic, strong) Team *team;
 
