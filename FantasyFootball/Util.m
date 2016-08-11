@@ -10,6 +10,20 @@
 #import "AppDelegate.h"
 #import "Team.h"
 
+NSNumberFormatter* getCurrencyFormatter() {
+    static NSNumberFormatter *currencyFormatter = nil;
+    if (!currencyFormatter) {
+        currencyFormatter = [[NSNumberFormatter alloc] init];
+        [currencyFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
+        [currencyFormatter setLenient:YES];
+        [currencyFormatter setRoundingMode:NSNumberFormatterRoundHalfUp];
+        [currencyFormatter setRoundingIncrement:[NSNumber numberWithDouble:0.01]];
+        [currencyFormatter setCurrencySymbol:@"£"];
+        [currencyFormatter setNegativeFormat:[@"-" stringByAppendingString:[currencyFormatter positiveFormat]]];
+    }
+    return currencyFormatter;
+}
+
 NSString* getManagerName(Team *team) {
     if (!team.chairman)
         return team.managerName;

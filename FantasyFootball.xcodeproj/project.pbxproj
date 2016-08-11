@@ -33,6 +33,30 @@
 		4D3B569F1D45137F00267C95 /* SettingsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D3B569E1D45137F00267C95 /* SettingsManager.m */; };
 		4D3B56A21D4515F000267C95 /* TeamManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D3B56A11D4515F000267C95 /* TeamManager.m */; };
 		4D3B56A71D453D0300267C95 /* GoldenBootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D3B56A61D453D0300267C95 /* GoldenBootViewController.m */; };
+		4D4D511A1D5603A600CCED96 /* teams_debug.json in Resources */ = {isa = PBXBuildFile; fileRef = 4D4D51191D5603A600CCED96 /* teams_debug.json */; };
+		4D4D511D1D56244C00CCED96 /* ManagerStatsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D4D511C1D56244C00CCED96 /* ManagerStatsViewController.m */; };
+		4D4D511F1D56250C00CCED96 /* manager_stats.json in Resources */ = {isa = PBXBuildFile; fileRef = 4D4D511E1D56250C00CCED96 /* manager_stats.json */; };
+		4D4D51221D56298800CCED96 /* ManagerStatsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D4D51211D56298800CCED96 /* ManagerStatsDetailViewController.m */; };
+		4D4D51251D562D9600CCED96 /* StatsKeyValueViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D4D51241D562D9600CCED96 /* StatsKeyValueViewController.m */; };
+		4D4D51281D59F08300CCED96 /* DINLTStatsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D4D51271D59F08300CCED96 /* DINLTStatsViewController.m */; };
+		4D4D512B1D5A3EBD00CCED96 /* do_i_not_like_that.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4D4D51291D5A3EBD00CCED96 /* do_i_not_like_that.wav */; };
+		4D4D512E1D5A405800CCED96 /* ooh_do_i_not_like_that.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4D4D512D1D5A405800CCED96 /* ooh_do_i_not_like_that.wav */; };
+		4D4D51301D5C8EB500CCED96 /* toilet.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4D4D512F1D5C8EB500CCED96 /* toilet.wav */; };
+		4D4D51401D5C98D800CCED96 /* can_we_not_knock_it.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4D4D51311D5C98D800CCED96 /* can_we_not_knock_it.wav */; };
+		4D4D51411D5C98D800CCED96 /* carlton_started_it.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4D4D51321D5C98D800CCED96 /* carlton_started_it.wav */; };
+		4D4D51421D5C98D800CCED96 /* disgraceful.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4D4D51331D5C98D800CCED96 /* disgraceful.wav */; };
+		4D4D51431D5C98D800CCED96 /* gotta_go_big.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4D4D51341D5C98D800CCED96 /* gotta_go_big.wav */; };
+		4D4D51441D5C98D800CCED96 /* hit_les.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4D4D51351D5C98D800CCED96 /* hit_les.wav */; };
+		4D4D51451D5C98D800CCED96 /* i_sweat_a_lot.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4D4D51361D5C98D800CCED96 /* i_sweat_a_lot.wav */; };
+		4D4D51461D5C98D800CCED96 /* if_you_were_one_of_my_players.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4D4D51371D5C98D800CCED96 /* if_you_were_one_of_my_players.wav */; };
+		4D4D51471D5C98D800CCED96 /* made_for_wrighty.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4D4D51381D5C98D800CCED96 /* made_for_wrighty.wav */; };
+		4D4D51481D5C98D800CCED96 /* platty.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4D4D51391D5C98D800CCED96 /* platty.wav */; };
+		4D4D51491D5C98D800CCED96 /* right_to_the_death.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4D4D513A1D5C98D800CCED96 /* right_to_the_death.wav */; };
+		4D4D514A1D5C98D800CCED96 /* sharpey.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4D4D513B1D5C98D800CCED96 /* sharpey.wav */; };
+		4D4D514B1D5C98D800CCED96 /* tuck_in_more.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4D4D513C1D5C98D800CCED96 /* tuck_in_more.wav */; };
+		4D4D514C1D5C98D800CCED96 /* we_are_in_trouble.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4D4D513D1D5C98D800CCED96 /* we_are_in_trouble.wav */; };
+		4D4D514D1D5C98D800CCED96 /* you_cannot_wait.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4D4D513E1D5C98D800CCED96 /* you_cannot_wait.wav */; };
+		4D4D514E1D5C98D800CCED96 /* you_know_weve_been_cheated.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4D4D513F1D5C98D800CCED96 /* you_know_weve_been_cheated.wav */; };
 		4D70546E1D4A4FF80039B4AE /* teams_test.json in Resources */ = {isa = PBXBuildFile; fileRef = 4D70546D1D4A4FF80039B4AE /* teams_test.json */; };
 		4D7054721D4A6EDB0039B4AE /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D7054701D4A6EDB0039B4AE /* Fabric.framework */; };
 		4D7054731D4A6EDB0039B4AE /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D7054711D4A6EDB0039B4AE /* Crashlytics.framework */; };
@@ -128,6 +152,34 @@
 		4D3B56A11D4515F000267C95 /* TeamManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeamManager.m; sourceTree = "<group>"; };
 		4D3B56A51D453CF900267C95 /* GoldenBootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoldenBootViewController.h; sourceTree = "<group>"; };
 		4D3B56A61D453D0300267C95 /* GoldenBootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoldenBootViewController.m; sourceTree = "<group>"; };
+		4D4D51191D5603A600CCED96 /* teams_debug.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = teams_debug.json; sourceTree = "<group>"; };
+		4D4D511B1D56244C00CCED96 /* ManagerStatsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManagerStatsViewController.h; sourceTree = "<group>"; };
+		4D4D511C1D56244C00CCED96 /* ManagerStatsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManagerStatsViewController.m; sourceTree = "<group>"; };
+		4D4D511E1D56250C00CCED96 /* manager_stats.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = manager_stats.json; sourceTree = "<group>"; };
+		4D4D51201D56297800CCED96 /* ManagerStatsDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManagerStatsDetailViewController.h; sourceTree = "<group>"; };
+		4D4D51211D56298800CCED96 /* ManagerStatsDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManagerStatsDetailViewController.m; sourceTree = "<group>"; };
+		4D4D51231D562D9600CCED96 /* StatsKeyValueViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StatsKeyValueViewController.h; path = ../StatsKeyValueViewController.h; sourceTree = "<group>"; };
+		4D4D51241D562D9600CCED96 /* StatsKeyValueViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StatsKeyValueViewController.m; path = ../StatsKeyValueViewController.m; sourceTree = "<group>"; };
+		4D4D51261D59F07800CCED96 /* DINLTStatsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DINLTStatsViewController.h; sourceTree = "<group>"; };
+		4D4D51271D59F08300CCED96 /* DINLTStatsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DINLTStatsViewController.m; sourceTree = "<group>"; };
+		4D4D51291D5A3EBD00CCED96 /* do_i_not_like_that.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = do_i_not_like_that.wav; sourceTree = "<group>"; };
+		4D4D512D1D5A405800CCED96 /* ooh_do_i_not_like_that.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = ooh_do_i_not_like_that.wav; sourceTree = "<group>"; };
+		4D4D512F1D5C8EB500CCED96 /* toilet.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = toilet.wav; sourceTree = "<group>"; };
+		4D4D51311D5C98D800CCED96 /* can_we_not_knock_it.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = can_we_not_knock_it.wav; sourceTree = "<group>"; };
+		4D4D51321D5C98D800CCED96 /* carlton_started_it.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = carlton_started_it.wav; sourceTree = "<group>"; };
+		4D4D51331D5C98D800CCED96 /* disgraceful.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = disgraceful.wav; sourceTree = "<group>"; };
+		4D4D51341D5C98D800CCED96 /* gotta_go_big.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = gotta_go_big.wav; sourceTree = "<group>"; };
+		4D4D51351D5C98D800CCED96 /* hit_les.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = hit_les.wav; sourceTree = "<group>"; };
+		4D4D51361D5C98D800CCED96 /* i_sweat_a_lot.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = i_sweat_a_lot.wav; sourceTree = "<group>"; };
+		4D4D51371D5C98D800CCED96 /* if_you_were_one_of_my_players.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = if_you_were_one_of_my_players.wav; sourceTree = "<group>"; };
+		4D4D51381D5C98D800CCED96 /* made_for_wrighty.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = made_for_wrighty.wav; sourceTree = "<group>"; };
+		4D4D51391D5C98D800CCED96 /* platty.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = platty.wav; sourceTree = "<group>"; };
+		4D4D513A1D5C98D800CCED96 /* right_to_the_death.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = right_to_the_death.wav; sourceTree = "<group>"; };
+		4D4D513B1D5C98D800CCED96 /* sharpey.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = sharpey.wav; sourceTree = "<group>"; };
+		4D4D513C1D5C98D800CCED96 /* tuck_in_more.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = tuck_in_more.wav; sourceTree = "<group>"; };
+		4D4D513D1D5C98D800CCED96 /* we_are_in_trouble.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = we_are_in_trouble.wav; sourceTree = "<group>"; };
+		4D4D513E1D5C98D800CCED96 /* you_cannot_wait.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = you_cannot_wait.wav; sourceTree = "<group>"; };
+		4D4D513F1D5C98D800CCED96 /* you_know_weve_been_cheated.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = you_know_weve_been_cheated.wav; sourceTree = "<group>"; };
 		4D70546D1D4A4FF80039B4AE /* teams_test.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = teams_test.json; sourceTree = "<group>"; };
 		4D7054701D4A6EDB0039B4AE /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		4D7054711D4A6EDB0039B4AE /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
@@ -222,6 +274,14 @@
 				4D2A99D01D4762FA00DCDB15 /* WhoAreYaViewController.m */,
 				4DD47C971D4D3240008D64A7 /* StatsViewController.h */,
 				4DD47C981D4D3240008D64A7 /* StatsViewController.m */,
+				4D4D511B1D56244C00CCED96 /* ManagerStatsViewController.h */,
+				4D4D511C1D56244C00CCED96 /* ManagerStatsViewController.m */,
+				4D4D51261D59F07800CCED96 /* DINLTStatsViewController.h */,
+				4D4D51271D59F08300CCED96 /* DINLTStatsViewController.m */,
+				4D4D51201D56297800CCED96 /* ManagerStatsDetailViewController.h */,
+				4D4D51211D56298800CCED96 /* ManagerStatsDetailViewController.m */,
+				4D4D51231D562D9600CCED96 /* StatsKeyValueViewController.h */,
+				4D4D51241D562D9600CCED96 /* StatsKeyValueViewController.m */,
 				4D2F6C041D5349DB005FD9BE /* LaunchScreenViewController.h */,
 				4D2F6C051D5349DB005FD9BE /* LaunchScreenViewController.m */,
 				4D2A99CC1D47628500DCDB15 /* DismissSegue.h */,
@@ -287,17 +347,45 @@
 		4D3B56A41D45167900267C95 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				4D4D514F1D5CB6C200CCED96 /* Audio */,
 				4D3B56731D44E1EA00267C95 /* Main.storyboard */,
 				4D3B56781D44E1EA00267C95 /* LaunchScreen.storyboard */,
 				4D2F6C091D534BC2005FD9BE /* Splash.xib */,
-				4D2F6C161D5363A3005FD9BE /* cash.wav */,
 				4D3B56761D44E1EA00267C95 /* Assets.xcassets */,
 				4D3B567B1D44E1EA00267C95 /* Info.plist */,
 				4D3B569B1D4512D400267C95 /* teams.json */,
-				4DA456281D50FD59004D24D8 /* side_bets.json */,
 				4D70546D1D4A4FF80039B4AE /* teams_test.json */,
+				4D4D51191D5603A600CCED96 /* teams_debug.json */,
+				4DA456281D50FD59004D24D8 /* side_bets.json */,
+				4D4D511E1D56250C00CCED96 /* manager_stats.json */,
 			);
 			name = Resources;
+			sourceTree = "<group>";
+		};
+		4D4D514F1D5CB6C200CCED96 /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				4D2F6C161D5363A3005FD9BE /* cash.wav */,
+				4D4D512F1D5C8EB500CCED96 /* toilet.wav */,
+				4D4D51291D5A3EBD00CCED96 /* do_i_not_like_that.wav */,
+				4D4D512D1D5A405800CCED96 /* ooh_do_i_not_like_that.wav */,
+				4D4D51311D5C98D800CCED96 /* can_we_not_knock_it.wav */,
+				4D4D51321D5C98D800CCED96 /* carlton_started_it.wav */,
+				4D4D51331D5C98D800CCED96 /* disgraceful.wav */,
+				4D4D51341D5C98D800CCED96 /* gotta_go_big.wav */,
+				4D4D51351D5C98D800CCED96 /* hit_les.wav */,
+				4D4D51361D5C98D800CCED96 /* i_sweat_a_lot.wav */,
+				4D4D51371D5C98D800CCED96 /* if_you_were_one_of_my_players.wav */,
+				4D4D51381D5C98D800CCED96 /* made_for_wrighty.wav */,
+				4D4D51391D5C98D800CCED96 /* platty.wav */,
+				4D4D513A1D5C98D800CCED96 /* right_to_the_death.wav */,
+				4D4D513B1D5C98D800CCED96 /* sharpey.wav */,
+				4D4D513C1D5C98D800CCED96 /* tuck_in_more.wav */,
+				4D4D513D1D5C98D800CCED96 /* we_are_in_trouble.wav */,
+				4D4D513E1D5C98D800CCED96 /* you_cannot_wait.wav */,
+				4D4D513F1D5C98D800CCED96 /* you_know_weve_been_cheated.wav */,
+			);
+			name = Audio;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -405,15 +493,35 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D4D51481D5C98D800CCED96 /* platty.wav in Resources */,
+				4D4D51461D5C98D800CCED96 /* if_you_were_one_of_my_players.wav in Resources */,
+				4D4D51301D5C8EB500CCED96 /* toilet.wav in Resources */,
+				4D4D512E1D5A405800CCED96 /* ooh_do_i_not_like_that.wav in Resources */,
+				4D4D51421D5C98D800CCED96 /* disgraceful.wav in Resources */,
+				4D4D514E1D5C98D800CCED96 /* you_know_weve_been_cheated.wav in Resources */,
+				4D4D51471D5C98D800CCED96 /* made_for_wrighty.wav in Resources */,
+				4D4D51441D5C98D800CCED96 /* hit_les.wav in Resources */,
+				4D4D514A1D5C98D800CCED96 /* sharpey.wav in Resources */,
+				4D4D511F1D56250C00CCED96 /* manager_stats.json in Resources */,
+				4D4D512B1D5A3EBD00CCED96 /* do_i_not_like_that.wav in Resources */,
 				4D70546E1D4A4FF80039B4AE /* teams_test.json in Resources */,
 				4D3B569C1D4512D400267C95 /* teams.json in Resources */,
 				4D2A9A571D47DFC700DCDB15 /* AirshipConfig.plist in Resources */,
 				4D3B567A1D44E1EA00267C95 /* LaunchScreen.storyboard in Resources */,
 				4D2F6C0B1D534BC2005FD9BE /* Splash.xib in Resources */,
+				4D4D51401D5C98D800CCED96 /* can_we_not_knock_it.wav in Resources */,
 				4D2F6C171D5363A3005FD9BE /* cash.wav in Resources */,
+				4D4D51491D5C98D800CCED96 /* right_to_the_death.wav in Resources */,
+				4D4D514C1D5C98D800CCED96 /* we_are_in_trouble.wav in Resources */,
+				4D4D514D1D5C98D800CCED96 /* you_cannot_wait.wav in Resources */,
+				4D4D51451D5C98D800CCED96 /* i_sweat_a_lot.wav in Resources */,
 				4D3B56771D44E1EA00267C95 /* Assets.xcassets in Resources */,
 				4D2A9A481D47DEF600DCDB15 /* Airship in Resources */,
+				4D4D514B1D5C98D800CCED96 /* tuck_in_more.wav in Resources */,
+				4D4D511A1D5603A600CCED96 /* teams_debug.json in Resources */,
+				4D4D51431D5C98D800CCED96 /* gotta_go_big.wav in Resources */,
 				4D2A9A4A1D47DF0100DCDB15 /* AirshipKit in Resources */,
+				4D4D51411D5C98D800CCED96 /* carlton_started_it.wav in Resources */,
 				4DA456291D50FD59004D24D8 /* side_bets.json in Resources */,
 				4D3B56751D44E1EA00267C95 /* Main.storyboard in Resources */,
 			);
@@ -453,16 +561,20 @@
 				4D2A99CB1D47566800DCDB15 /* Util.m in Sources */,
 				4D3B56961D44FD7000267C95 /* LeagueViewController.m in Sources */,
 				4DA456271D50F08E004D24D8 /* SideBetsViewController.m in Sources */,
+				4D4D51251D562D9600CCED96 /* StatsKeyValueViewController.m in Sources */,
 				4D2F6C0F1D535B1F005FD9BE /* AnimatedNumericLabel.m in Sources */,
 				4D3B56A21D4515F000267C95 /* TeamManager.m in Sources */,
 				4D3B569F1D45137F00267C95 /* SettingsManager.m in Sources */,
 				4D3B56A71D453D0300267C95 /* GoldenBootViewController.m in Sources */,
 				4DF241201D46302100AF4F1A /* Month.m in Sources */,
+				4D4D51281D59F08300CCED96 /* DINLTStatsViewController.m in Sources */,
 				4DF2411D1D461F0600AF4F1A /* MOTMViewController.m in Sources */,
 				4D2F6C141D5362D4005FD9BE /* SoundEffect.m in Sources */,
 				4D3B566C1D44E1EA00267C95 /* AppDelegate.m in Sources */,
 				4D2F6C151D5362D4005FD9BE /* SoundEffects.m in Sources */,
+				4D4D51221D56298800CCED96 /* ManagerStatsDetailViewController.m in Sources */,
 				4D3B56991D4504F400267C95 /* Team.m in Sources */,
+				4D4D511D1D56244C00CCED96 /* ManagerStatsViewController.m in Sources */,
 				4D2F6C061D5349DB005FD9BE /* LaunchScreenViewController.m in Sources */,
 				4D2A99D11D4762FA00DCDB15 /* WhoAreYaViewController.m in Sources */,
 				4DF241231D463F9900AF4F1A /* TeamDetailViewController.m in Sources */,
@@ -644,7 +756,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mhriley.FantasyFootball;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "fc9bfaa2-bcba-4fdc-a3cb-9fc789c18dd9";
+				PROVISIONING_PROFILE = "4151f9f4-c897-45ff-83f0-95e3d4954de1";
 			};
 			name = Release;
 		};

@@ -1,0 +1,197 @@
+{
+	"year" : "2016/17",
+    "week" : 1,
+    "teams" : [
+    	{
+            "teamName" : "Team2",
+            "managerName" : "Mr C Attrill",
+            "goals" : 35,
+            "weeks" : {
+            	"1" : 114
+            }
+        },
+        {
+            "teamName" : "Motley Crue",
+            "managerName" : "Mr M Riley",
+            "chairman" : true,
+            "goals" : 25,
+            "weeks" : {
+            	"1" : 234
+            }
+        },
+        {
+            "teamName" : "Team3",
+            "managerName" : "Mr J Appleby",
+            "goals" : 2334,
+            "weeks" : {
+            	"1" : 94
+            }	
+        },
+        {
+            "teamName" : "Team4",
+            "managerName" : "Mr D Lin",
+            "goals" : 23,
+            "weeks" : {
+            	"1" : 14
+            }	
+        },
+        {
+            "teamName" : "Team4",
+            "managerName" : "Mr M Mitchell",
+            "goals" : 34,
+            "weeks" : {
+            	"1" : 66
+            }
+        },
+        {
+            "teamName" : "Team4",
+            "managerName" : "Mr J Hitchins",
+            "goals" : 25,
+            "weeks" : {
+            	"1" : 74
+            }
+        },
+        {
+            "teamName" : "Team4",
+            "managerName" : "Mr P Pritchard",
+            "goals" : 89,
+            "weeks" : {
+            	"1" : 4
+            }
+        },
+        {
+            "teamName" : "Team4",
+            "managerName" : "Mr C Emmerson",
+            "goals" : 76,
+            "weeks" : {
+            	"1" : 124
+            }
+        },
+        {
+            "teamName" : "Team4",
+            "managerName" : "Mr T Lewis",
+            "goals" : 87,
+            "weeks" : {
+            	"1" : 104
+            }
+        },
+        {
+            "teamName" : "Team4",
+            "managerName" : "Mr C Cowpertwait",
+            "goals" : 34,
+            "weeks" : {
+            	"1" : 94
+            }
+        },
+        {
+            "teamName" : "Team4",
+            "managerName" : "Mr P Attrill",
+            "goals" : 66,
+            "weeks" : {
+            	"1" : 24
+            }
+        },
+        {
+            "teamName" : "Team4",
+            "managerName" : "Mr S Dowe",
+            "goals" : 19,
+            "weeks" : {
+            	"1" : 34
+            }
+        },
+        {
+            "teamName" : "Team4",
+            "managerName" : "Mr C Foxall",
+            "goals" : 7,
+            "weeks" : {
+            	"1" : 44
+            }
+        },
+        {
+            "teamName" : "Team4",
+            "managerName" : "Mr J Free",
+            "goals" : 45,
+            "weeks" : {
+            	"1" : 54
+            }	
+        },
+        {
+            "teamName" : "Team4",
+            "managerName" : "Mr J Ransley",
+            "goals" : 76,
+            "weeks" : {
+            	"1" : 64
+            }
+        },
+        {
+            "teamName" : "Team4",
+            "managerName" : "Mr P Gill",
+            "goals" : 123,
+            "weeks" : {
+            	"1" : 74
+            }
+        }
+    ],
+    "months" : [
+        {
+			"monthNumber" : 1,
+			"monthName" : "August",
+			"dateRange" : "13th Aug - 29th Aug",
+			"weeks" : 3
+        },
+        {
+			"monthNumber" : 2,
+			"monthName" : "September",
+			"dateRange" : "30th Aug - 26th Sep",
+			"weeks" : 4
+        },
+        {
+			"monthNumber" : 3,
+			"monthName" : "October",
+			"dateRange" : "27th Sep - 31st Oct",
+			"weeks" : 5
+        },
+        {
+			"monthNumber" : 4,
+			"monthName" : "November",
+			"dateRange" : "1st Nov - 28th Nov",
+			"weeks" : 4
+        },
+        {
+			"monthNumber" : 5,
+			"monthName" : "December",
+			"dateRange" : "29th Nov - 26th Dec",
+			"weeks" : 4
+        },
+        {
+			"monthNumber" : 6,
+			"monthName" : "January",
+			"dateRange" : "27th Dec - 30th Jan",
+			"weeks" : 5
+        },
+        {
+			"monthNumber" : 7,
+			"monthName" : "February",
+			"dateRange" : "31st Jan - 27th Feb",
+			"weeks" : 4
+        },
+        {
+			"monthNumber" : 8,
+			"monthName" : "March",
+			"dateRange" : "28th Feb - 27th Mar",
+			"weeks" : 4
+        },
+        {
+			"monthNumber" : 9,
+			"monthName" : "April",
+			"dateRange" : "28th Mar - 24th Apr",
+			"weeks" : 4
+        },
+        {
+			"monthNumber" : 10,
+			"monthName" : "May",
+			"dateRange" : "25th Apr - 21st May",
+			"weeks" : 4
+        }
+    ]
+}

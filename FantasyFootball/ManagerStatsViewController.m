@@ -1,26 +1,39 @@
 //
-//  StatsViewControllerTableViewController.m
+//  ManagerStatsViewController.m
 //  FantasyFootball
 //
-//  Created by Mark Riley on 30/07/2016.
+//  Created by Mark Riley on 06/08/2016.
 //  Copyright © 2016 MH Riley. All rights reserved.
 //
 
-#import "StatsViewController.h"
+#import "ManagerStatsViewController.h"
+#import "ManagerStatsDetailViewController.h"
 #import "Util.h"
 
-@interface StatsViewController ()
+@interface ManagerStatsViewController ()
+
+@property (nonatomic) NSArray *managers;
 
 @end
 
-@implementation StatsViewController
+@implementation ManagerStatsViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     self.tableView.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0);
-    self.tableView.rowHeight = 70;
+    
+    self.navigationItem.backBarButtonItem =	[[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil];
+    
+    NSError *error = nil;
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"manager_stats" ofType:@"json"];
+    NSData *data = [NSData dataWithContentsOfFile:filePath];
+    _managers = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
+    
+    // sort by tffp
+    NSSortDescriptor *descriptor = [[NSSortDescriptor alloc] initWithKey:@"tffp" ascending:NO];
+    _managers = [_managers sortedArrayUsingDescriptors:@[descriptor]];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -35,28 +48,14 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 2;
+    return _managers.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Stat" forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Manager" forIndexPath:indexPath];
     
-    switch (indexPath.row) {
-        case 0:
-            cell.textLabel.text = @"Manager Stats";
-            break;
-        
-        case 1:
-            cell.textLabel.text = @"DINLT Stats";
-            break;
-            
-        case 2:
-            cell.textLabel.text = @"Past Seasons";
-            break;
-            
-        default:
-            break;
-    }
+    NSDictionary *managerStats = _managers[indexPath.row];
+    cell.textLabel.text = managerStats[@"managerName"];
     
     cell.backgroundColor = getAppDelegate().rowBackground;
     
@@ -69,19 +68,6 @@
         [cell setLayoutMargins:UIEdgeInsetsZero];
     
     return cell;
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    switch (indexPath.row) {
-        case 0: {
-            [self performSegueWithIdentifier:@"ManagerStats" sender: self];
-            break;
-        }
-        case 1: {
-            [self performSegueWithIdentifier:@"DINLTStats" sender: self];
-            break;
-        }
-    }
 }
 
 /*
@@ -118,14 +104,14 @@
 }
 */
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    ManagerStatsDetailViewController *vc = [segue destinationViewController];
+    vc.stats = _managers[[self.tableView indexPathForSelectedRow].row];
 }
-*/
+
 
 @end

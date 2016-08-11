@@ -14,6 +14,7 @@
 
 @class Team;
 
+NSNumberFormatter* getCurrencyFormatter();
 NSString* getManagerName(Team *team);
 BOOL isIPhone();
 BOOL isIPhone5();

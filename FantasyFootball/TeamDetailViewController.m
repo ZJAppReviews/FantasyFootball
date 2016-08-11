@@ -89,6 +89,7 @@
     NSArray *sideBets = dict[@"sideBets"];
     for (NSDictionary *sideBet in sideBets) {
         NSString *type = sideBet[@"type"];
+        NSString *dOrQ = sideBet[@"dorq"];
         Team *team1 = [[TeamManager getInstance] getTeam:sideBet[@"managerName1"]];
         Team *team2 = [[TeamManager getInstance] getTeam:sideBet[@"managerName2"]];
         Team *team3 = [[TeamManager getInstance] getTeam:sideBet[@"managerName3"]];
@@ -97,42 +98,35 @@
         Team *losingTeam = [[TeamManager getInstance] whoIsLosingBetOfType:sideBet betweenTeam1:team1 team2:team2 team3:team3];
         
         if ([winningTeam.managerName isEqualToString:_team.managerName]) {
+            double amount = [dOrQ isEqualToString:winningTeam.managerName] ? 0 : [sideBet[@"amount"] doubleValue];
+            
             if ([type isEqualToString:@"league"]) {
-                winnings += team3 ? 2 * [sideBet[@"amount"] doubleValue] : [sideBet[@"amount"] doubleValue];
+                winnings += team3 ? 2 * amount : amount;
             }
             else {
-                winnings += [sideBet[@"amount"] doubleValue];
+                winnings += amount;
             }
         }
         else if ([losingTeam.managerName isEqualToString:_team.managerName]) {
+            double amount = [dOrQ isEqualToString:winningTeam.managerName] ? 0 : [sideBet[@"amount"] doubleValue];
+            
             if ([type isEqualToString:@"league"]) {
-                winnings -= (team3 ? 2 * [sideBet[@"amount"] doubleValue] : [sideBet[@"amount"] doubleValue]);
+                winnings -= (team3 ? 2 * amount : amount);
             }
             else {
-                winnings -= [sideBet[@"amount"] doubleValue];
+                winnings -= amount;
             }
         }
     }
     
     // fu cup is £50 winner / £15 runner up
 
-    NSNumberFormatter *currencyFormatter = [[NSNumberFormatter alloc] init];
-    [currencyFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
-    [currencyFormatter setLenient:YES];
-    [currencyFormatter setRoundingMode:NSNumberFormatterRoundHalfUp];
-    [currencyFormatter setRoundingIncrement:[NSNumber numberWithDouble:0.01]];
-    [currencyFormatter setCurrencySymbol:@"£"];
-    [currencyFormatter setNegativeFormat:[@"-" stringByAppendingString:[currencyFormatter positiveFormat]]];
-
     _predictedWinnings.delegate = self;
     if (_team.leaguePosition == 16) {
-        //_predictedWinnings.text = [NSString stringWithFormat:@"%@ + WC", [currencyFormatter stringFromNumber:[NSNumber numberWithDouble:winnings]]];
-        
         _predictedWinnings.currentValue = 0;
         [_predictedWinnings setText:winnings animated:YES];
     }
     else {
-        //_predictedWinnings.text = [NSString stringWithFormat:@"%@", [currencyFormatter stringFromNumber:[NSNumber numberWithDouble:winnings]]];
         _predictedWinnings.currentValue = 0;
         [_predictedWinnings setText:winnings animated:YES];
     }
@@ -141,8 +135,12 @@
     _weeklyPointsTable.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0);
     _weeklyPointsTable.allowsSelection = NO;
     
-    if (winnings >= 5 || winnings <= -5) {
+    if (winnings >= 5) {
         _cashSound = cashSound();
+        [_cashSound playOnLoop];
+    }
+    else if (winnings <= -5) {
+        _cashSound = toiletSound();
         [_cashSound playOnLoop];
     }
 }

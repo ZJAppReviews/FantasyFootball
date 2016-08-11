@@ -7,6 +7,7 @@
 //
 
 #import "AnimatedNumericLabel.h"
+#import "Util.h"
 
 @implementation AnimatedNumericLabel
 
@@ -38,30 +39,16 @@
     return self;
 }
 
-- (NSNumberFormatter *) getFormatter {
-    static NSNumberFormatter *currencyFormatter = nil;
-    if (!currencyFormatter) {
-        currencyFormatter = [[NSNumberFormatter alloc] init];
-        [currencyFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
-        [currencyFormatter setLenient:YES];
-        [currencyFormatter setRoundingMode:NSNumberFormatterRoundHalfUp];
-        [currencyFormatter setRoundingIncrement:[NSNumber numberWithDouble:0.01]];
-        [currencyFormatter setCurrencySymbol:@"£"];
-        [currencyFormatter setNegativeFormat:[@"-" stringByAppendingString:[currencyFormatter positiveFormat]]];
-    }
-    return currencyFormatter;
-}
-
 - (void) updateText {
     if (_currentValue < _targetValue) {
         _currentValue = MIN(_currentValue + 1, _targetValue);
         
-        self.text = [[self getFormatter] stringFromNumber:[NSNumber numberWithDouble:MIN(_currentValue + 0.5, _targetValue)]];
+        self.text = [getCurrencyFormatter() stringFromNumber:[NSNumber numberWithDouble:MIN(_currentValue + 0.5, _targetValue)]];
     }
     else if (_currentValue > _targetValue) {
         _currentValue = MAX(_currentValue - 1, _targetValue);
         
-        self.text = [[self getFormatter] stringFromNumber:[NSNumber numberWithDouble:MAX(_currentValue - 0.5, _targetValue)]];
+        self.text = [getCurrencyFormatter() stringFromNumber:[NSNumber numberWithDouble:MAX(_currentValue - 0.5, _targetValue)]];
     }
     else {
         [_progressTimer invalidate];
@@ -86,7 +73,7 @@
     }
 	else
 	{
-        self.text = [[self getFormatter] stringFromNumber:[NSNumber numberWithDouble:value]];
+        self.text = [getCurrencyFormatter() stringFromNumber:[NSNumber numberWithDouble:value]];
     }
 }
 

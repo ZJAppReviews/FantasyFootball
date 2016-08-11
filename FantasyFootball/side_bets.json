@@ -247,6 +247,46 @@
           	"bet" : "Highest of Chris (Tim) and Jason R (Phil)",
             "type" : "other",
             "winning" : ""
+        },
+        {
+          	"managerName1" : "Mr J Appleby",
+          	"name1" : "Enz",
+          	"managerName2" : "Mr J Free",
+          	"name2" : "Freej",
+          	"amount" : 20,
+          	"bet" : "Double or quits (Freej lost)",
+            "type" : "league",
+            "dorq" : "Mr J Free"
+        },
+        {
+          	"managerName1" : "Mr T Lewis",
+          	"name1" : "Tim",
+          	"managerName2" : "Mr J Free",
+          	"name2" : "Freej",
+          	"amount" : 20,
+          	"bet" : "Double or quits (Freej lost)",
+            "type" : "league",
+            "dorq" : "Mr J Free"
+        },
+        {
+        	"managerName1" : "Mr J Free",
+          	"name1" : "Freej",
+          	"managerName2" : "Mr C Foxall",
+          	"name2" : "Chris",
+          	"amount" : 20,
+          	"bet" : "Double or quits (Freej lost)",
+            "type" : "league",
+            "dorq" : "Mr J Free"
+        },
+        {
+        	"managerName1" : "Mr J Free",
+          	"name1" : "Freej",
+          	"managerName2" : "Mr M Mitchell",
+          	"name2" : "Mark M",
+          	"amount" : 20,
+          	"bet" : "Double or quits (Freej lost)",
+            "type" : "goals",
+            "dorq" : "Mr J Free"
         }
     ]
 }

@@ -67,16 +67,8 @@
     
     NSDictionary *sideBet = _sideBets[indexPath.row];
     
-    NSNumberFormatter *currencyFormatter = [[NSNumberFormatter alloc] init];
-    [currencyFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
-    [currencyFormatter setLenient:YES];
-    [currencyFormatter setRoundingMode:NSNumberFormatterRoundHalfUp];
-    [currencyFormatter setRoundingIncrement:[NSNumber numberWithDouble:0.01]];
-    [currencyFormatter setCurrencySymbol:@"£"];
-    [currencyFormatter setNegativeFormat:[@"-" stringByAppendingString:[currencyFormatter positiveFormat]]];
-    
     UILabel *amount = (UILabel *)[cell viewWithTag:1];
-    amount.text = [currencyFormatter stringFromNumber:sideBet[@"amount"]];
+    amount.text = [getCurrencyFormatter() stringFromNumber:sideBet[@"amount"]];
     
     UILabel *name1 = (UILabel *)[cell viewWithTag:2];
     name1.text = sideBet[@"name1"];

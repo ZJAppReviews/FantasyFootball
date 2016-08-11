@@ -14,6 +14,8 @@
 #import "SettingsManager.h"
 #import "Month.h"
 #import "Util.h"
+#import "SoundEffect.h"
+#import "SoundEffects.h"
 #import <Crashlytics/Crashlytics.h>
 
 @interface LeagueViewController () {
@@ -24,6 +26,7 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *settingsButton;
 @property (nonatomic, strong) LaunchScreenViewController *launchScreenVC;
 @property (nonatomic) UIImageView *taylor;
+@property (weak, nonatomic) SoundEffect	*taylorSound;
 
 @end
 
@@ -68,6 +71,9 @@
         _taylor = [v viewWithTag:1];
         self.edgesForExtendedLayout = UIRectEdgeNone;
         
+        _taylorSound = [self randomTaylorSound];
+        [_taylorSound play];
+        
         [UIView animateWithDuration:1.0
                               delay:0.0
                             options:0
@@ -82,6 +88,29 @@
                              [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(removeWithSinkAnimationRotateTimer:) userInfo:nil repeats:YES];
                          }];
     }
+}
+
+- (SoundEffect *) randomTaylorSound {
+    NSInteger index = arc4random_uniform(15);
+    switch (index) {
+        case 0: return canWeNotKnockItSound();
+        case 1: return carltonStartedItSound();
+        case 2: return disgracefulSound();
+        case 3: return gottaGoBigSound();
+        case 4: return hitLesSound();
+        case 5: return iSweatALotSound();
+        case 6: return ifYouWereOneOfMyPlayersSound();
+        case 7: return madeForWrightySound();
+        case 8: return plattySound();
+        case 9: return sharpeySound();;
+        case 10: return tuckInMoreSound();
+        case 11: return weAreInTroubleSound();
+        case 12: return youCannotWaitSound();
+        case 13: return youKnowWeveBeenCheatedSound();
+        case 14: return doINotLikeThatSound();
+    }
+    
+    return nil;
 }
 
 - (void) removeWithSinkAnimationRotateTimer:(NSTimer*) timer {
@@ -176,13 +205,13 @@
     if (optionEnabled(@"newWeek")) {
         setOptionBoolForKey(@"newWeek", NO);
         
-        int week = [getOptionValueForKey(@"newWeek") intValue];
+        int week = [getOptionValueForKey(@"week") intValue];
         int oldPosition = [getOptionValueForKey(@"position") intValue];
         int newPosition = [getOptionValueForKey(@"newPosition") intValue];
         
         NSString *subscript = (newPosition == 1) ? @"st" : (newPosition == 2) ? @"nd" : (newPosition == 3) ? @"rd" : @"th";
         NSString *title = [NSString stringWithFormat:@"%i%@ in the League", newPosition, subscript];
-        NSString *message;
+        NSString *message = nil;
         
         if (optionEnabled(@"motmWin")) {
             setOptionBoolForKey(@"motmWin", NO);
@@ -297,22 +326,36 @@
             }
         }
 
-        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title
-                                                                                 message:message
-                                                                          preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction* ok = [UIAlertAction actionWithTitle:@"Close" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action){
-            [self.tableView moveRowAtIndexPath:[NSIndexPath indexPathForRow:(oldPosition - 1) inSection:0] toIndexPath:[NSIndexPath indexPathForRow:(newPosition - 1) inSection:0]];
+        if (message) {
+            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title
+                                                                                     message:message
+                                                                              preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction* ok = [UIAlertAction actionWithTitle:@"Close" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action){
+                if (week > 1 && oldPosition > 0) {
+                    if (oldPosition == newPosition) {
+                        [self.tableView reloadData];
+                    }
+                    else {
+                        [self.tableView moveRowAtIndexPath:[NSIndexPath indexPathForRow:(oldPosition - 1) inSection:0] toIndexPath:[NSIndexPath indexPathForRow:(newPosition - 1) inSection:0]];
+                        
+                        // wait a bit for the row move animation to finish
+                        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, 0.6 * NSEC_PER_SEC);
+                        dispatch_after(popTime, dispatch_get_main_queue(), ^{
+                            [self.tableView reloadData];
+                        });
+                    }
+                }
+            }];
+            [alertController addAction:ok];
             
-            // wait a bit for the row move animation to finish
-            dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, 0.6 * NSEC_PER_SEC);
-            dispatch_after(popTime, dispatch_get_main_queue(), ^{
+            if (!optionEnabled(@"testMode"))
+                [self presentViewController:alertController animated:YES completion:nil];
+            else
                 [self.tableView reloadData];
-            });
-        }];
-        [alertController addAction:ok];
-        
-        if (!optionEnabled(@"testMode"))
-            [self presentViewController:alertController animated:YES completion:nil];
+        }
+        else {
+            [self.tableView reloadData];
+        }
         
         setOptionValueForKey(@"position", [NSNumber numberWithInt:newPosition]);
         setOptionValueForKey(@"newPosition", @0);

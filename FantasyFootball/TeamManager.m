@@ -178,7 +178,7 @@
         userPosition = currentTeam.leaguePosition;
 
     // set flags for a new week and/or new/current position
-    if (_weekNumber > oldWeek) {
+    if (_weekNumber != oldWeek) {
         setOptionBoolForKey(@"newWeek", YES);
         if (userPosition > 0)
             setOptionValueForKey(@"newPosition", [NSNumber numberWithLong:userPosition]);

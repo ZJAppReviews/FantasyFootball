@@ -8,7 +8,26 @@
 
 #import "SoundEffect.h"
 
+SoundEffect* toiletSound();
 SoundEffect* clickSound();
 SoundEffect* swooshSound();
 SoundEffect* wandSound();
 SoundEffect* cashSound();
+
+SoundEffect* doINotLikeThatSound();
+SoundEffect* canWeNotKnockItSound();
+SoundEffect* carltonStartedItSound();
+SoundEffect* disgracefulSound();
+SoundEffect* gottaGoBigSound();
+SoundEffect* hitLesSound();
+SoundEffect* iSweatALotSound();
+SoundEffect* ifYouWereOneOfMyPlayersSound();
+SoundEffect* madeForWrightySound();
+SoundEffect* plattySound();
+SoundEffect* rightToTheDeathSound();
+SoundEffect* sharpeySound();
+SoundEffect* tuckInMoreSound();
+SoundEffect* weAreInTroubleSound();
+SoundEffect* youCannotWaitSound();
+SoundEffect* youKnowWeveBeenCheatedSound();
+
