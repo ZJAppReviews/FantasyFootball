@@ -66,6 +66,7 @@
         if ([_detail isEqualToString:@"allTeamNames"]) {
             cell.textLabel.text = values[@"teamName"];
             cell.detailTextLabel.text = values[@"managerName"];
+            cell.detailTextLabel.textColor = [UIColor colorWithRed:108.0/255 green:108.0/255 blue:108.0/255 alpha:1];
         }
         else {
             cell.textLabel.text = values[@"managerName"];

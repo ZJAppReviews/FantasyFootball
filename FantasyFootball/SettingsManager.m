@@ -69,7 +69,7 @@ static SettingsManager* _instance = nil;
         [request setCachePolicy:NSURLRequestReloadIgnoringLocalCacheData];
 
         NSURLSession *session = [NSURLSession sharedSession];
-        NSURLSessionDataTask *task = [session dataTaskWithRequest:request
+        NSURLSessionDataTask *leagueTask = [session dataTaskWithRequest:request
                                                 completionHandler:
         ^(NSData *data, NSURLResponse *response, NSError *error) {
             if (!error && data) {
@@ -81,17 +81,46 @@ static SettingsManager* _instance = nil;
                     [self _applySettings];
                 }
                 else {
-                    NSLog(@"JSON Deserialization failed: %@", [error2 userInfo]);
+                    NSLog(@"League JSON Deserialization failed: %@", [error2 userInfo]);
                 }
             }
             else {
-                NSLog(@"Connection failed: %@", [error userInfo]);
+                NSLog(@"League connection failed: %@", [error userInfo]);
             }
             
             isLoading = NO;
         }];
-                                      
-        [task resume];
+        [leagueTask resume];
+        
+        URL = [NSURL URLWithString:@"http://www.mhriley.com/fantasyfootball/side_bets.json"];
+        request = [[NSMutableURLRequest alloc] initWithURL:URL];
+        [request setHTTPMethod:@"GET"];
+        [request setCachePolicy:NSURLRequestReloadIgnoringLocalCacheData];
+        NSURLSessionDataTask *sideBetsTask = [session dataTaskWithRequest:request
+                                                      completionHandler:
+        ^(NSData *data, NSURLResponse *response, NSError *error) {
+            if (!error && data) {
+                NSError *error2 = nil;
+                NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error2];
+                
+                if (!error2) {
+                    [TeamManager getInstance].sideBets = dict[@"sideBets"];
+                    
+                    NSLog(@"Cache side bets data");
+                    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
+                                                                         NSUserDomainMask, YES);
+                    NSString *cachePath = [[paths objectAtIndex:0] stringByAppendingPathComponent:@"cache_side_bets.dat"];
+                    [[TeamManager getInstance].sideBets writeToFile:cachePath atomically:YES];
+                }
+                else {
+                    NSLog(@"Side Bets JSON Deserialization failed: %@", [error2 userInfo]);
+                }
+            }
+            else {
+                NSLog(@"Side Bets connection failed: %@", [error userInfo]);
+            }
+        }];
+        [sideBetsTask resume];
     }
 }
 

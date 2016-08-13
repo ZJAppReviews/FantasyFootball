@@ -36,11 +36,20 @@
     self.tableView.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0);
     self.tableView.allowsSelection = NO;
     
-    NSError *error = nil;
+    /*NSError *error = nil;
     NSString *filePath = [[NSBundle mainBundle] pathForResource:@"side_bets" ofType:@"json"];
     NSData *data = [NSData dataWithContentsOfFile:filePath];
     NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
-    _sideBets = dict[@"sideBets"];
+    _sideBets = dict[@"sideBets"];*/
+    _sideBets = [TeamManager getInstance].sideBets;
+    if (!_sideBets) {
+        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
+                                                             NSUserDomainMask, YES);
+        NSString *cachePath = [[paths objectAtIndex:0] stringByAppendingPathComponent:@"cache_side_bets.dat"];
+        NSArray *cacheData = [NSArray arrayWithContentsOfFile:cachePath];
+        if (cacheData)
+            _sideBets = cacheData;
+    }
 }
 
 - (void)didReceiveMemoryWarning {

@@ -240,10 +240,9 @@
                 case 12:
                 case 13:
                 case 14:
-                case 15:
                     message = [NSString stringWithFormat:@"Maybe you have just found it hard to settle into the pace of the Premier League."];
                     break;
-                case 16:
+                case 15:
                     message = [NSString stringWithFormat:@"You can't win the title in August, but you sure can lose it."];
                     break;
             }
@@ -285,7 +284,7 @@
                     @"Mental fatigue must be setting in. Maybe have a spa day."
                 ];
                 
-                if (newPosition == 16)
+                if (newPosition == _teams.count)
                     message = [NSString stringWithFormat:@"Ouch, you just sat on a Wooden Cock."];
                 else
                     message = [NSString stringWithFormat:@"%@ Down %i %@", cliches[arc4random_uniform((int) cliches.count)], abs(movement), places];
@@ -317,7 +316,7 @@
                      @"Time to buy the Unlimited Transfers In-App Purchase."
                 ];
                 
-                if (newPosition == 16)
+                if (newPosition == _teams.count)
                     message = bottomCliches[arc4random_uniform((int) bottomCliches.count)];
                 else if (newPosition == 1)
                     message = topCliches[arc4random_uniform((int) topCliches.count)];

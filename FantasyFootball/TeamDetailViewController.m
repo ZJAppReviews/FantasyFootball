@@ -61,18 +61,17 @@
         case 1: winnings += 120; break;
         case 2: winnings += 60; break;
         case 3: winnings += 30; break;
-        case 4: winnings += 20; break;
-        case 5: winnings += 15; break;
-        case 6: winnings += 10; break;
-        case 7: winnings += 9; break;
-        case 8: winnings += 8; break;
-        case 9: winnings += 7; break;
-        case 10: winnings += 6; break;
-        case 11: winnings += 5; break;
-        case 12: winnings += 4; break;
-        case 13: winnings += 3; break;
-        case 14: winnings += 2; break;
-        case 15: winnings += 1; break;
+        case 4: winnings += 15; break;
+        case 5: winnings += 10; break;
+        case 6: winnings += 9; break;
+        case 7: winnings += 8; break;
+        case 8: winnings += 7; break;
+        case 9: winnings += 6; break;
+        case 10: winnings += 5; break;
+        case 11: winnings += 4; break;
+        case 12: winnings += 3; break;
+        case 13: winnings += 2; break;
+        case 14: winnings += 1; break;
     }
     
     // motm winnings
@@ -80,7 +79,7 @@
     
     // golden boot winnings
     if (_team.goldenBootPosition == 1)
-        winnings += 15;
+        winnings += 10;
     
     // side bets
     NSString *filePath = [[NSBundle mainBundle] pathForResource:@"side_bets" ofType:@"json"];
@@ -119,17 +118,11 @@
         }
     }
     
-    // fu cup is £50 winner / £15 runner up
+    // fu cup is £45 winner / £15 runner up
 
     _predictedWinnings.delegate = self;
-    if (_team.leaguePosition == 16) {
-        _predictedWinnings.currentValue = 0;
-        [_predictedWinnings setText:winnings animated:YES];
-    }
-    else {
-        _predictedWinnings.currentValue = 0;
-        [_predictedWinnings setText:winnings animated:YES];
-    }
+    _predictedWinnings.currentValue = 0;
+    [_predictedWinnings setText:winnings animated:YES];
     
     _weeklyPointsTable.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     _weeklyPointsTable.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0);
@@ -150,7 +143,7 @@
 }
 
 - (void) labelAnimationComplete {
-    if (_team.leaguePosition == 16)
+    if (_team.leaguePosition == [TeamManager getInstance].league.count)
         _predictedWinnings.text = [NSString stringWithFormat:@"%@ + WC", _predictedWinnings.text];
     [_cashSound stop];
 }

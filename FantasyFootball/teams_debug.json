@@ -3,7 +3,7 @@
     "week" : 1,
     "teams" : [
     	{
-            "teamName" : "Team2",
+            "teamName" : "Wobbles on the Puel",
             "managerName" : "Mr C Attrill",
             "goals" : 35,
             "weeks" : {
@@ -11,7 +11,7 @@
             }
         },
         {
-            "teamName" : "Motley Crue",
+            "teamName" : "Time For Elevenses",
             "managerName" : "Mr M Riley",
             "chairman" : true,
             "goals" : 25,
@@ -20,7 +20,7 @@
             }
         },
         {
-            "teamName" : "Team3",
+            "teamName" : "Take Zlat!",
             "managerName" : "Mr J Appleby",
             "goals" : 2334,
             "weeks" : {
@@ -28,7 +28,7 @@
             }	
         },
         {
-            "teamName" : "Team4",
+            "teamName" : "Del'll Fix It",
             "managerName" : "Mr D Lin",
             "goals" : 23,
             "weeks" : {
@@ -36,7 +36,7 @@
             }	
         },
         {
-            "teamName" : "Team4",
+            "teamName" : "The Humbler",
             "managerName" : "Mr M Mitchell",
             "goals" : 34,
             "weeks" : {
@@ -44,7 +44,7 @@
             }
         },
         {
-            "teamName" : "Team4",
+            "teamName" : "Son's Of Pitches",
             "managerName" : "Mr J Hitchins",
             "goals" : 25,
             "weeks" : {
@@ -52,7 +52,7 @@
             }
         },
         {
-            "teamName" : "Team4",
+            "teamName" : "Eye Tea Eff Sea",
             "managerName" : "Mr P Pritchard",
             "goals" : 89,
             "weeks" : {
@@ -60,7 +60,7 @@
             }
         },
         {
-            "teamName" : "Team4",
+            "teamName" : "Emo's Entertainers",
             "managerName" : "Mr C Emmerson",
             "goals" : 76,
             "weeks" : {
@@ -68,7 +68,7 @@
             }
         },
         {
-            "teamName" : "Team4",
+            "teamName" : "Shoganchester United",
             "managerName" : "Mr T Lewis",
             "goals" : 87,
             "weeks" : {
@@ -76,7 +76,7 @@
             }
         },
         {
-            "teamName" : "Team4",
+            "teamName" : "Scouting for Goals",
             "managerName" : "Mr C Cowpertwait",
             "goals" : 34,
             "weeks" : {
@@ -84,7 +84,7 @@
             }
         },
         {
-            "teamName" : "Team4",
+            "teamName" : "Phil A Show",
             "managerName" : "Mr P Attrill",
             "goals" : 66,
             "weeks" : {
@@ -92,7 +92,7 @@
             }
         },
         {
-            "teamName" : "Team4",
+            "teamName" : "Looked Good On Paper",
             "managerName" : "Mr S Dowe",
             "goals" : 19,
             "weeks" : {
@@ -100,7 +100,7 @@
             }
         },
         {
-            "teamName" : "Team4",
+            "teamName" : "No Name",
             "managerName" : "Mr C Foxall",
             "goals" : 7,
             "weeks" : {
@@ -108,7 +108,7 @@
             }
         },
         {
-            "teamName" : "Team4",
+            "teamName" : "FC EK",
             "managerName" : "Mr J Free",
             "goals" : 45,
             "weeks" : {
@@ -116,15 +116,7 @@
             }	
         },
         {
-            "teamName" : "Team4",
-            "managerName" : "Mr J Ransley",
-            "goals" : 76,
-            "weeks" : {
-            	"1" : 64
-            }
-        },
-        {
-            "teamName" : "Team4",
+            "teamName" : "In Hard",
             "managerName" : "Mr P Gill",
             "goals" : 123,
             "weeks" : {

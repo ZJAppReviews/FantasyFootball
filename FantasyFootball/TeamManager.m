@@ -197,7 +197,7 @@
     // save the cache to disk for pre-population next time app is opened
     BOOL success = NO;
     if (cache) {
-        NSLog(@"Cache data");
+        NSLog(@"Cache league data");
         NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
                                                              NSUserDomainMask, YES);
         NSString *cachePath = [[paths objectAtIndex:0] stringByAppendingPathComponent:@"cache.dat"];
@@ -351,9 +351,9 @@
             NSString *winningTeam = sideBet[@"winning"];
             if (winningTeam) {
                 if ([winningTeam isEqualToString:@"managerName1"])
-                    return [self getTeam:sideBet[sideBet[@"managerName2"]]];
+                    return [self getTeam:sideBet[@"managerName2"]];
                 else
-                    return [self getTeam:sideBet[sideBet[@"managerName1"]]];
+                    return [self getTeam:sideBet[@"managerName1"]];
             }
         }
         /*else if ([sideBet[@"type"] isEqualToString:@"cup"]) {
@@ -384,7 +384,6 @@
                           @"Mr D Lin",
                           @"Mr M Mitchell",
                           @"Mr P Pritchard",
-                          @"Mr J Ransley",
                           @"Mr M Riley"];
     });
     return _managerNames;

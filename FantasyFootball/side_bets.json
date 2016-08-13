@@ -246,7 +246,7 @@
           	"amount" : 7.70,
           	"bet" : "Highest of Chris (Tim) and Jason R (Phil)",
             "type" : "other",
-            "winning" : ""
+            "winning" : "managerName1"
         },
         {
           	"managerName1" : "Mr J Appleby",
@@ -284,7 +284,7 @@
           	"managerName2" : "Mr M Mitchell",
           	"name2" : "Mark M",
           	"amount" : 20,
-          	"bet" : "Double or quits (Freej lost)",
+          	"bet" : "Golden Boot, Double or quits (Freej lost)",
             "type" : "goals",
             "dorq" : "Mr J Free"
         }

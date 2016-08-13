@@ -19,6 +19,7 @@
 @property (nonatomic, strong) NSMutableArray *goldenBoot;
 @property (nonatomic, strong) NSArray *months;
 @property (nonatomic, strong) NSMutableArray *motm;
+@property (nonatomic, strong) NSArray *sideBets;
 
 + (TeamManager *) getInstance;
 - (NSMutableArray *) loadData:(NSDictionary *) data cache:(BOOL) cache;
