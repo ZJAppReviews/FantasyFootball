@@ -41,6 +41,7 @@
     NSData *data = [NSData dataWithContentsOfFile:filePath];
     NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
     _sideBets = dict[@"sideBets"];*/
+    
     _sideBets = [TeamManager getInstance].sideBets;
     if (!_sideBets) {
         NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
@@ -58,6 +59,7 @@
 }
 
 - (void) reloadData:(NSNotification *)notification {
+    _sideBets = [TeamManager getInstance].sideBets;
     [self.tableView reloadData];
 }
 

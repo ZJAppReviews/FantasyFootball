@@ -65,6 +65,7 @@
 		4DB621BF1D4E199800E1F528 /* TeamWeek.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DB621BE1D4E199800E1F528 /* TeamWeek.m */; };
 		4DB621C21D4E56B700E1F528 /* Week.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DB621C11D4E56B700E1F528 /* Week.m */; };
 		4DD47C991D4D3240008D64A7 /* StatsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DD47C981D4D3240008D64A7 /* StatsViewController.m */; };
+		4DE26F951D64C0DB008DB3B8 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DE26F941D64C0DB008DB3B8 /* MBProgressHUD.m */; };
 		4DF2411D1D461F0600AF4F1A /* MOTMViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DF2411C1D461F0600AF4F1A /* MOTMViewController.m */; };
 		4DF241201D46302100AF4F1A /* Month.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DF2411F1D46302100AF4F1A /* Month.m */; };
 		4DF241231D463F9900AF4F1A /* TeamDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DF241221D463F9900AF4F1A /* TeamDetailViewController.m */; };
@@ -192,6 +193,8 @@
 		4DB621C11D4E56B700E1F528 /* Week.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Week.m; sourceTree = "<group>"; };
 		4DD47C971D4D3240008D64A7 /* StatsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatsViewController.h; sourceTree = "<group>"; };
 		4DD47C981D4D3240008D64A7 /* StatsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatsViewController.m; sourceTree = "<group>"; };
+		4DE26F931D64C0DB008DB3B8 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		4DE26F941D64C0DB008DB3B8 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		4DF2411B1D461F0600AF4F1A /* MOTMViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOTMViewController.h; sourceTree = "<group>"; };
 		4DF2411C1D461F0600AF4F1A /* MOTMViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOTMViewController.m; sourceTree = "<group>"; };
 		4DF2411E1D46302100AF4F1A /* Month.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Month.h; sourceTree = "<group>"; };
@@ -294,6 +297,8 @@
 				4D2F6C111D5362D4005FD9BE /* SoundEffect.m */,
 				4D2F6C121D5362D4005FD9BE /* SoundEffects.h */,
 				4D2F6C131D5362D4005FD9BE /* SoundEffects.m */,
+				4DE26F931D64C0DB008DB3B8 /* MBProgressHUD.h */,
+				4DE26F941D64C0DB008DB3B8 /* MBProgressHUD.m */,
 				4D2A9A581D48B49E00DCDB15 /* Constants.h */,
 				4D3B56A41D45167900267C95 /* Resources */,
 				4D3B56671D44E1EA00267C95 /* Supporting Files */,
@@ -566,6 +571,7 @@
 				4D3B56A21D4515F000267C95 /* TeamManager.m in Sources */,
 				4D3B569F1D45137F00267C95 /* SettingsManager.m in Sources */,
 				4D3B56A71D453D0300267C95 /* GoldenBootViewController.m in Sources */,
+				4DE26F951D64C0DB008DB3B8 /* MBProgressHUD.m in Sources */,
 				4DF241201D46302100AF4F1A /* Month.m in Sources */,
 				4D4D51281D59F08300CCED96 /* DINLTStatsViewController.m in Sources */,
 				4DF2411D1D461F0600AF4F1A /* MOTMViewController.m in Sources */,
@@ -756,7 +762,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mhriley.FantasyFootball;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "4151f9f4-c897-45ff-83f0-95e3d4954de1";
+				PROVISIONING_PROFILE = "5383d5b8-68c4-4380-a720-11045a64adff";
 			};
 			name = Release;
 		};

@@ -5,122 +5,122 @@
     	{
             "teamName" : "Wobbles on the Puel",
             "managerName" : "Mr C Attrill",
-            "goals" : 35,
+            "goals" : 4,
             "weeks" : {
-            	"1" : 114
+            	"1" : 29
             }
         },
         {
             "teamName" : "Time For Elevenses",
             "managerName" : "Mr M Riley",
             "chairman" : true,
-            "goals" : 25,
+            "goals" : 9,
             "weeks" : {
-            	"1" : 234
+            	"1" : 39
             }
         },
         {
             "teamName" : "Take Zlat!",
             "managerName" : "Mr J Appleby",
-            "goals" : 2334,
+            "goals" : 3,
             "weeks" : {
-            	"1" : 94
+            	"1" : 27
             }	
         },
         {
             "teamName" : "Del'll Fix It",
             "managerName" : "Mr D Lin",
-            "goals" : 23,
+            "goals" : 2,
             "weeks" : {
-            	"1" : 14
+            	"1" : 42
             }	
         },
         {
             "teamName" : "The Humbler",
             "managerName" : "Mr M Mitchell",
-            "goals" : 34,
+            "goals" : 8,
             "weeks" : {
-            	"1" : 66
+            	"1" : 36
             }
         },
         {
             "teamName" : "Son's Of Pitches",
             "managerName" : "Mr J Hitchins",
-            "goals" : 25,
+            "goals" : 7,
             "weeks" : {
-            	"1" : 74
+            	"1" : 28
             }
         },
         {
             "teamName" : "Eye Tea Eff Sea",
             "managerName" : "Mr P Pritchard",
-            "goals" : 89,
+            "goals" : 1,
             "weeks" : {
-            	"1" : 4
+            	"1" : 21
             }
         },
         {
             "teamName" : "Emo's Entertainers",
             "managerName" : "Mr C Emmerson",
-            "goals" : 76,
+            "goals" : 0,
             "weeks" : {
-            	"1" : 124
+            	"1" : 33
             }
         },
         {
             "teamName" : "Shoganchester United",
             "managerName" : "Mr T Lewis",
-            "goals" : 87,
+            "goals" : 12,
             "weeks" : {
-            	"1" : 104
+            	"1" : 33
             }
         },
         {
             "teamName" : "Scouting for Goals",
             "managerName" : "Mr C Cowpertwait",
-            "goals" : 34,
+            "goals" : 4,
             "weeks" : {
-            	"1" : 94
+            	"1" : 26
             }
         },
         {
             "teamName" : "Phil A Show",
             "managerName" : "Mr P Attrill",
-            "goals" : 66,
-            "weeks" : {
-            	"1" : 24
-            }
-        },
-        {
-            "teamName" : "Looked Good On Paper",
-            "managerName" : "Mr S Dowe",
-            "goals" : 19,
+            "goals" : 7,
             "weeks" : {
             	"1" : 34
             }
         },
         {
-            "teamName" : "No Name",
-            "managerName" : "Mr C Foxall",
+            "teamName" : "Looked Good On Paper",
+            "managerName" : "Mr S Dowe",
             "goals" : 7,
             "weeks" : {
-            	"1" : 44
+            	"1" : 34
+            }
+        },
+        {
+            "teamName" : "Nowhere",
+            "managerName" : "Mr C Foxall",
+            "goals" : 8,
+            "weeks" : {
+            	"1" : 30
             }
         },
         {
             "teamName" : "FC EK",
             "managerName" : "Mr J Free",
-            "goals" : 45,
+            "goals" : 2,
             "weeks" : {
-            	"1" : 54
+            	"1" : 24
             }	
         },
         {
             "teamName" : "In Hard",
             "managerName" : "Mr P Gill",
-            "goals" : 123,
+            "goals" : 0,
             "weeks" : {
-            	"1" : 74
+            	"1" : 31
             }
         }
     ],

@@ -4,6 +4,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
     </dependencies>
     <scenes>
         <!--Golden Boot-->
@@ -519,7 +520,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Team" rowHeight="60" id="kEY-Rb-KcE">
-                                <rect key="frame" x="0.0" y="28" width="600" height="60"/>
+                                <rect key="frame" x="0.0" y="92" width="600" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kEY-Rb-KcE" id="PUw-EH-ix5">
                                     <rect key="frame" x="0.0" y="0.0" width="567" height="59.5"/>
@@ -613,11 +614,18 @@
                                 <segue destination="0R3-0Y-RiV" kind="presentation" identifier="Stats" id="Em5-kw-R9x"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" image="settings" id="sdU-Tw-9mk">
-                            <connections>
-                                <segue destination="yke-Ct-uFU" kind="presentation" identifier="WhoAreYa" id="rnT-vi-FCW"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem image="settings" id="sdU-Tw-9mk">
+                                <connections>
+                                    <segue destination="yke-Ct-uFU" kind="presentation" identifier="WhoAreYa" id="rnT-vi-FCW"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem image="zap" id="iIM-78-iDZ" userLabel="Zap Button">
+                                <connections>
+                                    <action selector="zap:" destination="TLi-v4-3YN" id="hEP-gP-hSU"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="settingsButton" destination="sdU-Tw-9mk" id="CAU-Wi-qHI"/>
@@ -811,7 +819,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="None" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VWI-ZV-ywu">
-                                <rect key="frame" x="542" y="266" width="34.5" height="17"/>
+                                <rect key="frame" x="542.5" y="266" width="34.5" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -1105,9 +1113,10 @@
         <image name="settings" width="28" height="28"/>
         <image name="stats" width="28" height="26"/>
         <image name="table" width="28" height="28"/>
+        <image name="zap" width="14" height="28"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="CHw-gQ-G0X"/>
+        <segue reference="RBY-Y6-aGJ"/>
         <segue reference="0WP-Zb-6hS"/>
     </inferredMetricsTieBreakers>
 </document>

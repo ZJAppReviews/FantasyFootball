@@ -16,10 +16,12 @@
 #import "Util.h"
 #import "SoundEffect.h"
 #import "SoundEffects.h"
+#import "MBProgressHUD.h"
 #import <Crashlytics/Crashlytics.h>
 
 @interface LeagueViewController () {
     BOOL taylorOnScreen, showNewWeekAlert;
+    enum LeagueMode mode;
 }
 
 @property (nonatomic, strong) NSMutableArray *teams;
@@ -50,6 +52,8 @@
     self.tableView.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0);
     //self.navigationItem.rightBarButtonItem = self.editButtonItem;
     self.navigationItem.backBarButtonItem =	[[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil];
+    
+    mode = [getOptionValueForKey(@"leagueMode") intValue];
     
     _teams = [TeamManager getInstance].league;
     [self setTitle];
@@ -389,10 +393,27 @@
     managerLabel.text = getManagerName(team);
     
     UILabel *totalPointsLabel = (UILabel *)[cell viewWithTag:4];
+    UILabel *weeklyPointsLabel = (UILabel *)[cell viewWithTag:5];
+    
     totalPointsLabel.text = [NSString stringWithFormat:@"%li", team.totalPoints];
     
-    UILabel *weeklyPointsLabel = (UILabel *)[cell viewWithTag:5];
-    weeklyPointsLabel.text = [NSString stringWithFormat:@"%li", team.weeklyPoints];
+    if (mode == Points) {
+        weeklyPointsLabel.text = [NSString localizedStringWithFormat:@"%@", @(team.weeklyPoints)];
+    }
+    else if (mode == Winnings) {
+        weeklyPointsLabel.text = [getCurrencyFormatter() stringFromNumber:[NSNumber numberWithDouble:[[TeamManager getInstance] getPredictedWinnings:team]]];
+    }
+    else if (mode == Overall) {
+        NSString *subscript = (team.overallPosition % 10 == 1) ? @"st" : (team.overallPosition % 10 == 2) ? @"nd" : (team.overallPosition % 10 == 3) ? @"rd" : @"th";
+        weeklyPointsLabel.text = [NSString stringWithFormat:@"%@%@", [NSString localizedStringWithFormat:@"%@", @(team.overallPosition)], subscript];
+    }
+    else if (mode == StartingPoints) {
+        weeklyPointsLabel.text = [NSString localizedStringWithFormat:@"%@", @(team.startingPoints)];
+    }
+    else if (mode == StartingPosition) {
+        NSString *subscript = (team.startingPosition % 10 == 1) ? @"st" : (team.startingPosition % 10 == 2) ? @"nd" : (team.startingPosition % 10 == 3) ? @"rd" : @"th";
+        weeklyPointsLabel.text = [NSString stringWithFormat:@"%@%@", [NSString localizedStringWithFormat:@"%@", @(team.startingPosition)], subscript];
+    }
     
     UIImageView *momentumView = (UIImageView *)[cell viewWithTag:6];
     enum Momentum momentum = team.momentum;
@@ -464,6 +485,31 @@
     
     Team *team = [_teams objectAtIndex:[self.tableView indexPathForSelectedRow].row];
     vc.team = team;
+}
+
+- (IBAction)zap:(id)sender {
+    // switch mode
+    mode = (mode + 1) % Count;
+    setOptionValueForKey(@"leagueMode", [NSNumber numberWithInt:mode]);
+    
+    [self.tableView reloadData];
+    
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.mode = MBProgressHUDModeText;
+    hud.offset = CGPointMake(0.f, MBProgressMaxOffset);
+    hud.contentColor = [UIColor whiteColor];
+    hud.bezelView.color = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.7];
+  
+    switch (mode) {
+        case Points: hud.label.text = @"Weekly Points"; break;
+        case Winnings: hud.label.text = @"Predicted Winnings"; break;
+        case Overall: hud.label.text = @"Overall Position"; break;
+        case StartingPoints: hud.label.text = @"Starting XI Points"; break;
+        case StartingPosition: hud.label.text = @"Starting XI Position"; break;
+        default: break;
+    }
+    
+    [hud hideAnimated:YES afterDelay:1];
 }
 
 - (void)dealloc {

@@ -41,7 +41,7 @@
             "amount" : 10,
             "bet" : "Del bets he won't be last",
             "type" : "other",
-            "winning" : ""
+            "winning" : "managerName1"
         },
         {
             "managerName1" : "Mr C Cowpertwait",
@@ -134,7 +134,7 @@
             "amount" : 10,
             "bet" : "Arsenal v Man United",
             "type" : "other",
-            "winning" : ""
+            "winning" : "managerName2"
         },
         {
             "managerName1" : "Mr J Appleby",
@@ -287,6 +287,38 @@
           	"bet" : "Golden Boot, Double or quits (Freej lost)",
             "type" : "goals",
             "dorq" : "Mr J Free"
+        },
+        {
+        	"managerName1" : "Mr C Emmerson",
+            "name1" : "Carl",
+            "managerName2" : "Mr D Lin",
+            "name2" : "Del",
+            "amount" : 20,
+            "type" : "league"
+        },
+        {
+            "managerName1" : "Mr D Lin",
+            "name1" : "Del",
+            "managerName2" : "Mr C Cowpertwait",
+            "name2" : "Cowpers",
+            "amount" : 20,
+            "type" : "league"
+        },
+        {
+            "managerName1" : "Mr J Appleby",
+            "name1" : "Enz",
+            "managerName2" : "Mr D Lin",
+            "name2" : "Del",
+            "amount" : 20,
+            "type" : "league"
+        },
+        {
+        	"managerName1" : "Mr D Lin",
+            "name1" : "Del",
+            "managerName2" : "Mr M Mitchell",
+            "name2" : "Mark M",
+            "amount" : 20,
+            "type" : "league"
         }
     ]
 }

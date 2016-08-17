@@ -68,6 +68,9 @@
         team.managerName = [teamJSON objectForKey:@"managerName"];
         //team.points = [[teamJSON objectForKey:@"points"] intValue];
         team.goals = [[teamJSON objectForKey:@"goals"] intValue];
+        team.overallPosition = [[teamJSON objectForKey:@"overallPosition"] intValue];
+        team.startingPoints = [[teamJSON objectForKey:@"startingPoints"] intValue];
+        team.startingPosition = [[teamJSON objectForKey:@"startingPosition"] intValue];
         team.chairman = [[teamJSON objectForKey:@"chairman"] boolValue];
         if ([[teamJSON objectForKey:@"momentum"] isEqualToString:@"up"])
             team.momentum = Up;
@@ -179,6 +182,9 @@
 
     // set flags for a new week and/or new/current position
     if (_weekNumber != oldWeek) {
+        // reset to showing points
+        //setOptionBoolForKey(@"leagueMode", [NSNumber numberWithInt:0]);
+        
         setOptionBoolForKey(@"newWeek", YES);
         if (userPosition > 0)
             setOptionValueForKey(@"newPosition", [NSNumber numberWithLong:userPosition]);
@@ -244,7 +250,7 @@
     long previousPosition = 0;
     for (int i = 0; i < _goldenBoot.count; i++) {
         Team *team = [_goldenBoot objectAtIndex:i];
-        team.goldenBootPosition = (team.totalPoints == previousGoals) ? previousPosition : i + 1;
+        team.goldenBootPosition = (team.goals == previousGoals) ? previousPosition : i + 1;
         
         previousGoals = team.goals;
         previousPosition = team.goldenBootPosition;
@@ -363,6 +369,81 @@
     }
     
     return nil;
+}
+
+- (double) getPredictedWinnings:(Team *) team {
+    double winnings = 0;
+    
+    // league winnings
+    switch (team.leaguePosition) {
+        case 1: winnings += 120; break;
+        case 2: winnings += 60; break;
+        case 3: winnings += 30; break;
+        case 4: winnings += 15; break;
+        case 5: winnings += 10; break;
+        case 6: winnings += 9; break;
+        case 7: winnings += 8; break;
+        case 8: winnings += 7; break;
+        case 9: winnings += 6; break;
+        case 10: winnings += 5; break;
+        case 11: winnings += 4; break;
+        case 12: winnings += 3; break;
+        case 13: winnings += 2; break;
+        case 14: winnings += 1; break;
+    }
+    
+    // motm winnings
+    winnings += (team.motms.count * 10);
+    
+    // golden boot winnings
+    if (team.goldenBootPosition == 1)
+        winnings += 10;
+    
+    NSArray *sideBets = _sideBets;
+    if (!_sideBets) {
+        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
+                                                             NSUserDomainMask, YES);
+        NSString *cachePath = [[paths objectAtIndex:0] stringByAppendingPathComponent:@"cache_side_bets.dat"];
+        NSArray *cacheData = [NSArray arrayWithContentsOfFile:cachePath];
+        if (cacheData)
+            sideBets = cacheData;
+    }
+    
+    for (NSDictionary *sideBet in sideBets) {
+        NSString *type = sideBet[@"type"];
+        NSString *dOrQ = sideBet[@"dorq"];
+        Team *team1 = [[TeamManager getInstance] getTeam:sideBet[@"managerName1"]];
+        Team *team2 = [[TeamManager getInstance] getTeam:sideBet[@"managerName2"]];
+        Team *team3 = [[TeamManager getInstance] getTeam:sideBet[@"managerName3"]];
+        
+        Team *winningTeam = [[TeamManager getInstance] whoIsWinningBetOfType:sideBet betweenTeam1:team1 team2:team2 team3:team3];
+        Team *losingTeam = [[TeamManager getInstance] whoIsLosingBetOfType:sideBet betweenTeam1:team1 team2:team2 team3:team3];
+        
+        if ([winningTeam.managerName isEqualToString:team.managerName]) {
+            double amount = [dOrQ isEqualToString:winningTeam.managerName] ? 0 : [sideBet[@"amount"] doubleValue];
+            
+            if ([type isEqualToString:@"league"]) {
+                winnings += team3 ? 2 * amount : amount;
+            }
+            else {
+                winnings += amount;
+            }
+        }
+        else if ([losingTeam.managerName isEqualToString:team.managerName]) {
+            double amount = [dOrQ isEqualToString:winningTeam.managerName] ? 0 : [sideBet[@"amount"] doubleValue];
+            
+            if ([type isEqualToString:@"league"]) {
+                winnings -= (team3 ? 2 * amount : amount);
+            }
+            else {
+                winnings -= amount;
+            }
+        }
+    }
+    
+    // fu cup is £45 winner / £15 runner up
+    
+    return winnings;
 }
 
 + (NSArray *)managerNames

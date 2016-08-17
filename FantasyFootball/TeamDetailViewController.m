@@ -54,72 +54,7 @@
         }
     }
     
-    double winnings = 0;
-    
-    // league winnings
-    switch (_team.leaguePosition) {
-        case 1: winnings += 120; break;
-        case 2: winnings += 60; break;
-        case 3: winnings += 30; break;
-        case 4: winnings += 15; break;
-        case 5: winnings += 10; break;
-        case 6: winnings += 9; break;
-        case 7: winnings += 8; break;
-        case 8: winnings += 7; break;
-        case 9: winnings += 6; break;
-        case 10: winnings += 5; break;
-        case 11: winnings += 4; break;
-        case 12: winnings += 3; break;
-        case 13: winnings += 2; break;
-        case 14: winnings += 1; break;
-    }
-    
-    // motm winnings
-    winnings += (_team.motms.count * 10);
-    
-    // golden boot winnings
-    if (_team.goldenBootPosition == 1)
-        winnings += 10;
-    
-    // side bets
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"side_bets" ofType:@"json"];
-    NSData *data = [NSData dataWithContentsOfFile:filePath];
-    NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
-    NSArray *sideBets = dict[@"sideBets"];
-    for (NSDictionary *sideBet in sideBets) {
-        NSString *type = sideBet[@"type"];
-        NSString *dOrQ = sideBet[@"dorq"];
-        Team *team1 = [[TeamManager getInstance] getTeam:sideBet[@"managerName1"]];
-        Team *team2 = [[TeamManager getInstance] getTeam:sideBet[@"managerName2"]];
-        Team *team3 = [[TeamManager getInstance] getTeam:sideBet[@"managerName3"]];
-        
-        Team *winningTeam = [[TeamManager getInstance] whoIsWinningBetOfType:sideBet betweenTeam1:team1 team2:team2 team3:team3];
-        Team *losingTeam = [[TeamManager getInstance] whoIsLosingBetOfType:sideBet betweenTeam1:team1 team2:team2 team3:team3];
-        
-        if ([winningTeam.managerName isEqualToString:_team.managerName]) {
-            double amount = [dOrQ isEqualToString:winningTeam.managerName] ? 0 : [sideBet[@"amount"] doubleValue];
-            
-            if ([type isEqualToString:@"league"]) {
-                winnings += team3 ? 2 * amount : amount;
-            }
-            else {
-                winnings += amount;
-            }
-        }
-        else if ([losingTeam.managerName isEqualToString:_team.managerName]) {
-            double amount = [dOrQ isEqualToString:winningTeam.managerName] ? 0 : [sideBet[@"amount"] doubleValue];
-            
-            if ([type isEqualToString:@"league"]) {
-                winnings -= (team3 ? 2 * amount : amount);
-            }
-            else {
-                winnings -= amount;
-            }
-        }
-    }
-    
-    // fu cup is £45 winner / £15 runner up
-
+    double winnings = [[TeamManager getInstance] getPredictedWinnings:_team];
     _predictedWinnings.delegate = self;
     _predictedWinnings.currentValue = 0;
     [_predictedWinnings setText:winnings animated:YES];
@@ -172,7 +107,7 @@
     //cell.detailTextLabel.text = [NSString stringWithFormat:@"%li", teamWeek.points];
     
     UILabel *week = (UILabel *)[cell viewWithTag:1];
-    week.text = [NSString stringWithFormat:@"%li", (_team.weeks.count - indexPath.row)];
+    week.text = [NSString stringWithFormat:@"%li", (long) (_team.weeks.count - indexPath.row)];
     
     UILabel *points = (UILabel *)[cell viewWithTag:2];
     points.text = [NSString stringWithFormat:@"%li", teamWeek.points];

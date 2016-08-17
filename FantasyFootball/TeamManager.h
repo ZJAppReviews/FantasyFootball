@@ -10,6 +10,8 @@
 
 @class Team;
 
+enum LeagueMode {Points, Winnings, Overall, StartingPoints, StartingPosition, Count};
+
 @interface TeamManager : NSObject
 
 @property (nonatomic) int weekNumber;
@@ -30,6 +32,7 @@
 - (BOOL) isLastWeekOfMonth;
 - (Team *) whoIsWinningBetOfType:(NSDictionary *) sideBet betweenTeam1:(Team *) team1 team2:(Team *) team2 team3:(Team *) team3;
 - (Team *) whoIsLosingBetOfType:(NSDictionary *) sideBet betweenTeam1:(Team *) team1 team2:(Team *) team2 team3:(Team *) team3;
+- (double) getPredictedWinnings:(Team *) team;
 + (NSArray *) managerNames;
 
 @end

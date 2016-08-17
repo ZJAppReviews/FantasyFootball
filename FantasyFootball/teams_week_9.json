@@ -1,0 +1,319 @@
+{
+	"year" : "2016/17",
+    "week" : 9,
+    "teams" : [
+    	{
+            "teamName" : "Wobbles on the Puel",
+            "managerName" : "Mr C Attrill",
+            "goals" : 35,
+            "momentum" : "up",
+            "weeks" : {
+            	"1" : 114,
+            	"2" : 63,
+            	"3" : 63,
+            	"4" : 63,
+            	"5" : 30,
+            	"6" : 60,
+            	"7" : 60,
+            	"8" : 61,
+            	"9" : 64
+            }
+        },
+        {
+            "teamName" : "Time For Elevenses",
+            "managerName" : "Mr M Riley",
+            "goals" : 25,
+            "momentum" : "up",
+            "weeks" : {
+            	"1" : 234,
+            	"2" : 187,
+            	"3" : 63,
+            	"4" : 63,
+            	"5" : 40
+            }
+        },
+        {
+            "teamName" : "Take Zlat!",
+            "managerName" : "Mr J Appleby",
+            "goals" : 2334,
+            "momentum" : "down",
+            "weeks" : {
+            	"1" : 114,
+            	"2" : 63,
+            	"3" : 63,
+            	"4" : 63,
+            	"5" : 70,
+            	"6" : 60,
+            	"7" : 60,
+            	"8" : 60,
+            	"9" : 55
+            }	
+        },
+        {
+            "teamName" : "Del'll Fix It",
+            "managerName" : "Mr D Lin",
+            "goals" : 23,
+            "weeks" : {
+            	"1" : 114,
+            	"2" : 63,
+            	"3" : 63,
+            	"4" : 63,
+            	"5" : 10,
+            	"6" : 60,
+            	"7" : 60,
+            	"8" : 60,
+            	"9" : 60
+            }	
+        },
+        {
+            "teamName" : "The Humbler",
+            "managerName" : "Mr M Mitchell",
+            "goals" : 34,
+            "momentum" : "down",
+            "weeks" : {
+            	"1" : 114,
+            	"2" : 63,
+            	"3" : 63,
+            	"4" : 63,
+            	"5" : 60,
+            	"6" : 60,
+            	"7" : 20,
+            	"8" : 60,
+            	"9" : 60
+            }
+        },
+        {
+            "teamName" : "Son's Of Pitches",
+            "managerName" : "Mr J Hitchins",
+            "goals" : 25,
+            "momentum" : "same",
+            "weeks" : {
+            	"1" : 114,
+            	"2" : 63,
+            	"3" : 63,
+            	"4" : 63,
+            	"5" : 60,
+            	"6" : 50,
+            	"7" : 10,
+            	"8" : 60,
+            	"9" : 60
+            }
+        },
+        {
+            "teamName" : "Eye Tea Eff Sea",
+            "managerName" : "Mr P Pritchard",
+            "chairman" : true,
+            "goals" : 89,
+            "momentum" : "up",
+            "weeks" : {
+            	"1" : 114,
+            	"2" : 63,
+            	"3" : 63,
+            	"4" : 63,
+            	"5" : 60,
+            	"6" : 70,
+            	"7" : 60,
+            	"8" : 30,
+            	"9" : 60
+            }
+        },
+        {
+            "teamName" : "Emo's Entertainers",
+            "managerName" : "Mr C Emmerson",
+            "goals" : 76,
+            "momentum" : "down",
+            "weeks" : {
+            	"1" : 114,
+            	"2" : 63,
+            	"3" : 63,
+            	"4" : 63,
+            	"5" : 60,
+            	"6" : 90,
+            	"7" : 60,
+            	"8" : 10,
+            	"9" : 40
+            }
+        },
+        {
+            "teamName" : "Shoganchester United",
+            "managerName" : "Mr T Lewis",
+            "goals" : 87,
+            "momentum" : "same",
+            "weeks" : {
+            	"1" : 114,
+            	"2" : 63,
+            	"3" : 63,
+            	"4" : 63,
+            	"5" : 60,
+            	"6" : 20,
+            	"7" : 30,
+            	"8" : 40,
+            	"9" : 60
+            }
+        },
+        {
+            "teamName" : "Scouting for Goals",
+            "managerName" : "Mr C Cowpertwait",
+            "goals" : 34,
+            "momentum" : "same",
+            "weeks" : {
+            	"1" : 114,
+            	"2" : 63,
+            	"3" : 63,
+            	"4" : 63,
+            	"5" : 60,
+            	"6" : 63,
+            	"7" : 65,
+            	"8" : 60,
+            	"9" : 60
+            }
+        },
+        {
+            "teamName" : "Phil A Show",
+            "managerName" : "Mr P Attrill",
+            "goals" : 66,
+            "momentum" : "up",
+            "weeks" : {
+            	"1" : 114,
+            	"2" : 63,
+            	"3" : 63,
+            	"4" : 63,
+            	"5" : 60,
+            	"6" : 62,
+            	"7" : 60,
+            	"8" : 60,
+            	"9" : 60
+            }
+        },
+        {
+            "teamName" : "Looked Good On Paper",
+            "managerName" : "Mr S Dowe",
+            "goals" : 19,
+            "momentum" : "up",
+            "weeks" : {
+            	"1" : 114,
+            	"2" : 63,
+            	"3" : 63,
+            	"4" : 63,
+            	"5" : 60,
+            	"6" : 60,
+            	"7" : 61,
+            	"8" : 60,
+            	"9" : 50
+            }
+        },
+        {
+            "teamName" : "Nowhere",
+            "managerName" : "Mr C Foxall",
+            "goals" : 7,
+            "momentum" : "down",
+            "weeks" : {
+            	"1" : 114,
+            	"2" : 63,
+            	"3" : 63,
+            	"4" : 63,
+            	"5" : 60,
+            	"6" : 60,
+            	"7" : 64,
+            	"8" : 60,
+            	"9" : 60
+            }
+        },
+        {
+            "teamName" : "FC EK",
+            "managerName" : "Mr J Free",
+            "goals" : 45,
+            "momentum" : "same",
+            "weeks" : {
+            	"1" : 114,
+            	"2" : 63,
+            	"3" : 63,
+            	"4" : 63,
+            	"5" : 60,
+            	"6" : 60,
+            	"7" : 33,
+            	"8" : 60,
+            	"9" : 60
+            }	
+        },
+        {
+            "teamName" : "In Hard",
+            "managerName" : "Mr P Gill",
+            "goals" : 123,
+            "momentum" : "same",
+            "weeks" : {
+            	"1" : 114,
+            	"2" : 63,
+            	"3" : 63,
+            	"4" : 63,
+            	"5" : 60,
+            	"6" : 60,
+            	"7" : 11,
+            	"8" : 60,
+            	"9" : 60
+            }
+        }
+    ],
+    "months" : [
+        {
+			"monthNumber" : 1,
+			"monthName" : "August",
+			"dateRange" : "13th Aug - 29th Aug",
+			"weeks" : 3
+        },
+        {
+			"monthNumber" : 2,
+			"monthName" : "September",
+			"dateRange" : "30th Aug - 26th Sep",
+			"weeks" : 4
+        },
+        {
+			"monthNumber" : 3,
+			"monthName" : "October",
+			"dateRange" : "27th Sep - 31st Oct",
+			"weeks" : 5
+        },
+        {
+			"monthNumber" : 4,
+			"monthName" : "November",
+			"dateRange" : "1st Nov - 28th Nov",
+			"weeks" : 4
+        },
+        {
+			"monthNumber" : 5,
+			"monthName" : "December",
+			"dateRange" : "29th Nov - 26th Dec",
+			"weeks" : 4
+        },
+        {
+			"monthNumber" : 6,
+			"monthName" : "January",
+			"dateRange" : "27th Dec - 30th Jan",
+			"weeks" : 5
+        },
+        {
+			"monthNumber" : 7,
+			"monthName" : "February",
+			"dateRange" : "31st Jan - 27th Feb",
+			"weeks" : 4
+        },
+        {
+			"monthNumber" : 8,
+			"monthName" : "March",
+			"dateRange" : "28th Feb - 27th Mar",
+			"weeks" : 4
+        },
+        {
+			"monthNumber" : 9,
+			"monthName" : "April",
+			"dateRange" : "28th Mar - 24th Apr",
+			"weeks" : 4
+        },
+        {
+			"monthNumber" : 10,
+			"monthName" : "May",
+			"dateRange" : "25th Apr - 21st May",
+			"weeks" : 4
+        }
+    ]
+}
