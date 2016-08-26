@@ -171,7 +171,7 @@
         month.managers = [NSMutableArray arrayWithArray:[month.managers sortedArrayUsingDescriptors:@[descriptor]]];
     }
  
-    // league sorted by points
+    // league sorted by points, then by overall position
     NSMutableArray *league = [self sortLeague:teams];
     
     // get the position of current user
@@ -222,7 +222,12 @@
 
 - (NSMutableArray *) sortLeague:(NSArray *) league  {
     NSMutableArray *sortedLeague = [NSMutableArray arrayWithArray:[league sortedArrayUsingComparator:^(id obj1, id obj2) {
-        return -1 * [[NSNumber numberWithLong:((Team *) obj1).totalPoints] compare:[NSNumber numberWithLong:((Team *)obj2).totalPoints]];
+        NSComparisonResult comparison = [[NSNumber numberWithLong:((Team *) obj1).totalPoints] compare:[NSNumber numberWithLong:((Team *)obj2).totalPoints]];
+        
+        if (comparison == NSOrderedSame)
+            return 1 * [[NSNumber numberWithLong:((Team *) obj1).overallPosition] compare:[NSNumber numberWithLong:((Team *)obj2).overallPosition]];
+
+        return -1 * comparison;
     }]];
     
     long previousPoints = 0, previousPosition = 0;

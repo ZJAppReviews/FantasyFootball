@@ -10,7 +10,7 @@
 
 @class Team;
 
-enum LeagueMode {Points, Winnings, Overall, StartingPoints, StartingPosition, Count};
+enum LeagueMode {Points, Overall, StartingPoints, StartingPosition, Winnings, Count};
 
 @interface TeamManager : NSObject
 

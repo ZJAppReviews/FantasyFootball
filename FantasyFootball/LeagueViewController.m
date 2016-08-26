@@ -494,9 +494,9 @@
     
     [self.tableView reloadData];
     
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view.window animated:YES];
     hud.mode = MBProgressHUDModeText;
-    hud.offset = CGPointMake(0.f, MBProgressMaxOffset);
+    //hud.offset = CGPointMake(0.f, MBProgressMaxOffset);
     hud.contentColor = [UIColor whiteColor];
     hud.bezelView.color = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.7];
   

@@ -1,126 +1,201 @@
 {
 	"year" : "2016/17",
-    "week" : 1,
+    "week" : 2,
     "teams" : [
     	{
             "teamName" : "Wobbles on the Puel",
             "managerName" : "Mr C Attrill",
             "goals" : 4,
+            "overallPosition" : 199417,
+            "startingPoints" : 50,
+            "startingPosition" : 0,
+            "momentum" : "down",
             "weeks" : {
-            	"1" : 29
+            	"1" : 29,
+            	"2" : 21
             }
         },
         {
             "teamName" : "Time For Elevenses",
             "managerName" : "Mr M Riley",
             "chairman" : true,
+            "momentum" : "down",
             "goals" : 9,
+            "overallPosition" : 26354,
+            "startingPoints" : 87,
+            "startingPosition" : 0,
             "weeks" : {
-            	"1" : 39
+            	"1" : 39,
+            	"2" : 48
             }
         },
         {
             "teamName" : "Take Zlat!",
             "managerName" : "Mr J Appleby",
             "goals" : 3,
+            "overallPosition" : 64516,
+            "startingPoints" : 69,
+            "startingPosition" : 41436,
+            "momentum" : "up",
             "weeks" : {
-            	"1" : 27
+            	"1" : 27,
+            	"2" : 51
             }	
         },
         {
             "teamName" : "Del'll Fix It",
             "managerName" : "Mr D Lin",
-            "goals" : 2,
+            "goals" : 3,
+            "overallPosition" : 42456,
+            "startingPoints" : 82,
+            "startingPosition" : 0,
+            "momentum" : "down",
             "weeks" : {
-            	"1" : 42
+            	"1" : 42,
+            	"2" : 41
             }	
         },
         {
             "teamName" : "The Humbler",
             "managerName" : "Mr M Mitchell",
-            "goals" : 8,
+            "goals" : 4,
+            "overallPosition" : 84905,
+            "startingPoints" : 74,
+            "startingPosition" : 0,
+            "momentum" : "down",
             "weeks" : {
-            	"1" : 36
+            	"1" : 36,
+            	"2" : 38
             }
         },
         {
             "teamName" : "Son's Of Pitches",
             "managerName" : "Mr J Hitchins",
-            "goals" : 7,
+            "goals" : 5,
+            "overallPosition" : 139068,
+            "startingPoints" : 64,
+            "startingPosition" : 0,
+            "momentum" : "down",
             "weeks" : {
-            	"1" : 28
+            	"1" : 28,
+            	"2" : 36
             }
         },
         {
             "teamName" : "Eye Tea Eff Sea",
             "managerName" : "Mr P Pritchard",
-            "goals" : 1,
+            "goals" : 6,
+            "overallPosition" : 98604,
+            "startingPoints" : 69,
+            "startingPosition" : 0,
+            "momentum" : "up",
             "weeks" : {
-            	"1" : 21
+            	"1" : 21,
+            	"2" : 50
             }
         },
         {
             "teamName" : "Emo's Entertainers",
             "managerName" : "Mr C Emmerson",
-            "goals" : 0,
+            "goals" : 7,
+            "overallPosition" : 36144,
+            "startingPoints" : 84,
+            "startingPosition" : 11689,
+            "momentum" : "up",
             "weeks" : {
-            	"1" : 33
+            	"1" : 33,
+            	"2" : 51
             }
         },
         {
             "teamName" : "Shoganchester United",
             "managerName" : "Mr T Lewis",
-            "goals" : 12,
+            "goals" : 4,
+            "overallPosition" : 135882,
+            "startingPoints" : 70,
+            "startingPosition" : 0,
+            "momentum" : "down",
             "weeks" : {
-            	"1" : 33
+            	"1" : 33,
+            	"2" : 32
             }
         },
         {
             "teamName" : "Scouting for Goals",
             "managerName" : "Mr C Cowpertwait",
-            "goals" : 4,
+            "goals" : 3,
+            "overallPosition" : 59861,
+            "startingPoints" : 72,
+            "startingPosition" : 34673,
+            "momentum" : "up",
             "weeks" : {
-            	"1" : 26
+            	"1" : 26,
+            	"2" : 53
             }
         },
         {
             "teamName" : "Phil A Show",
             "managerName" : "Mr P Attrill",
-            "goals" : 7,
+            "goals" : 9,
+            "overallPosition" : 21357,
+            "startingPoints" : 89,
+            "startingPosition" : 0,
+            "momentum" : "up",
             "weeks" : {
-            	"1" : 34
+            	"1" : 34,
+            	"2" : 55
             }
         },
         {
             "teamName" : "Looked Good On Paper",
             "managerName" : "Mr S Dowe",
-            "goals" : 7,
+            "goals" : 8,
+            "overallPosition" : 15292,
+            "startingPoints" : 82,
+            "startingPosition" : 14118,
+            "momentum" : "up",
             "weeks" : {
-            	"1" : 34
+            	"1" : 34,
+            	"2" : 58
             }
         },
         {
             "teamName" : "Nowhere",
             "managerName" : "Mr C Foxall",
-            "goals" : 8,
+            "goals" : 5,
+            "overallPosition" : 18527,
+            "startingPoints" : 91,
+            "startingPosition" : 0,
+            "momentum" : "up",
             "weeks" : {
-            	"1" : 30
+            	"1" : 30,
+            	"2" : 61
             }
         },
         {
             "teamName" : "FC EK",
             "managerName" : "Mr J Free",
             "goals" : 2,
+            "overallPosition" : 120507,
+            "startingPoints" : 68,
+            "startingPosition" : 0,
+            "momentum" : "up",
             "weeks" : {
-            	"1" : 24
+            	"1" : 24,
+            	"2" : 44
             }	
         },
         {
             "teamName" : "In Hard",
             "managerName" : "Mr P Gill",
-            "goals" : 0,
+            "goals" : 6,
+            "overallPosition" : 82163,
+            "startingPoints" : 74,
+            "startingPosition" : 29008,
+            "momentum" : "down",
             "weeks" : {
-            	"1" : 31
+            	"1" : 31,
+            	"2" : 43
             }
         }
     ],

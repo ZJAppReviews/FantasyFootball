@@ -107,7 +107,7 @@
 		"averagePos" : 14.08,
 		"averagePoints" : 1231.77,
 		"averageGoals" : 65.86,
-		"weeksAtTop" : 0,
+		"weeksAtTop" : -1,
 		"prizeMoney" : 64.99,
 		"sideBets" : -120,
 		"years" : [
@@ -510,6 +510,7 @@
 		"averagePos" : 11.67,
 		"averagePoints" : 1380,
 		"averageGoals" : 0,
+		"weeksAtTop" : 0,
 		"prizeMoney" : 30,
 		"sideBets" : 20,
 		"years" : [
@@ -531,6 +532,7 @@
 		"averagePos" : 9.6,
 		"averagePoints" : 1459.40,
 		"averageGoals" : 91,
+		"weeksAtTop" : 0,
 		"prizeMoney" : 43.5,
 		"sideBets" : 0,
 		"years" : [
@@ -554,6 +556,7 @@
 		"averagePos" : 14.6,
 		"averagePoints" : 1219.6,
 		"averageGoals" : 75,
+		"weeksAtTop" : 0,
 		"prizeMoney" : 11,
 		"sideBets" : -20,
 		"years" : [
@@ -577,6 +580,7 @@
 		"averagePos" : 11.5,
 		"averagePoints" : 1244,
 		"averageGoals" : 0,
+		"weeksAtTop" : 0,
 		"prizeMoney" : 0,
 		"sideBets" : 0,
 		"years" : [
@@ -597,6 +601,7 @@
 		"averagePos" : 15,
 		"averagePoints" : 1235.5,
 		"averageGoals" : 72.5,
+		"weeksAtTop" : 0,
 		"prizeMoney" : 2.01,
 		"sideBets" : 0,
 		"years" : [
@@ -617,6 +622,7 @@
 		"averagePos" : 8,
 		"averagePoints" : 1188,
 		"averageGoals" : 0,
+		"weeksAtTop" : 0,
 		"prizeMoney" : 0,
 		"sideBets" : 0,
 		"years" : [
