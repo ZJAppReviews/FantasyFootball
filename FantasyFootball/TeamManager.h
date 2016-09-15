@@ -16,12 +16,15 @@ enum LeagueMode {Points, Overall, StartingPoints, StartingPosition, Winnings, Co
 
 @property (nonatomic) int weekNumber;
 @property (nonatomic) int monthNumber;
+@property (nonatomic) int cupRoundNumber;
 @property (nonatomic, strong) NSString *year;
 @property (nonatomic, strong) NSMutableArray *league;
 @property (nonatomic, strong) NSMutableArray *goldenBoot;
 @property (nonatomic, strong) NSArray *months;
 @property (nonatomic, strong) NSMutableArray *motm;
+@property (nonatomic, strong) NSArray *cupRounds;
 @property (nonatomic, strong) NSArray *sideBets;
+@property (nonatomic, strong) NSArray *managerStats;
 
 + (TeamManager *) getInstance;
 - (NSMutableArray *) loadData:(NSDictionary *) data cache:(BOOL) cache;

@@ -8,6 +8,7 @@
 
 #import "ManagerStatsViewController.h"
 #import "ManagerStatsDetailViewController.h"
+#import "TeamManager.h"
 #import "Util.h"
 
 @interface ManagerStatsViewController ()
@@ -18,6 +19,16 @@
 
 @implementation ManagerStatsViewController
 
+- (instancetype)initWithCoder:(NSCoder *)aDecoder {
+    if ((self = [super initWithCoder:aDecoder])) {
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(reloadData:)
+                                                     name:@"ReloadData"
+                                                   object:nil];
+    }
+    return [super initWithCoder:aDecoder];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -26,10 +37,20 @@
     
     self.navigationItem.backBarButtonItem =	[[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil];
     
-    NSError *error = nil;
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"manager_stats" ofType:@"json"];
-    NSData *data = [NSData dataWithContentsOfFile:filePath];
-    _managers = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
+    //NSError *error = nil;
+    //NSString *filePath = [[NSBundle mainBundle] pathForResource:@"manager_stats" ofType:@"json"];
+    //NSData *data = [NSData dataWithContentsOfFile:filePath];
+    //_managers = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
+    
+    _managers = [TeamManager getInstance].managerStats;
+    if (!_managers) {
+        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
+                                                             NSUserDomainMask, YES);
+        NSString *cachePath = [[paths objectAtIndex:0] stringByAppendingPathComponent:@"cache_manager_stats.dat"];
+        NSArray *cacheData = [NSArray arrayWithContentsOfFile:cachePath];
+        if (cacheData)
+            _managers = cacheData;
+    }
     
     // sort by tffp
     NSSortDescriptor *descriptor = [[NSSortDescriptor alloc] initWithKey:@"tffp" ascending:NO];
@@ -39,6 +60,16 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void) reloadData:(NSNotification *)notification {
+    _managers = [TeamManager getInstance].managerStats;
+    
+    // sort by tffp
+    NSSortDescriptor *descriptor = [[NSSortDescriptor alloc] initWithKey:@"tffp" ascending:NO];
+    _managers = [_managers sortedArrayUsingDescriptors:@[descriptor]];
+    
+    [self.tableView reloadData];
 }
 
 #pragma mark - Table view data source

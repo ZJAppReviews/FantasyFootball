@@ -10,6 +10,7 @@
 #import "Team.h"
 #import "TeamWeek.h"
 #import "Month.h"
+#import "CupRound.h"
 #import "Util.h"
 
 @implementation TeamManager
@@ -39,8 +40,10 @@
     
     NSArray *teamsJSON = [data objectForKey:@"teams"];
     NSArray *monthsJSON = [data objectForKey:@"months"];
+    NSArray *cupJSON = [data objectForKey:@"cup"];
     NSMutableArray *teams = [NSMutableArray new];
     NSMutableArray *months = [NSMutableArray new];
+    NSMutableArray *cupRounds = [NSMutableArray new];
 
     // create the month objects
     for (NSDictionary *monthJSON in monthsJSON) {
@@ -200,6 +203,30 @@
     // golden boot sorted by goals
     [self sortGoals:teams];
     
+    // cup data is an array of rounds which each contain the ties (assume 4 rounds)
+    _cupRoundNumber = 0;
+    for (NSDictionary *roundDict in cupJSON) {
+        CupRound *round = [CupRound new];
+        round.roundNumber = [roundDict[@"round"] intValue];
+        round.weekNumber = [roundDict[@"weekNumber"] intValue];
+        round.dateRange = roundDict[@"dateRange"];
+        //for (NSDictionary *tie in roundDict[@"ties"]) {
+        //    [round addTie:tie];
+        //}
+        round.ties = roundDict[@"ties"];
+        
+        if (round.ties.count > 0 && round.roundNumber > _cupRoundNumber)
+            _cupRoundNumber = round.roundNumber;
+        
+        [cupRounds addObject:round];
+    }
+    _cupRounds = cupRounds;
+    
+    // sort cup ties in reverse round order
+    _cupRounds = [_cupRounds sortedArrayUsingComparator:^(id obj1, id obj2) {
+        return -1 * [[NSNumber numberWithLong:((CupRound *) obj1).roundNumber] compare:[NSNumber numberWithLong:((CupRound *)obj2).roundNumber]];
+    }];
+    
     // save the cache to disk for pre-population next time app is opened
     BOOL success = NO;
     if (cache) {
@@ -310,6 +337,53 @@
     }
 }
 
+- (int) getCupRound:(Team *) team {
+    int cupRoundNumber = 1;
+    
+    for (CupRound *cupRound in _cupRounds) {
+        if (_weekNumber < cupRound.weekNumber)
+            continue;
+        
+        for (NSDictionary *tie in cupRound.ties) {
+            NSString *managerName1 = tie[@"managerName1"];
+            NSString *managerName2 = tie[@"managerName2"];
+            
+            if (![team.managerName isEqualToString:managerName1] && ![team.managerName isEqualToString:managerName2])
+                continue;
+            
+            Team *team1 = [[TeamManager getInstance] getTeam:managerName1];
+            Team *team2 = [[TeamManager getInstance] getTeam:managerName2];
+            NSString *winner = nil;
+            
+            long team1Points = ((TeamWeek *) team1.weeks[cupRound.weekNumber - 1]).points;
+            long team2Points = ((TeamWeek *) team2.weeks[cupRound.weekNumber - 1]).points;
+            
+            if (team1Points > team2Points) {
+                winner = managerName1;
+            }
+            else if (team2Points > team1Points) {
+                winner = managerName2;
+            }
+            else {
+                // must have been a draw, so check manual flag
+                winner = tie[@"winner"];
+            }
+            
+            if ([winner isEqualToString:team.managerName])
+                cupRoundNumber = cupRound.roundNumber + 1;
+            else
+                cupRoundNumber = cupRound.roundNumber;
+            
+            break;
+        }
+        
+        if (cupRoundNumber > 1)
+            break;
+    }
+    
+    return cupRoundNumber;
+}
+
 - (Team *) whoIsWinningBetOfType:(NSDictionary *) sideBet betweenTeam1:(Team *) team1 team2:(Team *) team2 team3:(Team *) team3 {
     NSString *type = sideBet[@"type"];
     if (team1 && team2) {
@@ -332,10 +406,15 @@
             if (winningTeam)
                 return [self getTeam:sideBet[winningTeam]];
         }
-        /*else if ([sideBet[@"type"] isEqualToString:@"cup"]) {
-            if (thisTeam.goldenBootPosition > opponentTeam1.goldenBootPosition)
-            winnings += [sideBet[@"amount"] doubleValue];
-        }*/
+        else if ([sideBet[@"type"] isEqualToString:@"cup"]) {
+            int team1Round = [self getCupRound:team1];
+            int team2Round = [self getCupRound:team2];
+            
+            if (team1Round < team2Round)
+                return team2;
+            else if (team1Round > team2Round)
+                return team1;
+        }
     }
     
     return nil;
@@ -367,10 +446,15 @@
                     return [self getTeam:sideBet[@"managerName1"]];
             }
         }
-        /*else if ([sideBet[@"type"] isEqualToString:@"cup"]) {
-         if (thisTeam.goldenBootPosition > opponentTeam1.goldenBootPosition)
-         winnings += [sideBet[@"amount"] doubleValue];
-         }*/
+        else if ([sideBet[@"type"] isEqualToString:@"cup"]) {
+            int team1Round = [self getCupRound:team1];
+            int team2Round = [self getCupRound:team2];
+            
+            if (team1Round > team2Round)
+                return team2;
+            else if (team1Round < team2Round)
+                return team1;
+        }
     }
     
     return nil;
@@ -447,6 +531,11 @@
     }
     
     // fu cup is £45 winner / £15 runner up
+    int cupRound = [self getCupRound:team];
+    if (cupRound == 5)
+        winnings += 45;
+    else if (cupRound == 4)
+        winnings += 15;
     
     return winnings;
 }

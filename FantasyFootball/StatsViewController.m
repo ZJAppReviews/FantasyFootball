@@ -7,6 +7,7 @@
 //
 
 #import "StatsViewController.h"
+#import "TeamManager.h"
 #import "Util.h"
 
 @interface StatsViewController ()
@@ -21,6 +22,37 @@
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     self.tableView.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0);
     self.tableView.rowHeight = 70;
+    
+    NSURLSession *session = [NSURLSession sharedSession];
+    NSURL *URL = [NSURL URLWithString:@"http://www.mhriley.com/fantasyfootball/manager_stats.json"];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:URL];
+    [request setHTTPMethod:@"GET"];
+    [request setCachePolicy:NSURLRequestReloadIgnoringLocalCacheData];
+    NSURLSessionDataTask *statsTask = [session dataTaskWithRequest:request
+                                                    completionHandler:
+          ^(NSData *data, NSURLResponse *response, NSError *error) {
+              if (!error && data) {
+                  NSError *error2 = nil;
+                  NSArray *managersStats = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error2];
+                  
+                  if (!error2) {
+                      [TeamManager getInstance].managerStats = managersStats;
+                      
+                      NSLog(@"Cache manager stats data");
+                      NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
+                                                                           NSUserDomainMask, YES);
+                      NSString *cachePath = [[paths objectAtIndex:0] stringByAppendingPathComponent:@"cache_manager_stats.dat"];
+                      BOOL success = [managersStats writeToFile:cachePath atomically:YES];
+                  }
+                  else {
+                      NSLog(@"Manager Stats JSON Deserialization failed: %@", [error2 userInfo]);
+                  }
+              }
+              else {
+                  NSLog(@"Manager Stats connection failed: %@", [error userInfo]);
+              }
+          }];
+    [statsTask resume];
 }
 
 - (void)didReceiveMemoryWarning {
