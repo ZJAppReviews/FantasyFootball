@@ -34,6 +34,10 @@
 - (NSMutableArray *) loadData:(NSDictionary *) data cache:(BOOL) cache {
     NSLog(@"Load data");
     
+    NSArray *oldLeague = nil;
+    if (_league)
+        oldLeague = _league;
+    
     int oldWeek = [getOptionValueForKey(@"week") intValue];
     _weekNumber = [[data objectForKey:@"week"] intValue];
     _year = [data objectForKey:@"year"];
@@ -191,6 +195,19 @@
         setOptionBoolForKey(@"newWeek", YES);
         if (userPosition > 0)
             setOptionValueForKey(@"newPosition", [NSNumber numberWithLong:userPosition]);
+        
+        // work out whether teams are on the way up or down
+        if (oldLeague) {
+            for (Team *team in league) {
+                Team *oldTeam = [self getTeam:oldLeague forManagerName:team.managerName];
+                if (oldTeam.leaguePosition > team.leaguePosition)
+                    team.momentum = Up;
+                else if (oldTeam.leaguePosition < team.leaguePosition)
+                    team.momentum = Down;
+                else
+                    team.momentum = Same;
+            }
+        }
     }
     else if (cache && userPosition > 0) {
         setOptionValueForKey(@"position", [NSNumber numberWithLong:userPosition]);
