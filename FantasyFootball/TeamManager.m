@@ -91,7 +91,7 @@
         
         // sort by week number
         NSArray *keys = [weeks.allKeys sortedArrayUsingComparator:^(id obj1, id obj2) {
-            return [((NSNumber *) obj1) compare:(NSNumber *) obj2];
+            return [@([obj1 intValue]) compare:@([obj2 intValue])];
         }];
         for (NSNumber *weekNumber in keys) {
             int weekPoints = [weeks[weekNumber] intValue];
