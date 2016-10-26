@@ -66,6 +66,10 @@
 		4DA456291D50FD59004D24D8 /* side_bets.json in Resources */ = {isa = PBXBuildFile; fileRef = 4DA456281D50FD59004D24D8 /* side_bets.json */; };
 		4DB621BF1D4E199800E1F528 /* TeamWeek.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DB621BE1D4E199800E1F528 /* TeamWeek.m */; };
 		4DB621C21D4E56B700E1F528 /* Week.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DB621C11D4E56B700E1F528 /* Week.m */; };
+		4DBCF0C11DBFB8AC00894B04 /* TFHpple.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DBCF0BC1DBFB8AC00894B04 /* TFHpple.m */; };
+		4DBCF0C21DBFB8AC00894B04 /* TFHppleElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DBCF0BE1DBFB8AC00894B04 /* TFHppleElement.m */; };
+		4DBCF0C31DBFB8AC00894B04 /* XPathQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DBCF0C01DBFB8AC00894B04 /* XPathQuery.m */; };
+		4DBCF0C91DBFB96200894B04 /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DBCF0C51DBFB8C400894B04 /* libxml2.tbd */; };
 		4DD47C991D4D3240008D64A7 /* StatsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DD47C981D4D3240008D64A7 /* StatsViewController.m */; };
 		4DE26F951D64C0DB008DB3B8 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DE26F941D64C0DB008DB3B8 /* MBProgressHUD.m */; };
 		4DF2411D1D461F0600AF4F1A /* MOTMViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DF2411C1D461F0600AF4F1A /* MOTMViewController.m */; };
@@ -197,6 +201,14 @@
 		4DB621BE1D4E199800E1F528 /* TeamWeek.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeamWeek.m; sourceTree = "<group>"; };
 		4DB621C01D4E56B700E1F528 /* Week.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Week.h; sourceTree = "<group>"; };
 		4DB621C11D4E56B700E1F528 /* Week.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Week.m; sourceTree = "<group>"; };
+		4DBCF0BB1DBFB8AC00894B04 /* TFHpple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFHpple.h; sourceTree = "<group>"; };
+		4DBCF0BC1DBFB8AC00894B04 /* TFHpple.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFHpple.m; sourceTree = "<group>"; };
+		4DBCF0BD1DBFB8AC00894B04 /* TFHppleElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFHppleElement.h; sourceTree = "<group>"; };
+		4DBCF0BE1DBFB8AC00894B04 /* TFHppleElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFHppleElement.m; sourceTree = "<group>"; };
+		4DBCF0BF1DBFB8AC00894B04 /* XPathQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XPathQuery.h; sourceTree = "<group>"; };
+		4DBCF0C01DBFB8AC00894B04 /* XPathQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XPathQuery.m; sourceTree = "<group>"; };
+		4DBCF0C51DBFB8C400894B04 /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
+		4DBCF0C71DBFB8DE00894B04 /* libxml2.2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.2.tbd; path = usr/lib/libxml2.2.tbd; sourceTree = SDKROOT; };
 		4DD47C971D4D3240008D64A7 /* StatsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatsViewController.h; sourceTree = "<group>"; };
 		4DD47C981D4D3240008D64A7 /* StatsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatsViewController.m; sourceTree = "<group>"; };
 		4DE26F931D64C0DB008DB3B8 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
@@ -214,6 +226,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4DBCF0C91DBFB96200894B04 /* libxml2.tbd in Frameworks */,
 				4D2A9A511D47DF6700DCDB15 /* AirshipKit.framework in Frameworks */,
 				4D7054731D4A6EDB0039B4AE /* Crashlytics.framework in Frameworks */,
 				4D7054721D4A6EDB0039B4AE /* Fabric.framework in Frameworks */,
@@ -250,6 +263,7 @@
 				4D3B56661D44E1EA00267C95 /* FantasyFootball */,
 				4D3B56831D44E1EA00267C95 /* FantasyFootballUITests */,
 				4D3B56651D44E1EA00267C95 /* Products */,
+				4DBCF0C41DBFB8C400894B04 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -265,6 +279,7 @@
 		4D3B56661D44E1EA00267C95 /* FantasyFootball */ = {
 			isa = PBXGroup;
 			children = (
+				4DBCF0BA1DBFB83A00894B04 /* hpple */,
 				4D3B569A1D4504FE00267C95 /* Models */,
 				4D3B56A31D45165600267C95 /* Managers */,
 				4D3B566A1D44E1EA00267C95 /* AppDelegate.h */,
@@ -401,6 +416,28 @@
 				4D4D513F1D5C98D800CCED96 /* you_know_weve_been_cheated.wav */,
 			);
 			name = Audio;
+			sourceTree = "<group>";
+		};
+		4DBCF0BA1DBFB83A00894B04 /* hpple */ = {
+			isa = PBXGroup;
+			children = (
+				4DBCF0BB1DBFB8AC00894B04 /* TFHpple.h */,
+				4DBCF0BC1DBFB8AC00894B04 /* TFHpple.m */,
+				4DBCF0BD1DBFB8AC00894B04 /* TFHppleElement.h */,
+				4DBCF0BE1DBFB8AC00894B04 /* TFHppleElement.m */,
+				4DBCF0BF1DBFB8AC00894B04 /* XPathQuery.h */,
+				4DBCF0C01DBFB8AC00894B04 /* XPathQuery.m */,
+			);
+			name = hpple;
+			sourceTree = "<group>";
+		};
+		4DBCF0C41DBFB8C400894B04 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4DBCF0C71DBFB8DE00894B04 /* libxml2.2.tbd */,
+				4DBCF0C51DBFB8C400894B04 /* libxml2.tbd */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -596,6 +633,9 @@
 				4D2F6C061D5349DB005FD9BE /* LaunchScreenViewController.m in Sources */,
 				4D2A99D11D4762FA00DCDB15 /* WhoAreYaViewController.m in Sources */,
 				4DF241231D463F9900AF4F1A /* TeamDetailViewController.m in Sources */,
+				4DBCF0C31DBFB8AC00894B04 /* XPathQuery.m in Sources */,
+				4DBCF0C21DBFB8AC00894B04 /* TFHppleElement.m in Sources */,
+				4DBCF0C11DBFB8AC00894B04 /* TFHpple.m in Sources */,
 				4DD47C991D4D3240008D64A7 /* StatsViewController.m in Sources */,
 				4DB621C21D4E56B700E1F528 /* Week.m in Sources */,
 				4DB621BF1D4E199800E1F528 /* TeamWeek.m in Sources */,
@@ -740,6 +780,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
+				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 				INFOPLIST_FILE = FantasyFootball/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -764,6 +805,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
+				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 				INFOPLIST_FILE = FantasyFootball/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
