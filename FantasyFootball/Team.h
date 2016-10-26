@@ -19,7 +19,7 @@ enum Momentum {Up, Down, Same};
 @property (nonatomic) long totalPoints;
 @property (nonatomic) long weeklyPoints;
 @property (nonatomic) long goals;
-@property (nonatomic) long startingPoints;
+@property (nonatomic) long startingPoints, startingGoals;
 @property (nonatomic) long startingPosition;
 @property (nonatomic) long overallPosition;
 @property (nonatomic) BOOL chairman;

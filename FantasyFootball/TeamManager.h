@@ -10,14 +10,15 @@
 
 @class Team;
 
-enum LeagueMode {Points, Overall, StartingPoints, StartingPosition, Winnings, Count};
+enum LeagueMode {Points, Overall, StartingPoints, StartingGoals, Winnings, Count};
 
 @interface TeamManager : NSObject
 
 @property (nonatomic) int weekNumber;
+@property (nonatomic) int completedWeekNumber;
 @property (nonatomic) int monthNumber;
 @property (nonatomic) int cupRoundNumber;
-@property (nonatomic, strong) NSString *year;
+@property (nonatomic, strong) NSString *year, *chairman;
 @property (nonatomic, strong) NSMutableArray *league;
 @property (nonatomic, strong) NSMutableArray *goldenBoot;
 @property (nonatomic, strong) NSArray *months;
@@ -28,6 +29,7 @@ enum LeagueMode {Points, Overall, StartingPoints, StartingPosition, Winnings, Co
 
 + (TeamManager *) getInstance;
 - (NSMutableArray *) loadData:(NSDictionary *) data cache:(BOOL) cache;
+- (NSMutableArray *) loadLeagueData:(NSDictionary *) staticData teamData:(NSArray *) teamRows overallData:(NSArray *) overallRows startingData:(NSArray *) startingRows cache:(BOOL) cache;
 - (Team *) getTeam:(NSString *) managerName;
 - (void) updatePosition:(NSString *) managerName;
 - (void) sortLeague;
@@ -36,6 +38,8 @@ enum LeagueMode {Points, Overall, StartingPoints, StartingPosition, Winnings, Co
 - (Team *) whoIsWinningBetOfType:(NSDictionary *) sideBet betweenTeam1:(Team *) team1 team2:(Team *) team2 team3:(Team *) team3;
 - (Team *) whoIsLosingBetOfType:(NSDictionary *) sideBet betweenTeam1:(Team *) team1 team2:(Team *) team2 team3:(Team *) team3;
 - (double) getPredictedWinnings:(Team *) team;
+- (int) getCupRound:(Team *) team;
+- (BOOL) hasCupFinished;
 + (NSArray *) managerNames;
 
 @end

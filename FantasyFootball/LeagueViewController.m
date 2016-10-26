@@ -11,7 +11,7 @@
 #import "LaunchScreenViewController.h"
 #import "Team.h"
 #import "TeamManager.h"
-#import "SettingsManager.h"
+#import "DataManager.h"
 #import "Month.h"
 #import "Util.h"
 #import "SoundEffect.h"
@@ -58,9 +58,9 @@
     _teams = [TeamManager getInstance].league;
     [self setTitle];
     
-    UILongPressGestureRecognizer* longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleLongPress:)];
-    longPress.minimumPressDuration = 2;
-    [[_settingsButton valueForKey:@"view"] addGestureRecognizer:longPress];
+    //UILongPressGestureRecognizer* longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleLongPress:)];
+    //longPress.minimumPressDuration = 2;
+    //[[_settingsButton valueForKey:@"view"] addGestureRecognizer:longPress];
     
     NSLog(@"viewDidLoad %@ data", ([TeamManager getInstance].year ? @"with" : @"without"));
     
@@ -197,7 +197,7 @@
                                                                           preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction* ok = [UIAlertAction actionWithTitle:@"Close" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
             dispatch_async(dispatch_get_main_queue(), ^{
-                [SettingsManager loadSettings];
+                [DataManager loadData];
             });
         }];
         [alertController addAction:ok];
@@ -410,9 +410,10 @@
     else if (mode == StartingPoints) {
         weeklyPointsLabel.text = [NSString localizedStringWithFormat:@"%@", @(team.startingPoints)];
     }
-    else if (mode == StartingPosition) {
-        NSString *subscript = (team.startingPosition % 10 == 1) ? @"st" : (team.startingPosition % 10 == 2) ? @"nd" : (team.startingPosition % 10 == 3) ? @"rd" : @"th";
-        weeklyPointsLabel.text = [NSString stringWithFormat:@"%@%@", [NSString localizedStringWithFormat:@"%@", @(team.startingPosition)], subscript];
+    else if (mode == StartingGoals) {
+        //NSString *subscript = (team.startingPosition % 10 == 1) ? @"st" : (team.startingPosition % 10 == 2) ? @"nd" : (team.startingPosition % 10 == 3) ? @"rd" : @"th";
+        //weeklyPointsLabel.text = [NSString stringWithFormat:@"%@%@", [NSString localizedStringWithFormat:@"%@", @(team.startingPosition)], subscript];
+        weeklyPointsLabel.text = [NSString localizedStringWithFormat:@"%@", @(team.startingGoals)];
     }
     
     UIImageView *momentumView = (UIImageView *)[cell viewWithTag:6];
@@ -505,7 +506,7 @@
         case Winnings: hud.label.text = @"Predicted Winnings"; break;
         case Overall: hud.label.text = @"Overall Position"; break;
         case StartingPoints: hud.label.text = @"Starting XI Points"; break;
-        case StartingPosition: hud.label.text = @"Starting XI Position"; break;
+        case StartingGoals: hud.label.text = @"Starting Goals"; break;
         default: break;
     }
     

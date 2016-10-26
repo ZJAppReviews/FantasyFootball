@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Team.h"
 
 @class Team;
 
@@ -14,7 +15,8 @@
 
 @property (nonatomic) Team *team;
 @property (nonatomic) long weekNumber;
-@property (nonatomic) long points, totalPoints;
+@property (nonatomic) long points, totalPoints, goals;
 @property (nonatomic) long position;
+@property (nonatomic) enum Momentum momentum;
 
 @end

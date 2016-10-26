@@ -8,14 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
-@interface SettingsManager : NSObject {
-    NSMutableData *remoteSettingsData;
-    NSDictionary *remoteSettings;
+@interface DataManager : NSObject {
+    NSDictionary *remoteJSONData;
+    NSDictionary *staticData;
+    NSArray *teamRows, *overallRows;
 
     BOOL isLoading;
 }
 
-+ (SettingsManager *) getInstance;
-+ (void) loadSettings;
++ (DataManager *) getInstance;
++ (void) loadData;
 
 @end

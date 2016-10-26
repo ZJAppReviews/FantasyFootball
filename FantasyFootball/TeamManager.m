@@ -13,6 +13,8 @@
 #import "CupRound.h"
 #import "Util.h"
 
+#import "TFHpple.h"
+
 @implementation TeamManager
 
 + (TeamManager *) getInstance {
@@ -40,6 +42,7 @@
     
     int oldWeek = [getOptionValueForKey(@"week") intValue];
     _weekNumber = [[data objectForKey:@"week"] intValue];
+    _completedWeekNumber = _weekNumber;
     _year = [data objectForKey:@"year"];
     
     NSArray *teamsJSON = [data objectForKey:@"teams"];
@@ -260,6 +263,298 @@
     return league;
 }
 
+/* This is the manually created data which contains the months which make up MOTM and the cup draws */
+- (void) loadMonthsAndCupData:(NSDictionary *) data {
+    NSLog(@"Load months and cup data");
+
+    NSArray *monthsJSON = [data objectForKey:@"months"];
+    NSArray *cupJSON = [data objectForKey:@"cup"];
+    NSMutableArray *months = [NSMutableArray new];
+    NSMutableArray *cupRounds = [NSMutableArray new];
+    
+    // get the current chairman
+    _chairman = [data objectForKey:@"chairman"];
+    
+    // work out the completed week number (current week number may contain mid-week scores)
+    NSString *startDateString = [data objectForKey:@"startDate"];
+    NSDate *startDate = [getPosixDateFormatter(@"dd/MM/yyyy") dateFromString:startDateString];
+    NSDate *endDate = getDateAtStartOfDay([NSDate date]);
+    _completedWeekNumber = (int) getWeeksBetweenDates(startDate, endDate);
+    if (_completedWeekNumber < 0)
+        _completedWeekNumber = 0;
+    
+    // create the month objects
+    for (NSDictionary *monthJSON in monthsJSON) {
+        Month *month = [Month new];
+        month.monthNumber = [[monthJSON objectForKey:@"monthNumber"] intValue];
+        month.monthName = [monthJSON objectForKey:@"monthName"];
+        month.dateRange = [monthJSON objectForKey:@"dateRange"];
+        month.weeks = [[monthJSON objectForKey:@"weeks"] intValue];
+        month.managers = [NSMutableArray new];
+        [months addObject:month];
+    }
+    
+    // months sorted by reverse date
+    _months = [NSMutableArray arrayWithArray:[months sortedArrayUsingComparator:^(id obj1, id obj2) {
+        return -1 * [[NSNumber numberWithLong:((Month *) obj1).monthNumber] compare:[NSNumber numberWithLong:((Month *)obj2).monthNumber]];
+    }]];
+
+    // cup data is an array of rounds which each contain the ties (assume 4 rounds)
+    _cupRoundNumber = 0;
+    for (NSDictionary *roundDict in cupJSON) {
+        CupRound *round = [CupRound new];
+        round.roundNumber = [roundDict[@"round"] intValue];
+        round.weekNumber = [roundDict[@"weekNumber"] intValue];
+        round.dateRange = roundDict[@"dateRange"];
+        //for (NSDictionary *tie in roundDict[@"ties"]) {
+        //    [round addTie:tie];
+        //}
+        round.ties = roundDict[@"ties"];
+        
+        if (round.ties.count > 0 && round.roundNumber > _cupRoundNumber)
+            _cupRoundNumber = round.roundNumber;
+        
+        [cupRounds addObject:round];
+    }
+    _cupRounds = cupRounds;
+    
+    // sort cup ties in reverse round order
+    _cupRounds = [_cupRounds sortedArrayUsingComparator:^(id obj1, id obj2) {
+        return -1 * [[NSNumber numberWithLong:((CupRound *) obj1).roundNumber] compare:[NSNumber numberWithLong:((CupRound *)obj2).roundNumber]];
+    }];
+}
+
+- (NSMutableArray *) loadLeagueData:(NSDictionary *) staticData teamData:(NSArray *) teamRows overallData:(NSArray *) overallRows startingData:(NSArray *) startingRows cache:(BOOL) cache {
+    NSLog(@"Load league data");
+    
+    [self loadMonthsAndCupData:staticData];
+    
+    NSArray *oldLeague = nil;
+    if (_league)
+        oldLeague = _league;
+    
+    int oldCompletedWeek = [getOptionValueForKey(@"week") intValue];
+    NSDateComponents *components = [[NSCalendar currentCalendar] components:NSCalendarUnitMonth | NSCalendarUnitYear fromDate:[NSDate date]];
+    if (components.month >= 8)
+        _year = [NSString stringWithFormat:@"%@/%@", [@(components.year) stringValue], [@(components.year + 1) stringValue]];
+    else
+        _year = [NSString stringWithFormat:@"%@/%@", [@(components.year - 1) stringValue], [@(components.year) stringValue]];
+    _weekNumber = 0;
+    if (!cache)
+        _completedWeekNumber = _weekNumber;
+    
+    NSMutableArray *teams = [NSMutableArray new];
+    
+    // create the team objects
+    for (NSDictionary *teamJSON in teamRows) {
+        Team *team = [Team new];
+        team.teamName = [teamJSON objectForKey:@"TEAMNAME"];
+        team.managerName = [TeamManager managerNamesDictionary][[teamJSON objectForKey:@"MANAGER"]];
+        team.chairman = [_chairman isEqualToString:team.managerName];
+        team.weeks = [NSMutableArray new];
+        team.motms = [NSMutableArray new];
+        [teams addObject:team];
+        
+        // the points scored are in a dictionary, one entry per week
+        // use this to work out the total points and the motm data
+        NSArray *weeks = [teamJSON objectForKey:@"WEEKS"];
+        
+        // sort by week number
+        weeks = [weeks sortedArrayUsingComparator:^(id obj1, id obj2) {
+            return [@([obj1[@"WK"] intValue]) compare:@([obj2[@"WK"] intValue])];
+        }];
+        
+        // get the current week number, which is the latest week which has been sent - may be mid-week
+        if (_weekNumber == 0) {
+            _weekNumber = [[weeks lastObject][@"WK"] intValue];
+            if (!cache)
+                _completedWeekNumber = _weekNumber; // if we are loading from cache then do not move on completed week number or it will mess up the alerts
+        }
+        
+        TeamWeek *previousTeamWeek = nil;
+        for (NSDictionary *week in weeks) {
+            int weekNumber = [week[@"WK"] intValue];
+            int weekPoints = [week[@"PTS"] intValue];
+            team.totalPoints += weekPoints;
+            int weekGoals = [week[@"GOALS"] intValue];
+            team.goals += weekGoals;
+            if (weekNumber == _weekNumber)
+                team.weeklyPoints += weekPoints;
+
+            // fill in any missing weeks (i.e. weeks without any qualifying games)
+            if (weekNumber - previousTeamWeek.weekNumber > 1) {
+                TeamWeek *teamWeek = [TeamWeek new];
+                teamWeek.team = team;
+                teamWeek.weekNumber = weekNumber - 1;
+                teamWeek.points = 0;
+                teamWeek.goals = 0;
+                teamWeek.totalPoints = previousTeamWeek.totalPoints;
+                teamWeek.position = previousTeamWeek.position;
+                teamWeek.momentum = previousTeamWeek.momentum;
+                [team.weeks addObject:teamWeek];
+            }
+            
+            // create the week info for the team
+            TeamWeek *teamWeek = [TeamWeek new];
+            teamWeek.team = team;
+            teamWeek.weekNumber = weekNumber;
+            teamWeek.points = weekPoints;
+            teamWeek.goals = weekGoals;
+            teamWeek.totalPoints = team.totalPoints;
+            teamWeek.position = [week[@"POS"] intValue];
+            if (previousTeamWeek.position > teamWeek.position)
+                teamWeek.momentum = Up;
+            else if (previousTeamWeek.position < teamWeek.position)
+                teamWeek.momentum = Down;
+            else
+                teamWeek.momentum = Same;
+            [team.weeks addObject:teamWeek];
+
+            previousTeamWeek = teamWeek;
+            
+            // get the month info
+            int monthNumber = [self getMonthForWeek:weekNumber];
+            NSUInteger index = [_months indexOfObjectPassingTest:^BOOL(NSDictionary *item, NSUInteger idx, BOOL *stop) {
+                BOOL found = (((Month *) item).monthNumber == monthNumber);
+                return found;
+            }];
+            
+            // set the motm data
+            if (index != NSNotFound) {
+                Month *month = _months[index];
+                
+                NSMutableDictionary *manager;
+                NSUInteger index2 = [month.managers indexOfObjectPassingTest:^BOOL(NSDictionary *item, NSUInteger idx, BOOL *stop) {
+                    BOOL found = [((NSDictionary *) item)[@"managerName"] isEqualToString:team.managerName];
+                    return found;
+                }];
+                if (index2 != NSNotFound)
+                    manager = month.managers[index2];
+                else {
+                    manager = [NSMutableDictionary new];
+                    manager[@"managerName"] = team.managerName;
+                    [month.managers addObject:manager];
+                }
+                manager[@"points"] = [NSNumber numberWithInt:[manager[@"points"] intValue] + weekPoints];
+            }
+        }
+    }
+    
+    // make a note of any motm wins
+    for (int i = 0; i < _completedWeekNumber; i++) {
+        NSArray *teamWeeks = [NSMutableArray new];
+        for (Team *team in teams) {
+            if (team.weeks.count > i) {
+                TeamWeek *teamWeek = team.weeks[i];
+                [(NSMutableArray *)teamWeeks addObject:teamWeek];
+            }
+        }
+
+        for (int j = 0; j < teamWeeks.count; j++) {
+            TeamWeek *teamWeek = [teamWeeks objectAtIndex:j];
+
+            if (teamWeek.position == 1) {
+                if ([self isLastWeekOfMonth:i + 1]) {
+                    [teamWeek.team.motms addObject:[NSNumber numberWithLong:[self getMonthForWeek:i + 1]]];
+                    
+                    if (_completedWeekNumber == (i + 1)
+                            && (_completedWeekNumber > oldCompletedWeek)
+                            && [getOptionValueForKey(@"managerName") isEqualToString:teamWeek.team.managerName])
+                        setOptionBoolForKey(@"motmWin", YES);
+                }
+            }
+        }
+    }
+    
+    // merge in the overall data
+    for (TFHppleElement *team in overallRows) {
+        NSString *managerName = [TeamManager managerNamesDictionary][((TFHppleElement *) team.children[2]).content];
+        
+        NSString *overallPositionString = ((TFHppleElement *) team.children.lastObject).content;
+        
+        Team *team = [self getTeam:teams forManagerName:managerName];
+        team.overallPosition = [overallPositionString longLongValue];
+    }
+    
+    // merge in the starting data
+    for (TFHppleElement *team in startingRows) {
+        NSString *managerName = [TeamManager managerNamesDictionary][((TFHppleElement *)team.children[2]).content];
+        
+        NSString *startingPointsString = ((TFHppleElement *) team.children[3]).content;
+        NSString *startingGoalsString = ((TFHppleElement *) team.children[4]).content;
+        
+        Team *team = [self getTeam:teams forManagerName:managerName];
+        team.startingPoints = [startingPointsString longLongValue];
+        team.startingGoals = [startingGoalsString longLongValue];
+    }
+    
+    // work out which month we are in
+    _monthNumber = [self getMonthForWeek:_completedWeekNumber];
+    
+    // sort the motm by points
+    for (Month *month in _months) {
+        NSSortDescriptor *descriptor = [[NSSortDescriptor alloc] initWithKey:@"points" ascending:NO];
+        month.managers = [NSMutableArray arrayWithArray:[month.managers sortedArrayUsingDescriptors:@[descriptor]]];
+    }
+    
+    // league sorted by points, then by overall position
+    NSMutableArray *league = [self sortLeague:teams];
+    
+    // get the position of current user
+    long userPosition = 0;
+    Team *currentTeam = [self getTeam:league forManagerName:getOptionValueForKey(@"managerName")];
+    if (currentTeam)
+        userPosition = currentTeam.leaguePosition;
+    
+    // set flags for a new week and/or new/current position
+    if (_completedWeekNumber != oldCompletedWeek) {
+        // reset to showing points
+        //setOptionBoolForKey(@"leagueMode", [NSNumber numberWithInt:0]);
+        
+        setOptionBoolForKey(@"newWeek", YES);
+        if (userPosition > 0)
+            setOptionValueForKey(@"newPosition", [NSNumber numberWithLong:userPosition]);
+    }
+    else if (cache && userPosition > 0) {
+        //setOptionValueForKey(@"position", [NSNumber numberWithLong:userPosition]);
+        setOptionValueForKey(@"newPosition", [NSNumber numberWithLong:userPosition]);
+    }
+    else if (_completedWeekNumber == 0) {
+        setOptionValueForKey(@"position", @0);
+    }
+    setOptionValueForKey(@"week", [NSNumber numberWithInt:_completedWeekNumber]);
+    
+    // work out whether teams are on the way up or down
+    for (Team *team in league) {
+        TeamWeek *latestTeamWeek = team.weeks.lastObject;
+        team.momentum = latestTeamWeek ? latestTeamWeek.momentum : Same;
+    }
+    
+    // golden boot sorted by goals
+    [self sortGoals:teams];
+    
+    // save the cache to disk for pre-population next time app is opened
+    BOOL success = NO;
+    if (cache) {
+        NSLog(@"Cache league data");
+        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
+                                                             NSUserDomainMask, YES);
+        NSString *cachePath = [[paths objectAtIndex:0] stringByAppendingPathComponent:@"cache_league.dat"];
+        
+        NSMutableDictionary *data = [NSMutableDictionary new];
+        data[@"static"] = staticData;
+        data[@"teams"] = teamRows;
+        //data[@"overall"] = overallRows;
+        //data[@"starting"] = startingRows;
+        success = [data writeToFile:cachePath atomically:YES];
+    }
+    else {
+        _league = league;
+    }
+    
+    return league;
+}
+
 - (void) sortLeague {
     _league = [self sortLeague:_league];
 }
@@ -319,7 +614,7 @@
 }
 
 - (BOOL) isLastWeekOfMonth {
-    return [self isLastWeekOfMonth:_weekNumber];
+    return [self isLastWeekOfMonth:_completedWeekNumber];
 }
 
 - (BOOL) isLastWeekOfMonth:(long) weekNumber {
@@ -354,11 +649,19 @@
     }
 }
 
+- (BOOL) hasCupFinished {
+    if (_cupRounds.count < 4)
+        return NO;
+    
+    CupRound *cupRound = _cupRounds[3];
+    return _completedWeekNumber > cupRound.weekNumber;
+}
+
 - (int) getCupRound:(Team *) team {
     int cupRoundNumber = 1;
     
     for (CupRound *cupRound in _cupRounds) {
-        if (_weekNumber < cupRound.weekNumber)
+        if (_completedWeekNumber < cupRound.weekNumber)
             continue;
         
         for (NSDictionary *tie in cupRound.ties) {
@@ -559,26 +862,31 @@
 
 + (NSArray *)managerNames
 {
-    static NSArray *_managerNames;
+    return self.managerNamesDictionary.allValues;
+}
+
++ (NSDictionary *) managerNamesDictionary
+{
+    static NSDictionary *_managerNamesDictionary;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        _managerNames = @[@"Mr C Attrill",
-                          @"Mr P Attrill",
-                          @"Mr J Appleby",
-                          @"Mr C Cowpertwait",
-                          @"Mr S Dowe",
-                          @"Mr C Emmerson",
-                          @"Mr C Foxall",
-                          @"Mr J Free",
-                          @"Mr P Gill",
-                          @"Mr J Hitchins",
-                          @"Mr T Lewis",
-                          @"Mr D Lin",
-                          @"Mr M Mitchell",
-                          @"Mr P Pritchard",
-                          @"Mr M Riley"];
+        _managerNamesDictionary = @{@"Colin Attrill" : @"Mr C Attrill",
+                                   @"Philip Attrill" : @"Mr P Attrill",
+                                   @"Jamie Appleby" : @"Mr J Appleby",
+                                   @"Colin Cowpertwait" : @"Mr C Cowpertwait",
+                                   @"Steven Dowe" : @"Mr S Dowe",
+                                   @"Carl Emmerson" : @"Mr C Emmerson",
+                                   @"Christopher Foxall" : @"Mr C Foxall",
+                                   @"John Free" : @"Mr J Free",
+                                   @"Pap Gill" : @"Mr P Gill",
+                                   @"Jason Hitchins" : @"Mr J Hitchins",
+                                   @"Tim Lewis" : @"Mr T Lewis",
+                                   @"Derek Lin" : @"Mr D Lin",
+                                   @"Mark Mitchell" : @"Mr M Mitchell",
+                                   @"Phil Pritchard" : @"Mr P Pritchard",
+                                   @"Mark Riley" : @"Mr M Riley"};
     });
-    return _managerNames;
+    return _managerNamesDictionary;
 }
 
 @end

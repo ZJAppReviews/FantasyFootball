@@ -152,7 +152,7 @@
     NSString *winner = nil;
     
     long team1Points = 0, team2Points = 0;
-    if ([TeamManager getInstance].weekNumber >= round.weekNumber) {
+    if ([TeamManager getInstance].completedWeekNumber >= round.weekNumber) {
         team1Points = ((TeamWeek *) team1.weeks[round.weekNumber - 1]).points;
         team2Points = ((TeamWeek *) team2.weeks[round.weekNumber - 1]).points;
         

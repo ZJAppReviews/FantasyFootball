@@ -10,6 +10,32 @@
 #import "AppDelegate.h"
 #import "Team.h"
 
+NSDate* getDateAtStartOfDay(NSDate *date) {
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSDateComponents *components = [calendar components:(NSCalendarUnitYear| NSCalendarUnitMonth | NSCalendarUnitDay) fromDate:date];
+    return [calendar dateFromComponents:components];
+}
+
+NSInteger getWeeksBetweenDates(NSDate *startDate, NSDate *endDate) {
+    NSCalendar *gregorian = [NSCalendar currentCalendar];
+    NSDateComponents *components = [gregorian components:NSCalendarUnitWeekOfYear fromDate:startDate toDate:endDate options:0];
+    
+    return [components weekOfYear];
+}
+
+NSDateFormatter* getPosixDateFormatter(NSString *dateFormat) {
+    static NSDateFormatter *posixDateFormatter = nil;
+    
+    if (posixDateFormatter == nil) {
+        posixDateFormatter = [[NSDateFormatter alloc] init];
+        NSLocale *posixLocale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
+        [posixDateFormatter setLocale:posixLocale];
+        //[posixDateFormatter setTimeZone:[NSTimeZone timeZoneWithAbbreviation:@"GMT"]];
+    }
+    [posixDateFormatter setDateFormat:dateFormat];
+    return posixDateFormatter;
+}
+
 NSNumberFormatter* getCurrencyFormatter() {
     static NSNumberFormatter *currencyFormatter = nil;
     if (!currencyFormatter) {

@@ -41,7 +41,13 @@
     _totalPoints.text = [NSString stringWithFormat:@"%li", _team.totalPoints];
     _goals.text = [NSString stringWithFormat:@"%li", _team.goals];
     
-    _fuCup.text = @"1st Round";
+    switch ([[TeamManager getInstance] getCupRound:_team]) {
+        case 1: _fuCup.text = @"1st Round"; break;
+        case 2: _fuCup.text = @"Quarter Final"; break;
+        case 3: _fuCup.text = @"Semi Final"; break;
+        case 4: _fuCup.text = [[TeamManager getInstance] hasCupFinished] ? @"Runner Up" : @"Final"; break;
+        case 5: _fuCup.text = @"Winner"; break;
+    }
     
     if (_team.motms.count == 0)
         _motm.text = @"None";

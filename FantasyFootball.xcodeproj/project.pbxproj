@@ -30,7 +30,7 @@
 		4D3B56961D44FD7000267C95 /* LeagueViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D3B56951D44FD7000267C95 /* LeagueViewController.m */; };
 		4D3B56991D4504F400267C95 /* Team.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D3B56981D4504F400267C95 /* Team.m */; };
 		4D3B569C1D4512D400267C95 /* teams.json in Resources */ = {isa = PBXBuildFile; fileRef = 4D3B569B1D4512D400267C95 /* teams.json */; };
-		4D3B569F1D45137F00267C95 /* SettingsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D3B569E1D45137F00267C95 /* SettingsManager.m */; };
+		4D3B569F1D45137F00267C95 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D3B569E1D45137F00267C95 /* DataManager.m */; };
 		4D3B56A21D4515F000267C95 /* TeamManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D3B56A11D4515F000267C95 /* TeamManager.m */; };
 		4D3B56A71D453D0300267C95 /* GoldenBootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D3B56A61D453D0300267C95 /* GoldenBootViewController.m */; };
 		4D4D511A1D5603A600CCED96 /* teams_debug.json in Resources */ = {isa = PBXBuildFile; fileRef = 4D4D51191D5603A600CCED96 /* teams_debug.json */; };
@@ -153,8 +153,8 @@
 		4D3B56971D4504F400267C95 /* Team.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Team.h; sourceTree = "<group>"; };
 		4D3B56981D4504F400267C95 /* Team.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Team.m; sourceTree = "<group>"; };
 		4D3B569B1D4512D400267C95 /* teams.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = teams.json; sourceTree = "<group>"; };
-		4D3B569D1D45137F00267C95 /* SettingsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsManager.h; sourceTree = "<group>"; };
-		4D3B569E1D45137F00267C95 /* SettingsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsManager.m; sourceTree = "<group>"; };
+		4D3B569D1D45137F00267C95 /* DataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataManager.h; sourceTree = "<group>"; };
+		4D3B569E1D45137F00267C95 /* DataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
 		4D3B56A01D4515F000267C95 /* TeamManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeamManager.h; sourceTree = "<group>"; };
 		4D3B56A11D4515F000267C95 /* TeamManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeamManager.m; sourceTree = "<group>"; };
 		4D3B56A51D453CF900267C95 /* GoldenBootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoldenBootViewController.h; sourceTree = "<group>"; };
@@ -368,8 +368,8 @@
 			children = (
 				4D3B56A01D4515F000267C95 /* TeamManager.h */,
 				4D3B56A11D4515F000267C95 /* TeamManager.m */,
-				4D3B569D1D45137F00267C95 /* SettingsManager.h */,
-				4D3B569E1D45137F00267C95 /* SettingsManager.m */,
+				4D3B569D1D45137F00267C95 /* DataManager.h */,
+				4D3B569E1D45137F00267C95 /* DataManager.m */,
 			);
 			name = Managers;
 			sourceTree = "<group>";
@@ -619,7 +619,7 @@
 				4D4D51251D562D9600CCED96 /* StatsKeyValueViewController.m in Sources */,
 				4D2F6C0F1D535B1F005FD9BE /* AnimatedNumericLabel.m in Sources */,
 				4D3B56A21D4515F000267C95 /* TeamManager.m in Sources */,
-				4D3B569F1D45137F00267C95 /* SettingsManager.m in Sources */,
+				4D3B569F1D45137F00267C95 /* DataManager.m in Sources */,
 				4D3B56A71D453D0300267C95 /* GoldenBootViewController.m in Sources */,
 				4DE26F951D64C0DB008DB3B8 /* MBProgressHUD.m in Sources */,
 				4DF241201D46302100AF4F1A /* Month.m in Sources */,

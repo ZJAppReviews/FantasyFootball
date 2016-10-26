@@ -14,6 +14,9 @@
 
 @class Team;
 
+NSDate* getDateAtStartOfDay(NSDate *date);
+NSInteger getWeeksBetweenDates(NSDate *startDate, NSDate *endDate);
+NSDateFormatter* getPosixDateFormatter(NSString *dateFormat);
 NSNumberFormatter* getCurrencyFormatter();
 NSString* getManagerName(Team *team);
 BOOL isIPhone();

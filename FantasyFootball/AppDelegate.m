@@ -8,8 +8,9 @@
 
 #import "AppDelegate.h"
 #import "LeagueViewController.h"
-#import "SettingsManager.h"
+#import "DataManager.h"
 #import "TeamManager.h"
+#import "Util.h"
 #import <Fabric/Fabric.h>
 #import <Crashlytics/Crashlytics.h>
 #import <AirshipKit/AirshipKit.h>
@@ -34,6 +35,8 @@
     [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:236.0/255 green:246.0/255 blue:234.0/255 alpha:1.0]];
     [[UITabBar appearance] setBarTintColor:[UIColor colorWithRed:236.0/255 green:246.0/255 blue:234.0/255 alpha:1.0]];
     
+    setOptionBoolForKey(@"testMode", NO);
+    
     /*UIUserNotificationSettings* requestedSettings
         = [UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeBadge
                                                       | UIUserNotificationTypeAlert
@@ -55,12 +58,16 @@
     
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
                                                          NSUserDomainMask, YES);
-    NSString *cachePath = [[paths objectAtIndex:0] stringByAppendingPathComponent:@"cache.dat"];
+    NSString *cachePath = [[paths objectAtIndex:0] stringByAppendingPathComponent:@"cache_league.dat"];
     NSDictionary *cacheData = [NSDictionary dictionaryWithContentsOfFile:cachePath];
     if (cacheData)
-        [[TeamManager getInstance] loadData:cacheData cache:NO];
-    
-    [SettingsManager loadSettings];
+        [[TeamManager getInstance] loadLeagueData:cacheData[@"static"]
+                                         teamData:cacheData[@"teams"]
+                                      overallData:cacheData[@"overall"]
+                                     startingData:cacheData[@"starting"]
+                                            cache:NO];
+
+    [DataManager loadData];
     
     return YES;
 }
@@ -79,7 +86,7 @@
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
     if ([self canChangeBadge])
         application.applicationIconBadgeNumber = 0;
-    [SettingsManager loadSettings];
+    [DataManager loadData];
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
