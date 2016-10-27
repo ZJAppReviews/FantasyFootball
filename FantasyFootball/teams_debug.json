@@ -1,122 +1,935 @@
-{
-	"chairman" : "Mr M Riley",
-	"startDate" : "09/08/2016",
-    "cup" : [
-        {
-			"round" : 1,
-			"weekNumber" : 10,
-			"dateRange" : "11th Oct 2016 - 17th Oct 2016",
-			"ties" : [
-				{
-					"managerName1" : "Mr M Riley",
-					"managerName2" : "Mr C Cowpertwait"
-				},
-				{
-					"managerName1" : "Mr C Attrill",
-					"managerName2" : "Mr C Foxall"
-				},
-				{
-					"managerName1" : "Mr P Pritchard",
-					"managerName2" : "Mr J Appleby"
-				},
-				{
-					"managerName1" : "Mr T Lewis",
-					"managerName2" : "Bye"
-				},
-				{
-					"managerName1" : "Mr P Attrill",
-					"managerName2" : "Mr M Mitchell"
-				},
-				{
-					"managerName1" : "Mr P Gill",
-					"managerName2" : "Mr J Free"
-				},
-				{
-					"managerName1" : "Mr J Hitchins",
-					"managerName2" : "Mr S Dowe"
-				},
-				{
-					"managerName1" : "Mr D Lin",
-					"managerName2" : "Mr C Emmerson"
-				}
-			]
-        },
-        {
-			"round" : 2,
-			"weekNumber" : 21,
-			"dateRange" : "27th Dec 2016 - 2nd Jan 2017"
-        },
-        {
-			"round" : 3,
-			"weekNumber" : 30,
-			"dateRange" : "28th Feb 2017 - 6th Mar 2017"
-        },
-        {
-			"round" : 4,
-			"weekNumber" : 39,
-			"dateRange" : "2nd May 2017 - 8th May 2017"
-        } 
-    ],
-    "months" : [
-        {
-			"monthNumber" : 1,
-			"monthName" : "August",
-			"dateRange" : "13th Aug - 29th Aug",
-			"weeks" : 3
-        },
-        {
-			"monthNumber" : 2,
-			"monthName" : "September",
-			"dateRange" : "30th Aug - 26th Sep",
-			"weeks" : 4
-        },
-        {
-			"monthNumber" : 3,
-			"monthName" : "October",
-			"dateRange" : "27th Sep - 31st Oct",
-			"weeks" : 5
-        },
-        {
-			"monthNumber" : 4,
-			"monthName" : "November",
-			"dateRange" : "1st Nov - 28th Nov",
-			"weeks" : 4
-        },
-        {
-			"monthNumber" : 5,
-			"monthName" : "December",
-			"dateRange" : "29th Nov - 26th Dec",
-			"weeks" : 4
-        },
-        {
-			"monthNumber" : 6,
-			"monthName" : "January",
-			"dateRange" : "27th Dec - 30th Jan",
-			"weeks" : 5
-        },
-        {
-			"monthNumber" : 7,
-			"monthName" : "February",
-			"dateRange" : "31st Jan - 27th Feb",
-			"weeks" : 4
-        },
-        {
-			"monthNumber" : 8,
-			"monthName" : "March",
-			"dateRange" : "28th Feb - 27th Mar",
-			"weeks" : 4
-        },
-        {
-			"monthNumber" : 9,
-			"monthName" : "April",
-			"dateRange" : "28th Mar - 24th Apr",
-			"weeks" : 4
-        },
-        {
-			"monthNumber" : 10,
-			"monthName" : "May",
-			"dateRange" : "25th Apr - 21st May",
-			"weeks" : 4
-        }
-    ]
+{  
+   "SUCCESS":1,
+   "DATA":[  
+      {  
+         "TEAMPIN":"4164161",
+         "TEAMNAME":"Emo's Entertainers",
+         "MANAGER":"Carl Emmerson",
+         "WEEKS":[  
+            {  
+               "WK":"1",
+               "PTS":"33",
+               "GOALS":"3",
+               "POS":"6"
+            },
+            {  
+               "WK":"2",
+               "PTS":"51",
+               "GOALS":"4",
+               "POS":"5"
+            },
+            {  
+               "WK":"3",
+               "PTS":"33",
+               "GOALS":"1",
+               "POS":"6"
+            },
+            {  
+               "WK":"5",
+               "PTS":"41",
+               "GOALS":"2",
+               "POS":"5"
+            },
+            {  
+               "WK":"6",
+               "PTS":"43",
+               "GOALS":"1",
+               "POS":"5"
+            },
+            {  
+               "WK":"7",
+               "PTS":"45",
+               "GOALS":"2",
+               "POS":"6"
+            },
+            {  
+               "WK":"8",
+               "PTS":"36",
+               "GOALS":"1",
+               "POS":"4"
+            },
+            {  
+               "WK":"10",
+               "PTS":"36",
+               "GOALS":"1",
+               "POS":"5"
+            },
+            {  
+               "WK":"11",
+               "PTS":"42",
+               "GOALS":"0",
+               "POS":"4"
+            }
+         ],
+         "MANAGERPIN":"5094441"
+      },
+      {  
+         "TEAMPIN":"4134595",
+         "TEAMNAME":"Wobbles on the Puel",
+         "MANAGER":"Colin Attrill",
+         "WEEKS":[  
+            {  
+               "WK":"1",
+               "PTS":"29",
+               "GOALS":"2",
+               "POS":"10"
+            },
+            {  
+               "WK":"2",
+               "PTS":"21",
+               "GOALS":"2",
+               "POS":"15"
+            },
+            {  
+               "WK":"3",
+               "PTS":"37",
+               "GOALS":"1",
+               "POS":"15"
+            },
+            {  
+               "WK":"5",
+               "PTS":"40",
+               "GOALS":"2",
+               "POS":"13"
+            },
+            {  
+               "WK":"6",
+               "PTS":"41",
+               "GOALS":"3",
+               "POS":"12"
+            },
+            {  
+               "WK":"7",
+               "PTS":"31",
+               "GOALS":"3",
+               "POS":"13"
+            },
+            {  
+               "WK":"8",
+               "PTS":"15",
+               "GOALS":"0",
+               "POS":"14"
+            },
+            {  
+               "WK":"10",
+               "PTS":"35",
+               "GOALS":"1",
+               "POS":"13"
+            },
+            {  
+               "WK":"11",
+               "PTS":"17",
+               "GOALS":"0",
+               "POS":"14"
+            }
+         ],
+         "MANAGERPIN":"5030685"
+      },
+      {  
+         "TEAMPIN":"4065533",
+         "TEAMNAME":"Eye Tea Eff Sea",
+         "MANAGER":"Phil Pritchard",
+         "WEEKS":[  
+            {  
+               "WK":"1",
+               "PTS":"21",
+               "GOALS":"2",
+               "POS":"15"
+            },
+            {  
+               "WK":"2",
+               "PTS":"50",
+               "GOALS":"4",
+               "POS":"11"
+            },
+            {  
+               "WK":"3",
+               "PTS":"22",
+               "GOALS":"0",
+               "POS":"13"
+            },
+            {  
+               "WK":"5",
+               "PTS":"21",
+               "GOALS":"2",
+               "POS":"15"
+            },
+            {  
+               "WK":"6",
+               "PTS":"42",
+               "GOALS":"1",
+               "POS":"15"
+            },
+            {  
+               "WK":"7",
+               "PTS":"52",
+               "GOALS":"3",
+               "POS":"11"
+            },
+            {  
+               "WK":"8",
+               "PTS":"24",
+               "GOALS":"1",
+               "POS":"12"
+            },
+            {  
+               "WK":"10",
+               "PTS":"45",
+               "GOALS":"2",
+               "POS":"11"
+            },
+            {  
+               "WK":"11",
+               "PTS":"39",
+               "GOALS":"3",
+               "POS":"9"
+            }
+         ],
+         "MANAGERPIN":"5068640"
+      },
+      {  
+         "TEAMPIN":"4034583",
+         "TEAMNAME":"Time For Elevenses",
+         "MANAGER":"Mark Riley",
+         "WEEKS":[  
+            {  
+               "WK":"1",
+               "PTS":"39",
+               "GOALS":"4",
+               "POS":"2"
+            },
+            {  
+               "WK":"2",
+               "PTS":"48",
+               "GOALS":"5",
+               "POS":"4"
+            },
+            {  
+               "WK":"3",
+               "PTS":"33",
+               "GOALS":"1",
+               "POS":"4"
+            },
+            {  
+               "WK":"5",
+               "PTS":"52",
+               "GOALS":"4",
+               "POS":"4"
+            },
+            {  
+               "WK":"6",
+               "PTS":"36",
+               "GOALS":"2",
+               "POS":"4"
+            },
+            {  
+               "WK":"7",
+               "PTS":"44",
+               "GOALS":"4",
+               "POS":"4"
+            },
+            {  
+               "WK":"8",
+               "PTS":"17",
+               "GOALS":"0",
+               "POS":"6"
+            },
+            {  
+               "WK":"10",
+               "PTS":"31",
+               "GOALS":"2",
+               "POS":"7"
+            },
+            {  
+               "WK":"11",
+               "PTS":"32",
+               "GOALS":"1",
+               "POS":"6"
+            }
+         ],
+         "MANAGERPIN":"5116673"
+      },
+      {  
+         "TEAMPIN":"4215589",
+         "TEAMNAME":"Nowhere",
+         "MANAGER":"Christopher Foxall",
+         "WEEKS":[  
+            {  
+               "WK":"1",
+               "PTS":"30",
+               "GOALS":"2",
+               "POS":"9"
+            },
+            {  
+               "WK":"2",
+               "PTS":"61",
+               "GOALS":"3",
+               "POS":"2"
+            },
+            {  
+               "WK":"3",
+               "PTS":"49",
+               "GOALS":"1",
+               "POS":"2"
+            },
+            {  
+               "WK":"5",
+               "PTS":"40",
+               "GOALS":"3",
+               "POS":"2"
+            },
+            {  
+               "WK":"6",
+               "PTS":"48",
+               "GOALS":"3",
+               "POS":"2"
+            },
+            {  
+               "WK":"7",
+               "PTS":"48",
+               "GOALS":"3",
+               "POS":"2"
+            },
+            {  
+               "WK":"8",
+               "PTS":"33",
+               "GOALS":"0",
+               "POS":"2"
+            },
+            {  
+               "WK":"10",
+               "PTS":"34",
+               "GOALS":"2",
+               "POS":"3"
+            },
+            {  
+               "WK":"11",
+               "PTS":"44",
+               "GOALS":"2",
+               "POS":"2"
+            }
+         ],
+         "MANAGERPIN":"5788994"
+      },
+      {  
+         "TEAMPIN":"4130015",
+         "TEAMNAME":"FC EK",
+         "MANAGER":"John Free",
+         "WEEKS":[  
+            {  
+               "WK":"1",
+               "PTS":"24",
+               "GOALS":"1",
+               "POS":"14"
+            },
+            {  
+               "WK":"2",
+               "PTS":"44",
+               "GOALS":"1",
+               "POS":"12"
+            },
+            {  
+               "WK":"3",
+               "PTS":"37",
+               "GOALS":"0",
+               "POS":"12"
+            },
+            {  
+               "WK":"5",
+               "PTS":"35",
+               "GOALS":"1",
+               "POS":"11"
+            },
+            {  
+               "WK":"6",
+               "PTS":"18",
+               "GOALS":"1",
+               "POS":"14"
+            },
+            {  
+               "WK":"7",
+               "PTS":"31",
+               "GOALS":"2",
+               "POS":"15"
+            },
+            {  
+               "WK":"8",
+               "PTS":"24",
+               "GOALS":"2",
+               "POS":"15"
+            },
+            {  
+               "WK":"10",
+               "PTS":"33",
+               "GOALS":"1",
+               "POS":"14"
+            },
+            {  
+               "WK":"11",
+               "PTS":"11",
+               "GOALS":"0",
+               "POS":"15"
+            }
+         ],
+         "MANAGERPIN":"5598337"
+      },
+      {  
+         "TEAMPIN":"4018956",
+         "TEAMNAME":"Looked Good On Paper",
+         "MANAGER":"Steven Dowe",
+         "WEEKS":[  
+            {  
+               "WK":"1",
+               "PTS":"34",
+               "GOALS":"3",
+               "POS":"4"
+            },
+            {  
+               "WK":"2",
+               "PTS":"58",
+               "GOALS":"5",
+               "POS":"1"
+            },
+            {  
+               "WK":"3",
+               "PTS":"59",
+               "GOALS":"2",
+               "POS":"1"
+            },
+            {  
+               "WK":"5",
+               "PTS":"51",
+               "GOALS":"3",
+               "POS":"1"
+            },
+            {  
+               "WK":"6",
+               "PTS":"48",
+               "GOALS":"3",
+               "POS":"1"
+            },
+            {  
+               "WK":"7",
+               "PTS":"53",
+               "GOALS":"4",
+               "POS":"1"
+            },
+            {  
+               "WK":"8",
+               "PTS":"30",
+               "GOALS":"2",
+               "POS":"1"
+            },
+            {  
+               "WK":"10",
+               "PTS":"48",
+               "GOALS":"2",
+               "POS":"1"
+            },
+            {  
+               "WK":"11",
+               "PTS":"41",
+               "GOALS":"1",
+               "POS":"1"
+            }
+         ],
+         "MANAGERPIN":"5118088"
+      },
+      {  
+         "TEAMPIN":"4095840",
+         "TEAMNAME":"Scouting for Goals",
+         "MANAGER":"Colin Cowpertwait",
+         "WEEKS":[  
+            {  
+               "WK":"1",
+               "PTS":"26",
+               "GOALS":"1",
+               "POS":"13"
+            },
+            {  
+               "WK":"2",
+               "PTS":"53",
+               "GOALS":"2",
+               "POS":"7"
+            },
+            {  
+               "WK":"3",
+               "PTS":"34",
+               "GOALS":"0",
+               "POS":"8"
+            },
+            {  
+               "WK":"5",
+               "PTS":"32",
+               "GOALS":"2",
+               "POS":"9"
+            },
+            {  
+               "WK":"6",
+               "PTS":"33",
+               "GOALS":"1",
+               "POS":"10"
+            },
+            {  
+               "WK":"7",
+               "PTS":"36",
+               "GOALS":"2",
+               "POS":"9"
+            },
+            {  
+               "WK":"8",
+               "PTS":"40",
+               "GOALS":"1",
+               "POS":"9"
+            },
+            {  
+               "WK":"10",
+               "PTS":"24",
+               "GOALS":"0",
+               "POS":"10"
+            },
+            {  
+               "WK":"11",
+               "PTS":"24",
+               "GOALS":"1",
+               "POS":"11"
+            }
+         ],
+         "MANAGERPIN":"5057449"
+      },
+      {  
+         "TEAMPIN":"4097023",
+         "TEAMNAME":"Phil A Show",
+         "MANAGER":"Philip Attrill",
+         "WEEKS":[  
+            {  
+               "WK":"1",
+               "PTS":"34",
+               "GOALS":"3",
+               "POS":"4"
+            },
+            {  
+               "WK":"2",
+               "PTS":"55",
+               "GOALS":"6",
+               "POS":"3"
+            },
+            {  
+               "WK":"3",
+               "PTS":"28",
+               "GOALS":"1",
+               "POS":"6"
+            },
+            {  
+               "WK":"5",
+               "PTS":"36",
+               "GOALS":"1",
+               "POS":"7"
+            },
+            {  
+               "WK":"6",
+               "PTS":"47",
+               "GOALS":"1",
+               "POS":"6"
+            },
+            {  
+               "WK":"7",
+               "PTS":"52",
+               "GOALS":"5",
+               "POS":"4"
+            },
+            {  
+               "WK":"8",
+               "PTS":"29",
+               "GOALS":"0",
+               "POS":"5"
+            },
+            {  
+               "WK":"10",
+               "PTS":"64",
+               "GOALS":"4",
+               "POS":"2"
+            },
+            {  
+               "WK":"11",
+               "PTS":"40",
+               "GOALS":"1",
+               "POS":"3"
+            }
+         ],
+         "MANAGERPIN":"5051796"
+      },
+      {  
+         "TEAMPIN":"4109787",
+         "TEAMNAME":"The Humbler",
+         "MANAGER":"Mark Mitchell",
+         "WEEKS":[  
+            {  
+               "WK":"1",
+               "PTS":"36",
+               "GOALS":"2",
+               "POS":"3"
+            },
+            {  
+               "WK":"2",
+               "PTS":"38",
+               "GOALS":"2",
+               "POS":"9"
+            },
+            {  
+               "WK":"3",
+               "PTS":"53",
+               "GOALS":"2",
+               "POS":"3"
+            },
+            {  
+               "WK":"5",
+               "PTS":"52",
+               "GOALS":"3",
+               "POS":"3"
+            },
+            {  
+               "WK":"6",
+               "PTS":"33",
+               "GOALS":"2",
+               "POS":"3"
+            },
+            {  
+               "WK":"7",
+               "PTS":"50",
+               "GOALS":"4",
+               "POS":"3"
+            },
+            {  
+               "WK":"8",
+               "PTS":"26",
+               "GOALS":"1",
+               "POS":"3"
+            },
+            {  
+               "WK":"10",
+               "PTS":"42",
+               "GOALS":"1",
+               "POS":"4"
+            },
+            {  
+               "WK":"11",
+               "PTS":"29",
+               "GOALS":"1",
+               "POS":"5"
+            }
+         ],
+         "MANAGERPIN":"5039108"
+      },
+      {  
+         "TEAMPIN":"4204205",
+         "TEAMNAME":"Del'll Fix It",
+         "MANAGER":"Derek Lin",
+         "WEEKS":[  
+            {  
+               "WK":"1",
+               "PTS":"42",
+               "GOALS":"3",
+               "POS":"1"
+            },
+            {  
+               "WK":"2",
+               "PTS":"41",
+               "GOALS":"0",
+               "POS":"6"
+            },
+            {  
+               "WK":"3",
+               "PTS":"35",
+               "GOALS":"1",
+               "POS":"5"
+            },
+            {  
+               "WK":"5",
+               "PTS":"33",
+               "GOALS":"1",
+               "POS":"8"
+            },
+            {  
+               "WK":"6",
+               "PTS":"42",
+               "GOALS":"1",
+               "POS":"7"
+            },
+            {  
+               "WK":"7",
+               "PTS":"20",
+               "GOALS":"0",
+               "POS":"10"
+            },
+            {  
+               "WK":"8",
+               "PTS":"42",
+               "GOALS":"1",
+               "POS":"8"
+            },
+            {  
+               "WK":"10",
+               "PTS":"16",
+               "GOALS":"0",
+               "POS":"12"
+            },
+            {  
+               "WK":"11",
+               "PTS":"21",
+               "GOALS":"0",
+               "POS":"12"
+            }
+         ],
+         "MANAGERPIN":"5800145"
+      },
+      {  
+         "TEAMPIN":"4070422",
+         "TEAMNAME":"Take Zlat!",
+         "MANAGER":"Jamie Appleby",
+         "WEEKS":[  
+            {  
+               "WK":"1",
+               "PTS":"27",
+               "GOALS":"1",
+               "POS":"12"
+            },
+            {  
+               "WK":"2",
+               "PTS":"51",
+               "GOALS":"2",
+               "POS":"8"
+            },
+            {  
+               "WK":"3",
+               "PTS":"29",
+               "GOALS":"0",
+               "POS":"9"
+            },
+            {  
+               "WK":"5",
+               "PTS":"48",
+               "GOALS":"2",
+               "POS":"6"
+            },
+            {  
+               "WK":"6",
+               "PTS":"37",
+               "GOALS":"2",
+               "POS":"8"
+            },
+            {  
+               "WK":"7",
+               "PTS":"38",
+               "GOALS":"3",
+               "POS":"7"
+            },
+            {  
+               "WK":"8",
+               "PTS":"28",
+               "GOALS":"1",
+               "POS":"7"
+            },
+            {  
+               "WK":"10",
+               "PTS":"47",
+               "GOALS":"1",
+               "POS":"6"
+            },
+            {  
+               "WK":"11",
+               "PTS":"24",
+               "GOALS":"0",
+               "POS":"7"
+            }
+         ],
+         "MANAGERPIN":"5088425"
+      },
+      {  
+         "TEAMPIN":"4068782",
+         "TEAMNAME":"In Hard",
+         "MANAGER":"Pap Gill",
+         "WEEKS":[  
+            {  
+               "WK":"1",
+               "PTS":"31",
+               "GOALS":"2",
+               "POS":"8"
+            },
+            {  
+               "WK":"2",
+               "PTS":"43",
+               "GOALS":"4",
+               "POS":"9"
+            },
+            {  
+               "WK":"3",
+               "PTS":"33",
+               "GOALS":"1",
+               "POS":"9"
+            },
+            {  
+               "WK":"5",
+               "PTS":"37",
+               "GOALS":"3",
+               "POS":"10"
+            },
+            {  
+               "WK":"6",
+               "PTS":"26",
+               "GOALS":"0",
+               "POS":"11"
+            },
+            {  
+               "WK":"7",
+               "PTS":"25",
+               "GOALS":"3",
+               "POS":"14"
+            },
+            {  
+               "WK":"8",
+               "PTS":"33",
+               "GOALS":"1",
+               "POS":"13"
+            },
+            {  
+               "WK":"10",
+               "PTS":"16",
+               "GOALS":"1",
+               "POS":"15"
+            },
+            {  
+               "WK":"11",
+               "PTS":"24",
+               "GOALS":"0",
+               "POS":"13"
+            }
+         ],
+         "MANAGERPIN":"5161676"
+      },
+      {  
+         "TEAMPIN":"4063768",
+         "TEAMNAME":"Shoganchester United",
+         "MANAGER":"Tim Lewis",
+         "WEEKS":[  
+            {  
+               "WK":"1",
+               "PTS":"33",
+               "GOALS":"2",
+               "POS":"6"
+            },
+            {  
+               "WK":"2",
+               "PTS":"32",
+               "GOALS":"2",
+               "POS":"13"
+            },
+            {  
+               "WK":"3",
+               "PTS":"41",
+               "GOALS":"1",
+               "POS":"11"
+            },
+            {  
+               "WK":"5",
+               "PTS":"29",
+               "GOALS":"2",
+               "POS":"12"
+            },
+            {  
+               "WK":"6",
+               "PTS":"50",
+               "GOALS":"2",
+               "POS":"9"
+            },
+            {  
+               "WK":"7",
+               "PTS":"33",
+               "GOALS":"1",
+               "POS":"8"
+            },
+            {  
+               "WK":"8",
+               "PTS":"34",
+               "GOALS":"1",
+               "POS":"10"
+            },
+            {  
+               "WK":"10",
+               "PTS":"39",
+               "GOALS":"3",
+               "POS":"8"
+            },
+            {  
+               "WK":"11",
+               "PTS":"28",
+               "GOALS":"0",
+               "POS":"8"
+            }
+         ],
+         "MANAGERPIN":"5054533"
+      },
+      {  
+         "TEAMPIN":"4063747",
+         "TEAMNAME":"Son's Of Pitches",
+         "MANAGER":"Jason Hitchins",
+         "WEEKS":[  
+            {  
+               "WK":"1",
+               "PTS":"28",
+               "GOALS":"3",
+               "POS":"11"
+            },
+            {  
+               "WK":"2",
+               "PTS":"36",
+               "GOALS":"2",
+               "POS":"14"
+            },
+            {  
+               "WK":"3",
+               "PTS":"24",
+               "GOALS":"0",
+               "POS":"14"
+            },
+            {  
+               "WK":"5",
+               "PTS":"34",
+               "GOALS":"2",
+               "POS":"14"
+            },
+            {  
+               "WK":"6",
+               "PTS":"41",
+               "GOALS":"3",
+               "POS":"13"
+            },
+            {  
+               "WK":"7",
+               "PTS":"41",
+               "GOALS":"1",
+               "POS":"12"
+            },
+            {  
+               "WK":"8",
+               "PTS":"31",
+               "GOALS":"1",
+               "POS":"11"
+            },
+            {  
+               "WK":"10",
+               "PTS":"46",
+               "GOALS":"2",
+               "POS":"9"
+            },
+            {  
+               "WK":"11",
+               "PTS":"31",
+               "GOALS":"1",
+               "POS":"10"
+            }
+         ],
+         "MANAGERPIN":"5063731"
+      }
+   ]
 }

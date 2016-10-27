@@ -42,7 +42,7 @@
                       NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
                                                                            NSUserDomainMask, YES);
                       NSString *cachePath = [[paths objectAtIndex:0] stringByAppendingPathComponent:@"cache_manager_stats.dat"];
-                      BOOL success = [managersStats writeToFile:cachePath atomically:YES];
+                      [managersStats writeToFile:cachePath atomically:YES];
                   }
                   else {
                       NSLog(@"Manager Stats JSON Deserialization failed: %@", [error2 userInfo]);

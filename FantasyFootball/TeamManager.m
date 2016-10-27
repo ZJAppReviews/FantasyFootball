@@ -341,7 +341,7 @@
         _year = [NSString stringWithFormat:@"%@/%@", [@(components.year - 1) stringValue], [@(components.year) stringValue]];
     _weekNumber = 0;
     if (!cache)
-        _completedWeekNumber = _weekNumber;
+        _completedWeekNumber = oldCompletedWeek;
     
     NSMutableArray *teams = [NSMutableArray new];
     
@@ -365,11 +365,8 @@
         }];
         
         // get the current week number, which is the latest week which has been sent - may be mid-week
-        if (_weekNumber == 0) {
+        if (_weekNumber == 0)
             _weekNumber = [[weeks lastObject][@"WK"] intValue];
-            if (!cache)
-                _completedWeekNumber = _weekNumber; // if we are loading from cache then do not move on completed week number or it will mess up the alerts
-        }
         
         TeamWeek *previousTeamWeek = nil;
         for (NSDictionary *week in weeks) {
@@ -507,22 +504,29 @@
         userPosition = currentTeam.leaguePosition;
     
     // set flags for a new week and/or new/current position
-    if (_completedWeekNumber != oldCompletedWeek) {
-        // reset to showing points
-        //setOptionBoolForKey(@"leagueMode", [NSNumber numberWithInt:0]);
-        
-        setOptionBoolForKey(@"newWeek", YES);
-        if (userPosition > 0)
+    //_completedWeekNumber = 11; oldCompletedWeek = 10;
+    if (cache) {
+        if (_completedWeekNumber != oldCompletedWeek) {
+            setOptionBoolForKey(@"newWeek", YES);
+            if (userPosition > 0)
+                setOptionValueForKey(@"newPosition", [NSNumber numberWithLong:userPosition]);
+            
+            if (currentTeam && _completedWeekNumber > 1 && oldCompletedWeek > 0 && currentTeam.weeks.count >= _completedWeekNumber) {
+                TeamWeek *currentTeamWeek = currentTeam.weeks[_completedWeekNumber - 1];
+                TeamWeek *previousTeamWeek = currentTeam.weeks[oldCompletedWeek - 1];
+                
+                currentTeam.movement = previousTeamWeek.position - currentTeamWeek.position;
+            }
+        }
+        else if (userPosition > 0) {
+            //setOptionValueForKey(@"position", [NSNumber numberWithLong:userPosition]);
             setOptionValueForKey(@"newPosition", [NSNumber numberWithLong:userPosition]);
-    }
-    else if (cache && userPosition > 0) {
-        //setOptionValueForKey(@"position", [NSNumber numberWithLong:userPosition]);
-        setOptionValueForKey(@"newPosition", [NSNumber numberWithLong:userPosition]);
+        }
+        setOptionValueForKey(@"week", [NSNumber numberWithInt:_completedWeekNumber]);
     }
     else if (_completedWeekNumber == 0) {
         setOptionValueForKey(@"position", @0);
     }
-    setOptionValueForKey(@"week", [NSNumber numberWithInt:_completedWeekNumber]);
     
     // work out whether teams are on the way up or down
     for (Team *team in league) {

@@ -70,6 +70,7 @@
 		4DBCF0C21DBFB8AC00894B04 /* TFHppleElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DBCF0BE1DBFB8AC00894B04 /* TFHppleElement.m */; };
 		4DBCF0C31DBFB8AC00894B04 /* XPathQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DBCF0C01DBFB8AC00894B04 /* XPathQuery.m */; };
 		4DBCF0C91DBFB96200894B04 /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DBCF0C51DBFB8C400894B04 /* libxml2.tbd */; };
+		4DBCF0CD1DC125CF00894B04 /* league.json in Resources */ = {isa = PBXBuildFile; fileRef = 4DBCF0CC1DC125CF00894B04 /* league.json */; };
 		4DD47C991D4D3240008D64A7 /* StatsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DD47C981D4D3240008D64A7 /* StatsViewController.m */; };
 		4DE26F951D64C0DB008DB3B8 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DE26F941D64C0DB008DB3B8 /* MBProgressHUD.m */; };
 		4DF2411D1D461F0600AF4F1A /* MOTMViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DF2411C1D461F0600AF4F1A /* MOTMViewController.m */; };
@@ -209,6 +210,7 @@
 		4DBCF0C01DBFB8AC00894B04 /* XPathQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XPathQuery.m; sourceTree = "<group>"; };
 		4DBCF0C51DBFB8C400894B04 /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
 		4DBCF0C71DBFB8DE00894B04 /* libxml2.2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.2.tbd; path = usr/lib/libxml2.2.tbd; sourceTree = SDKROOT; };
+		4DBCF0CC1DC125CF00894B04 /* league.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = league.json; sourceTree = "<group>"; };
 		4DD47C971D4D3240008D64A7 /* StatsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatsViewController.h; sourceTree = "<group>"; };
 		4DD47C981D4D3240008D64A7 /* StatsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatsViewController.m; sourceTree = "<group>"; };
 		4DE26F931D64C0DB008DB3B8 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
@@ -383,6 +385,7 @@
 				4D2F6C091D534BC2005FD9BE /* Splash.xib */,
 				4D3B56761D44E1EA00267C95 /* Assets.xcassets */,
 				4D3B567B1D44E1EA00267C95 /* Info.plist */,
+				4DBCF0CC1DC125CF00894B04 /* league.json */,
 				4D3B569B1D4512D400267C95 /* teams.json */,
 				4D70546D1D4A4FF80039B4AE /* teams_test.json */,
 				4D4D51191D5603A600CCED96 /* teams_debug.json */,
@@ -552,6 +555,7 @@
 				4D4D512E1D5A405800CCED96 /* ooh_do_i_not_like_that.wav in Resources */,
 				4D4D51421D5C98D800CCED96 /* disgraceful.wav in Resources */,
 				4D4D514E1D5C98D800CCED96 /* you_know_weve_been_cheated.wav in Resources */,
+				4DBCF0CD1DC125CF00894B04 /* league.json in Resources */,
 				4D4D51471D5C98D800CCED96 /* made_for_wrighty.wav in Resources */,
 				4D4D51441D5C98D800CCED96 /* hit_les.wav in Resources */,
 				4D4D514A1D5C98D800CCED96 /* sharpey.wav in Resources */,
@@ -776,7 +780,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = W2V2ML3BSE;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -803,7 +807,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = W2V2ML3BSE;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

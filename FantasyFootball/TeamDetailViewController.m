@@ -118,6 +118,9 @@
     UILabel *points = (UILabel *)[cell viewWithTag:2];
     points.text = [NSString stringWithFormat:@"%li", teamWeek.points];
     
+    UILabel *goals = (UILabel *)[cell viewWithTag:4];
+    goals.text = [NSString stringWithFormat:@"%li", teamWeek.goals];
+    
     UILabel *position = (UILabel *)[cell viewWithTag:3];
     position.text = [NSString stringWithFormat:@"%li", teamWeek.position];
     

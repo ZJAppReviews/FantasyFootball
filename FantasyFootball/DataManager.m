@@ -132,11 +132,17 @@ static DataManager* _instance = nil;
 
 - (void) loadLeagueDataDebug {
     NSError *error = nil;
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"teams_debug" ofType:@"json"];
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"league" ofType:@"json"];
     NSData *data = [NSData dataWithContentsOfFile:filePath];
     staticData = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
+    
+    error = nil;
+    filePath = [[NSBundle mainBundle] pathForResource:@"teams_debug" ofType:@"json"];
+    data = [NSData dataWithContentsOfFile:filePath];
+    NSDictionary *teamData = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
+    teamRows = teamData[@"DATA"];
 
-    [self scrapeTeamsData];
+    [self scrapeOverallData];
 }
 
 - (void) scrapeTeamsData {

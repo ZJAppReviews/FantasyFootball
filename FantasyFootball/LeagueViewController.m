@@ -253,7 +253,9 @@
             [self.tableView reloadData];
         }
         else if (newPosition > 0) {
-            int movement = oldPosition - newPosition;
+            //int movement = oldPosition - newPosition;
+            Team *myTeam = [[TeamManager getInstance] getTeam:getOptionValueForKey(@"managerName")];
+            int movement = (int) myTeam.movement;
   
             NSString *places = abs(movement) > 1 ? @"places" : @"place";
             if (movement > 0) {
@@ -335,7 +337,7 @@
                                                                               preferredStyle:UIAlertControllerStyleAlert];
             UIAlertAction* ok = [UIAlertAction actionWithTitle:@"Close" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action){
                 if (week > 1 && oldPosition > 0) {
-                    if (oldPosition == newPosition) {
+                    if (oldPosition == newPosition || [self.tableView numberOfRowsInSection:0] == 0) {
                         [self.tableView reloadData];
                     }
                     else {
@@ -364,7 +366,24 @@
         setOptionValueForKey(@"newPosition", @0);
     }
     else {
-        [self.tableView reloadData];
+        int oldPosition = [getOptionValueForKey(@"position") intValue];
+        int newPosition = [getOptionValueForKey(@"newPosition") intValue];
+        
+        if (oldPosition == 0 || newPosition == 0 || oldPosition == newPosition) {
+            [self.tableView reloadData];
+        }
+        else {
+            [self.tableView moveRowAtIndexPath:[NSIndexPath indexPathForRow:(oldPosition - 1) inSection:0] toIndexPath:[NSIndexPath indexPathForRow:(newPosition - 1) inSection:0]];
+            
+            // wait a bit for the row move animation to finish
+            dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, 0.6 * NSEC_PER_SEC);
+            dispatch_after(popTime, dispatch_get_main_queue(), ^{
+                [self.tableView reloadData];
+            });
+        }
+        
+        setOptionValueForKey(@"position", [NSNumber numberWithInt:newPosition]);
+        setOptionValueForKey(@"newPosition", @0);
     }
 }
 

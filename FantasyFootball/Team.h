@@ -26,5 +26,6 @@ enum Momentum {Up, Down, Same};
 @property (nonatomic) NSMutableArray *weeks;
 @property (nonatomic) NSMutableArray *motms;
 @property (nonatomic) enum Momentum momentum;
+@property (nonatomic) long movement;
 
 @end
