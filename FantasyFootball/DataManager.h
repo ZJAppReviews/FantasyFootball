@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface DataManager : NSObject {
     NSDictionary *remoteJSONData;
@@ -18,5 +19,6 @@
 
 + (DataManager *) getInstance;
 + (void) loadData;
++ (void) loadData:(void (^)(UIBackgroundFetchResult result))completionHandler;
 
 @end

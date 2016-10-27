@@ -324,7 +324,7 @@
     }];
 }
 
-- (NSMutableArray *) loadLeagueData:(NSDictionary *) staticData teamData:(NSArray *) teamRows overallData:(NSArray *) overallRows startingData:(NSArray *) startingRows cache:(BOOL) cache {
+- (NSMutableArray *) loadLeagueData:(NSDictionary *) staticData teamData:(NSArray *) teamRows overallData:(NSArray *) overallRows startingData:(NSArray *) startingRows cache:(BOOL) cache completionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
     NSLog(@"Load league data");
     
     [self loadMonthsAndCupData:staticData];

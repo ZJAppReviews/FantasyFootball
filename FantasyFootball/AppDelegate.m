@@ -65,11 +65,21 @@
                                          teamData:cacheData[@"teams"]
                                       overallData:cacheData[@"overall"]
                                      startingData:cacheData[@"starting"]
-                                            cache:NO];
+                                            cache:NO
+                                completionHandler:nil];
 
     [DataManager loadData];
     
+    // check max every hour
+    [[UIApplication sharedApplication] setMinimumBackgroundFetchInterval:(60 * 60 * 1)];
+    
     return YES;
+}
+
+- (void)application:(UIApplication *)application performFetchWithCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
+    [DataManager loadData:completionHandler];
+    
+    completionHandler(UIBackgroundFetchResultNewData);
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

@@ -211,6 +211,7 @@
 		4DBCF0C51DBFB8C400894B04 /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
 		4DBCF0C71DBFB8DE00894B04 /* libxml2.2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.2.tbd; path = usr/lib/libxml2.2.tbd; sourceTree = SDKROOT; };
 		4DBCF0CC1DC125CF00894B04 /* league.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = league.json; sourceTree = "<group>"; };
+		4DBDCC731DC26315000EAFB9 /* FantasyFootball.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FantasyFootball.entitlements; sourceTree = "<group>"; };
 		4DD47C971D4D3240008D64A7 /* StatsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatsViewController.h; sourceTree = "<group>"; };
 		4DD47C981D4D3240008D64A7 /* StatsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatsViewController.m; sourceTree = "<group>"; };
 		4DE26F931D64C0DB008DB3B8 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
@@ -281,6 +282,7 @@
 		4D3B56661D44E1EA00267C95 /* FantasyFootball */ = {
 			isa = PBXGroup;
 			children = (
+				4DBDCC731DC26315000EAFB9 /* FantasyFootball.entitlements */,
 				4DBCF0BA1DBFB83A00894B04 /* hpple */,
 				4D3B569A1D4504FE00267C95 /* Models */,
 				4D3B56A31D45165600267C95 /* Managers */,
@@ -498,6 +500,9 @@
 						DevelopmentTeam = W2V2ML3BSE;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 0;
+							};
 							com.apple.Push = {
 								enabled = 1;
 							};
@@ -777,6 +782,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = FantasyFootball/FantasyFootball.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -805,6 +811,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = FantasyFootball/FantasyFootball.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = W2V2ML3BSE;
