@@ -14,7 +14,9 @@
 
 #define DEBUG_MODE 0
 
-@interface DataManager ()
+@interface DataManager () {
+    NSString *leaguePin;
+}
 
 @end
 
@@ -33,40 +35,17 @@ static DataManager* _instance = nil;
 }
 
 - (void) _loadData {
-    [self _loadData:nil];
-}
-
-- (void) _loadData:(void (^)(UIBackgroundFetchResult))completionHandler {
     // check that we are not in the middle of loading the settings already
     if (isLoading)
         return;
 
     isLoading = YES;
-
-    /*NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
-    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
-    NSURL *URL = [NSURL URLWithString:@"http://httpbin.org/get"];
-    NSURLRequest *request = [NSURLRequest requestWithURL:URL];
-    NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
-        if (error) {
-            NSLog(@"Error: %@", error);
-        } else {
-            NSLog(@"%@ %@", response, responseObject);
-        }
-    }];
-    [dataTask resume];*/
     
     if (DEBUG_MODE && !optionEnabled(@"testMode")) {
-        /*NSError *error = nil;
-        NSString *filePath = [[NSBundle mainBundle] pathForResource:@"teams_debug" ofType:@"json"];
-        NSData *data = [NSData dataWithContentsOfFile:filePath];
-        staticData = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
-        [[TeamManager getInstance] loadData:staticData cache:YES];*/
-        
         [self loadLeagueDataDebug];
     }
     else {
-        [self loadLeagueData:completionHandler];
+        [self loadLeagueData];
     }
     
     NSURL *URL = [NSURL URLWithString:@"http://www.mhriley.com/fantasyfootball/side_bets.json"];
@@ -101,7 +80,22 @@ static DataManager* _instance = nil;
     [sideBetsTask resume];
 }
 
-- (void) loadLeagueData:(void (^)(UIBackgroundFetchResult))completionHandler {
+- (void) _checkForNewData:(void (^)(UIBackgroundFetchResult))completionHandler {
+    if (DEBUG_MODE) {
+        NSError *error = nil;
+        NSString *filePath = [[NSBundle mainBundle] pathForResource:@"teams_debug" ofType:@"json"];
+        NSData *data = [NSData dataWithContentsOfFile:filePath];
+        NSDictionary *teamData = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
+        teamRows = teamData[@"DATA"];
+        
+        [[TeamManager getInstance] checkForNewData:teamRows completionHandler:completionHandler];
+    }
+    else {
+        [self scrapeTeamsData:completionHandler checkForNewData:YES];
+    }
+}
+
+- (void) loadLeagueData {
     NSURL *URL = [NSURL URLWithString:@"http://www.mhriley.com/fantasyfootball/league.json"];
     if (optionEnabled(@"testMode"))
         URL = [NSURL URLWithString:@"http://www.mhriley.com/fantasyfootball/league_test.json"];
@@ -118,8 +112,8 @@ static DataManager* _instance = nil;
                 staticData = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error2];
                 
                 if (!error2) {
-                    //[self _applyData];
-                    [self scrapeTeamsData:completionHandler];
+                    leaguePin = staticData[@"leaguePin"];
+                    [self scrapeTeamsData:nil];
                 }
                 else {
                     isLoading = NO;
@@ -146,11 +140,16 @@ static DataManager* _instance = nil;
     NSDictionary *teamData = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
     teamRows = teamData[@"DATA"];
 
-    [self scrapeOverallData:nil];
+    leaguePin = staticData[@"leaguePin"];
+    [self scrapeOverallData];
 }
 
-- (void) scrapeTeamsData:(void (^)(UIBackgroundFetchResult))completionHandler {
-    NSURL *URL = [NSURL URLWithString:@"https://fantasyfootball.telegraph.co.uk/premier-league/json/getgraphdata/8114439"];
+- (void) scrapeTeamsData:(void (^)(UIBackgroundFetchResult)) completionHandler {
+    [self scrapeTeamsData:completionHandler checkForNewData:NO];
+}
+
+- (void) scrapeTeamsData:(void (^)(UIBackgroundFetchResult)) completionHandler checkForNewData:(BOOL) checkForNewData {
+    NSURL *URL = [NSURL URLWithString:[NSString stringWithFormat:@"https://fantasyfootball.telegraph.co.uk/premier-league/json/getgraphdata/%@", leaguePin]];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:URL];
     [request setHTTPMethod:@"GET"];
     [request setCachePolicy:NSURLRequestReloadIgnoringLocalCacheData];
@@ -167,28 +166,37 @@ static DataManager* _instance = nil;
                     BOOL success = [[teamsData objectForKey:@"SUCCESS"] boolValue];
                     if (success) {
                         teamRows = [teamsData objectForKey:@"DATA"];
-                        [self scrapeOverallData:completionHandler];
+                        if (checkForNewData)
+                            [[TeamManager getInstance] checkForNewData:teamRows completionHandler:completionHandler];
+                        else
+                            [self scrapeOverallData];
                     }
                     else {
                         isLoading = NO;
+                        if (completionHandler)
+                            completionHandler(UIBackgroundFetchResultNoData);
                         NSLog(@"Teams TFF scrape failed");
                     }
                 }
                 else {
                     isLoading = NO;
+                    if (completionHandler)
+                        completionHandler(UIBackgroundFetchResultNoData);
                     NSLog(@"Teams JSON Deserialization failed: %@", [error2 userInfo]);
                 }
             }
             else {
                 isLoading = NO;
+                if (completionHandler)
+                    completionHandler(UIBackgroundFetchResultNoData);
                 NSLog(@"Teams connection failed: %@", [error userInfo]);
             }
         }];
     [task resume];
 }
 
-- (void) scrapeOverallData:(void (^)(UIBackgroundFetchResult))completionHandler {
-    NSURL *URL = [NSURL URLWithString:@"https://fantasyfootball.telegraph.co.uk/premier-league/json/getleaguetable/8114439/O/1/1"];
+- (void) scrapeOverallData {
+    NSURL *URL = [NSURL URLWithString:[NSString stringWithFormat:@"https://fantasyfootball.telegraph.co.uk/premier-league/json/getleaguetable/%@/O/1/1", leaguePin]];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:URL];
     [request setHTTPMethod:@"GET"];
     [request setCachePolicy:NSURLRequestReloadIgnoringLocalCacheData];
@@ -216,7 +224,7 @@ static DataManager* _instance = nil;
                         NSString *xPathQuery = @"//tr[@class='\']";
                         overallRows = [htmlParser searchWithXPathQuery:xPathQuery];
                         
-                        [self scrapeStartingData:completionHandler];
+                        [self scrapeStartingData];
                     }
                     else {
                         isLoading = NO;
@@ -236,8 +244,8 @@ static DataManager* _instance = nil;
     [task resume];
 }
 
-- (void) scrapeStartingData:(void (^)(UIBackgroundFetchResult))completionHandler {
-    NSURL *URL = [NSURL URLWithString:@"https://fantasyfootball.telegraph.co.uk/premier-league/json/getleaguetable/8114439/S/1/1"];
+- (void) scrapeStartingData {
+    NSURL *URL = [NSURL URLWithString:[NSString stringWithFormat:@"https://fantasyfootball.telegraph.co.uk/premier-league/json/getleaguetable/%@/S/1/1", leaguePin]];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:URL];
     [request setHTTPMethod:@"GET"];
     [request setCachePolicy:NSURLRequestReloadIgnoringLocalCacheData];
@@ -267,7 +275,7 @@ static DataManager* _instance = nil;
                         NSString *xPathQuery = @"//tr[@class='\']";
                         NSArray *startingRows = [htmlParser searchWithXPathQuery:xPathQuery];
 
-                        NSMutableArray *league = [[TeamManager getInstance] loadLeagueData:staticData teamData:teamRows overallData:overallRows startingData:startingRows cache:YES completionHandler:completionHandler];
+                        NSMutableArray *league = [[TeamManager getInstance] loadLeagueData:staticData teamData:teamRows overallData:overallRows startingData:startingRows cache:YES];
                         
                         dispatch_async(dispatch_get_main_queue(), ^{
                             [TeamManager getInstance].league = league;
@@ -295,8 +303,8 @@ static DataManager* _instance = nil;
     return [[DataManager getInstance] _loadData];
 }
 
-+ (void) loadData:(void (^)(UIBackgroundFetchResult))completionHandler {
-    return [[DataManager getInstance] _loadData:completionHandler];
++ (void) checkForNewData:(void (^)(UIBackgroundFetchResult))completionHandler {
+    [[DataManager getInstance] _checkForNewData:completionHandler];
 }
 
 #pragma mark -

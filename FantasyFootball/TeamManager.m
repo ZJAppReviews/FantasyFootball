@@ -324,7 +324,7 @@
     }];
 }
 
-- (NSMutableArray *) loadLeagueData:(NSDictionary *) staticData teamData:(NSArray *) teamRows overallData:(NSArray *) overallRows startingData:(NSArray *) startingRows cache:(BOOL) cache completionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
+- (NSMutableArray *) loadLeagueData:(NSDictionary *) staticData teamData:(NSArray *) teamRows overallData:(NSArray *) overallRows startingData:(NSArray *) startingRows cache:(BOOL) cache {
     NSLog(@"Load league data");
     
     [self loadMonthsAndCupData:staticData];
@@ -523,6 +523,15 @@
             setOptionValueForKey(@"newPosition", [NSNumber numberWithLong:userPosition]);
         }
         setOptionValueForKey(@"week", [NSNumber numberWithInt:_completedWeekNumber]);
+        
+        /*setOptionBoolForKey(@"newWeek", YES);
+        currentTeam.totalPoints += 50;
+        currentTeam.leaguePosition -= 2;
+        currentTeam.movement = 2;
+        NSUInteger index = [league indexOfObject:currentTeam];
+        [league removeObjectAtIndex:index];
+        [league insertObject:currentTeam atIndex:index - 2];
+        setOptionValueForKey(@"newPosition", @(currentTeam.leaguePosition));*/
     }
     else if (_completedWeekNumber == 0) {
         setOptionValueForKey(@"position", @0);
@@ -555,8 +564,61 @@
     else {
         _league = league;
     }
-    
+
     return league;
+}
+
+- (void) checkForNewData:(NSArray *) teamRows completionHandler:(void (^)(UIBackgroundFetchResult)) completionHandler {
+    // we need to report back on whether there is any new data, so check against cache
+    BOOL newData = NO;
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
+                                                         NSUserDomainMask, YES);
+    NSString *cachePath = [[paths objectAtIndex:0] stringByAppendingPathComponent:@"cache_league.dat"];
+    NSDictionary *cacheData = [NSDictionary dictionaryWithContentsOfFile:cachePath];
+    if (cacheData) {
+        Team *cachedTeam = [self loadTeamWithTotalPoints:cacheData[@"teams"] forManager:getOptionValueForKey(@"managerName")];
+        Team *currentTeam = [self loadTeamWithTotalPoints:teamRows forManager:getOptionValueForKey(@"managerName")];
+        //currentTeam.totalPoints += 50;
+        
+        if (cachedTeam && currentTeam) {
+            if (cachedTeam.totalPoints != currentTeam.totalPoints) {
+                newData = YES;
+  
+                NSDate *fireDate = [NSDate date];
+                NSLog(@"Schedule notification for %@", fireDate);
+                
+                UILocalNotification *localNotif = [UILocalNotification new];
+                localNotif.fireDate = fireDate;
+                localNotif.timeZone = [NSTimeZone defaultTimeZone];
+                
+                localNotif.alertBody = NSLocalizedString(@"The scores are in!", nil);
+                localNotif.alertAction = NSLocalizedString(@"Open DINLT", nil);
+                localNotif.soundName = UILocalNotificationDefaultSoundName;
+
+                [[UIApplication sharedApplication] scheduleLocalNotification:localNotif];
+            }
+        }
+    }
+        
+    completionHandler(newData ? UIBackgroundFetchResultNewData : UIBackgroundFetchResultNoData);
+}
+
+- (Team *) loadTeamWithTotalPoints:(NSArray *) teamRows forManager:(NSString *) managerName {
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"MANAGER == %@", [[TeamManager managerNamesDictionary] allKeysForObject:managerName].lastObject];
+    NSArray *results = [teamRows filteredArrayUsingPredicate:predicate];
+    NSDictionary *teamJSON = results.lastObject;
+
+    Team *team = [Team new];
+    team.managerName = [TeamManager managerNamesDictionary][[teamJSON objectForKey:@"MANAGER"]];
+
+    // the points scored are in a dictionary, one entry per week
+    NSArray *weeks = [teamJSON objectForKey:@"WEEKS"];
+    for (NSDictionary *week in weeks) {
+        int weekPoints = [week[@"PTS"] intValue];
+        team.totalPoints += weekPoints;
+    }
+
+    return team;
 }
 
 - (void) sortLeague {

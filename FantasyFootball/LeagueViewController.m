@@ -382,8 +382,10 @@
             });
         }
         
-        setOptionValueForKey(@"position", [NSNumber numberWithInt:newPosition]);
-        setOptionValueForKey(@"newPosition", @0);
+        if (newPosition > 0) {
+            setOptionValueForKey(@"position", [NSNumber numberWithInt:newPosition]);
+            setOptionValueForKey(@"newPosition", @0);
+        }
     }
 }
 

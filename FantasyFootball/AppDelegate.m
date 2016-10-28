@@ -55,7 +55,7 @@
     }
     if ([self canChangeBadge])
         application.applicationIconBadgeNumber = 0;
-    
+
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
                                                          NSUserDomainMask, YES);
     NSString *cachePath = [[paths objectAtIndex:0] stringByAppendingPathComponent:@"cache_league.dat"];
@@ -65,10 +65,10 @@
                                          teamData:cacheData[@"teams"]
                                       overallData:cacheData[@"overall"]
                                      startingData:cacheData[@"starting"]
-                                            cache:NO
-                                completionHandler:nil];
+                                            cache:NO];
 
-    [DataManager loadData];
+    if (application.applicationState != UIApplicationStateBackground)
+        [DataManager loadData];
     
     // check max every hour
     [[UIApplication sharedApplication] setMinimumBackgroundFetchInterval:(60 * 60 * 1)];
@@ -77,9 +77,7 @@
 }
 
 - (void)application:(UIApplication *)application performFetchWithCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
-    [DataManager loadData:completionHandler];
-    
-    completionHandler(UIBackgroundFetchResultNewData);
+    [DataManager checkForNewData:completionHandler];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
