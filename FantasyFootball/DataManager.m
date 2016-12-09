@@ -88,7 +88,7 @@ static DataManager* _instance = nil;
         NSDictionary *teamData = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
         teamRows = teamData[@"DATA"];
         
-        [[TeamManager getInstance] checkForNewData:teamRows completionHandler:completionHandler];
+        [[TeamManager getInstance] checkForNewData:teamRows];
     }
     else {
         [self scrapeTeamsData:completionHandler checkForNewData:YES];
@@ -167,28 +167,27 @@ static DataManager* _instance = nil;
                     if (success) {
                         teamRows = [teamsData objectForKey:@"DATA"];
                         if (checkForNewData)
-                            [[TeamManager getInstance] checkForNewData:teamRows completionHandler:completionHandler];
+                            [[TeamManager getInstance] checkForNewData:teamRows];
                         else
                             [self scrapeOverallData];
                     }
                     else {
                         isLoading = NO;
-                        if (completionHandler)
-                            completionHandler(UIBackgroundFetchResultNoData);
                         NSLog(@"Teams TFF scrape failed");
                     }
                 }
                 else {
                     isLoading = NO;
-                    if (completionHandler)
-                        completionHandler(UIBackgroundFetchResultNoData);
                     NSLog(@"Teams JSON Deserialization failed: %@", [error2 userInfo]);
                 }
+                
+                if (completionHandler)
+                    completionHandler(UIBackgroundFetchResultNewData);
             }
             else {
                 isLoading = NO;
                 if (completionHandler)
-                    completionHandler(UIBackgroundFetchResultNoData);
+                    completionHandler(UIBackgroundFetchResultFailed);
                 NSLog(@"Teams connection failed: %@", [error userInfo]);
             }
         }];

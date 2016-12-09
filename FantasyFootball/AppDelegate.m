@@ -71,7 +71,7 @@
         [DataManager loadData];
     
     // check max every hour
-    [[UIApplication sharedApplication] setMinimumBackgroundFetchInterval:(60 * 60 * 1)];
+    [[UIApplication sharedApplication] setMinimumBackgroundFetchInterval:(60 * 10 * 1)];
     
     return YES;
 }

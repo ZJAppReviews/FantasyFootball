@@ -31,7 +31,7 @@ enum LeagueMode {Points, Overall, StartingPoints, StartingGoals, Winnings, Count
 + (TeamManager *) getInstance;
 - (NSMutableArray *) loadData:(NSDictionary *) data cache:(BOOL) cache;
 - (NSMutableArray *) loadLeagueData:(NSDictionary *) staticData teamData:(NSArray *) teamRows overallData:(NSArray *) overallRows startingData:(NSArray *) startingRows cache:(BOOL) cache;
-- (void) checkForNewData:(NSArray *) teamRows completionHandler:(void (^)(UIBackgroundFetchResult result))completionHandler;
+- (void) checkForNewData:(NSArray *) teamRows;
 - (Team *) getTeam:(NSString *) managerName;
 - (void) updatePosition:(NSString *) managerName;
 - (void) sortLeague;

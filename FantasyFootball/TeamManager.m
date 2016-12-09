@@ -568,7 +568,7 @@
     return league;
 }
 
-- (void) checkForNewData:(NSArray *) teamRows completionHandler:(void (^)(UIBackgroundFetchResult)) completionHandler {
+- (void) checkForNewData:(NSArray *) teamRows {
     // we need to report back on whether there is any new data, so check against cache
     BOOL newData = NO;
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
@@ -584,7 +584,7 @@
             if (cachedTeam.totalPoints != currentTeam.totalPoints) {
                 newData = YES;
   
-                NSDate *fireDate = [NSDate date];
+                NSDate *fireDate = [NSDate dateWithTimeIntervalSinceNow:60];
                 NSLog(@"Schedule notification for %@", fireDate);
                 
                 UILocalNotification *localNotif = [UILocalNotification new];
@@ -599,8 +599,6 @@
             }
         }
     }
-        
-    completionHandler(newData ? UIBackgroundFetchResultNewData : UIBackgroundFetchResultNoData);
 }
 
 - (Team *) loadTeamWithTotalPoints:(NSArray *) teamRows forManager:(NSString *) managerName {
