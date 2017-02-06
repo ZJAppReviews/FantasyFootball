@@ -45,7 +45,25 @@
         {
 			"round" : 2,
 			"weekNumber" : 21,
-			"dateRange" : "27th Dec 2016 - 2nd Jan 2017"
+			"dateRange" : "27th Dec 2016 - 2nd Jan 2017",
+			"ties" : [
+				{
+					"managerName1" : "Mr C Attrill",
+					"managerName2" : "Mr J Appleby"
+				},
+				{
+					"managerName1" : "Mr J Free",
+					"managerName2" : "Mr C Emmerson"
+				},
+				{
+					"managerName1" : "Mr S Dowe",
+					"managerName2" : "Mr M Riley"
+				},
+				{
+					"managerName1" : "Mr T Lewis",
+					"managerName2" : "Mr P Attrill"
+				}
+			]
         },
         {
 			"round" : 3,

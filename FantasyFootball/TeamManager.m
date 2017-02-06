@@ -437,9 +437,15 @@
         }
     }
     
+    // sort the motm by points
+    for (Month *month in _months) {
+        NSSortDescriptor *descriptor = [[NSSortDescriptor alloc] initWithKey:@"points" ascending:NO];
+        month.managers = [NSMutableArray arrayWithArray:[month.managers sortedArrayUsingDescriptors:@[descriptor]]];
+    }
+    
     // make a note of any motm wins
     for (int i = 0; i < _completedWeekNumber; i++) {
-        NSArray *teamWeeks = [NSMutableArray new];
+        /*NSArray *teamWeeks = [NSMutableArray new];
         for (Team *team in teams) {
             if (team.weeks.count > i) {
                 TeamWeek *teamWeek = team.weeks[i];
@@ -457,6 +463,32 @@
                     if (_completedWeekNumber == (i + 1)
                             && (_completedWeekNumber > oldCompletedWeek)
                             && [getOptionValueForKey(@"managerName") isEqualToString:teamWeek.team.managerName])
+                        setOptionBoolForKey(@"motmWin", YES);
+                }
+            }
+        }*/
+        
+        if ([self isLastWeekOfMonth:i + 1]) {
+            // get the month for this week
+            int monthNumber = [self getMonthForWeek:i + 1];
+            NSUInteger index = [_months indexOfObjectPassingTest:^BOOL(NSDictionary *item, NSUInteger idx, BOOL *stop) {
+                BOOL found = (((Month *) item).monthNumber == monthNumber);
+                return found;
+            }];
+            
+            if (index != NSNotFound) {
+                Month *month = _months[index];
+                
+                NSMutableDictionary *manager = month.managers[0];
+                Team *team = [self getTeam:teams forManagerName:manager[@"managerName"]];
+                
+                // this may be cached data, so check that the week's data is there
+                if ((team.weeks.count - 1) >= i) {
+                    [team.motms addObject:[NSNumber numberWithLong:[self getMonthForWeek:i + 1]]];
+                    
+                    if (_completedWeekNumber == (i + 1)
+                            && (_completedWeekNumber > oldCompletedWeek)
+                            && [getOptionValueForKey(@"managerName") isEqualToString:team.managerName])
                         setOptionBoolForKey(@"motmWin", YES);
                 }
             }
@@ -487,12 +519,6 @@
     
     // work out which month we are in
     _monthNumber = [self getMonthForWeek:_completedWeekNumber];
-    
-    // sort the motm by points
-    for (Month *month in _months) {
-        NSSortDescriptor *descriptor = [[NSSortDescriptor alloc] initWithKey:@"points" ascending:NO];
-        month.managers = [NSMutableArray arrayWithArray:[month.managers sortedArrayUsingDescriptors:@[descriptor]]];
-    }
     
     // league sorted by points, then by overall position
     NSMutableArray *league = [self sortLeague:teams];
