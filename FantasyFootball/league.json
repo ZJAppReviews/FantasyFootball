@@ -68,7 +68,17 @@
         {
 			"round" : 3,
 			"weekNumber" : 30,
-			"dateRange" : "28th Feb 2017 - 6th Mar 2017"
+			"dateRange" : "28th Feb 2017 - 6th Mar 2017",
+			"ties" : [
+				{
+					"managerName1" : "Mr J Appleby",
+					"managerName2" : "Mr T Lewis"
+				},
+				{
+					"managerName1" : "Mr J Free",
+					"managerName2" : "Mr S Dowe"
+				}
+			]
         },
         {
 			"round" : 4,
