@@ -7,6 +7,7 @@
 //
 
 #import "TeamDetailViewController.h"
+#import "TeamCharts.h"
 #import "Team.h"
 #import "TeamWeek.h"
 #import "TeamManager.h"
@@ -14,8 +15,11 @@
 #import "AnimatedNumericLabel.h"
 #import "SoundEffect.h"
 #import "SoundEffects.h"
+#import "Util.h"
 
-@interface TeamDetailViewController ()
+@interface TeamDetailViewController () {
+    BOOL isShowingLandscapeView;
+}
 
 @property (weak, nonatomic) IBOutlet UITextField *teamName;
 @property (weak, nonatomic) IBOutlet UITextField *managerName;
@@ -30,6 +34,49 @@
 @end
 
 @implementation TeamDetailViewController
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder {
+    if ((self = [super initWithCoder:aDecoder])) {
+        if (!isIPad()) {
+            isShowingLandscapeView = NO;
+            
+            [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
+            [[NSNotificationCenter defaultCenter] addObserver:self
+                                                     selector:@selector(orientationChanged:)
+                                                         name:UIDeviceOrientationDidChangeNotification
+                                                       object:nil];
+        }
+    }
+    return self;
+}
+
+- (void) showReports {
+    TeamCharts *charts = [[TeamCharts alloc]
+                              initWithNibName:@"Charts" bundle:nil];
+    
+    charts.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    charts.team = _team;
+    [self presentViewController:charts animated:YES completion:nil];
+}
+
+- (void)orientationChanged:(NSNotification *)notification
+{
+    if (isIPad())
+        return;
+    
+    UIDeviceOrientation deviceOrientation = [UIDevice currentDevice].orientation;
+    
+    if (UIDeviceOrientationIsLandscape(deviceOrientation) && !isShowingLandscapeView
+        && self.navigationController.visibleViewController == self)
+    {
+        [self showReports];
+        isShowingLandscapeView = YES;
+    }
+    else if (deviceOrientation == UIDeviceOrientationPortrait && isShowingLandscapeView)
+    {
+        isShowingLandscapeView = NO;
+    }
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -157,6 +204,10 @@
 
 - (BOOL) doubleValues:(double) double1 equalsDoubleValue:(double) double2 withAccuracy:(double) accuracy {
     return (fabs(double1 - double2) < accuracy);
+}
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 @end

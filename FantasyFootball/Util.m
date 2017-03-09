@@ -451,13 +451,32 @@ NSString* stripTrailingWhitespace(NSString *text) {
 }
 
 CGSize getSizeOfText(NSString *text, UIFont *font, CGFloat minFontSize, CGFloat *actualFontSize, CGFloat maxWidth, NSLineBreakMode lineBreakMode) {
+    /*int charCount = text.length;
+     CGGlyph glyphs[charCount];
+     CGRect rects[charCount];
+     
+     CGFontRef cgFont = CGFontCreateWithFontName((CFStringRef) @"Helvetica");
+     CTFontRef ctFont = CTFontCreateWithGraphicsFont(cgFont, fontSize, NULL, NULL);
+     
+     CTFontGetGlyphsForCharacters(ctFont, (const unichar*)[text cStringUsingEncoding:NSUnicodeStringEncoding], glyphs, charCount);
+     CTFontGetBoundingRectsForGlyphs(ctFont, kCTFontDefaultOrientation, glyphs, rects, charCount);
+     
+     CFRelease(ctFont);
+     CFRelease(cgFont);
+     
+     int totalwidth = 0, maxheight = 0;
+     for (int i=0; i < charCount; i++)
+     {
+     totalwidth += rects[i].size.width;
+     maxheight = maxheight < rects[i].size.height ? rects[i].size.height : maxheight;
+     }*/
     
-    //CGSize size = [text sizeWithFont:font minFontSize:minFontSize actualFontSize:actualFontSize forWidth:maxWidth lineBreakMode:lineBreakMode];
-
-    //return size;
-    return CGSizeMake(0, 0);
+    CGSize size = [text sizeWithFont:font minFontSize:minFontSize actualFontSize:actualFontSize forWidth:maxWidth lineBreakMode:lineBreakMode];
+    
+    //return CGSizeMake(totalwidth, maxheight);
+    return size;
 }
 
 void drawTextWithVariableSize (NSString *text, CGPoint point, CGFloat maxWidth, UIFont *font, CGFloat actualFontSize, NSLineBreakMode lineBreakMode) {
-    //[text drawAtPoint:point forWidth:maxWidth withFont:font fontSize:actualFontSize lineBreakMode:lineBreakMode baselineAdjustment:UIBaselineAdjustmentAlignCenters];
+    [text drawAtPoint:point forWidth:maxWidth withFont:font fontSize:actualFontSize lineBreakMode:lineBreakMode baselineAdjustment:UIBaselineAdjustmentAlignCenters];
 }

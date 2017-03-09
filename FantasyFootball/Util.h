@@ -95,6 +95,8 @@ NSString* getMatchIgnoringWhitespace(NSString *name);
 NSString* addOrRemoveTrailingWhitespace(NSString *text);
 NSString* stripTrailingWhitespace(NSString *text);
 
+CGSize getSizeOfText(NSString *text, UIFont *font, CGFloat minFontSize, CGFloat *actualFontSize, CGFloat maxWidth, NSLineBreakMode lineBreakMode);
+void drawTextWithVariableSize (NSString *text, CGPoint point, CGFloat maxWidth, UIFont *font, CGFloat actualFontSize, NSLineBreakMode lineBreakMode);
 
 #define IS_IPAD (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
 #define IS_IPHONE (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) // iPhone and iPod touch style UI

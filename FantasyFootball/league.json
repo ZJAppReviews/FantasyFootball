@@ -83,8 +83,14 @@
         {
 			"round" : 4,
 			"weekNumber" : 39,
-			"dateRange" : "2nd May 2017 - 8th May 2017"
-        } 
+            "dateRange" : "2nd May 2017 - 8th May 2017",
+            "ties" : [
+                {
+                    "managerName1" : "Mr T Lewis",
+                    "managerName2" : "Mr J Free"
+                }
+            ]
+        }
     ],
     "months" : [
         {

@@ -27,7 +27,7 @@
                                                      name:@"ReloadData"
                                                    object:nil];
     }
-    return [super initWithCoder:aDecoder];
+    return self;
 }
 
 - (void)viewDidLoad {
