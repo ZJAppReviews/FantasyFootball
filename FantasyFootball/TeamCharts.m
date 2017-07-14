@@ -493,7 +493,7 @@ enum {
         
         NSMutableArray *xAxisLabels = [NSMutableArray array];
         for (int i = 0; i < TeamManager.managerNames.count; i++) {
-            [xAxisLabels addObject:[NSString stringWithFormat:@"%lu", TeamManager.managerNames.count - i]];
+            [xAxisLabels addObject:[NSString stringWithFormat:@"%lu", (unsigned long) TeamManager.managerNames.count - i]];
         }
         
         NSUInteger labelLocation = 0;

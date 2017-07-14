@@ -7,6 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D03D0031EE1AF8300C38DAE /* PastSeasonsStatsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D03D0021EE1AF8300C38DAE /* PastSeasonsStatsViewController.m */; };
+		4D03D0111EE2EE8D00C38DAE /* 2016_17_league.json in Resources */ = {isa = PBXBuildFile; fileRef = 4D03D00C1EE2EE8D00C38DAE /* 2016_17_league.json */; };
+		4D03D0121EE2EE8D00C38DAE /* 2016_17_overall.html in Resources */ = {isa = PBXBuildFile; fileRef = 4D03D00D1EE2EE8D00C38DAE /* 2016_17_overall.html */; };
+		4D03D0131EE2EE8D00C38DAE /* 2016_17_side_bets.json in Resources */ = {isa = PBXBuildFile; fileRef = 4D03D00E1EE2EE8D00C38DAE /* 2016_17_side_bets.json */; };
+		4D03D0141EE2EE8D00C38DAE /* 2016_17_starting.html in Resources */ = {isa = PBXBuildFile; fileRef = 4D03D00F1EE2EE8D00C38DAE /* 2016_17_starting.html */; };
+		4D03D0151EE2EE8D00C38DAE /* 2016_17_weeks.json in Resources */ = {isa = PBXBuildFile; fileRef = 4D03D0101EE2EE8D00C38DAE /* 2016_17_weeks.json */; };
+		4D03D01C1EE2F25200C38DAE /* 2015_16_league.json in Resources */ = {isa = PBXBuildFile; fileRef = 4D03D0171EE2F25200C38DAE /* 2015_16_league.json */; };
+		4D03D01D1EE2F25200C38DAE /* 2015_16_overall.html in Resources */ = {isa = PBXBuildFile; fileRef = 4D03D0181EE2F25200C38DAE /* 2015_16_overall.html */; };
+		4D03D01E1EE2F25200C38DAE /* 2015_16_side_bets.json in Resources */ = {isa = PBXBuildFile; fileRef = 4D03D0191EE2F25200C38DAE /* 2015_16_side_bets.json */; };
+		4D03D01F1EE2F25200C38DAE /* 2015_16_starting.html in Resources */ = {isa = PBXBuildFile; fileRef = 4D03D01A1EE2F25200C38DAE /* 2015_16_starting.html */; };
+		4D03D0201EE2F25200C38DAE /* 2015_16_weeks.json in Resources */ = {isa = PBXBuildFile; fileRef = 4D03D01B1EE2F25200C38DAE /* 2015_16_weeks.json */; };
 		4D2A99CB1D47566800DCDB15 /* Util.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2A99CA1D47566800DCDB15 /* Util.m */; };
 		4D2A99CE1D47628500DCDB15 /* DismissSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2A99CD1D47628500DCDB15 /* DismissSegue.m */; };
 		4D2A99D11D4762FA00DCDB15 /* WhoAreYaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2A99D01D4762FA00DCDB15 /* WhoAreYaViewController.m */; };
@@ -191,6 +202,18 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		4D03D0021EE1AF8300C38DAE /* PastSeasonsStatsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PastSeasonsStatsViewController.m; sourceTree = "<group>"; };
+		4D03D0041EE1B54D00C38DAE /* PastSeasonsStatsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PastSeasonsStatsViewController.h; sourceTree = "<group>"; };
+		4D03D00C1EE2EE8D00C38DAE /* 2016_17_league.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 2016_17_league.json; sourceTree = "<group>"; };
+		4D03D00D1EE2EE8D00C38DAE /* 2016_17_overall.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = 2016_17_overall.html; sourceTree = "<group>"; };
+		4D03D00E1EE2EE8D00C38DAE /* 2016_17_side_bets.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 2016_17_side_bets.json; sourceTree = "<group>"; };
+		4D03D00F1EE2EE8D00C38DAE /* 2016_17_starting.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = 2016_17_starting.html; sourceTree = "<group>"; };
+		4D03D0101EE2EE8D00C38DAE /* 2016_17_weeks.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 2016_17_weeks.json; sourceTree = "<group>"; };
+		4D03D0171EE2F25200C38DAE /* 2015_16_league.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 2015_16_league.json; sourceTree = "<group>"; };
+		4D03D0181EE2F25200C38DAE /* 2015_16_overall.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = 2015_16_overall.html; sourceTree = "<group>"; };
+		4D03D0191EE2F25200C38DAE /* 2015_16_side_bets.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 2015_16_side_bets.json; sourceTree = "<group>"; };
+		4D03D01A1EE2F25200C38DAE /* 2015_16_starting.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = 2015_16_starting.html; sourceTree = "<group>"; };
+		4D03D01B1EE2F25200C38DAE /* 2015_16_weeks.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 2015_16_weeks.json; sourceTree = "<group>"; };
 		4D2A99C91D47566800DCDB15 /* Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Util.h; sourceTree = "<group>"; };
 		4D2A99CA1D47566800DCDB15 /* Util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Util.m; sourceTree = "<group>"; };
 		4D2A99CC1D47628500DCDB15 /* DismissSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DismissSegue.h; sourceTree = "<group>"; };
@@ -342,6 +365,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4D03D00A1EE2EE8D00C38DAE /* Past Seasons */ = {
+			isa = PBXGroup;
+			children = (
+				4D03D0161EE2F25200C38DAE /* 2015_16 */,
+				4D03D00B1EE2EE8D00C38DAE /* 2016_17 */,
+			);
+			path = "Past Seasons";
+			sourceTree = "<group>";
+		};
+		4D03D00B1EE2EE8D00C38DAE /* 2016_17 */ = {
+			isa = PBXGroup;
+			children = (
+				4D03D00C1EE2EE8D00C38DAE /* 2016_17_league.json */,
+				4D03D00D1EE2EE8D00C38DAE /* 2016_17_overall.html */,
+				4D03D00E1EE2EE8D00C38DAE /* 2016_17_side_bets.json */,
+				4D03D00F1EE2EE8D00C38DAE /* 2016_17_starting.html */,
+				4D03D0101EE2EE8D00C38DAE /* 2016_17_weeks.json */,
+			);
+			path = 2016_17;
+			sourceTree = "<group>";
+		};
+		4D03D0161EE2F25200C38DAE /* 2015_16 */ = {
+			isa = PBXGroup;
+			children = (
+				4D03D0171EE2F25200C38DAE /* 2015_16_league.json */,
+				4D03D0181EE2F25200C38DAE /* 2015_16_overall.html */,
+				4D03D0191EE2F25200C38DAE /* 2015_16_side_bets.json */,
+				4D03D01A1EE2F25200C38DAE /* 2015_16_starting.html */,
+				4D03D01B1EE2F25200C38DAE /* 2015_16_weeks.json */,
+			);
+			path = 2015_16;
+			sourceTree = "<group>";
+		};
 		4D2A9A4C1D47DF2000DCDB15 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -408,6 +464,8 @@
 				4D4D511C1D56244C00CCED96 /* ManagerStatsViewController.m */,
 				4D4D51261D59F07800CCED96 /* DINLTStatsViewController.h */,
 				4D4D51271D59F08300CCED96 /* DINLTStatsViewController.m */,
+				4D03D0041EE1B54D00C38DAE /* PastSeasonsStatsViewController.h */,
+				4D03D0021EE1AF8300C38DAE /* PastSeasonsStatsViewController.m */,
 				4D4D51201D56297800CCED96 /* ManagerStatsDetailViewController.h */,
 				4D4D51211D56298800CCED96 /* ManagerStatsDetailViewController.m */,
 				4D4D51231D562D9600CCED96 /* StatsKeyValueViewController.h */,
@@ -481,6 +539,7 @@
 		4D3B56A41D45167900267C95 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				4D03D00A1EE2EE8D00C38DAE /* Past Seasons */,
 				4D4D514F1D5CB6C200CCED96 /* Audio */,
 				4D3B56731D44E1EA00267C95 /* Main.storyboard */,
 				4D3B56781D44E1EA00267C95 /* LaunchScreen.storyboard */,
@@ -754,6 +813,7 @@
 			files = (
 				4D4D51481D5C98D800CCED96 /* platty.wav in Resources */,
 				4D4D51461D5C98D800CCED96 /* if_you_were_one_of_my_players.wav in Resources */,
+				4D03D0141EE2EE8D00C38DAE /* 2016_17_starting.html in Resources */,
 				4D4D51301D5C8EB500CCED96 /* toilet.wav in Resources */,
 				4D4D512E1D5A405800CCED96 /* ooh_do_i_not_like_that.wav in Resources */,
 				4D4D51421D5C98D800CCED96 /* disgraceful.wav in Resources */,
@@ -761,20 +821,28 @@
 				4D4D514E1D5C98D800CCED96 /* you_know_weve_been_cheated.wav in Resources */,
 				4DBCF0CD1DC125CF00894B04 /* league.json in Resources */,
 				4D4D51471D5C98D800CCED96 /* made_for_wrighty.wav in Resources */,
+				4D03D01E1EE2F25200C38DAE /* 2015_16_side_bets.json in Resources */,
 				4D4D51441D5C98D800CCED96 /* hit_les.wav in Resources */,
 				4D4D514A1D5C98D800CCED96 /* sharpey.wav in Resources */,
 				4D4D511F1D56250C00CCED96 /* manager_stats.json in Resources */,
 				4D4D512B1D5A3EBD00CCED96 /* do_i_not_like_that.wav in Resources */,
 				4D70546E1D4A4FF80039B4AE /* teams_test.json in Resources */,
 				4D3B569C1D4512D400267C95 /* teams.json in Resources */,
+				4D03D0131EE2EE8D00C38DAE /* 2016_17_side_bets.json in Resources */,
+				4D03D0121EE2EE8D00C38DAE /* 2016_17_overall.html in Resources */,
 				4D2A9A571D47DFC700DCDB15 /* AirshipConfig.plist in Resources */,
 				4D3B567A1D44E1EA00267C95 /* LaunchScreen.storyboard in Resources */,
+				4D03D01F1EE2F25200C38DAE /* 2015_16_starting.html in Resources */,
+				4D03D01C1EE2F25200C38DAE /* 2015_16_league.json in Resources */,
+				4D03D0201EE2F25200C38DAE /* 2015_16_weeks.json in Resources */,
 				4D2F6C0B1D534BC2005FD9BE /* Splash.xib in Resources */,
 				4D4D51401D5C98D800CCED96 /* can_we_not_knock_it.wav in Resources */,
 				4D2F6C171D5363A3005FD9BE /* cash.wav in Resources */,
 				4D4D51491D5C98D800CCED96 /* right_to_the_death.wav in Resources */,
+				4D03D01D1EE2F25200C38DAE /* 2015_16_overall.html in Resources */,
 				4D4D514C1D5C98D800CCED96 /* we_are_in_trouble.wav in Resources */,
 				4D4D514D1D5C98D800CCED96 /* you_cannot_wait.wav in Resources */,
+				4D03D0151EE2EE8D00C38DAE /* 2016_17_weeks.json in Resources */,
 				4D4D51451D5C98D800CCED96 /* i_sweat_a_lot.wav in Resources */,
 				4D3B56771D44E1EA00267C95 /* Assets.xcassets in Resources */,
 				4D2A9A481D47DEF600DCDB15 /* Airship in Resources */,
@@ -785,6 +853,7 @@
 				4D4D51411D5C98D800CCED96 /* carlton_started_it.wav in Resources */,
 				4DA456291D50FD59004D24D8 /* side_bets.json in Resources */,
 				4D3B56751D44E1EA00267C95 /* Main.storyboard in Resources */,
+				4D03D0111EE2EE8D00C38DAE /* 2016_17_league.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -826,6 +895,7 @@
 				4D2A99CB1D47566800DCDB15 /* Util.m in Sources */,
 				4D3B56961D44FD7000267C95 /* LeagueViewController.m in Sources */,
 				4DA456271D50F08E004D24D8 /* SideBetsViewController.m in Sources */,
+				4D03D0031EE1AF8300C38DAE /* PastSeasonsStatsViewController.m in Sources */,
 				4D4D51251D562D9600CCED96 /* StatsKeyValueViewController.m in Sources */,
 				4D2F6C0F1D535B1F005FD9BE /* AnimatedNumericLabel.m in Sources */,
 				4D3B56A21D4515F000267C95 /* TeamManager.m in Sources */,

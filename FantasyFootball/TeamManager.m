@@ -43,7 +43,7 @@
     int oldWeek = [getOptionValueForKey(@"week") intValue];
     _weekNumber = [[data objectForKey:@"week"] intValue];
     _completedWeekNumber = _weekNumber;
-    _year = [data objectForKey:@"year"];
+    _year = [data objectForKey:@"season"];
     
     NSArray *teamsJSON = [data objectForKey:@"teams"];
     NSArray *monthsJSON = [data objectForKey:@"months"];
@@ -334,11 +334,12 @@
         oldLeague = _league;
     
     int oldCompletedWeek = [getOptionValueForKey(@"week") intValue];
-    NSDateComponents *components = [[NSCalendar currentCalendar] components:NSCalendarUnitMonth | NSCalendarUnitYear fromDate:[NSDate date]];
+    _year = [staticData objectForKey:@"season"];
+    /*NSDateComponents *components = [[NSCalendar currentCalendar] components:NSCalendarUnitMonth | NSCalendarUnitYear fromDate:[NSDate date]];
     if (components.month >= 8)
         _year = [NSString stringWithFormat:@"%@/%@", [@(components.year) stringValue], [@(components.year + 1) stringValue]];
     else
-        _year = [NSString stringWithFormat:@"%@/%@", [@(components.year - 1) stringValue], [@(components.year) stringValue]];
+        _year = [NSString stringWithFormat:@"%@/%@", [@(components.year - 1) stringValue], [@(components.year) stringValue]];*/
     _weekNumber = 0;
     if (!cache)
         _completedWeekNumber = oldCompletedWeek;
@@ -502,7 +503,7 @@
         NSString *overallPositionString = ((TFHppleElement *) team.children.lastObject).content;
         
         Team *team = [self getTeam:teams forManagerName:managerName];
-        team.overallPosition = [overallPositionString longLongValue];
+        team.overallPosition = (long) [overallPositionString longLongValue];
     }
     
     // merge in the starting data
@@ -513,8 +514,8 @@
         NSString *startingGoalsString = ((TFHppleElement *) team.children[4]).content;
         
         Team *team = [self getTeam:teams forManagerName:managerName];
-        team.startingPoints = [startingPointsString longLongValue];
-        team.startingGoals = [startingGoalsString longLongValue];
+        team.startingPoints = (long) [startingPointsString longLongValue];
+        team.startingGoals = (long) [startingGoalsString longLongValue];
     }
     
     // work out which month we are in
@@ -830,30 +831,37 @@
     return nil;
 }
 
-- (Team *) whoIsLosingBetOfType:(NSDictionary *) sideBet betweenTeam1:(Team *) team1 team2:(Team *) team2 team3:(Team *) team3 {
+- (NSArray *) whoIsLosingBetOfType:(NSDictionary *) sideBet betweenTeam1:(Team *) team1 team2:(Team *) team2 team3:(Team *) team3 {
     NSString *type = sideBet[@"type"];
     if (team1 && team2) {
         if ([type isEqualToString:@"league"]) {
-            if (team1.leaguePosition > team2.leaguePosition && (!team3 || team1.leaguePosition > team3.leaguePosition))
-                return team1;
+            /*if (team1.leaguePosition > team2.leaguePosition && (!team3 || team1.leaguePosition > team3.leaguePosition))
+                return @[ team1 ];
             else if (team2.leaguePosition > team1.leaguePosition && (!team3 || team2.leaguePosition > team3.leaguePosition))
-                return team2;
+                return @[ team2 ];
             else if (team3.leaguePosition > team1.leaguePosition && team3.leaguePosition > team2.leaguePosition)
-                return team3;
+                return @[ team3 ];*/
+            
+            if (team1.leaguePosition < team2.leaguePosition && (!team3 || team1.leaguePosition < team3.leaguePosition))
+                return [NSArray arrayWithObjects:team2, team3, nil];
+            else if (team2.leaguePosition < team1.leaguePosition && (!team3 || team2.leaguePosition < team3.leaguePosition))
+                return [NSArray arrayWithObjects:team1, team3, nil];
+            else if (team3.leaguePosition < team1.leaguePosition && team3.leaguePosition < team2.leaguePosition)
+                return [NSArray arrayWithObjects:team1, team2, nil];
         }
         else if ([type isEqualToString:@"goals"]) {
             if (team1.goldenBootPosition > team2.goldenBootPosition)
-                return team1;
+                return @[ team1 ];
             else if (team1.goldenBootPosition < team2.goldenBootPosition)
-                return team2;
+                return @[ team2 ];
         }
         else if ([type isEqualToString:@"other"]) {
             NSString *winningTeam = sideBet[@"winning"];
             if (winningTeam) {
                 if ([winningTeam isEqualToString:@"managerName1"])
-                    return [self getTeam:sideBet[@"managerName2"]];
+                    return @[ [self getTeam:sideBet[@"managerName2"]] ];
                 else
-                    return [self getTeam:sideBet[@"managerName1"]];
+                    return @[ [self getTeam:sideBet[@"managerName1"]] ];
             }
         }
         else if ([sideBet[@"type"] isEqualToString:@"cup"]) {
@@ -861,9 +869,9 @@
             int team2Round = [self getCupRound:team2];
             
             if (team1Round > team2Round)
-                return team2;
+                return @[ team2 ];
             else if (team1Round < team2Round)
-                return team1;
+                return @[ team1 ];
         }
     }
     
@@ -916,7 +924,7 @@
         Team *team3 = [[TeamManager getInstance] getTeam:sideBet[@"managerName3"]];
         
         Team *winningTeam = [[TeamManager getInstance] whoIsWinningBetOfType:sideBet betweenTeam1:team1 team2:team2 team3:team3];
-        Team *losingTeam = [[TeamManager getInstance] whoIsLosingBetOfType:sideBet betweenTeam1:team1 team2:team2 team3:team3];
+        NSArray *losingTeams = [[TeamManager getInstance] whoIsLosingBetOfType:sideBet betweenTeam1:team1 team2:team2 team3:team3];
         
         if ([winningTeam.managerName isEqualToString:team.managerName]) {
             double amount = [dOrQ isEqualToString:winningTeam.managerName] ? 0 : [sideBet[@"amount"] doubleValue];
@@ -928,13 +936,14 @@
                 winnings += amount;
             }
         }
-        else if ([losingTeam.managerName isEqualToString:team.managerName]) {
-            double amount = [dOrQ isEqualToString:winningTeam.managerName] ? 0 : [sideBet[@"amount"] doubleValue];
+        else {
+            Team *losingTeam1 = losingTeams[0];
+            Team *losingTeam2 = nil;
+            if (losingTeams.count > 1)
+                losingTeam2 = losingTeams[1];
             
-            if ([type isEqualToString:@"league"]) {
-                winnings -= (team3 ? 2 * amount : amount);
-            }
-            else {
+            if ([losingTeam1.managerName isEqualToString:team.managerName] || [losingTeam2.managerName isEqualToString:team.managerName]) {
+                double amount = [dOrQ isEqualToString:winningTeam.managerName] ? 0 : [sideBet[@"amount"] doubleValue];
                 winnings -= amount;
             }
         }

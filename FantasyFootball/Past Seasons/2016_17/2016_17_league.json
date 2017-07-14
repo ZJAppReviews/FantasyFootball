@@ -1,0 +1,158 @@
+{
+	"leaguePin" : "8114439",
+	"chairman" : "Mr M Riley",
+	"startDate" : "09/08/2016",
+    "season" : "2016/17",
+    "cup" : [
+        {
+			"round" : 1,
+			"weekNumber" : 10,
+			"dateRange" : "11th Oct 2016 - 17th Oct 2016",
+			"ties" : [
+				{
+					"managerName1" : "Mr M Riley",
+					"managerName2" : "Mr C Cowpertwait"
+				},
+				{
+					"managerName1" : "Mr C Attrill",
+					"managerName2" : "Mr C Foxall"
+				},
+				{
+					"managerName1" : "Mr P Pritchard",
+					"managerName2" : "Mr J Appleby"
+				},
+				{
+					"managerName1" : "Mr T Lewis",
+					"managerName2" : "Bye"
+				},
+				{
+					"managerName1" : "Mr P Attrill",
+					"managerName2" : "Mr M Mitchell"
+				},
+				{
+					"managerName1" : "Mr P Gill",
+					"managerName2" : "Mr J Free"
+				},
+				{
+					"managerName1" : "Mr J Hitchins",
+					"managerName2" : "Mr S Dowe"
+				},
+				{
+					"managerName1" : "Mr D Lin",
+					"managerName2" : "Mr C Emmerson"
+				}
+			]
+        },
+        {
+			"round" : 2,
+			"weekNumber" : 21,
+			"dateRange" : "27th Dec 2016 - 2nd Jan 2017",
+			"ties" : [
+				{
+					"managerName1" : "Mr C Attrill",
+					"managerName2" : "Mr J Appleby"
+				},
+				{
+					"managerName1" : "Mr J Free",
+					"managerName2" : "Mr C Emmerson"
+				},
+				{
+					"managerName1" : "Mr S Dowe",
+					"managerName2" : "Mr M Riley"
+				},
+				{
+					"managerName1" : "Mr T Lewis",
+					"managerName2" : "Mr P Attrill"
+				}
+			]
+        },
+        {
+			"round" : 3,
+			"weekNumber" : 30,
+			"dateRange" : "28th Feb 2017 - 6th Mar 2017",
+			"ties" : [
+				{
+					"managerName1" : "Mr J Appleby",
+					"managerName2" : "Mr T Lewis"
+				},
+				{
+					"managerName1" : "Mr J Free",
+					"managerName2" : "Mr S Dowe"
+				}
+			]
+        },
+        {
+			"round" : 4,
+			"weekNumber" : 39,
+            "dateRange" : "2nd May 2017 - 8th May 2017",
+            "ties" : [
+                {
+                    "managerName1" : "Mr T Lewis",
+                    "managerName2" : "Mr J Free"
+                }
+            ]
+        }
+    ],
+    "months" : [
+        {
+			"monthNumber" : 1,
+			"monthName" : "August",
+			"dateRange" : "13th Aug - 29th Aug",
+			"weeks" : 3
+        },
+        {
+			"monthNumber" : 2,
+			"monthName" : "September",
+			"dateRange" : "30th Aug - 26th Sep",
+			"weeks" : 4
+        },
+        {
+			"monthNumber" : 3,
+			"monthName" : "October",
+			"dateRange" : "27th Sep - 31st Oct",
+			"weeks" : 5
+        },
+        {
+			"monthNumber" : 4,
+			"monthName" : "November",
+			"dateRange" : "1st Nov - 28th Nov",
+			"weeks" : 4
+        },
+        {
+			"monthNumber" : 5,
+			"monthName" : "December",
+			"dateRange" : "29th Nov - 26th Dec",
+			"weeks" : 4
+        },
+        {
+			"monthNumber" : 6,
+			"monthName" : "January",
+			"dateRange" : "27th Dec - 30th Jan",
+			"weeks" : 5
+        },
+        {
+			"monthNumber" : 7,
+			"monthName" : "February",
+			"dateRange" : "31st Jan - 27th Feb",
+			"weeks" : 4
+        },
+        {
+			"monthNumber" : 8,
+			"monthName" : "March",
+			"dateRange" : "28th Feb - 27th Mar",
+			"weeks" : 4
+        },
+        {
+			"monthNumber" : 9,
+			"monthName" : "April",
+			"dateRange" : "28th Mar - 24th Apr",
+			"weeks" : 4
+        },
+        {
+			"monthNumber" : 10,
+			"monthName" : "May",
+			"dateRange" : "25th Apr - 27th May",
+			"weeks" : 5
+        }
+    ]
+}

@@ -38,7 +38,7 @@ enum LeagueMode {Points, Overall, StartingPoints, StartingGoals, Winnings, Count
 - (void) sortGoals;
 - (BOOL) isLastWeekOfMonth;
 - (Team *) whoIsWinningBetOfType:(NSDictionary *) sideBet betweenTeam1:(Team *) team1 team2:(Team *) team2 team3:(Team *) team3;
-- (Team *) whoIsLosingBetOfType:(NSDictionary *) sideBet betweenTeam1:(Team *) team1 team2:(Team *) team2 team3:(Team *) team3;
+- (NSArray *) whoIsLosingBetOfType:(NSDictionary *) sideBet betweenTeam1:(Team *) team1 team2:(Team *) team2 team3:(Team *) team3;
 - (double) getPredictedWinnings:(Team *) team;
 - (int) getCupRound:(Team *) team;
 - (BOOL) hasCupFinished;

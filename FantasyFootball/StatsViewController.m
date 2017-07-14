@@ -67,7 +67,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 2;
+    return 3;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -111,6 +111,10 @@
         }
         case 1: {
             [self performSegueWithIdentifier:@"DINLTStats" sender: self];
+            break;
+        }
+        case 2: {
+            [self performSegueWithIdentifier:@"PastSeasonsStats" sender: self];
             break;
         }
     }

@@ -137,6 +137,7 @@
     cell.textLabel.text = team ? getManagerName(team) : managerName;
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%i", points];
     
+    NSLog(@"Month number: %d", [TeamManager getInstance].monthNumber);
     if (indexPath.row == 0 && (indexPath.section > (10 - [TeamManager getInstance].monthNumber) ||
                                 (indexPath.section == (10 - [TeamManager getInstance].monthNumber) && [[TeamManager getInstance] isLastWeekOfMonth])))
         cell.backgroundColor = [UIColor colorWithRed:255.0/255 green:215.0/255 blue:0 alpha:1.0];

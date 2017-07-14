@@ -41,43 +41,47 @@ static DataManager* _instance = nil;
 
     isLoading = YES;
     
-    if (DEBUG_MODE && !optionEnabled(@"testMode")) {
-        [self loadLeagueDataDebug];
+    NSString *pastSeason = getOptionValueForKey(@"season");
+    if (pastSeason) {
+        [self loadPastSeason:pastSeason];
     }
     else {
-        [self loadLeagueData];
-    }
+        if (DEBUG_MODE && !optionEnabled(@"testMode"))
+            [self loadLeagueDataDebug];
+        else
+            [self loadLeagueData];
     
-    NSURL *URL = [NSURL URLWithString:@"http://www.mhriley.com/fantasyfootball/side_bets.json"];
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:URL];
-    [request setHTTPMethod:@"GET"];
-    [request setCachePolicy:NSURLRequestReloadIgnoringLocalCacheData];
-    NSURLSession *session = [NSURLSession sharedSession];
-    NSURLSessionDataTask *sideBetsTask = [session dataTaskWithRequest:request
-                                                  completionHandler:
-    ^(NSData *data, NSURLResponse *response, NSError *error) {
-        if (!error && data) {
-            NSError *error2 = nil;
-            NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error2];
-            
-            if (!error2) {
-                [TeamManager getInstance].sideBets = dict[@"sideBets"];
+        NSURL *URL = [NSURL URLWithString:@"http://www.mhriley.com/fantasyfootball/side_bets.json"];
+        NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:URL];
+        [request setHTTPMethod:@"GET"];
+        [request setCachePolicy:NSURLRequestReloadIgnoringLocalCacheData];
+        NSURLSession *session = [NSURLSession sharedSession];
+        NSURLSessionDataTask *sideBetsTask = [session dataTaskWithRequest:request
+                                                      completionHandler:
+        ^(NSData *data, NSURLResponse *response, NSError *error) {
+            if (!error && data) {
+                NSError *error2 = nil;
+                NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error2];
                 
-                NSLog(@"Cache side bets data");
-                NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
-                                                                     NSUserDomainMask, YES);
-                NSString *cachePath = [[paths objectAtIndex:0] stringByAppendingPathComponent:@"cache_side_bets.dat"];
-                [[TeamManager getInstance].sideBets writeToFile:cachePath atomically:YES];
+                if (!error2) {
+                    [TeamManager getInstance].sideBets = dict[@"sideBets"];
+                    
+                    NSLog(@"Cache side bets data");
+                    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
+                                                                         NSUserDomainMask, YES);
+                    NSString *cachePath = [[paths objectAtIndex:0] stringByAppendingPathComponent:@"cache_side_bets.dat"];
+                    [[TeamManager getInstance].sideBets writeToFile:cachePath atomically:YES];
+                }
+                else {
+                    NSLog(@"Side Bets JSON Deserialization failed: %@", [error2 userInfo]);
+                }
             }
             else {
-                NSLog(@"Side Bets JSON Deserialization failed: %@", [error2 userInfo]);
+                NSLog(@"Side Bets connection failed: %@", [error userInfo]);
             }
-        }
-        else {
-            NSLog(@"Side Bets connection failed: %@", [error userInfo]);
-        }
-    }];
-    [sideBetsTask resume];
+        }];
+        [sideBetsTask resume];
+    }
 }
 
 - (void) _checkForNewData:(void (^)(UIBackgroundFetchResult))completionHandler {
@@ -126,6 +130,70 @@ static DataManager* _instance = nil;
             }
         }];
     [task resume];
+}
+
+- (void) loadPastSeason:(NSString *) season {
+    // league json
+    NSError *error = nil;
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"%@_league", season] ofType:@"json"];
+    NSData *data = [NSData dataWithContentsOfFile:filePath];
+    staticData = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
+    leaguePin = staticData[@"leaguePin"];
+    
+    // weeks json
+    error = nil;
+    filePath = [[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"%@_weeks", season] ofType:@"json"];
+    data = [NSData dataWithContentsOfFile:filePath];
+    NSDictionary *teamData = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
+    teamRows = teamData[@"DATA"];
+
+    // overall html
+    error = nil;
+    filePath = [[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"%@_overall", season] ofType:@"html"];
+    data = [NSData dataWithContentsOfFile:filePath];
+    NSDictionary *overallData = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
+    NSString *html = [overallData objectForKey:@"HTML"];
+    
+    // remove new lines and tabs
+    html = [[html stringByReplacingOccurrencesOfString:@"\n" withString:@""] stringByReplacingOccurrencesOfString:@"\t" withString:@""];
+    
+    // remove extraneous white space
+    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"  +" options:0 error:&error];
+    html = [regex stringByReplacingMatchesInString:html options:0 range:NSMakeRange(0, html.length) withTemplate:@""];
+    
+    TFHpple *htmlParser = [TFHpple hppleWithHTMLData:[html dataUsingEncoding:NSUTF8StringEncoding]];
+    NSString *xPathQuery = @"//tr[@class='\']";
+    overallRows = [htmlParser searchWithXPathQuery:xPathQuery];
+    
+    // starting html
+    error = nil;
+    filePath = [[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"%@_starting", season] ofType:@"html"];
+    data = [NSData dataWithContentsOfFile:filePath];
+    NSDictionary *startingData = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
+    html = [startingData objectForKey:@"HTML"];
+
+    // remove new lines and tabs
+    html = [[html stringByReplacingOccurrencesOfString:@"\n" withString:@""] stringByReplacingOccurrencesOfString:@"\t" withString:@""];
+    
+    // remove extraneous white space
+    html = [regex stringByReplacingMatchesInString:html options:0 range:NSMakeRange(0, html.length) withTemplate:@""];
+    
+    htmlParser = [TFHpple hppleWithHTMLData:[html dataUsingEncoding:NSUTF8StringEncoding]];
+    NSArray *startingRows = [htmlParser searchWithXPathQuery:xPathQuery];
+    
+    NSMutableArray *league = [[TeamManager getInstance] loadLeagueData:staticData teamData:teamRows overallData:overallRows startingData:startingRows cache:NO];
+    
+    // side bets
+    error = nil;
+    filePath = [[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"%@_side_bets", season] ofType:@"json"];
+    data = [NSData dataWithContentsOfFile:filePath];
+    NSDictionary *sideBetsData = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
+    [TeamManager getInstance].sideBets = sideBetsData[@"sideBets"];
+    
+    [TeamManager getInstance].league = league;
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"ReloadData" object:self];
+        
+    isLoading = NO;
 }
 
 - (void) loadLeagueDataDebug {

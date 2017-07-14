@@ -1,30 +1,29 @@
 //
-//  ManagerStatsViewController.m
+//  PastSeasonsStatsViewController.m
 //  FantasyFootball
 //
 //  Created by Mark Riley on 06/08/2016.
 //  Copyright © 2016 MH Riley. All rights reserved.
 //
 
-#import "DINLTStatsViewController.h"
-#import "StatsKeyValueViewController.h"
-#import "TeamManager.h"
+#import "PastSeasonsStatsViewController.h"
+#import "DataManager.h"
 #import "Util.h"
 
-@interface DINLTStatsViewController ()
+@interface PastSeasonsStatsViewController ()
 
 @property (nonatomic) NSArray *managers;
 
 @end
 
-@implementation DINLTStatsViewController
+@implementation PastSeasonsStatsViewController
 
 - (instancetype)initWithCoder:(NSCoder *)aDecoder {
     if ((self = [super initWithCoder:aDecoder])) {
-        [[NSNotificationCenter defaultCenter] addObserver:self
+        /*[[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(reloadData:)
                                                      name:@"ReloadData"
-                                                   object:nil];
+                                                   object:nil];*/
     }
     return self;
 }
@@ -43,7 +42,7 @@
     //NSData *data = [NSData dataWithContentsOfFile:filePath];
     //_managers = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
     
-    _managers = [TeamManager getInstance].managerStats;
+    /*_managers = [TeamManager getInstance].managerStats;
     if (!_managers) {
         NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
                                                              NSUserDomainMask, YES);
@@ -52,6 +51,10 @@
         if (cacheData)
             _managers = cacheData;
     }
+    
+    // sort by tffp
+    NSSortDescriptor *descriptor = [[NSSortDescriptor alloc] initWithKey:@"tffp" ascending:NO];
+    _managers = [_managers sortedArrayUsingDescriptors:@[descriptor]];*/
 }
 
 - (void)didReceiveMemoryWarning {
@@ -59,11 +62,15 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void) reloadData:(NSNotification *)notification {
+/*- (void) reloadData:(NSNotification *)notification {
     _managers = [TeamManager getInstance].managerStats;
-
+    
+    // sort by tffp
+    NSSortDescriptor *descriptor = [[NSSortDescriptor alloc] initWithKey:@"tffp" ascending:NO];
+    _managers = [_managers sortedArrayUsingDescriptors:@[descriptor]];
+    
     [self.tableView reloadData];
-}
+}*/
 
 #pragma mark - Table view data source
 
@@ -72,20 +79,17 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 7;
+    return 3;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Detail" forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Season" forIndexPath:indexPath];
     
+    //NSDictionary *managerStats = _managers[indexPath.row];
     switch (indexPath.row) {
-        case 0: cell.textLabel.text = @"Average League Position"; break;
-        case 1: cell.textLabel.text = @"Average League Points"; break;
-        case 2: cell.textLabel.text = @"Average Goals"; break;
-        case 3: cell.textLabel.text = @"Weeks At Top"; break;
-        case 4: cell.textLabel.text = @"Total Prize Money"; break;
-        case 5: cell.textLabel.text = @"Side Bets Profit"; break;
-        case 6: cell.textLabel.text = @"All Team Names"; break;
+        case 0: cell.textLabel.text = @"Current Season"; break;
+        case 1: cell.textLabel.text = @"2016/2017"; break;
+        case 2: cell.textLabel.text = @"2015/2016"; break;
     }
     
     cell.backgroundColor = getAppDelegate().rowBackground;
@@ -99,6 +103,25 @@
         [cell setLayoutMargins:UIEdgeInsetsZero];
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSString *seasonText = [self tableView:tableView cellForRowAtIndexPath:indexPath].textLabel.text;
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Info"
+                                                                             message:[NSString stringWithFormat:@"Switched to %@", seasonText]
+                                                                      preferredStyle:UIAlertControllerStyleAlert];
+    [self presentViewController:alertController animated:YES completion:nil];
+    UIAlertAction* ok = [UIAlertAction actionWithTitle:@"Close" style:UIAlertActionStyleDefault handler:nil];
+    [alertController addAction:ok];
+    
+    switch (indexPath.row) {
+        case 0: removeOptionForKey(@"season"); break;
+        case 1: setOptionValueForKey(@"season", @"2016_17"); break;
+        case 2: setOptionValueForKey(@"season", @"2015_16"); break;
+    }
+    
+    [DataManager loadData];
+    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 /*
@@ -139,76 +162,10 @@
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    NSInteger row = [self.tableView indexPathForSelectedRow].row;
-    StatsKeyValueViewController *vc = [segue destinationViewController];
-    vc.DINLT = YES;
-    
-    switch (row) {
-        case 0: {
-            // sort by pos
-            NSSortDescriptor *descriptor = [[NSSortDescriptor alloc] initWithKey:@"averagePos" ascending:YES];
-            _managers = [_managers sortedArrayUsingDescriptors:@[descriptor]];
-            vc.keyValues = _managers;
-            vc.detail = @"averagePos";
-            break;
-        }
-        case 1: {
-            // sort by points
-            NSSortDescriptor *descriptor = [[NSSortDescriptor alloc] initWithKey:@"averagePoints" ascending:NO];
-            _managers = [_managers sortedArrayUsingDescriptors:@[descriptor]];
-            vc.keyValues = _managers;
-            vc.detail = @"averagePoints";
-            break;
-        }
-        case 2: {
-            // sort by goals
-            NSSortDescriptor *descriptor = [[NSSortDescriptor alloc] initWithKey:@"averageGoals" ascending:NO];
-            _managers = [_managers sortedArrayUsingDescriptors:@[descriptor]];
-            vc.keyValues = _managers;
-            vc.detail = @"averageGoals";
-            break;
-        }
-        case 3: {
-            // sort by weeks at top
-            NSSortDescriptor *descriptor = [[NSSortDescriptor alloc] initWithKey:@"weeksAtTop" ascending:NO];
-            _managers = [_managers sortedArrayUsingDescriptors:@[descriptor]];
-            vc.keyValues = _managers;
-            vc.detail = @"weeksAtTop";
-            break;
-        }
-        case 4: {
-            // sort by prize money
-            NSSortDescriptor *descriptor = [[NSSortDescriptor alloc] initWithKey:@"prizeMoney" ascending:NO];
-            _managers = [_managers sortedArrayUsingDescriptors:@[descriptor]];
-            vc.keyValues = _managers;
-            vc.detail = @"prizeMoney";
-            break;
-        }
-        case 5: {
-            // sort by side bets
-            NSSortDescriptor *descriptor = [[NSSortDescriptor alloc] initWithKey:@"sideBets" ascending:NO];
-            _managers = [_managers sortedArrayUsingDescriptors:@[descriptor]];
-            vc.keyValues = _managers;
-            vc.detail = @"sideBets";
-            break;
-        }
-        case 6: {
-            // collect all team names, use a set to avoid duplicates
-            NSMutableSet *teamNames = [NSMutableSet set];
-            for (NSDictionary *manager in _managers) {
-                for (NSDictionary *year in ((NSArray *) manager[@"years"])) {
-                    [teamNames addObject:@{@"teamName" : year[@"teamName"], @"managerName" : manager[@"managerName"]}];
-                }
-            }
-
-            NSSortDescriptor *descriptor = [[NSSortDescriptor alloc] initWithKey:@"teamName" ascending:YES];
-            vc.keyValues = [[teamNames allObjects] sortedArrayUsingDescriptors:@[descriptor]];
-            vc.detail = @"allTeamNames";
-            break;
-        }
-    }
-}
+/*- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    ManagerStatsDetailViewController *vc = [segue destinationViewController];
+    vc.stats = _managers[[self.tableView indexPathForSelectedRow].row];
+}*/
 
 
 @end
