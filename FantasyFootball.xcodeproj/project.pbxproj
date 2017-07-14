@@ -13,11 +13,6 @@
 		4D03D0131EE2EE8D00C38DAE /* 2016_17_side_bets.json in Resources */ = {isa = PBXBuildFile; fileRef = 4D03D00E1EE2EE8D00C38DAE /* 2016_17_side_bets.json */; };
 		4D03D0141EE2EE8D00C38DAE /* 2016_17_starting.html in Resources */ = {isa = PBXBuildFile; fileRef = 4D03D00F1EE2EE8D00C38DAE /* 2016_17_starting.html */; };
 		4D03D0151EE2EE8D00C38DAE /* 2016_17_weeks.json in Resources */ = {isa = PBXBuildFile; fileRef = 4D03D0101EE2EE8D00C38DAE /* 2016_17_weeks.json */; };
-		4D03D01C1EE2F25200C38DAE /* 2015_16_league.json in Resources */ = {isa = PBXBuildFile; fileRef = 4D03D0171EE2F25200C38DAE /* 2015_16_league.json */; };
-		4D03D01D1EE2F25200C38DAE /* 2015_16_overall.html in Resources */ = {isa = PBXBuildFile; fileRef = 4D03D0181EE2F25200C38DAE /* 2015_16_overall.html */; };
-		4D03D01E1EE2F25200C38DAE /* 2015_16_side_bets.json in Resources */ = {isa = PBXBuildFile; fileRef = 4D03D0191EE2F25200C38DAE /* 2015_16_side_bets.json */; };
-		4D03D01F1EE2F25200C38DAE /* 2015_16_starting.html in Resources */ = {isa = PBXBuildFile; fileRef = 4D03D01A1EE2F25200C38DAE /* 2015_16_starting.html */; };
-		4D03D0201EE2F25200C38DAE /* 2015_16_weeks.json in Resources */ = {isa = PBXBuildFile; fileRef = 4D03D01B1EE2F25200C38DAE /* 2015_16_weeks.json */; };
 		4D2A99CB1D47566800DCDB15 /* Util.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2A99CA1D47566800DCDB15 /* Util.m */; };
 		4D2A99CE1D47628500DCDB15 /* DismissSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2A99CD1D47628500DCDB15 /* DismissSegue.m */; };
 		4D2A99D11D4762FA00DCDB15 /* WhoAreYaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2A99D01D4762FA00DCDB15 /* WhoAreYaViewController.m */; };
@@ -209,11 +204,6 @@
 		4D03D00E1EE2EE8D00C38DAE /* 2016_17_side_bets.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 2016_17_side_bets.json; sourceTree = "<group>"; };
 		4D03D00F1EE2EE8D00C38DAE /* 2016_17_starting.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = 2016_17_starting.html; sourceTree = "<group>"; };
 		4D03D0101EE2EE8D00C38DAE /* 2016_17_weeks.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 2016_17_weeks.json; sourceTree = "<group>"; };
-		4D03D0171EE2F25200C38DAE /* 2015_16_league.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 2015_16_league.json; sourceTree = "<group>"; };
-		4D03D0181EE2F25200C38DAE /* 2015_16_overall.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = 2015_16_overall.html; sourceTree = "<group>"; };
-		4D03D0191EE2F25200C38DAE /* 2015_16_side_bets.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 2015_16_side_bets.json; sourceTree = "<group>"; };
-		4D03D01A1EE2F25200C38DAE /* 2015_16_starting.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = 2015_16_starting.html; sourceTree = "<group>"; };
-		4D03D01B1EE2F25200C38DAE /* 2015_16_weeks.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 2015_16_weeks.json; sourceTree = "<group>"; };
 		4D2A99C91D47566800DCDB15 /* Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Util.h; sourceTree = "<group>"; };
 		4D2A99CA1D47566800DCDB15 /* Util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Util.m; sourceTree = "<group>"; };
 		4D2A99CC1D47628500DCDB15 /* DismissSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DismissSegue.h; sourceTree = "<group>"; };
@@ -368,7 +358,6 @@
 		4D03D00A1EE2EE8D00C38DAE /* Past Seasons */ = {
 			isa = PBXGroup;
 			children = (
-				4D03D0161EE2F25200C38DAE /* 2015_16 */,
 				4D03D00B1EE2EE8D00C38DAE /* 2016_17 */,
 			);
 			path = "Past Seasons";
@@ -384,18 +373,6 @@
 				4D03D0101EE2EE8D00C38DAE /* 2016_17_weeks.json */,
 			);
 			path = 2016_17;
-			sourceTree = "<group>";
-		};
-		4D03D0161EE2F25200C38DAE /* 2015_16 */ = {
-			isa = PBXGroup;
-			children = (
-				4D03D0171EE2F25200C38DAE /* 2015_16_league.json */,
-				4D03D0181EE2F25200C38DAE /* 2015_16_overall.html */,
-				4D03D0191EE2F25200C38DAE /* 2015_16_side_bets.json */,
-				4D03D01A1EE2F25200C38DAE /* 2015_16_starting.html */,
-				4D03D01B1EE2F25200C38DAE /* 2015_16_weeks.json */,
-			);
-			path = 2015_16;
 			sourceTree = "<group>";
 		};
 		4D2A9A4C1D47DF2000DCDB15 /* Products */ = {
@@ -821,7 +798,6 @@
 				4D4D514E1D5C98D800CCED96 /* you_know_weve_been_cheated.wav in Resources */,
 				4DBCF0CD1DC125CF00894B04 /* league.json in Resources */,
 				4D4D51471D5C98D800CCED96 /* made_for_wrighty.wav in Resources */,
-				4D03D01E1EE2F25200C38DAE /* 2015_16_side_bets.json in Resources */,
 				4D4D51441D5C98D800CCED96 /* hit_les.wav in Resources */,
 				4D4D514A1D5C98D800CCED96 /* sharpey.wav in Resources */,
 				4D4D511F1D56250C00CCED96 /* manager_stats.json in Resources */,
@@ -832,14 +808,10 @@
 				4D03D0121EE2EE8D00C38DAE /* 2016_17_overall.html in Resources */,
 				4D2A9A571D47DFC700DCDB15 /* AirshipConfig.plist in Resources */,
 				4D3B567A1D44E1EA00267C95 /* LaunchScreen.storyboard in Resources */,
-				4D03D01F1EE2F25200C38DAE /* 2015_16_starting.html in Resources */,
-				4D03D01C1EE2F25200C38DAE /* 2015_16_league.json in Resources */,
-				4D03D0201EE2F25200C38DAE /* 2015_16_weeks.json in Resources */,
 				4D2F6C0B1D534BC2005FD9BE /* Splash.xib in Resources */,
 				4D4D51401D5C98D800CCED96 /* can_we_not_knock_it.wav in Resources */,
 				4D2F6C171D5363A3005FD9BE /* cash.wav in Resources */,
 				4D4D51491D5C98D800CCED96 /* right_to_the_death.wav in Resources */,
-				4D03D01D1EE2F25200C38DAE /* 2015_16_overall.html in Resources */,
 				4D4D514C1D5C98D800CCED96 /* we_are_in_trouble.wav in Resources */,
 				4D4D514D1D5C98D800CCED96 /* you_cannot_wait.wav in Resources */,
 				4D03D0151EE2EE8D00C38DAE /* 2016_17_weeks.json in Resources */,
