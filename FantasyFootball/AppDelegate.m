@@ -39,6 +39,44 @@
     setOptionBoolForKey(@"testMode", NO);
     //removeOptionForKey(@"season");
     
+    // convert csv weeks data to json weeks data
+    /*NSMutableDictionary *weeksJSON = [NSMutableDictionary dictionary];
+    weeksJSON[@"SUCCESS"] = @1;
+    NSMutableArray *teams = [NSMutableArray array];
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"Weeks" ofType:@"csv"];
+    NSString *fileContents = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
+    NSArray *lines = [fileContents componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]];
+    int i = 1;
+    for (NSString *line in lines) {
+        if (i == 1) {
+            i++;
+            continue;
+        }
+        NSMutableDictionary *team = [NSMutableDictionary dictionary];
+        NSArray *columns = [line componentsSeparatedByString:@","];
+        team[@"MANAGER"] = columns[0];
+        team[@"TEAMNAME"] = columns[1];
+        
+        NSMutableArray *weeks = [NSMutableArray array];
+        for (int i = 1; i <= 40; i++) {
+            NSMutableDictionary *week = [NSMutableDictionary dictionary];
+            week[@"WK"] = [NSString stringWithFormat:@"%d", i];
+            week[@"PTS"] = columns[i+2];
+            if (i < 40)
+                week[@"GOALS"] = @"0";
+            else
+                week[@"GOALS"] = columns[44];
+            week[@"POS"] = columns[45];
+            [weeks addObject:week];
+        }
+        team[@"WEEKS"] = weeks;
+        [teams addObject:team];
+        i++;
+    }
+    weeksJSON[@"DATA"] = teams;
+    NSData *JSONData = [NSJSONSerialization dataWithJSONObject:weeksJSON options:0 error:nil];
+    NSString *text = [[NSString alloc] initWithData:JSONData encoding:NSUTF8StringEncoding];*/
+    
     /*UIUserNotificationSettings* requestedSettings
         = [UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeBadge
                                                       | UIUserNotificationTypeAlert
