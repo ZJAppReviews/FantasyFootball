@@ -334,6 +334,8 @@
         oldLeague = _league;
     
     int oldCompletedWeek = [getOptionValueForKey(@"week") intValue];
+    if (teamRows.count == 0 || [[teamRows[0] objectForKey:@"WEEKS"] count] == 0)
+        oldCompletedWeek = 0;
     _year = [staticData objectForKey:@"season"];
     /*NSDateComponents *components = [[NSCalendar currentCalendar] components:NSCalendarUnitMonth | NSCalendarUnitYear fromDate:[NSDate date]];
     if (components.month >= 8)
@@ -342,7 +344,7 @@
         _year = [NSString stringWithFormat:@"%@/%@", [@(components.year - 1) stringValue], [@(components.year) stringValue]];*/
     _weekNumber = 0;
     if (!cache)
-        _completedWeekNumber = oldCompletedWeek;
+        _completedWeekNumber = [self isPastSeason] ? [self getWeeksInSeason] : oldCompletedWeek;
     
     NSMutableArray *teams = [NSMutableArray new];
     
@@ -368,7 +370,7 @@
         // get the current week number, which is the latest week which has been sent - may be mid-week
         if (_weekNumber == 0)
             _weekNumber = [[weeks lastObject][@"WK"] intValue];
-        
+
         TeamWeek *previousTeamWeek = nil;
         for (NSDictionary *week in weeks) {
             int weekNumber = [week[@"WK"] intValue];
@@ -400,7 +402,9 @@
             teamWeek.goals = weekGoals;
             teamWeek.totalPoints = team.totalPoints;
             teamWeek.position = [week[@"POS"] intValue];
-            if (previousTeamWeek.position > teamWeek.position)
+            if (!previousTeamWeek)
+                teamWeek.momentum = Same;
+            else if (previousTeamWeek.position > teamWeek.position)
                 teamWeek.momentum = Up;
             else if (previousTeamWeek.position < teamWeek.position)
                 teamWeek.momentum = Down;
@@ -480,17 +484,19 @@
             if (index != NSNotFound) {
                 Month *month = _months[index];
                 
-                NSMutableDictionary *manager = month.managers[0];
-                Team *team = [self getTeam:teams forManagerName:manager[@"managerName"]];
-                
-                // this may be cached data, so check that the week's data is there
-                if ((team.weeks.count - 1) >= i) {
-                    [team.motms addObject:[NSNumber numberWithLong:[self getMonthForWeek:i + 1]]];
+                if (month.managers.count > 0) {
+                    NSMutableDictionary *manager = month.managers[0];
+                    Team *team = [self getTeam:teams forManagerName:manager[@"managerName"]];
                     
-                    if (_completedWeekNumber == (i + 1)
-                            && (_completedWeekNumber > oldCompletedWeek)
-                            && [getOptionValueForKey(@"managerName") isEqualToString:team.managerName])
-                        setOptionBoolForKey(@"motmWin", YES);
+                    // this may be cached data, so check that the week's data is there
+                    if ((team.weeks.count - 1) >= i) {
+                        [team.motms addObject:[NSNumber numberWithLong:[self getMonthForWeek:i + 1]]];
+                        
+                        if (_completedWeekNumber == (i + 1)
+                                && (_completedWeekNumber > oldCompletedWeek)
+                                && [getOptionValueForKey(@"managerName") isEqualToString:team.managerName])
+                            setOptionBoolForKey(@"motmWin", YES);
+                    }
                 }
             }
         }
@@ -537,12 +543,15 @@
             setOptionBoolForKey(@"newWeek", YES);
             if (userPosition > 0)
                 setOptionValueForKey(@"newPosition", [NSNumber numberWithLong:userPosition]);
-            
+                
             if (currentTeam && _completedWeekNumber > 1 && oldCompletedWeek > 0 && currentTeam.weeks.count >= _completedWeekNumber) {
                 TeamWeek *currentTeamWeek = currentTeam.weeks[_completedWeekNumber - 1];
                 TeamWeek *previousTeamWeek = currentTeam.weeks[oldCompletedWeek - 1];
                 
                 currentTeam.movement = previousTeamWeek.position - currentTeamWeek.position;
+                
+                if (_completedWeekNumber == [self getWeeksInSeason] && currentTeam.leaguePosition == 1)
+                    setOptionBoolForKey(@"newWinner", YES);
             }
         }
         else if (userPosition > 0) {
@@ -692,8 +701,27 @@
     }
 }
 
-// months are listed in reverse order
+- (BOOL) isPastSeason {
+    return getOptionValueForKey(@"season");
+}
+
+- (BOOL) isSeasonOver {
+    return self.completedWeekNumber >= [self getWeeksInSeason];
+}
+
+- (int) getWeeksInSeason {
+    int weeks = 0;
+    for (Month *month in _months) {
+        weeks += month.weeks;
+    }
+    return weeks;
+}
+
 - (int) getMonthForWeek:(long) weekNumber  {
+    if (weekNumber > [self getWeeksInSeason])
+        return ((Month *) _months[0]).monthNumber;
+  
+    // months are listed in reverse order
     int weeksSoFar = 0;
     for (long i = (_months.count - 1); i >= 0; i--) {
         Month *month = _months[i];
@@ -709,6 +737,10 @@
 }
 
 - (BOOL) isLastWeekOfMonth:(long) weekNumber {
+    if (weekNumber > [self getWeeksInSeason])
+        return YES;
+    
+    // months are listed in reverse order
     int weeksSoFar = 0;
     for (long i = (_months.count - 1); i >= 0; i--) {
         Month *month = _months[i];
@@ -983,7 +1015,8 @@
                                    @"Derek Lin" : @"Mr D Lin",
                                    @"Mark Mitchell" : @"Mr M Mitchell",
                                    @"Phil Pritchard" : @"Mr P Pritchard",
-                                   @"Mark Riley" : @"Mr M Riley"};
+                                   @"Mark Riley" : @"Mr M Riley",
+                                   @"Jason Ransley" : @"Mr J Ransley"};
     });
     return _managerNamesDictionary;
 }

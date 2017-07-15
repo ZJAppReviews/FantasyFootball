@@ -30,12 +30,14 @@
     self.window.tintColor = [UIColor colorWithRed:44.0/255 green:176.0/255 blue:55.0/255 alpha:1];
     self.rowBackground = [UIColor colorWithRed:253.0/255.0 green:251.0/255.0 blue:248.0/255.0 alpha:1.0];
     self.userBackground = [UIColor colorWithRed:204.0/255 green:255.0/255 blue:217.0/255 alpha:1];
+    self.goldBackground = [UIColor colorWithRed:255.0/255 green:215.0/255 blue:0 alpha:1.0];
     self.goldText = [UIColor colorWithRed:255.0/255 green:161.0/255 blue:25.0/255 alpha:1];
     
     [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:236.0/255 green:246.0/255 blue:234.0/255 alpha:1.0]];
     [[UITabBar appearance] setBarTintColor:[UIColor colorWithRed:236.0/255 green:246.0/255 blue:234.0/255 alpha:1.0]];
     
     setOptionBoolForKey(@"testMode", NO);
+    //removeOptionForKey(@"season");
     
     /*UIUserNotificationSettings* requestedSettings
         = [UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeBadge

@@ -75,7 +75,9 @@
     UILabel *goalsLabel = (UILabel *)[cell viewWithTag:4];
     goalsLabel.text = [NSString stringWithFormat:@"%li", team.goals];
     
-    if ([team.managerName isEqualToString:getOptionValueForKey(@"managerName")])
+    if (indexPath.row == 0 && ([[TeamManager getInstance] isPastSeason] || [[TeamManager getInstance] isSeasonOver]))
+        cell.backgroundColor = getAppDelegate().goldBackground;
+    else if ([team.managerName isEqualToString:getOptionValueForKey(@"managerName")])
         cell.backgroundColor = getAppDelegate().userBackground;
     else
         cell.backgroundColor = getAppDelegate().rowBackground;

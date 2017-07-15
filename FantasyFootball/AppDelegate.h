@@ -13,6 +13,7 @@
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) UIColor *userBackground;
 @property (strong, nonatomic) UIColor *rowBackground;
+@property (strong, nonatomic) UIColor *goldBackground;
 @property (strong, nonatomic) UIColor *goldText;
 
 @end

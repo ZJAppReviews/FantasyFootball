@@ -217,7 +217,13 @@
         NSString *title = [NSString stringWithFormat:@"%i%@ in the League", newPosition, subscript];
         NSString *message = nil;
         
-        if (optionEnabled(@"motmWin")) {
+        if (optionEnabled(@"newWinner")) {
+            // TODO test this
+            setOptionBoolForKey(@"newWinner", NO);
+            title = @"You Are The Champion";
+            message = [NSString stringWithFormat:@"Congratulations! You are the Winner of the DINLT League. Now get some cider down you and put on your smug face."];
+        }
+        else if (optionEnabled(@"motmWin")) {
             setOptionBoolForKey(@"motmWin", NO);
             title = @"Manager Of The Month";
             message = [NSString stringWithFormat:@"Congratulations! You are Manager Of The Month for %@. Slip a pair of Ladies into your back pocket.", ((Month *)[TeamManager getInstance].months[10 - [TeamManager getInstance].monthNumber]).monthName];
@@ -438,30 +444,35 @@
     }
     
     UIImageView *momentumView = (UIImageView *)[cell viewWithTag:6];
-    enum Momentum momentum = team.momentum;
-    switch (momentum) {
-        case Up:
-            momentumView.image = [UIImage imageNamed:@"arrow_up"];
-            break;
-        case Down:
-            momentumView.image = [UIImage imageNamed:@"arrow_down"];
-            break;
-        case Same:
-            momentumView.image = [UIImage imageNamed:@"arrow_right"];
-            break;
+    if (indexPath.row == 0 && ([[TeamManager getInstance] isPastSeason] || [[TeamManager getInstance] isSeasonOver]))
+        momentumView.image = [UIImage imageNamed:@"winner"];
+    else {
+        enum Momentum momentum = team.momentum;
+        switch (momentum) {
+            case Up:
+                momentumView.image = [UIImage imageNamed:@"arrow_up"];
+                break;
+            case Down:
+                momentumView.image = [UIImage imageNamed:@"arrow_down"];
+                break;
+            case Same:
+                momentumView.image = [UIImage imageNamed:@"arrow_right"];
+                break;
+        }
     }
     
     /*medalView.layer.cornerRadius = 12;
     medalView.layer.masksToBounds = YES;
     if (team.leaguePosition <= 3)
-        medalView.backgroundColor = [UIColor colorWithRed:255.0/255 green:215.0/255 blue:0 alpha:1.0];
+        medalView.backgroundColor = getAppDelegate().goldBackground;
     else if (team.leaguePosition <= 10)
         medalView.backgroundColor = [UIColor colorWithRed:192.0/255 green:192.0/255 blue:192.0/255 alpha:1.0];
     else
         medalView.backgroundColor = [UIColor colorWithRed:205.0/255 green:127.0/255 blue:50.0/255 alpha:1.0];*/
     
-    
-    if ([team.managerName isEqualToString:getOptionValueForKey(@"managerName")])
+    if (indexPath.row == 0 && ([[TeamManager getInstance] isPastSeason] || [[TeamManager getInstance] isSeasonOver]))
+        cell.backgroundColor = getAppDelegate().goldBackground;
+    else if ([team.managerName isEqualToString:getOptionValueForKey(@"managerName")])
         cell.backgroundColor = getAppDelegate().userBackground;
     else
         cell.backgroundColor = getAppDelegate().rowBackground;

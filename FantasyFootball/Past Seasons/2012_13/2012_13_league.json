@@ -1,0 +1,158 @@
+{
+	"leaguePin" : "8114439",
+	"chairman" : "Mr S Dowe",
+	"startDate" : "14/08/2012",
+    "season" : "2012/13",
+    "cup" : [
+        {
+			"round" : 1,
+			"weekNumber" : 7,
+			"dateRange" : "25th Sep 2012 - 1st Oct 2012",
+			"ties" : [
+				{
+					"managerName1" : "Mr J Appleby",
+					"managerName2" : "Mr T Lewis"
+				},
+				{
+					"managerName1" : "Mr S Dowe",
+					"managerName2" : "Mr P Attrill"
+				},
+				{
+					"managerName1" : "Mr C Emmerson",
+					"managerName2" : "Mr C Foxall"
+				},
+				{
+					"managerName1" : "Mr M Mitchell",
+					"managerName2" : "Mr C Attrill"
+				},
+				{
+					"managerName1" : "Mr J Hitchins",
+					"managerName2" : "Mr D Lin"
+				},
+				{
+					"managerName1" : "Mr C Cowpertwait",
+					"managerName2" : "Mr M Riley"
+				},
+				{
+					"managerName1" : "Mr P Gill",
+					"managerName2" : "Mr J Ransley"
+				},
+				{
+					"managerName1" : "Mr P Pritchard",
+					"managerName2" : "Bye"
+				}
+			]
+        },
+        {
+			"round" : 2,
+			"weekNumber" : 18,
+			"dateRange" : "11th Dec 2012 - 17th Dec 2012",
+			"ties" : [
+				{
+					"managerName1" : "Mr T Lewis",
+					"managerName2" : "Mr P Attrill"
+				},
+				{
+					"managerName1" : "Mr C Foxall",
+					"managerName2" : "Mr M Mitchell"
+				},
+				{
+					"managerName1" : "Mr D Lin",
+					"managerName2" : "Mr M Riley"
+				},
+				{
+					"managerName1" : "Mr J Ransley",
+					"managerName2" : "Mr P Pritchard"
+				}
+			]
+        },
+        {
+			"round" : 3,
+			"weekNumber" : 29,
+			"dateRange" : "26th Feb 2013 - 4th Mar 2013",
+			"ties" : [
+				{
+					"managerName1" : "Mr P Attrill",
+					"managerName2" : "Mr C Foxall"
+				},
+				{
+					"managerName1" : "Mr M Riley",
+					"managerName2" : "Mr P Pritchard"
+				}
+			]
+        },
+        {
+			"round" : 4,
+			"weekNumber" : 38,
+            "dateRange" : "30th Apr 2013 - 6th May 2013",
+            "ties" : [
+                {
+                    "managerName1" : "Mr C Foxall",
+                    "managerName2" : "Mr P Pritchard"
+                }
+            ]
+        }
+    ],
+    "months" : [
+        {
+			"monthNumber" : 1,
+			"monthName" : "August",
+			"dateRange" : "18th Aug - 3rd Sep",
+			"weeks" : 3
+        },
+        {
+			"monthNumber" : 2,
+			"monthName" : "September",
+			"dateRange" : "4th Sep - 1st Oct",
+			"weeks" : 4
+        },
+        {
+			"monthNumber" : 3,
+			"monthName" : "October",
+			"dateRange" : "2nd Oct - 29th Oct",
+			"weeks" : 4
+        },
+        {
+			"monthNumber" : 4,
+			"monthName" : "November",
+			"dateRange" : "30th Oct - 26th Nov",
+			"weeks" : 4
+        },
+        {
+			"monthNumber" : 5,
+			"monthName" : "December",
+			"dateRange" : "27th Nov - 31st Dec",
+			"weeks" : 5
+        },
+        {
+			"monthNumber" : 6,
+			"monthName" : "January",
+			"dateRange" : "1st Jan - 28th Jan",
+			"weeks" : 4
+        },
+        {
+			"monthNumber" : 7,
+			"monthName" : "February",
+			"dateRange" : "29th Jan - 25th Feb",
+			"weeks" : 4
+        },
+        {
+			"monthNumber" : 8,
+			"monthName" : "March",
+			"dateRange" : "26th Feb - 25th Mar",
+			"weeks" : 4
+        },
+        {
+			"monthNumber" : 9,
+			"monthName" : "April",
+			"dateRange" : "26th Mar - 29th Apr",
+			"weeks" : 5
+        },
+        {
+			"monthNumber" : 10,
+			"monthName" : "May",
+			"dateRange" : "30th Apr - 20th May",
+			"weeks" : 3
+        }
+    ]
+}

@@ -42,6 +42,8 @@ enum LeagueMode {Points, Overall, StartingPoints, StartingGoals, Winnings, Count
 - (double) getPredictedWinnings:(Team *) team;
 - (int) getCupRound:(Team *) team;
 - (BOOL) hasCupFinished;
+- (BOOL) isPastSeason;
+- (BOOL) isSeasonOver;
 + (NSArray *) managerNames;
 
 @end

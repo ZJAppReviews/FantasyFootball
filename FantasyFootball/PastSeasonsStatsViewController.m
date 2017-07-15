@@ -89,7 +89,7 @@
     switch (indexPath.row) {
         case 0: cell.textLabel.text = @"Current Season"; break;
         case 1: cell.textLabel.text = @"2016/2017"; break;
-        case 2: cell.textLabel.text = @"2015/2016"; break;
+        case 2: cell.textLabel.text = @"2012/2013"; break;
     }
     
     cell.backgroundColor = getAppDelegate().rowBackground;
@@ -117,7 +117,7 @@
     switch (indexPath.row) {
         case 0: removeOptionForKey(@"season"); break;
         case 1: setOptionValueForKey(@"season", @"2016_17"); break;
-        case 2: setOptionValueForKey(@"season", @"2015_16"); break;
+        case 2: setOptionValueForKey(@"season", @"2012_13"); break;
     }
     
     [DataManager loadData];

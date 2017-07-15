@@ -151,15 +151,19 @@ static DataManager* _instance = nil;
     error = nil;
     filePath = [[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"%@_overall", season] ofType:@"html"];
     data = [NSData dataWithContentsOfFile:filePath];
-    NSDictionary *overallData = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
-    NSString *html = [overallData objectForKey:@"HTML"];
+    NSString *html = nil;
+    if (data) {
+        NSDictionary *overallData = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
+        html = [overallData objectForKey:@"HTML"];
+    }
     
     // remove new lines and tabs
     html = [[html stringByReplacingOccurrencesOfString:@"\n" withString:@""] stringByReplacingOccurrencesOfString:@"\t" withString:@""];
     
     // remove extraneous white space
     NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"  +" options:0 error:&error];
-    html = [regex stringByReplacingMatchesInString:html options:0 range:NSMakeRange(0, html.length) withTemplate:@""];
+    if (html)
+        html = [regex stringByReplacingMatchesInString:html options:0 range:NSMakeRange(0, html.length) withTemplate:@""];
     
     TFHpple *htmlParser = [TFHpple hppleWithHTMLData:[html dataUsingEncoding:NSUTF8StringEncoding]];
     NSString *xPathQuery = @"//tr[@class='\']";
@@ -168,15 +172,19 @@ static DataManager* _instance = nil;
     // starting html
     error = nil;
     filePath = [[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"%@_starting", season] ofType:@"html"];
+    html = nil;
     data = [NSData dataWithContentsOfFile:filePath];
-    NSDictionary *startingData = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
-    html = [startingData objectForKey:@"HTML"];
+    if (data) {
+        NSDictionary *startingData = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
+        html = [startingData objectForKey:@"HTML"];
+    }
 
     // remove new lines and tabs
     html = [[html stringByReplacingOccurrencesOfString:@"\n" withString:@""] stringByReplacingOccurrencesOfString:@"\t" withString:@""];
     
     // remove extraneous white space
-    html = [regex stringByReplacingMatchesInString:html options:0 range:NSMakeRange(0, html.length) withTemplate:@""];
+    if (html)
+        html = [regex stringByReplacingMatchesInString:html options:0 range:NSMakeRange(0, html.length) withTemplate:@""];
     
     htmlParser = [TFHpple hppleWithHTMLData:[html dataUsingEncoding:NSUTF8StringEncoding]];
     NSArray *startingRows = [htmlParser searchWithXPathQuery:xPathQuery];
@@ -187,8 +195,10 @@ static DataManager* _instance = nil;
     error = nil;
     filePath = [[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"%@_side_bets", season] ofType:@"json"];
     data = [NSData dataWithContentsOfFile:filePath];
-    NSDictionary *sideBetsData = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
-    [TeamManager getInstance].sideBets = sideBetsData[@"sideBets"];
+    if (data) {
+        NSDictionary *sideBetsData = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
+        [TeamManager getInstance].sideBets = sideBetsData[@"sideBets"];
+    }
     
     [TeamManager getInstance].league = league;
     [[NSNotificationCenter defaultCenter] postNotificationName:@"ReloadData" object:self];
@@ -198,7 +208,7 @@ static DataManager* _instance = nil;
 
 - (void) loadLeagueDataDebug {
     NSError *error = nil;
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"league" ofType:@"json"];
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"league_debug" ofType:@"json"];
     NSData *data = [NSData dataWithContentsOfFile:filePath];
     staticData = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
     
@@ -229,6 +239,7 @@ static DataManager* _instance = nil;
             if (!error && data) {
                 NSError *error2 = nil;
                 NSDictionary *teamsData = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error2];
+                //NSString *text = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
                 
                 if (!error2) {
                     BOOL success = [[teamsData objectForKey:@"SUCCESS"] boolValue];

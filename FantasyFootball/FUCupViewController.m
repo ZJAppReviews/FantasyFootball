@@ -170,7 +170,7 @@
     team1Label.text = team1.teamName;
     
     UILabel *team2Label = (UILabel *)[cell viewWithTag:2];
-    team2Label.text = team2 ? team2.teamName : @"Bye";
+    team2Label.text = team2 ? team2.teamName : team1 ? @"Bye" : @"";
 
     UILabel *points1Label = (UILabel *)[cell viewWithTag:3];
     points1Label.text = [@(team1Points) stringValue];
@@ -185,7 +185,7 @@
     
     /*if (indexPath.row == 0 && (indexPath.section > (4 - [TeamManager getInstance].cupRoundNumber) ||
                                 (indexPath.section == (4 - [TeamManager getInstance].cupRoundNumber) && [[TeamManager getInstance] isLastWeekOfMonth])))
-        cell.backgroundColor = [UIColor colorWithRed:255.0/255 green:215.0/255 blue:0 alpha:1.0];
+        cell.backgroundColor = getAppDelegate().goldBackground;
     else if ([managerName isEqualToString:getOptionValueForKey(@"managerName")])
         cell.backgroundColor = getAppDelegate().userBackground;
     else

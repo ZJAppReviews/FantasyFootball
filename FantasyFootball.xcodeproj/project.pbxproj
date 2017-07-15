@@ -39,6 +39,9 @@
 		4D3B569F1D45137F00267C95 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D3B569E1D45137F00267C95 /* DataManager.m */; };
 		4D3B56A21D4515F000267C95 /* TeamManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D3B56A11D4515F000267C95 /* TeamManager.m */; };
 		4D3B56A71D453D0300267C95 /* GoldenBootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D3B56A61D453D0300267C95 /* GoldenBootViewController.m */; };
+		4D4803F41F191D2200E9D700 /* league_debug.json in Resources */ = {isa = PBXBuildFile; fileRef = 4D4803F31F191D2200E9D700 /* league_debug.json */; };
+		4D4804041F1921EA00E9D700 /* 2012_13_league.json in Resources */ = {isa = PBXBuildFile; fileRef = 4D4804021F1921EA00E9D700 /* 2012_13_league.json */; };
+		4D4804051F1921EA00E9D700 /* 2012_13_weeks.json in Resources */ = {isa = PBXBuildFile; fileRef = 4D4804031F1921EA00E9D700 /* 2012_13_weeks.json */; };
 		4D4D511A1D5603A600CCED96 /* teams_debug.json in Resources */ = {isa = PBXBuildFile; fileRef = 4D4D51191D5603A600CCED96 /* teams_debug.json */; };
 		4D4D511D1D56244C00CCED96 /* ManagerStatsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D4D511C1D56244C00CCED96 /* ManagerStatsViewController.m */; };
 		4D4D511F1D56250C00CCED96 /* manager_stats.json in Resources */ = {isa = PBXBuildFile; fileRef = 4D4D511E1D56250C00CCED96 /* manager_stats.json */; };
@@ -247,6 +250,9 @@
 		4D3B56A11D4515F000267C95 /* TeamManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeamManager.m; sourceTree = "<group>"; };
 		4D3B56A51D453CF900267C95 /* GoldenBootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoldenBootViewController.h; sourceTree = "<group>"; };
 		4D3B56A61D453D0300267C95 /* GoldenBootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoldenBootViewController.m; sourceTree = "<group>"; };
+		4D4803F31F191D2200E9D700 /* league_debug.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = league_debug.json; sourceTree = "<group>"; };
+		4D4804021F1921EA00E9D700 /* 2012_13_league.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 2012_13_league.json; sourceTree = "<group>"; };
+		4D4804031F1921EA00E9D700 /* 2012_13_weeks.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 2012_13_weeks.json; sourceTree = "<group>"; };
 		4D4D51191D5603A600CCED96 /* teams_debug.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = teams_debug.json; sourceTree = "<group>"; };
 		4D4D511B1D56244C00CCED96 /* ManagerStatsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManagerStatsViewController.h; sourceTree = "<group>"; };
 		4D4D511C1D56244C00CCED96 /* ManagerStatsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManagerStatsViewController.m; sourceTree = "<group>"; };
@@ -358,6 +364,7 @@
 		4D03D00A1EE2EE8D00C38DAE /* Past Seasons */ = {
 			isa = PBXGroup;
 			children = (
+				4D4804011F1921EA00E9D700 /* 2012_13 */,
 				4D03D00B1EE2EE8D00C38DAE /* 2016_17 */,
 			);
 			path = "Past Seasons";
@@ -525,6 +532,7 @@
 				4D3B56761D44E1EA00267C95 /* Assets.xcassets */,
 				4D3B567B1D44E1EA00267C95 /* Info.plist */,
 				4DBCF0CC1DC125CF00894B04 /* league.json */,
+				4D4803F31F191D2200E9D700 /* league_debug.json */,
 				4D3B569B1D4512D400267C95 /* teams.json */,
 				4D70546D1D4A4FF80039B4AE /* teams_test.json */,
 				4D4D51191D5603A600CCED96 /* teams_debug.json */,
@@ -532,6 +540,15 @@
 				4D4D511E1D56250C00CCED96 /* manager_stats.json */,
 			);
 			name = Resources;
+			sourceTree = "<group>";
+		};
+		4D4804011F1921EA00E9D700 /* 2012_13 */ = {
+			isa = PBXGroup;
+			children = (
+				4D4804021F1921EA00E9D700 /* 2012_13_league.json */,
+				4D4804031F1921EA00E9D700 /* 2012_13_weeks.json */,
+			);
+			path = 2012_13;
 			sourceTree = "<group>";
 		};
 		4D4D514F1D5CB6C200CCED96 /* Audio */ = {
@@ -788,6 +805,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D4803F41F191D2200E9D700 /* league_debug.json in Resources */,
+				4D4804051F1921EA00E9D700 /* 2012_13_weeks.json in Resources */,
 				4D4D51481D5C98D800CCED96 /* platty.wav in Resources */,
 				4D4D51461D5C98D800CCED96 /* if_you_were_one_of_my_players.wav in Resources */,
 				4D03D0141EE2EE8D00C38DAE /* 2016_17_starting.html in Resources */,
@@ -800,6 +819,7 @@
 				4D4D51471D5C98D800CCED96 /* made_for_wrighty.wav in Resources */,
 				4D4D51441D5C98D800CCED96 /* hit_les.wav in Resources */,
 				4D4D514A1D5C98D800CCED96 /* sharpey.wav in Resources */,
+				4D4804041F1921EA00E9D700 /* 2012_13_league.json in Resources */,
 				4D4D511F1D56250C00CCED96 /* manager_stats.json in Resources */,
 				4D4D512B1D5A3EBD00CCED96 /* do_i_not_like_that.wav in Resources */,
 				4D70546E1D4A4FF80039B4AE /* teams_test.json in Resources */,

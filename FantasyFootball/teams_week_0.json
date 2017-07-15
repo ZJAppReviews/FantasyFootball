@@ -1,146 +1,140 @@
-{
-	"year" : "2016/17",
-    "week" : 0,
-    "teams" : [
-    	{
-            "teamName" : "Wobbles on the Puel",
-            "managerName" : "Mr C Attrill",
-            "goals" : 0
-        },
-        {
-            "teamName" : "Time For Elevenses",
-            "managerName" : "Mr M Riley",
-            "chairman" : true,
-            "goals" : 0
-        },
-        {
-            "teamName" : "Take Zlat!",
-            "managerName" : "Mr J Appleby",
-            "goals" : 0
-        },
-        {
-            "teamName" : "Del'll Fix It",
-            "managerName" : "Mr D Lin",
-            "goals" : 0
-        },
-        {
-            "teamName" : "The Humbler",
-            "managerName" : "Mr M Mitchell",
-            "goals" : 0
-        },
-        {
-            "teamName" : "Son's Of Pitches",
-            "managerName" : "Mr J Hitchins",
-            "goals" : 0
-        },
-        {
-            "teamName" : "Eye Tea Eff Sea",
-            "managerName" : "Mr P Pritchard",
-            "goals" : 0
-        },
-        {
-            "teamName" : "Emo's Entertainers",
-            "managerName" : "Mr C Emmerson",
-            "points" : 264,
-            "goals" : 0
-        },
-        {
-            "teamName" : "Shoganchester United",
-            "managerName" : "Mr T Lewis",
-            "goals" : 0
-        },
-        {
-            "teamName" : "Scouting for Goals",
-            "managerName" : "Mr C Cowpertwait",
-            "goals" : 0
-        },
-        {
-            "teamName" : "Phil A Show",
-            "managerName" : "Mr P Attrill",
-            "goals" : 0
-        },
-        {
-            "teamName" : "Looked Good On Paper",
-            "managerName" : "Mr S Dowe",
-            "goals" : 0
-        },
-        {
-            "teamName" : "Nowhere",
-            "managerName" : "Mr C Foxall",
-            "goals" : 0
-        },
-        {
-            "teamName" : "FC EK",
-            "managerName" : "Mr J Free",
-
-            "goals" : 0
-        },
-        {
-            "teamName" : "In Hard",
-            "managerName" : "Mr P Gill",
-            "goals" : 0
-        }
-    ],
-    "months" : [
-        {
-			"monthNumber" : 1,
-			"monthName" : "August",
-			"dateRange" : "13th Aug - 29th Aug",
-			"weeks" : 3
-        },
-        {
-			"monthNumber" : 2,
-			"monthName" : "September",
-			"dateRange" : "30th Aug - 26th Sep",
-			"weeks" : 4
-        },
-        {
-			"monthNumber" : 3,
-			"monthName" : "October",
-			"dateRange" : "27th Sep - 31st Oct",
-			"weeks" : 5
-        },
-        {
-			"monthNumber" : 4,
-			"monthName" : "November",
-			"dateRange" : "1st Nov - 28th Nov",
-			"weeks" : 4
-        },
-        {
-			"monthNumber" : 5,
-			"monthName" : "December",
-			"dateRange" : "29th Nov - 26th Dec",
-			"weeks" : 4
-        },
-        {
-			"monthNumber" : 6,
-			"monthName" : "January",
-			"dateRange" : "27th Dec - 30th Jan",
-			"weeks" : 5
-        },
-        {
-			"monthNumber" : 7,
-			"monthName" : "February",
-			"dateRange" : "31st Jan - 27th Feb",
-			"weeks" : 4
-        },
-        {
-			"monthNumber" : 8,
-			"monthName" : "March",
-			"dateRange" : "28th Feb - 27th Mar",
-			"weeks" : 4
-        },
-        {
-			"monthNumber" : 9,
-			"monthName" : "April",
-			"dateRange" : "28th Mar - 24th Apr",
-			"weeks" : 4
-        },
-        {
-			"monthNumber" : 10,
-			"monthName" : "May",
-			"dateRange" : "25th Apr - 21st May",
-			"weeks" : 4
-        }
-    ]
+{  
+   "SUCCESS":1,
+   "DATA":[  
+      {  
+         "TEAMPIN":"4164161",
+         "TEAMNAME":"Emo's Entertainers",
+         "MANAGER":"Carl Emmerson",
+         "WEEKS":[  
+            
+         ],
+         "MANAGERPIN":"5094441"
+      },
+      {  
+         "TEAMPIN":"4134595",
+         "TEAMNAME":"Wobbles on the Puel",
+         "MANAGER":"Colin Attrill",
+         "WEEKS":[  
+            
+         ],
+         "MANAGERPIN":"5030685"
+      },
+      {  
+         "TEAMPIN":"4065533",
+         "TEAMNAME":"Eye Tea Eff Sea",
+         "MANAGER":"Phil Pritchard",
+         "WEEKS":[  
+            
+         ],
+         "MANAGERPIN":"5068640"
+      },
+      {  
+         "TEAMPIN":"4034583",
+         "TEAMNAME":"Time For Elevenses",
+         "MANAGER":"Mark Riley",
+         "WEEKS":[  
+           
+         ],
+         "MANAGERPIN":"5116673"
+      },
+      {  
+         "TEAMPIN":"4215589",
+         "TEAMNAME":"Nowhere",
+         "MANAGER":"Christopher Foxall",
+         "WEEKS":[  
+           
+         ],
+         "MANAGERPIN":"5788994"
+      },
+      {  
+         "TEAMPIN":"4130015",
+         "TEAMNAME":"FC EK",
+         "MANAGER":"John Free",
+         "WEEKS":[  
+            
+         ],
+         "MANAGERPIN":"5598337"
+      },
+      {  
+         "TEAMPIN":"4018956",
+         "TEAMNAME":"Looked Good On Paper",
+         "MANAGER":"Steven Dowe",
+         "WEEKS":[  
+            
+         ],
+         "MANAGERPIN":"5118088"
+      },
+      {  
+         "TEAMPIN":"4095840",
+         "TEAMNAME":"Scouting for Goals",
+         "MANAGER":"Colin Cowpertwait",
+         "WEEKS":[  
+           
+         ],
+         "MANAGERPIN":"5057449"
+      },
+      {  
+         "TEAMPIN":"4097023",
+         "TEAMNAME":"Phil A Show",
+         "MANAGER":"Philip Attrill",
+         "WEEKS":[  
+           
+         ],
+         "MANAGERPIN":"5051796"
+      },
+      {  
+         "TEAMPIN":"4109787",
+         "TEAMNAME":"The Humbler",
+         "MANAGER":"Mark Mitchell",
+         "WEEKS":[  
+           
+         ],
+         "MANAGERPIN":"5039108"
+      },
+      {  
+         "TEAMPIN":"4204205",
+         "TEAMNAME":"Del'll Fix It",
+         "MANAGER":"Derek Lin",
+         "WEEKS":[  
+           
+         ],
+         "MANAGERPIN":"5800145"
+      },
+      {  
+         "TEAMPIN":"4070422",
+         "TEAMNAME":"Take Zlat!",
+         "MANAGER":"Jamie Appleby",
+         "WEEKS":[  
+            
+         ],
+         "MANAGERPIN":"5088425"
+      },
+      {  
+         "TEAMPIN":"4068782",
+         "TEAMNAME":"In Hard",
+         "MANAGER":"Pap Gill",
+         "WEEKS":[  
+          
+         ],
+         "MANAGERPIN":"5161676"
+      },
+      {  
+         "TEAMPIN":"4063768",
+         "TEAMNAME":"Shoganchester United",
+         "MANAGER":"Tim Lewis",
+         "WEEKS":[  
+            
+         ],
+         "MANAGERPIN":"5054533"
+      },
+      {  
+         "TEAMPIN":"4063747",
+         "TEAMNAME":"Son's Of Pitches",
+         "MANAGER":"Jason Hitchins",
+         "WEEKS":[  
+            
+         ],
+         "MANAGERPIN":"5063731"
+      }
+   ]
 }
