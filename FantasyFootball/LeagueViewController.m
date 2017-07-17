@@ -229,32 +229,21 @@
             message = [NSString stringWithFormat:@"Congratulations! You are Manager Of The Month for %@. Slip a pair of Ladies into your back pocket.", ((Month *)[TeamManager getInstance].months[10 - [TeamManager getInstance].monthNumber]).monthName];
         }
         else if (week == 1 || oldPosition == 0) {
-            switch (newPosition) {
-                case 1:
-                    message = [NSString stringWithFormat:@"Back of the net, you're Top of the Pops!"];
-                    break;
-                case 2:
-                case 3:
-                case 4:
-                case 5:
-                    message = [NSString stringWithFormat:@"Top 5, you must be over the moon with that!"];
-                    break;
-                case 6:
-                case 7:
-                case 8:
-                case 9:
-                case 10:
-                case 11:
-                    message = [NSString stringWithFormat:@"Mid table mediocrity looms, but safely above the Wooden Cock zone for now."];
-                    break;
-                case 12:
-                case 13:
-                case 14:
-                    message = [NSString stringWithFormat:@"Maybe you have just found it hard to settle into the pace of the Premier League."];
-                    break;
-                case 15:
-                    message = [NSString stringWithFormat:@"You can't win the title in August, but you sure can lose it."];
-                    break;
+            // TODO test this
+            if (newPosition == 1) {
+                message = [NSString stringWithFormat:@"Back of the net, you're Top of the Pops!"];
+            }
+            else if (newPosition >= 2 && newPosition <= 5) {
+                message = [NSString stringWithFormat:@"Top 5, you must be over the moon with that!"];
+            }
+            else if (newPosition >= 6 && newPosition <= 11) {
+                message = [NSString stringWithFormat:@"Mid table mediocrity looms, but safely above the Wooden Cock zone for now."];
+            }
+            else if (newPosition >= 12 && newPosition < _teams.count) {
+                message = [NSString stringWithFormat:@"Maybe you have just found it hard to settle into the pace of the Premier League."];
+            }
+            else {
+                message = [NSString stringWithFormat:@"You can't win the title in August, but you sure can lose it."];
             }
             [self.tableView reloadData];
         }

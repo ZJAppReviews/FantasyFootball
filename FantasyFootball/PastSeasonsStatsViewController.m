@@ -79,7 +79,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 3;
+    return 6;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -89,7 +89,10 @@
     switch (indexPath.row) {
         case 0: cell.textLabel.text = @"Current Season"; break;
         case 1: cell.textLabel.text = @"2016/2017"; break;
-        case 2: cell.textLabel.text = @"2012/2013"; break;
+        case 2: cell.textLabel.text = @"2015/2016"; break;
+        case 3: cell.textLabel.text = @"2014/2015"; break;
+        case 4: cell.textLabel.text = @"2013/2014"; break;
+        case 5: cell.textLabel.text = @"2012/2013"; break;
     }
     
     cell.backgroundColor = getAppDelegate().rowBackground;
@@ -117,7 +120,10 @@
     switch (indexPath.row) {
         case 0: removeOptionForKey(@"season"); break;
         case 1: setOptionValueForKey(@"season", @"2016_17"); break;
-        case 2: setOptionValueForKey(@"season", @"2012_13"); break;
+        case 2: setOptionValueForKey(@"season", @"2015_16"); break;
+        case 3: setOptionValueForKey(@"season", @"2014_15"); break;
+        case 4: setOptionValueForKey(@"season", @"2013_14"); break;
+        case 5: setOptionValueForKey(@"season", @"2012_13"); break;
     }
     
     [DataManager loadData];

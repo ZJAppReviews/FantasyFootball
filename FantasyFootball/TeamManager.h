@@ -45,5 +45,6 @@ enum LeagueMode {Points, Overall, StartingPoints, StartingGoals, Winnings, Count
 - (BOOL) isPastSeason;
 - (BOOL) isSeasonOver;
 + (NSArray *) managerNames;
++ (NSDictionary *) managerNamesDictionary;
 
 @end

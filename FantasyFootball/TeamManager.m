@@ -914,6 +914,7 @@
     double winnings = 0;
     
     // league winnings
+    // TODO update for past seasons
     switch (team.leaguePosition) {
         case 1: winnings += 120; break;
         case 2: winnings += 60; break;
@@ -1016,7 +1017,8 @@
                                    @"Mark Mitchell" : @"Mr M Mitchell",
                                    @"Phil Pritchard" : @"Mr P Pritchard",
                                    @"Mark Riley" : @"Mr M Riley",
-                                   @"Jason Ransley" : @"Mr J Ransley"};
+                                   @"Jason Ransley" : @"Mr J Ransley",
+                                   @"Ross Anderson" : @"Mr R Anderson"};
     });
     return _managerNamesDictionary;
 }

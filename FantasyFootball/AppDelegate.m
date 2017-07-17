@@ -54,19 +54,21 @@
         }
         NSMutableDictionary *team = [NSMutableDictionary dictionary];
         NSArray *columns = [line componentsSeparatedByString:@","];
-        team[@"MANAGER"] = columns[0];
-        team[@"TEAMNAME"] = columns[1];
+        //team[@"MANAGER"] = columns[1];
+        team[@"MANAGER"] = [[[TeamManager managerNamesDictionary] allKeysForObject:columns[1]] lastObject];
+        team[@"TEAMNAME"] = columns[2];
         
         NSMutableArray *weeks = [NSMutableArray array];
-        for (int i = 1; i <= 40; i++) {
+        for (int i = 1; i <= 42; i++) {
             NSMutableDictionary *week = [NSMutableDictionary dictionary];
             week[@"WK"] = [NSString stringWithFormat:@"%d", i];
             week[@"PTS"] = columns[i+2];
-            if (i < 40)
-                week[@"GOALS"] = @"0";
-            else
-                week[@"GOALS"] = columns[44];
-            week[@"POS"] = columns[45];
+            //if (i < 40)
+            //    week[@"GOALS"] = @"0";
+            //else
+            //    week[@"GOALS"] = columns[44];
+            week[@"GOALS"] = @"0";
+            week[@"POS"] = columns[0];
             [weeks addObject:week];
         }
         team[@"WEEKS"] = weeks;
@@ -75,7 +77,8 @@
     }
     weeksJSON[@"DATA"] = teams;
     NSData *JSONData = [NSJSONSerialization dataWithJSONObject:weeksJSON options:0 error:nil];
-    NSString *text = [[NSString alloc] initWithData:JSONData encoding:NSUTF8StringEncoding];*/
+    NSString *text = [[NSString alloc] initWithData:JSONData encoding:NSUTF8StringEncoding];
+    */
     
     /*UIUserNotificationSettings* requestedSettings
         = [UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeBadge
