@@ -79,7 +79,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 6;
+    return 10;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -93,6 +93,15 @@
         case 3: cell.textLabel.text = @"2014/2015"; break;
         case 4: cell.textLabel.text = @"2013/2014"; break;
         case 5: cell.textLabel.text = @"2012/2013"; break;
+        case 6: cell.textLabel.text = @"2011/2012"; break;
+        case 7: cell.textLabel.text = @"2010/2011"; break;
+        case 8: cell.textLabel.text = @"2009/2010"; break;
+        case 9: cell.textLabel.text = @"2008/2009"; break;
+        case 10: cell.textLabel.text = @"2007/2008"; break;
+        case 11: cell.textLabel.text = @"2006/2007"; break;
+        case 12: cell.textLabel.text = @"2005/2006"; break;
+        case 13: cell.textLabel.text = @"2004/2005"; break;
+        case 14: cell.textLabel.text = @"2003/2004"; break;
     }
     
     cell.backgroundColor = getAppDelegate().rowBackground;
@@ -113,8 +122,12 @@
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Info"
                                                                              message:[NSString stringWithFormat:@"Switched to %@", seasonText]
                                                                       preferredStyle:UIAlertControllerStyleAlert];
-    [self presentViewController:alertController animated:YES completion:nil];
-    UIAlertAction* ok = [UIAlertAction actionWithTitle:@"Close" style:UIAlertActionStyleDefault handler:nil];
+    [self presentViewController:alertController animated:YES completion:^{
+        
+    }];
+    UIAlertAction* ok = [UIAlertAction actionWithTitle:@"Close" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }];
     [alertController addAction:ok];
     
     switch (indexPath.row) {
@@ -124,6 +137,15 @@
         case 3: setOptionValueForKey(@"season", @"2014_15"); break;
         case 4: setOptionValueForKey(@"season", @"2013_14"); break;
         case 5: setOptionValueForKey(@"season", @"2012_13"); break;
+        case 6: setOptionValueForKey(@"season", @"2011_12"); break;
+        case 7: setOptionValueForKey(@"season", @"2010_11"); break;
+        case 8: setOptionValueForKey(@"season", @"2009_10"); break;
+        case 9: setOptionValueForKey(@"season", @"2008_09"); break;
+        case 10: setOptionValueForKey(@"season", @"2007_08"); break;
+        case 11: setOptionValueForKey(@"season", @"2006_07"); break;
+        case 12: setOptionValueForKey(@"season", @"2005_06"); break;
+        case 13: setOptionValueForKey(@"season", @"2004_05"); break;
+        case 14: setOptionValueForKey(@"season", @"2003_04"); break;
     }
     
     [DataManager loadData];

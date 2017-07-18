@@ -1,0 +1,158 @@
+{
+	"leaguePin" : "8114439",
+	"chairman" : "Mr M Mitchell",
+	"startDate" : "15/08/2009",
+    "season" : "2009/10",
+    "cup" : [
+        {
+			"round" : 1,
+			"weekNumber" : 10,
+			"dateRange" : "13th Oct 2009 - 19th Oct 2009",
+			"ties" : [
+				{
+					"managerName1" : "Mr M Buswell",
+					"managerName2" : "Mr J Hitchins"
+				},
+				{
+					"managerName1" : "Mr D Lin",
+					"managerName2" : "Mr A Hansen"
+				},
+				{
+					"managerName1" : "Mr E Kent-Jones",
+					"managerName2" : "Mr S Dowe"
+				},
+				{
+					"managerName1" : "Mr J Appleby",
+					"managerName2" : "Mr M Mitchell"
+				},
+				{
+					"managerName1" : "Mr M Riley",
+					"managerName2" : "Mr C Foxall"
+				},
+				{
+					"managerName1" : "Mr C Emmerson",
+					"managerName2" : "Mr T Lewis"
+				},
+				{
+					"managerName1" : "Mr C Attrill",
+					"managerName2" : "Mr C Cowpertwait"
+				},
+				{
+					"managerName1" : "Mr P Attrill",
+					"managerName2" : "Mr J Ransley"
+				}
+			]
+        },
+        {
+			"round" : 2,
+			"weekNumber" : 18,
+			"dateRange" : "8th Dec 2009 - 14th Dec 2009",
+			"ties" : [
+				{
+					"managerName1" : "Mr M Riley",
+					"managerName2" : "Mr S Dowe"
+				},
+				{
+					"managerName1" : "Mr D Lin",
+					"managerName2" : "Mr T Lewis"
+				},
+				{
+					"managerName1" : "Mr M Mitchell",
+					"managerName2" : "Mr C Cowpertwait"
+				},
+				{
+					"managerName1" : "Mr M Buswell",
+					"managerName2" : "Mr J Ransley"
+				}
+			]
+        },
+        {
+			"round" : 3,
+			"weekNumber" : 26,
+			"dateRange" : "2nd Feb 2010 - 8th Feb 2010",
+			"ties" : [
+				{
+					"managerName1" : "Mr T Lewis",
+					"managerName2" : "Mr M Buswell"
+				},
+				{
+					"managerName1" : "Mr C Emmerson",
+					"managerName2" : "Mr M Mitchell"
+				}
+			]
+        },
+        {
+			"round" : 4,
+			"weekNumber" : 36,
+            "dateRange" : "13th Apr 2010 - 19th Apr 2010",
+            "ties" : [
+                {
+                    "managerName1" : "Mr T Lewis",
+                    "managerName2" : "Mr S Dowe"
+                }
+            ]
+        }
+    ],
+    "months" : [
+        {
+			"monthNumber" : 1,
+			"monthName" : "August",
+			"dateRange" : "15th Aug - 31st Aug",
+			"weeks" : 3
+        },
+        {
+			"monthNumber" : 2,
+			"monthName" : "September",
+			"dateRange" : "1st Sep - 28th Sep",
+			"weeks" : 4
+        },
+        {
+			"monthNumber" : 3,
+			"monthName" : "October",
+			"dateRange" : "29th Sep - 26th Oct",
+			"weeks" : 4
+        },
+        {
+			"monthNumber" : 4,
+			"monthName" : "November",
+			"dateRange" : "27th Oct - 30th Nov",
+			"weeks" : 5
+        },
+        {
+			"monthNumber" : 5,
+			"monthName" : "December",
+			"dateRange" : "1st Dec - 28th Dec",
+			"weeks" : 4
+        },
+        {
+			"monthNumber" : 6,
+			"monthName" : "January",
+			"dateRange" : "29th Dec - 25th Jan",
+			"weeks" : 4
+        },
+        {
+			"monthNumber" : 7,
+			"monthName" : "February",
+			"dateRange" : "26th Jan - 22nd Feb",
+			"weeks" : 4
+        },
+        {
+			"monthNumber" : 8,
+			"monthName" : "March",
+			"dateRange" : "23rd Feb - 29th Mar",
+			"weeks" : 5
+        },
+        {
+			"monthNumber" : 9,
+			"monthName" : "April",
+			"dateRange" : "30th Mar - 26th Apr",
+			"weeks" : 4
+        },
+        {
+			"monthNumber" : 10,
+			"monthName" : "May",
+			"dateRange" : "27th Apr - 17th May",
+			"weeks" : 3
+        }
+    ]
+}

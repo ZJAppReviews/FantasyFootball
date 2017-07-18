@@ -50,10 +50,10 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
-    // always 10 months in a season so use this to get the correct month considering they are listed in reverse order
+    // use the number of months in a season to get the correct month considering they are listed in reverse order
     int monthNumber = [TeamManager getInstance].monthNumber;
-    if (monthNumber > 0 && ((Month *)[TeamManager getInstance].months[10 - monthNumber]).managers.count > 0)
-         [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:(10 - monthNumber)] atScrollPosition:UITableViewScrollPositionTop animated:YES];
+    if (monthNumber > 0 && ((Month *)[TeamManager getInstance].months[[TeamManager getInstance].months.count - monthNumber]).managers.count > 0)
+         [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:([TeamManager getInstance].months.count - monthNumber)] atScrollPosition:UITableViewScrollPositionTop animated:YES];
 }
 
 - (void)handleSectionHeaderTap:(UITapGestureRecognizer *)sender
@@ -86,7 +86,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     Month *month = [_months objectAtIndex:section];
     
-    if (section > (10 - [TeamManager getInstance].monthNumber) && month.managers.count > 0)
+    if (section > ([TeamManager getInstance].months.count - [TeamManager getInstance].monthNumber) && month.managers.count > 0)
         return [[_sectionExpanded objectForKey:[NSNumber numberWithInteger:section]] boolValue] ? month.managers.count : 1;
     
     return month.managers.count;
@@ -138,8 +138,8 @@
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%i", points];
     
     NSLog(@"Month number: %d", [TeamManager getInstance].monthNumber);
-    if (indexPath.row == 0 && (indexPath.section > (10 - [TeamManager getInstance].monthNumber) ||
-                                (indexPath.section == (10 - [TeamManager getInstance].monthNumber) && [[TeamManager getInstance] isLastWeekOfMonth])))
+    if (indexPath.row == 0 && (indexPath.section > ([TeamManager getInstance].months.count - [TeamManager getInstance].monthNumber) ||
+                                (indexPath.section == ([TeamManager getInstance].months.count - [TeamManager getInstance].monthNumber) && [[TeamManager getInstance] isLastWeekOfMonth])))
         cell.backgroundColor = getAppDelegate().goldBackground;
     else if ([managerName isEqualToString:getOptionValueForKey(@"managerName")])
         cell.backgroundColor = getAppDelegate().userBackground;

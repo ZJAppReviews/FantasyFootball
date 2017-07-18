@@ -1018,7 +1018,15 @@
                                    @"Phil Pritchard" : @"Mr P Pritchard",
                                    @"Mark Riley" : @"Mr M Riley",
                                    @"Jason Ransley" : @"Mr J Ransley",
-                                   @"Ross Anderson" : @"Mr R Anderson"};
+                                   @"Ross Anderson" : @"Mr R Anderson",
+                                   @"Ed Kent-Jones" : @"Mr E Kent-Jones",
+                                   @"Mark Buswell" : @"Mr M Buswell",
+                                   @"Phil Webb" : @"Mr P Webb",
+                                   @"Justine Bower" : @"Miss J Bower",
+                                   @"Emma Hyman" : @"Miss E Hyman",
+                                   @"Alan Hansen" : @"Mr A Hansen",
+                                   @"Jose Mourinho" : @"Mr J Mourinho"};
+        
     });
     return _managerNamesDictionary;
 }

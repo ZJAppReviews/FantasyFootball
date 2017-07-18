@@ -167,7 +167,7 @@
     }
     
     UILabel *team1Label = (UILabel *)[cell viewWithTag:1];
-    team1Label.text = team1.teamName;
+    team1Label.text = team1 ? team1.teamName : team2 ? @"Bye" : @"";
     
     UILabel *team2Label = (UILabel *)[cell viewWithTag:2];
     team2Label.text = team2 ? team2.teamName : team1 ? @"Bye" : @"";

@@ -55,7 +55,7 @@ NSString* getManagerName(Team *team) {
         return team.managerName;
   
     NSString *editedName = (team.managerName.length > 5) ? [team.managerName substringFromIndex:5] : @"";
-    return [NSString stringWithFormat:@"Chairman %@ *", editedName];
+    return [NSString stringWithFormat:@"%@ %@ *", ([editedName rangeOfString:@"Emmerson"].location != NSNotFound ? @"Stool" : @"Chairman"), editedName];
 }
 
 BOOL isIPhone() {

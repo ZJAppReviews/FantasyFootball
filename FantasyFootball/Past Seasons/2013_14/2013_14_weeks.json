@@ -2,228 +2,196 @@
    "SUCCESS":1,
    "DATA":[  
       {  
-         "TEAMPIN":"4164161",
-         "TEAMNAME":"Emo's Entertainers",
-         "MANAGER":"Carl Emmerson",
-         "WEEKS":[  
-            {  
-               "WK":"1",
-               "PTS":"1751",
-               "GOALS":"98",
-               "POS":"1"
-            }
-         ],
-         "MANAGERPIN":"5094441"
-      },
-      {  
-         "TEAMPIN":"4134595",
-         "TEAMNAME":"Full Kit Bankers",
-         "MANAGER":"Colin Attrill",
-         "WEEKS":[  
-            {  
-               "WK":"1",
-               "PTS":"1587",
-               "GOALS":"82",
-               "POS":"5"
-            }
-         ],
-         "MANAGERPIN":"5030685"
-      },
-      {  
-         "TEAMPIN":"4065533",
-         "TEAMNAME":"Eye Tea Eff Sea",
-         "MANAGER":"Phil Pritchard",
-         "WEEKS":[  
-            {  
-               "WK":"1",
-               "PTS":"1484",
-               "GOALS":"84",
-               "POS":"10"
-            }
-         ],
-         "MANAGERPIN":"5068640"
-      },
-      {  
-         "TEAMPIN":"4034583",
-         "TEAMNAME":"The Rinsers",
-         "MANAGER":"Mark Riley",
-         "WEEKS":[  
-            {  
-               "WK":"1",
-               "PTS":"1358",
-               "GOALS":"63",
-               "POS":"12"
-            }
-         ],
-         "MANAGERPIN":"5116673"
-      },
-      {  
-         "TEAMPIN":"4215589",
-         "TEAMNAME":"We're No Here",
-         "MANAGER":"Christopher Foxall",
-         "WEEKS":[  
-            {  
-               "WK":"1",
-               "PTS":"1660",
-               "GOALS":"90",
-               "POS":"4"
-            }
-         ],
-         "MANAGERPIN":"5788994"
-      },
-      {  
-         "TEAMPIN":"4130015",
-         "TEAMNAME":"30 None The Richer",
-         "MANAGER":"John Free",
-         "WEEKS":[  
-            {  
-               "WK":"1",
-               "PTS":"1157",
-               "GOALS":"52",
-               "POS":"14"
-            }
-         ],
-         "MANAGERPIN":"5598337"
-      },
-      {  
-         "TEAMPIN":"4018956",
-         "TEAMNAME":"Looked Good On Paper",
-         "MANAGER":"Steven Dowe",
-         "WEEKS":[  
-            {  
-               "WK":"1",
-               "PTS":"1573",
-               "GOALS":"84",
-               "POS":"7"
-            }
-         ],
-         "MANAGERPIN":"5118088"
-      },
-      {  
-         "TEAMPIN":"4095840",
-         "TEAMNAME":"Substandard Liege",
-         "MANAGER":"Colin Cowpertwait",
-         "WEEKS":[  
-            {  
-               "WK":"1",
-               "PTS":"1580",
-               "GOALS":"73",
-               "POS":"6"
-            }
-         ],
-         "MANAGERPIN":"5057449"
-      },
-      {  
-         "TEAMPIN":"4097023",
-         "TEAMNAME":"Serial Rakist",
-         "MANAGER":"Philip Attrill",
-         "WEEKS":[  
-            {  
-               "WK":"1",
-               "PTS":"1666",
-               "GOALS":"94",
-               "POS":"3"
-            }
-         ],
-         "MANAGERPIN":"5051796"
-      },
-      {  
-         "TEAMPIN":"4109787",
-         "TEAMNAME":"The Humbler",
          "MANAGER":"Mark Mitchell",
          "WEEKS":[  
             {  
                "WK":"1",
-               "PTS":"1709",
-               "GOALS":"95",
-               "POS":"2"
+               "POS":"1",
+               "PTS":"1862",
+               "GOALS":"118"
             }
          ],
-         "MANAGERPIN":"5039108"
+         "TEAMNAME":"The Humbler"
       },
       {  
-         "TEAMPIN":"4204205",
-         "TEAMNAME":"PeaDoughEyeHam",
-         "MANAGER":"Derek Lin",
-         "WEEKS":[  
-            {  
-               "WK":"1",
-               "PTS":"990",
-               "GOALS":"50",
-               "POS":"16"
-            }
-         ],
-         "MANAGERPIN":"5800145"
-      },
-      {  
-         "TEAMPIN":"4070422",
-         "TEAMNAME":"PJ Or Dundee Utd",
          "MANAGER":"Jamie Appleby",
          "WEEKS":[  
             {  
                "WK":"1",
-               "PTS":"1222",
-               "GOALS":"63",
-               "POS":"13"
+               "POS":"2",
+               "PTS":"1829",
+               "GOALS":"102"
             }
          ],
-         "MANAGERPIN":"5088425"
+         "TEAMNAME":"Enz On Top"
       },
       {  
-         "TEAMPIN":"4068782",
-         "TEAMNAME":"Are Souls Forever",
-         "MANAGER":"Pap Gill",
+         "MANAGER":"Steven Dowe",
          "WEEKS":[  
             {  
                "WK":"1",
-               "PTS":"1038",
-               "GOALS":"52",
-               "POS":"15"
+               "POS":"3",
+               "PTS":"1816",
+               "GOALS":"119"
             }
          ],
-         "MANAGERPIN":"5161676"
+         "TEAMNAME":"Looked Good On Paper"
       },
       {  
-         "TEAMPIN":"4063768",
-         "TEAMNAME":"Krull Intentions",
+         "MANAGER":"Philip Attrill",
+         "WEEKS":[  
+            {  
+               "WK":"1",
+               "POS":"4",
+               "PTS":"1798",
+               "GOALS":"113"
+            }
+         ],
+         "TEAMNAME":"Throbbing Pulis"
+      },
+      {  
          "MANAGER":"Tim Lewis",
          "WEEKS":[  
             {  
                "WK":"1",
-               "PTS":"1516",
-               "GOALS":"81",
-               "POS":"8"
+               "POS":"5",
+               "PTS":"1700",
+               "GOALS":"105"
             }
          ],
-         "MANAGERPIN":"5054533"
+         "TEAMNAME":"test"
       },
       {  
-         "TEAMPIN":"4063747",
-         "TEAMNAME":"Sons Of Pitches",
+         "MANAGER":"Colin Attrill",
+         "WEEKS":[  
+            {  
+               "WK":"1",
+               "POS":"6",
+               "PTS":"1686",
+               "GOALS":"101"
+            }
+         ],
+         "TEAMNAME":"Auto-select XI"
+      },
+      {  
+         "MANAGER":"Carl Emmerson",
+         "WEEKS":[  
+            {  
+               "WK":"1",
+               "POS":"7",
+               "PTS":"1659",
+               "GOALS":"99"
+            }
+         ],
+         "TEAMNAME":"Emo's Entertainers"
+      },
+      {  
          "MANAGER":"Jason Hitchins",
          "WEEKS":[  
             {  
                "WK":"1",
-               "PTS":"1422",
-               "GOALS":"77",
-               "POS":"11"
+               "POS":"8",
+               "PTS":"1620",
+               "GOALS":"108"
             }
          ],
-         "MANAGERPIN":"5063731"
+         "TEAMNAME":"Son's of Pitches"
       },
       {  
-         "TEAMPIN":"4063747",
-         "TEAMNAME":"Mixed 11",
+         "MANAGER":"Phil Pritchard",
+         "WEEKS":[  
+            {  
+               "WK":"1",
+               "POS":"9",
+               "PTS":"1619",
+               "GOALS":"96"
+            }
+         ],
+         "TEAMNAME":"Eye Tea Eff Sea"
+      },
+      {  
+         "MANAGER":"Christopher Foxall",
+         "WEEKS":[  
+            {  
+               "WK":"1",
+               "POS":"10",
+               "PTS":"1608",
+               "GOALS":"102"
+            }
+         ],
+         "TEAMNAME":"Rafstraumur"
+      },
+      {  
+         "MANAGER":"Colin Cowpertwait",
+         "WEEKS":[  
+            {  
+               "WK":"1",
+               "POS":"11",
+               "PTS":"1571",
+               "GOALS":"74"
+            }
+         ],
+         "TEAMNAME":"One Size Fitz Hall"
+      },
+      {  
+         "MANAGER":"John Free",
+         "WEEKS":[  
+            {  
+               "WK":"1",
+               "POS":"12",
+               "PTS":"1482",
+               "GOALS":"87"
+            }
+         ],
+         "TEAMNAME":"Free to Lose"
+      },
+      {  
+         "MANAGER":"Pap Gill",
+         "WEEKS":[  
+            {  
+               "WK":"1",
+               "POS":"13",
+               "PTS":"1411",
+               "GOALS":"72"
+            }
+         ],
+         "TEAMNAME":"Papadom Preach"
+      },
+      {  
          "MANAGER":"Jason Ransley",
          "WEEKS":[  
             {  
                "WK":"1",
-               "PTS":"1510",
-               "GOALS":"86",
-               "POS":"9"
+               "POS":"14",
+               "PTS":"1313",
+               "GOALS":"76"
             }
          ],
-         "MANAGERPIN":"5063731"
+         "TEAMNAME":"Lottery FC"
+      },
+      {  
+         "MANAGER":"Mark Riley",
+         "WEEKS":[  
+            {  
+               "WK":"1",
+               "POS":"15",
+               "PTS":"1283",
+               "GOALS":"62"
+            }
+         ],
+         "TEAMNAME":"The Gory Hunters"
+      },
+      {  
+         "MANAGER":"Derek Lin",
+         "WEEKS":[  
+            {  
+               "WK":"1",
+               "POS":"16",
+               "PTS":"918",
+               "GOALS":"45"
+            }
+         ],
+         "TEAMNAME":"Paedo Geezers of Dezza"
       }
    ]
 }

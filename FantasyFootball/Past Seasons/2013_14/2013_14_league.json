@@ -10,36 +10,36 @@
 			"dateRange" : "28th Oct 2014 - 3rd Nov 2014",
 			"ties" : [
 				{
-					"managerName1" : "Mr P Gill",
-					"managerName2" : "Mr J Appleby"
-				},
-				{
-					"managerName1" : "Mr C Emmerson",
-					"managerName2" : "Mr P Attrill"
+					"managerName1" : "Mr J Hitchins",
+					"managerName2" : "Mr C Foxall"
 				},
 				{
 					"managerName1" : "Mr S Dowe",
-					"managerName2" : "Mr C Attrill"
-				},
-				{
-					"managerName1" : "Mr P Pritchard",
-					"managerName2" : "Mr M Mitchell"
-				},
-				{
-					"managerName1" : "Mr J Free",
-					"managerName2" : "Bye"
-				},
-				{
-					"managerName1" : "Mr C Foxall",
-					"managerName2" : "Mr M Riley"
+					"managerName2" : "Mr P Attrill"
 				},
 				{
 					"managerName1" : "Mr T Lewis",
-					"managerName2" : "Mr D Lin"
+					"managerName2" : "Bye"
 				},
 				{
-					"managerName1" : "Mr C Cowpertwait",
-					"managerName2" : "Mr J Hitchins"
+					"managerName1" : "Mr C Emmerson",
+					"managerName2" : "Mr J Free"
+				},
+				{
+					"managerName1" : "Mr C Attrill",
+					"managerName2" : "Mr P Pritchard"
+				},
+				{
+					"managerName1" : "Bye",
+					"managerName2" : "Mr M Mitchell"
+				},
+				{
+					"managerName1" : "Mr M Riley",
+					"managerName2" : "Mr J Appleby"
+				},
+				{
+					"managerName1" : "Mr P Gill",
+					"managerName2" : "Mr C Cowpertwait"
 				}
 			]
         },
@@ -49,19 +49,19 @@
 			"dateRange" : "13th Jan 2015 - 19th Jan 2015",
 			"ties" : [
 				{
-					"managerName1" : "Mr P Gill",
-					"managerName2" : "Mr C Foxall"
+					"managerName1" : "Mr P Pritchard",
+					"managerName2" : "Mr C Cowpertwait"
 				},
 				{
 					"managerName1" : "Mr J Free",
+					"managerName2" : "Mr M Riley"
+				},
+				{
+					"managerName1" : "Mr T Lewis",
 					"managerName2" : "Mr J Hitchins"
 				},
 				{
-					"managerName1" : "Mr P Pritchard",
-					"managerName2" : "Mr T Lewis"
-				},
-				{
-					"managerName1" : "Mr C Emmerson",
+					"managerName1" : "Mr M Mitchell",
 					"managerName2" : "Mr S Dowe"
 				}
 			]
@@ -72,8 +72,8 @@
 			"dateRange" : "24th Feb 2015 - 2nd Mar 2015",
 			"ties" : [
 				{
-					"managerName1" : "Mr P Gill",
-					"managerName2" : "Mr C Foxall"
+					"managerName1" : "Mr M Mitchell",
+					"managerName2" : "Mr C Cowpertwait"
 				},
 				{
 					"managerName1" : "Mr J Free",
@@ -87,8 +87,8 @@
             "dateRange" : "31st Mar 2015 - 6th Apr 2015",
             "ties" : [
                 {
-                    "managerName1" : "Mr C Foxall",
-                    "managerName2" : "Mr C Emmerson"
+                    "managerName1" : "Mr C Cowpertwait",
+                    "managerName2" : "Mr J Free"
                 }
             ]
         }
@@ -97,62 +97,62 @@
         {
 			"monthNumber" : 1,
 			"monthName" : "August",
-			"dateRange" : "16th Aug - 1st Sep",
+			"dateRange" : "17th Aug - 2nd Sep",
 			"weeks" : 3
         },
         {
 			"monthNumber" : 2,
 			"monthName" : "September",
-			"dateRange" : "2nd Sep - 29th Sep",
+			"dateRange" : "3rd Sep - 30th Sep",
 			"weeks" : 4
         },
         {
 			"monthNumber" : 3,
 			"monthName" : "October",
-			"dateRange" : "30th Sep - 27th Oct",
+			"dateRange" : "1st Oct - 28th Oct",
 			"weeks" : 4
         },
         {
 			"monthNumber" : 4,
 			"monthName" : "November",
-			"dateRange" : "28th Oct - 24th Nov",
+			"dateRange" : "29th Oct - 25th Nov",
 			"weeks" : 4
         },
         {
 			"monthNumber" : 5,
 			"monthName" : "December",
-			"dateRange" : "25th Nov - 29th Dec",
+			"dateRange" : "26th Nov - 30th Dec",
 			"weeks" : 5
         },
         {
 			"monthNumber" : 6,
 			"monthName" : "January",
-			"dateRange" : "30th Dec - 26th Jan",
+			"dateRange" : "31st Dec - 27th Jan",
 			"weeks" : 4
         },
         {
 			"monthNumber" : 7,
 			"monthName" : "February",
-			"dateRange" : "27th Jan - 23rd Feb",
+			"dateRange" : "28th Jan - 24th Feb",
 			"weeks" : 4
         },
         {
 			"monthNumber" : 8,
 			"monthName" : "March",
-			"dateRange" : "24th Feb - 30th Mar",
-			"weeks" : 5
+			"dateRange" : "25th Feb - 24th Mar",
+			"weeks" : 4
         },
         {
 			"monthNumber" : 9,
 			"monthName" : "April",
-			"dateRange" : "31st Mar - 27th Apr",
-			"weeks" : 4
+			"dateRange" : "25th Mar - 30th Apr",
+			"weeks" : 5
         },
         {
 			"monthNumber" : 10,
 			"monthName" : "May",
-			"dateRange" : "28th Apr - 30th May",
-			"weeks" : 5
+			"dateRange" : "1st May - 17th May",
+			"weeks" : 3
         }
     ]
 }

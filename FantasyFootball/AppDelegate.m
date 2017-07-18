@@ -40,7 +40,7 @@
     //removeOptionForKey(@"season");
     
     // convert csv weeks data to json weeks data
-    /*NSMutableDictionary *weeksJSON = [NSMutableDictionary dictionary];
+    NSMutableDictionary *weeksJSON = [NSMutableDictionary dictionary];
     weeksJSON[@"SUCCESS"] = @1;
     NSMutableArray *teams = [NSMutableArray array];
     NSString *path = [[NSBundle mainBundle] pathForResource:@"Weeks" ofType:@"csv"];
@@ -54,23 +54,33 @@
         }
         NSMutableDictionary *team = [NSMutableDictionary dictionary];
         NSArray *columns = [line componentsSeparatedByString:@","];
-        //team[@"MANAGER"] = columns[1];
-        team[@"MANAGER"] = [[[TeamManager managerNamesDictionary] allKeysForObject:columns[1]] lastObject];
-        team[@"TEAMNAME"] = columns[2];
+        team[@"MANAGER"] = columns[1];
+        //team[@"MANAGER"] = [[[TeamManager managerNamesDictionary] allKeysForObject:columns[1]] lastObject];
+        team[@"TEAMNAME"] = columns[0];
         
         NSMutableArray *weeks = [NSMutableArray array];
-        for (int i = 1; i <= 42; i++) {
+        for (int j = 1; j <= 42; j++) {
             NSMutableDictionary *week = [NSMutableDictionary dictionary];
-            week[@"WK"] = [NSString stringWithFormat:@"%d", i];
-            week[@"PTS"] = columns[i+2];
-            //if (i < 40)
+            week[@"WK"] = [NSString stringWithFormat:@"%d", j];
+            week[@"PTS"] = ([columns[j+6] isEqualToString:@""]) ? @"0" : columns[j+6];
+            //if (j < 40)
             //    week[@"GOALS"] = @"0";
             //else
-            //    week[@"GOALS"] = columns[44];
+            //    week[@"GOALS"] = columns[7];
             week[@"GOALS"] = @"0";
-            week[@"POS"] = columns[0];
+            //week[@"POS"] = columns[0];
+            //week[@"POS"] = @"0";
+            week[@"POS"] = [NSString stringWithFormat:@"%d", i-1];
             [weeks addObject:week];
         }
+        
+        /*NSMutableDictionary *week = [NSMutableDictionary dictionary];
+        week[@"WK"] = @"1";
+        week[@"PTS"] = columns[43];
+        week[@"GOALS"] = @"0";
+        week[@"POS"] = columns[0];
+        [weeks addObject:week];*/
+        
         team[@"WEEKS"] = weeks;
         [teams addObject:team];
         i++;
@@ -78,7 +88,7 @@
     weeksJSON[@"DATA"] = teams;
     NSData *JSONData = [NSJSONSerialization dataWithJSONObject:weeksJSON options:0 error:nil];
     NSString *text = [[NSString alloc] initWithData:JSONData encoding:NSUTF8StringEncoding];
-    */
+    
     
     /*UIUserNotificationSettings* requestedSettings
         = [UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeBadge

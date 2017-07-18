@@ -1,0 +1,146 @@
+{
+	"leaguePin" : "8114439",
+	"chairman" : "Mr C Attrill",
+	"startDate" : "13/08/2011",
+    "season" : "2011/12",
+    "cup" : [
+        {
+			"round" : 1,
+			"weekNumber" : 18,
+			"dateRange" : "10th Dec 2011 - 12th Dec 2011",
+			"ties" : [
+				{
+					"managerName1" : "Mr D Lin",
+					"managerName2" : "Mr P Gill"
+				},
+				{
+					"managerName1" : "Mr C Cowpertwait",
+					"managerName2" : "Mr T Lewis"
+				},
+				{
+					"managerName1" : "Mr M Mitchell",
+					"managerName2" : "Mr P Attrill"
+				},
+				{
+					"managerName1" : "Mr J Ransley",
+					"managerName2" : "Mr C Emmerson"
+				},
+				{
+					"managerName1" : "Mr C Foxall",
+					"managerName2" : "Mr C Attrill"
+				},
+				{
+					"managerName1" : "Mr R Anderson",
+					"managerName2" : "Mr M Riley"
+				},
+				{
+					"managerName1" : "Mr S Dowe",
+					"managerName2" : "Mr P Pritchard"
+				},
+				{
+					"managerName1" : "Mr J Appleby",
+					"managerName2" : "Mr J Hitchins"
+				}
+			]
+        },
+        {
+			"round" : 2,
+			"weekNumber" : 26,
+			"dateRange" : "4th Feb 2012 - 6th Feb 2012",
+			"ties" : [
+				{
+					"managerName1" : "Mr P Gill",
+					"managerName2" : "Mr P Attrill"
+				},
+				{
+					"managerName1" : "Mr C Emmerson",
+					"managerName2" : "Mr S Dowe"
+				},
+				{
+					"managerName1" : "Mr C Foxall",
+					"managerName2" : "Mr C Cowpertwait"
+				},
+				{
+					"managerName1" : "Mr J Hitchins",
+					"managerName2" : "Mr R Anderson"
+				}
+			]
+        },
+        {
+			"round" : 3,
+			"weekNumber" : 36,
+			"dateRange" : "11th Apr 2012 - 17th Apr 2012",
+			"ties" : [
+				{
+					"managerName1" : "Mr C Foxall",
+					"managerName2" : "Mr P Attrill"
+				},
+				{
+					"managerName1" : "Mr J Hitchins",
+					"managerName2" : "Mr C Emmerson"
+				}
+			]
+        },
+        {
+			"round" : 4,
+			"weekNumber" : 39,
+            "dateRange" : "2nd May 2012 - 8th May 2012",
+            "ties" : [
+                {
+                    "managerName1" : "Mr P Attrill",
+                    "managerName2" : "Mr C Emmerson"
+                }
+            ]
+        }
+    ],
+    "months" : [
+        {
+			"monthNumber" : 1,
+			"monthName" : "August / September",
+			"dateRange" : "13th Aug - 26th Sep",
+			"weeks" : 7
+        },
+        {
+			"monthNumber" : 2,
+			"monthName" : "October",
+			"dateRange" : "27th Sep - 31st Oct",
+			"weeks" : 5
+        },
+        {
+			"monthNumber" : 3,
+			"monthName" : "November",
+			"dateRange" : "1st Nov - 28th Nov",
+			"weeks" : 4
+        },
+        {
+			"monthNumber" : 4,
+			"monthName" : "December",
+			"dateRange" : "29th Nov - 2nd Jan",
+			"weeks" : 5
+        },
+        {
+			"monthNumber" : 5,
+			"monthName" : "January",
+			"dateRange" : "3rd Jan - 30th Jan",
+			"weeks" : 4
+        },
+        {
+			"monthNumber" : 6,
+			"monthName" : "February",
+			"dateRange" : "31st Jan - 27th Feb",
+			"weeks" : 4
+        },
+        {
+			"monthNumber" : 7,
+			"monthName" : "March",
+			"dateRange" : "28th Feb - 26th Mar",
+			"weeks" : 4
+        },
+        {
+			"monthNumber" : 8,
+			"monthName" : "April / May",
+			"dateRange" : "27th Mar - 13th May Apr",
+			"weeks" : 7
+        }
+    ]
+}
