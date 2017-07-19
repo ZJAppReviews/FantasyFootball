@@ -6,59 +6,59 @@
     "cup" : [
         {
 			"round" : 1,
-			"weekNumber" : 17,
-			"dateRange" : "6th Dec 2006 - 12th Dec 2006",
+			"weekNumber" : 18,
+			"dateRange" : "7th Dec 2006 - 13th Dec 2004",
 			"ties" : [
 				{
-					"managerName1" : "Mr C Foxall",
-					"managerName2" : "Mr J Hitchins"
-				},
-				{
-					"managerName1" : "Mr J Ransley",
-					"managerName2" : "Mr C Attrill"
-				},
-				{
-					"managerName1" : "Mr M Mitchell",
-					"managerName2" : "Mr S Dowe"
-				},
-				{
-					"managerName1" : "Mr T Lewis",
-					"managerName2" : "Mr P Attrill"
-				},
-				{
-					"managerName1" : "Mr D Lin",
-					"managerName2" : "Mr J Appleby"
-				},
-				{
-					"managerName1" : "Mr P Gill",
-					"managerName2" : "Mr M Buswell"
-				},
-				{
-					"managerName1" : "Mr C Cowpertwait",
-					"managerName2" : "Mr C Emmerson"
+					"managerName1" : "Mr C Emmerson",
+					"managerName2" : "Mr J Ransley"
 				},
 				{
 					"managerName1" : "Mr M Riley",
-					"managerName2" : "Mr P Pritchard"
+					"managerName2" : "Mr R Anderson"
+				},
+				{
+					"managerName1" : "Mr P Pritchard",
+					"managerName2" : "Mr C Cowpertwait"
+				},
+				{
+					"managerName1" : "Mr S Dowe",
+					"managerName2" : "Mr J Hitchins"
+				},
+				{
+					"managerName1" : "Mr J Appleby",
+					"managerName2" : "Mr T Lewis"
+				},
+				{
+					"managerName1" : "Miss J Bower",
+					"managerName2" : "Mr D Lin"
+				},
+				{
+					"managerName1" : "Mr P Gill",
+					"managerName2" : "Mr C Attrill"
+				},
+				{
+					"managerName1" : "Mr C Foxall",
+					"managerName2" : "Mr M Mitchell"
 				}
 			]
         },
         {
 			"round" : 2,
-			"weekNumber" : 23,
-			"dateRange" : "17th Jan 2007 - 23rd Jan 2007",
+			"weekNumber" : 26,
+			"dateRange" : "1st Feb 2005 - 7th Feb 2005",
 			"ties" : [
 				{
-					"managerName1" : "Mr M Buswell",
-					"managerName2" : "Mr M Riley"
+					"managerName1" : "Mr C Foxall",
+					"managerName2" : "Miss J Bower"
+				},
+				{
+					"managerName1" : "Mr R Anderson",
+					"managerName2" : "Mr T Lewis"
 				},
 				{
 					"managerName1" : "Mr J Ransley",
-					"managerName2" : "Mr J Appleby"
-				},
-				{
-					"managerName1" : "Mr T Lewis",
-					"managerName2" : "Mr J Hitchins"
+					"managerName2" : "Mr C Attrill"
 				},
 				{
 					"managerName1" : "Mr C Cowpertwait",
@@ -68,27 +68,27 @@
         },
         {
 			"round" : 3,
-			"weekNumber" : 33,
-			"dateRange" : "28th Mar 2007 - 3rd Apr 2007",
+			"weekNumber" : 32,
+			"dateRange" : "15th Mar 2005 - 21st Mar 2005",
 			"ties" : [
 				{
-					"managerName1" : "Mr S Dowe",
-					"managerName2" : "Mr J Ransley"
+					"managerName1" : "Mr T Lewis",
+					"managerName2" : "Miss J Bower"
 				},
 				{
-					"managerName1" : "Mr M Riley",
-					"managerName2" : "Mr J Hitchins"
+					"managerName1" : "Mr C Attrill",
+					"managerName2" : "Mr S Dowe"
 				}
 			]
         },
         {
 			"round" : 4,
-			"weekNumber" : 38,
-            "dateRange" : "2nd May 2008 - 8th May 2008",
+			"weekNumber" : 40,
+            "dateRange" : "10th May 2005 - 16th May 2005",
             "ties" : [
                 {
-                    "managerName1" : "Mr S Dowe",
-                    "managerName2" : "Mr J Hitchins"
+                    "managerName1" : "Mr C Attrill",
+                    "managerName2" : "Miss J Bower"
                 }
             ]
         }

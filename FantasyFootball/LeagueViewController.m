@@ -248,7 +248,11 @@
         id controller = [tabBarController presentedViewController];
         UIViewController *modalViewController = nil;
         
-        if (![controller isKindOfClass:UIAlertController.class]) {
+        if ([controller isKindOfClass:UIAlertController.class]) {
+            if (isIPad())
+                [self.tableView reloadData];
+        }
+        else {
             modalViewController = ((UINavigationController *) controller).visibleViewController;
         
             if (!modalViewController) {
