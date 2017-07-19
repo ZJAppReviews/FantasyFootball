@@ -56,30 +56,30 @@
         NSArray *columns = [line componentsSeparatedByString:@","];
         team[@"MANAGER"] = columns[1];
         //team[@"MANAGER"] = [[[TeamManager managerNamesDictionary] allKeysForObject:columns[1]] lastObject];
-        team[@"TEAMNAME"] = columns[0];
+        team[@"TEAMNAME"] = columns[2];
         
         NSMutableArray *weeks = [NSMutableArray array];
-        for (int j = 1; j <= 42; j++) {
+        /*for (int j = 1; j <= 40; j++) {
             NSMutableDictionary *week = [NSMutableDictionary dictionary];
             week[@"WK"] = [NSString stringWithFormat:@"%d", j];
-            week[@"PTS"] = ([columns[j+6] isEqualToString:@""]) ? @"0" : columns[j+6];
+            week[@"PTS"] = ([columns[j+1] isEqualToString:@""]) ? @"0" : columns[j+1];
             //if (j < 40)
             //    week[@"GOALS"] = @"0";
             //else
             //    week[@"GOALS"] = columns[7];
             week[@"GOALS"] = @"0";
             //week[@"POS"] = columns[0];
-            //week[@"POS"] = @"0";
-            week[@"POS"] = [NSString stringWithFormat:@"%d", i-1];
+            week[@"POS"] = @"0";
+            //week[@"POS"] = [NSString stringWithFormat:@"%d", i-1];
             [weeks addObject:week];
-        }
+        }*/
         
-        /*NSMutableDictionary *week = [NSMutableDictionary dictionary];
+        NSMutableDictionary *week = [NSMutableDictionary dictionary];
         week[@"WK"] = @"1";
-        week[@"PTS"] = columns[43];
+        week[@"PTS"] = columns[5];
         week[@"GOALS"] = @"0";
         week[@"POS"] = columns[0];
-        [weeks addObject:week];*/
+        [weeks addObject:week];
         
         team[@"WEEKS"] = weeks;
         [teams addObject:team];

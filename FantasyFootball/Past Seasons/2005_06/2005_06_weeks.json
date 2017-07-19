@@ -1,0 +1,221 @@
+{  
+   "SUCCESS":1,
+   "DATA":[  
+      {  
+         "MANAGER":"Philip Attrill",
+         "WEEKS":[  
+            {  
+               "WK":"1",
+               "POS":"1",
+               "PTS":"1711",
+               "GOALS":"0"
+            }
+         ],
+         "TEAMNAME":"Q.P.RRRRSSSE!"
+      },
+      {  
+         "MANAGER":"Steven Dowe",
+         "WEEKS":[  
+            {  
+               "WK":"1",
+               "POS":"2",
+               "PTS":"1692",
+               "GOALS":"0"
+            }
+         ],
+         "TEAMNAME":"LOOKED GOOD ON PAPER"
+      },
+      {  
+         "MANAGER":"Mark Mitchell",
+         "WEEKS":[  
+            {  
+               "WK":"1",
+               "POS":"3",
+               "PTS":"1686",
+               "GOALS":"0"
+            }
+         ],
+         "TEAMNAME":"I'M BACK"
+      },
+      {  
+         "MANAGER":"Chris Foxall",
+         "WEEKS":[  
+            {  
+               "WK":"1",
+               "POS":"4",
+               "PTS":"1652",
+               "GOALS":"0"
+            }
+         ],
+         "TEAMNAME":"LIQUID FOOTBALL"
+      },
+      {  
+         "MANAGER":"Pap Gill",
+         "WEEKS":[  
+            {  
+               "WK":"1",
+               "POS":"5",
+               "PTS":"1648",
+               "GOALS":"0"
+            }
+         ],
+         "TEAMNAME":"24 IN 24"
+      },
+      {  
+         "MANAGER":"Phil Pritchard",
+         "WEEKS":[  
+            {  
+               "WK":"1",
+               "POS":"6",
+               "PTS":"1593",
+               "GOALS":"0"
+            }
+         ],
+         "TEAMNAME":"ONE WAY"
+      },
+      {  
+         "MANAGER":"Carl Emmerson",
+         "WEEKS":[  
+            {  
+               "WK":"1",
+               "POS":"7",
+               "PTS":"1590",
+               "GOALS":"0"
+            }
+         ],
+         "TEAMNAME":"EMO'S ENTERTAINERS"
+      },
+      {  
+         "MANAGER":"Jamie Appleby",
+         "WEEKS":[  
+            {  
+               "WK":"1",
+               "POS":"8",
+               "PTS":"1584",
+               "GOALS":"0"
+            }
+         ],
+         "TEAMNAME":"ENZCHESTER UNITED"
+      },
+      {  
+         "MANAGER":"Tim Lewis",
+         "WEEKS":[  
+            {  
+               "WK":"1",
+               "POS":"9",
+               "PTS":"1580",
+               "GOALS":"0"
+            }
+         ],
+         "TEAMNAME":"ONLY ONE STIG TOFT.."
+      },
+      {  
+         "MANAGER":"Colin Cowpertwait",
+         "WEEKS":[  
+            {  
+               "WK":"1",
+               "POS":"10",
+               "PTS":"1576",
+               "GOALS":"0"
+            }
+         ],
+         "TEAMNAME":"TEST ICICLES FC"
+      },
+      {  
+         "MANAGER":"Mark Buswell",
+         "WEEKS":[  
+            {  
+               "WK":"1",
+               "POS":"11",
+               "PTS":"1571",
+               "GOALS":"0"
+            }
+         ],
+         "TEAMNAME":"DRINKGIRLSFECKARSE"
+      },
+      {  
+         "MANAGER":"Colin Attrill",
+         "WEEKS":[  
+            {  
+               "WK":"1",
+               "POS":"12",
+               "PTS":"1559",
+               "GOALS":"0"
+            }
+         ],
+         "TEAMNAME":"EPHRAIM GADSBY"
+      },
+      {  
+         "MANAGER":"Ross Anderson",
+         "WEEKS":[  
+            {  
+               "WK":"1",
+               "POS":"13",
+               "PTS":"1549",
+               "GOALS":"0"
+            }
+         ],
+         "TEAMNAME":"FULCHESTER UNITED"
+      },
+      {  
+         "MANAGER":"Jason Ransley",
+         "WEEKS":[  
+            {  
+               "WK":"1",
+               "POS":"14",
+               "PTS":"1535",
+               "GOALS":"0"
+            }
+         ],
+         "TEAMNAME":"RODDERS FC"
+      },
+      {  
+         "MANAGER":"Derek Lin",
+         "WEEKS":[  
+            {  
+               "WK":"1",
+               "POS":"15",
+               "PTS":"1405",
+               "GOALS":"0"
+            }
+         ],
+         "TEAMNAME":"DEZZA'S GEEZAS"
+      },
+      {  
+         "MANAGER":"Justine Bower",
+         "WEEKS":[  
+            {  
+               "WK":"1",
+               "POS":"16",
+               "PTS":"1371",
+               "GOALS":"0"
+            }
+         ],
+         "TEAMNAME":"EDANDJUS UTD"
+      },
+      {  
+         "MANAGER":"Jason Hitchins",
+         "WEEKS":[  
+            {  
+               "WK":"1",
+               "POS":"17",
+               "PTS":"1349",
+               "GOALS":"0"
+            }
+         ],
+         "TEAMNAME":"HITCHINS'S XI"
+      },
+      {  
+         "MANAGER":"Mark Riley",
+         "WEEKS":[  
+            {  
+               "WK":"1",
+               "POS":"18",
+               "PTS":"1148",
+               "GOALS":"0"
+            }
+         ],
+         "TEAMNAME":"PHANTOMS STRIKE BACK"
+      }
+   ]
+}

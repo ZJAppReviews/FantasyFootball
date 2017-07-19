@@ -1,0 +1,158 @@
+{
+	"leaguePin" : "8114439",
+	"chairman" : "Mr T Lewis",
+	"startDate" : "19/08/2006",
+    "season" : "2006/07",
+    "cup" : [
+        {
+			"round" : 1,
+			"weekNumber" : 17,
+			"dateRange" : "6th Dec 2006 - 12th Dec 2006",
+			"ties" : [
+				{
+					"managerName1" : "Mr C Foxall",
+					"managerName2" : "Mr J Hitchins"
+				},
+				{
+					"managerName1" : "Mr J Ransley",
+					"managerName2" : "Mr C Attrill"
+				},
+				{
+					"managerName1" : "Mr M Mitchell",
+					"managerName2" : "Mr S Dowe"
+				},
+				{
+					"managerName1" : "Mr T Lewis",
+					"managerName2" : "Mr P Attrill"
+				},
+				{
+					"managerName1" : "Mr D Lin",
+					"managerName2" : "Mr J Appleby"
+				},
+				{
+					"managerName1" : "Mr P Gill",
+					"managerName2" : "Mr M Buswell"
+				},
+				{
+					"managerName1" : "Mr C Cowpertwait",
+					"managerName2" : "Mr C Emmerson"
+				},
+				{
+					"managerName1" : "Mr M Riley",
+					"managerName2" : "Mr P Pritchard"
+				}
+			]
+        },
+        {
+			"round" : 2,
+			"weekNumber" : 23,
+			"dateRange" : "17th Jan 2007 - 23rd Jan 2007",
+			"ties" : [
+				{
+					"managerName1" : "Mr M Buswell",
+					"managerName2" : "Mr M Riley"
+				},
+				{
+					"managerName1" : "Mr J Ransley",
+					"managerName2" : "Mr J Appleby"
+				},
+				{
+					"managerName1" : "Mr T Lewis",
+					"managerName2" : "Mr J Hitchins"
+				},
+				{
+					"managerName1" : "Mr C Cowpertwait",
+					"managerName2" : "Mr S Dowe"
+				}
+			]
+        },
+        {
+			"round" : 3,
+			"weekNumber" : 33,
+			"dateRange" : "28th Mar 2007 - 3rd Apr 2007",
+			"ties" : [
+				{
+					"managerName1" : "Mr S Dowe",
+					"managerName2" : "Mr J Ransley"
+				},
+				{
+					"managerName1" : "Mr M Riley",
+					"managerName2" : "Mr J Hitchins"
+				}
+			]
+        },
+        {
+			"round" : 4,
+			"weekNumber" : 38,
+            "dateRange" : "2nd May 2008 - 8th May 2008",
+            "ties" : [
+                {
+                    "managerName1" : "Mr S Dowe",
+                    "managerName2" : "Mr J Hitchins"
+                }
+            ]
+        }
+    ],
+    "months" : [
+        {
+			"monthNumber" : 1,
+			"monthName" : "August",
+			"dateRange" : "19th Aug - 29th Aug",
+			"weeks" : 2
+        },
+        {
+			"monthNumber" : 2,
+			"monthName" : "September",
+			"dateRange" : "30th Aug - 3nd Oct",
+			"weeks" : 5
+        },
+        {
+			"monthNumber" : 3,
+			"monthName" : "October",
+			"dateRange" : "4th Oct - 31st Oct",
+			"weeks" : 4
+        },
+        {
+			"monthNumber" : 4,
+			"monthName" : "November",
+			"dateRange" : "1st Nov - 28th Nov",
+			"weeks" : 4
+        },
+        {
+			"monthNumber" : 5,
+			"monthName" : "December",
+			"dateRange" : "29th Nov - 2nd Jan",
+			"weeks" : 5
+        },
+        {
+			"monthNumber" : 6,
+			"monthName" : "January",
+			"dateRange" : "4rd Jan - 30th Jan",
+			"weeks" : 4
+        },
+        {
+			"monthNumber" : 7,
+			"monthName" : "February",
+			"dateRange" : "31st Jan - 27th Feb",
+			"weeks" : 4
+        },
+        {
+			"monthNumber" : 8,
+			"monthName" : "March",
+			"dateRange" : "28th Feb - 3rd Apr",
+			"weeks" : 5
+        },
+        {
+			"monthNumber" : 9,
+			"monthName" : "April",
+			"dateRange" : "4th Apr - 1st May",
+			"weeks" : 4
+        },
+        {
+			"monthNumber" : 10,
+			"monthName" : "May",
+			"dateRange" : "2nd May - 22nd May",
+			"weeks" : 3
+        }
+    ]
+}

@@ -199,6 +199,9 @@ static DataManager* _instance = nil;
         NSDictionary *sideBetsData = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
         [TeamManager getInstance].sideBets = sideBetsData[@"sideBets"];
     }
+    else {
+        [TeamManager getInstance].sideBets = @[];
+    }
     
     [TeamManager getInstance].league = league;
     [[NSNotificationCenter defaultCenter] postNotificationName:@"ReloadData" object:self];

@@ -1,0 +1,197 @@
+{  
+   "SUCCESS":1,
+   "DATA":[  
+      {  
+         "MANAGER":"Christopher Foxall",
+         "WEEKS":[  
+            {  
+               "WK":"1",
+               "POS":"1",
+               "PTS":"1591",
+               "GOALS":"0"
+            }
+         ],
+         "TEAMNAME":"Get In There My Son!"
+      },
+      {  
+         "MANAGER":"Mark Mitchell",
+         "WEEKS":[  
+            {  
+               "WK":"1",
+               "POS":"2",
+               "PTS":"1547",
+               "GOALS":"0"
+            }
+         ],
+         "TEAMNAME":"Delsgonnabelastagain"
+      },
+      {  
+         "MANAGER":"Tim Lewis",
+         "WEEKS":[  
+            {  
+               "WK":"1",
+               "POS":"3",
+               "PTS":"1524",
+               "GOALS":"0"
+            }
+         ],
+         "TEAMNAME":"Tim's Tigers"
+      },
+      {  
+         "MANAGER":"Derek Lin",
+         "WEEKS":[  
+            {  
+               "WK":"1",
+               "POS":"4",
+               "PTS":"1478",
+               "GOALS":"0"
+            }
+         ],
+         "TEAMNAME":"The Wooden Cock"
+      },
+      {  
+         "MANAGER":"Colin Attrill",
+         "WEEKS":[  
+            {  
+               "WK":"1",
+               "POS":"5",
+               "PTS":"1438",
+               "GOALS":"0"
+            }
+         ],
+         "TEAMNAME":"The Academy"
+      },
+      {  
+         "MANAGER":"Jamie Appleby",
+         "WEEKS":[  
+            {  
+               "WK":"1",
+               "POS":"6",
+               "PTS":"1436",
+               "GOALS":"0"
+            }
+         ],
+         "TEAMNAME":"Enzchester United"
+      },
+      {  
+         "MANAGER":"Mark Riley",
+         "WEEKS":[  
+            {  
+               "WK":"1",
+               "POS":"7",
+               "PTS":"1427",
+               "GOALS":"0"
+            }
+         ],
+         "TEAMNAME":"Riley's Rovers"
+      },
+      {  
+         "MANAGER":"Justine Bower",
+         "WEEKS":[  
+            {  
+               "WK":"1",
+               "POS":"8",
+               "PTS":"1388",
+               "GOALS":"0"
+            }
+         ],
+         "TEAMNAME":"Just A Team"
+      },
+      {  
+         "MANAGER":"Steven Dowe",
+         "WEEKS":[  
+            {  
+               "WK":"1",
+               "POS":"9",
+               "PTS":"1369",
+               "GOALS":"0"
+            }
+         ],
+         "TEAMNAME":"Looked Good on Paper"
+      },
+      {  
+         "MANAGER":"Pap Gill",
+         "WEEKS":[  
+            {  
+               "WK":"1",
+               "POS":"10",
+               "PTS":"1321",
+               "GOALS":"0"
+            }
+         ],
+         "TEAMNAME":"Not A Load Of Pap"
+      },
+      {  
+         "MANAGER":"Jason Ransley",
+         "WEEKS":[  
+            {  
+               "WK":"1",
+               "POS":"11",
+               "PTS":"1287",
+               "GOALS":"0"
+            }
+         ],
+         "TEAMNAME":"Rodders FC"
+      },
+      {  
+         "MANAGER":"Phil Pritchard",
+         "WEEKS":[  
+            {  
+               "WK":"1",
+               "POS":"12",
+               "PTS":"1257",
+               "GOALS":"0"
+            }
+         ],
+         "TEAMNAME":"By The Way"
+      },
+      {  
+         "MANAGER":"Carl Emmerson",
+         "WEEKS":[  
+            {  
+               "WK":"1",
+               "POS":"13",
+               "PTS":"1245",
+               "GOALS":"0"
+            }
+         ],
+         "TEAMNAME":"Emo's Entertainers"
+      },
+      {  
+         "MANAGER":"Colin Cowpertwait",
+         "WEEKS":[  
+            {  
+               "WK":"1",
+               "POS":"13",
+               "PTS":"1245",
+               "GOALS":"0"
+            }
+         ],
+         "TEAMNAME":"Cowpers' Conmen"
+      },
+      {  
+         "MANAGER":"Ross Anderson",
+         "WEEKS":[  
+            {  
+               "WK":"1",
+               "POS":"15",
+               "PTS":"1220",
+               "GOALS":"0"
+            }
+         ],
+         "TEAMNAME":"Relegation FC"
+      },
+      {  
+         "MANAGER":"Jason Hitchins",
+         "WEEKS":[  
+            {  
+               "WK":"1",
+               "POS":"16",
+               "PTS":"1212",
+               "GOALS":"0"
+            }
+         ],
+         "TEAMNAME":"Jase's Kiwis"
+      }
+   ]
+}

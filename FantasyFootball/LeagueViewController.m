@@ -14,6 +14,7 @@
 #import "DataManager.h"
 #import "Month.h"
 #import "Util.h"
+#import "UIBuilder.h"
 #import "SoundEffect.h"
 #import "SoundEffects.h"
 #import "MBProgressHUD.h"
@@ -29,6 +30,7 @@
 @property (nonatomic, strong) LaunchScreenViewController *launchScreenVC;
 @property (nonatomic) UIImageView *taylor;
 @property (weak, nonatomic) SoundEffect	*taylorSound;
+@property (nonatomic, retain) UIActionSheet *actionSheet;
 
 @end
 
@@ -56,7 +58,6 @@
     mode = [getOptionValueForKey(@"leagueMode") intValue];
     
     _teams = [TeamManager getInstance].league;
-    [self setTitle];
     
     //UILongPressGestureRecognizer* longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleLongPress:)];
     //longPress.minimumPressDuration = 2;
@@ -135,6 +136,12 @@
     }
 }
 
+- (void) viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    [self setTitle];
+}
+
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
@@ -152,10 +159,81 @@
 }
 
 - (void) setTitle {
+    NSString *title;
     if ([TeamManager getInstance].year)
-        self.navigationItem.title = [NSString stringWithFormat:@"%@ - Week %i", (optionEnabled(@"testMode") ? @"Test Data" : [TeamManager getInstance].year), [TeamManager getInstance].weekNumber];
+        title = [NSString stringWithFormat:@"%@ - Week %i", (optionEnabled(@"testMode") ? @"Test Data" : [TeamManager getInstance].year), [TeamManager getInstance].weekNumber];
     else
-        self.navigationItem.title = @"No Data";
+        title = @"No Data";
+    
+    UISegmentedControl *seasonButton = (UISegmentedControl *) self.navigationItem.titleView;
+    if (!seasonButton) {
+        seasonButton = newSegmentedControl(CGRectMake(0, 0, 150, 30), [NSArray arrayWithObject:title], nil, -1, YES);
+        UIFont *font = [UIFont boldSystemFontOfSize:15.0f];
+        NSDictionary *attributes = [NSDictionary dictionaryWithObject:font forKey:NSFontAttributeName];
+        [seasonButton setTitleTextAttributes:attributes forState:UIControlStateNormal];
+        [seasonButton addTarget:self action:@selector(changeSeason) forControlEvents:UIControlEventValueChanged];
+        self.navigationItem.titleView = seasonButton;
+    }
+    [seasonButton setTitle:title forSegmentAtIndex:0];
+}
+
+- (void) changeSeason {
+    if ([_actionSheet isVisible]) {
+        [_actionSheet dismissWithClickedButtonIndex:[_actionSheet cancelButtonIndex] animated:YES];
+        return;
+    }
+    
+    self.actionSheet = [[UIActionSheet alloc] initWithTitle:NSLocalizedString(@"Choose Season", nil)
+                                                    delegate:self
+                                           cancelButtonTitle:NSLocalizedString(@"Cancel", nil)
+                                      destructiveButtonTitle:nil
+                                           otherButtonTitles:
+                         NSLocalizedString(@"Current Season", nil),
+                         NSLocalizedString(@"2016/17", nil),
+                         NSLocalizedString(@"2015/16", nil),
+                         NSLocalizedString(@"2014/15", nil),
+                         NSLocalizedString(@"2013/14", nil),
+                         NSLocalizedString(@"2012/13", nil),
+                         NSLocalizedString(@"2011/12", nil),
+                         NSLocalizedString(@"2010/11", nil),
+                         NSLocalizedString(@"2009/10", nil),
+                         NSLocalizedString(@"2008/09", nil),
+                         NSLocalizedString(@"2007/08", nil),
+                         NSLocalizedString(@"2006/07", nil),
+                         NSLocalizedString(@"2005/06", nil),
+                         NSLocalizedString(@"2004/05", nil),
+                         NSLocalizedString(@"2003/04", nil),nil];
+    _actionSheet.tag = 1;
+    
+    if (isIPad())
+        [_actionSheet showFromRect:self.navigationItem.titleView.frame inView:self.view animated:YES];
+    else
+        [_actionSheet showInView:self.view.window];
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == [actionSheet cancelButtonIndex])
+        return;
+    
+    switch (buttonIndex) {
+        case 0: removeOptionForKey(@"season"); break;
+        case 1: setOptionValueForKey(@"season", @"2016_17"); break;
+        case 2: setOptionValueForKey(@"season", @"2015_16"); break;
+        case 3: setOptionValueForKey(@"season", @"2014_15"); break;
+        case 4: setOptionValueForKey(@"season", @"2013_14"); break;
+        case 5: setOptionValueForKey(@"season", @"2012_13"); break;
+        case 6: setOptionValueForKey(@"season", @"2011_12"); break;
+        case 7: setOptionValueForKey(@"season", @"2010_11"); break;
+        case 8: setOptionValueForKey(@"season", @"2009_10"); break;
+        case 9: setOptionValueForKey(@"season", @"2008_09"); break;
+        case 10: setOptionValueForKey(@"season", @"2007_08"); break;
+        case 11: setOptionValueForKey(@"season", @"2006_07"); break;
+        case 12: setOptionValueForKey(@"season", @"2005_06"); break;
+        case 13: setOptionValueForKey(@"season", @"2004_05"); break;
+        case 14: setOptionValueForKey(@"season", @"2003_04"); break;
+    }
+    
+    [DataManager loadData];
 }
 
 - (void) reloadData:(NSNotification *)notification {

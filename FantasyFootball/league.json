@@ -1,102 +1,15 @@
 {
-	"leaguePin" : "8114439",
+	"leaguePin" : "8126507",
 	"chairman" : "Mr M Riley",
-	"startDate" : "09/08/2016",
+	"startDate" : "11/08/2017",
     "cup" : [
-        {
-			"round" : 1,
-			"weekNumber" : 10,
-			"dateRange" : "11th Oct 2016 - 17th Oct 2016",
-			"ties" : [
-				{
-					"managerName1" : "Mr M Riley",
-					"managerName2" : "Mr C Cowpertwait"
-				},
-				{
-					"managerName1" : "Mr C Attrill",
-					"managerName2" : "Mr C Foxall"
-				},
-				{
-					"managerName1" : "Mr P Pritchard",
-					"managerName2" : "Mr J Appleby"
-				},
-				{
-					"managerName1" : "Mr T Lewis",
-					"managerName2" : "Bye"
-				},
-				{
-					"managerName1" : "Mr P Attrill",
-					"managerName2" : "Mr M Mitchell"
-				},
-				{
-					"managerName1" : "Mr P Gill",
-					"managerName2" : "Mr J Free"
-				},
-				{
-					"managerName1" : "Mr J Hitchins",
-					"managerName2" : "Mr S Dowe"
-				},
-				{
-					"managerName1" : "Mr D Lin",
-					"managerName2" : "Mr C Emmerson"
-				}
-			]
-        },
-        {
-			"round" : 2,
-			"weekNumber" : 21,
-			"dateRange" : "27th Dec 2016 - 2nd Jan 2017",
-			"ties" : [
-				{
-					"managerName1" : "Mr C Attrill",
-					"managerName2" : "Mr J Appleby"
-				},
-				{
-					"managerName1" : "Mr J Free",
-					"managerName2" : "Mr C Emmerson"
-				},
-				{
-					"managerName1" : "Mr S Dowe",
-					"managerName2" : "Mr M Riley"
-				},
-				{
-					"managerName1" : "Mr T Lewis",
-					"managerName2" : "Mr P Attrill"
-				}
-			]
-        },
-        {
-			"round" : 3,
-			"weekNumber" : 30,
-			"dateRange" : "28th Feb 2017 - 6th Mar 2017",
-			"ties" : [
-				{
-					"managerName1" : "Mr J Appleby",
-					"managerName2" : "Mr T Lewis"
-				},
-				{
-					"managerName1" : "Mr J Free",
-					"managerName2" : "Mr S Dowe"
-				}
-			]
-        },
-        {
-			"round" : 4,
-			"weekNumber" : 39,
-            "dateRange" : "2nd May 2017 - 8th May 2017",
-            "ties" : [
-                {
-                    "managerName1" : "Mr T Lewis",
-                    "managerName2" : "Mr J Free"
-                }
-            ]
-        }
+
     ],
     "months" : [
         {
 			"monthNumber" : 1,
 			"monthName" : "August",
-			"dateRange" : "13th Aug - 29th Aug",
+			"dateRange" : "11th Aug - 29th Aug",
 			"weeks" : 3
         },
         {

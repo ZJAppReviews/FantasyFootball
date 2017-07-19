@@ -102,7 +102,7 @@
         BOOL firstMonth = YES;
         _motm.text = @"";
         for (NSNumber *month in _team.motms) {
-            _motm.text = [NSString stringWithFormat:@"%@%@%@", _motm.text, (firstMonth ? @"" : @", "), [((Month *)[TeamManager getInstance].months[10 - [month intValue]]).monthName substringToIndex:3]];
+            _motm.text = [NSString stringWithFormat:@"%@%@%@", _motm.text, (firstMonth ? @"" : @", "), [((Month *)[TeamManager getInstance].months[[TeamManager getInstance].months.count - [month intValue]]).monthName substringToIndex:3]];
             firstMonth = NO;
         }
     }

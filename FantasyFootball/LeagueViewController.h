@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LeagueViewController : UITableViewController
+@interface LeagueViewController : UITableViewController<UIActionSheetDelegate>
 
 @end

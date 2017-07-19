@@ -402,7 +402,7 @@
             teamWeek.goals = weekGoals;
             teamWeek.totalPoints = team.totalPoints;
             teamWeek.position = [week[@"POS"] intValue];
-            if (!previousTeamWeek)
+            if (!previousTeamWeek || [self isPastSeason])
                 teamWeek.momentum = Same;
             else if (previousTeamWeek.position > teamWeek.position)
                 teamWeek.momentum = Up;

@@ -1,0 +1,185 @@
+{  
+   "SUCCESS":1,
+   "DATA":[  
+      {  
+         "MANAGER":"Jamie Appleby",
+         "WEEKS":[  
+            {  
+               "WK":"1",
+               "POS":"1",
+               "PTS":"1429",
+               "GOALS":"0"
+            }
+         ],
+         "TEAMNAME":"Enzchester United"
+      },
+      {  
+         "MANAGER":"Christopher Foxall",
+         "WEEKS":[  
+            {  
+               "WK":"1",
+               "POS":"2",
+               "PTS":"1329",
+               "GOALS":"0"
+            }
+         ],
+         "TEAMNAME":"Seasiders"
+      },
+      {  
+         "MANAGER":"Jason Ransley",
+         "WEEKS":[  
+            {  
+               "WK":"1",
+               "POS":"3",
+               "PTS":"1295",
+               "GOALS":"0"
+            }
+         ],
+         "TEAMNAME":"Rodders FC"
+      },
+      {  
+         "MANAGER":"Carl Emmerson",
+         "WEEKS":[  
+            {  
+               "WK":"1",
+               "POS":"4",
+               "PTS":"1292",
+               "GOALS":"0"
+            }
+         ],
+         "TEAMNAME":"Emo's Entertainers"
+      },
+      {  
+         "MANAGER":"Steven Dowe",
+         "WEEKS":[  
+            {  
+               "WK":"1",
+               "POS":"5",
+               "PTS":"1265",
+               "GOALS":"0"
+            }
+         ],
+         "TEAMNAME":"Looked Good on Paper"
+      },
+      {  
+         "MANAGER":"Jason Hitchins",
+         "WEEKS":[  
+            {  
+               "WK":"1",
+               "POS":"6",
+               "PTS":"1262",
+               "GOALS":"0"
+            }
+         ],
+         "TEAMNAME":"Kiwis"
+      },
+      {  
+         "MANAGER":"Pap Gill",
+         "WEEKS":[  
+            {  
+               "WK":"1",
+               "POS":"7",
+               "PTS":"1213",
+               "GOALS":"0"
+            }
+         ],
+         "TEAMNAME":"Papster United"
+      },
+      {  
+         "MANAGER":"Emma Hyman",
+         "WEEKS":[  
+            {  
+               "WK":"1",
+               "POS":"8",
+               "PTS":"1188",
+               "GOALS":"0"
+            }
+         ],
+         "TEAMNAME":"E-Girl's E-Team"
+      },
+      {  
+         "MANAGER":"Phil Webb",
+         "WEEKS":[  
+            {  
+               "WK":"1",
+               "POS":"9",
+               "PTS":"1161",
+               "GOALS":"0"
+            }
+         ],
+         "TEAMNAME":"Dynamo Socks"
+      },
+      {  
+         "MANAGER":"Mark Mitchell",
+         "WEEKS":[  
+            {  
+               "WK":"1",
+               "POS":"10",
+               "PTS":"1154",
+               "GOALS":"0"
+            }
+         ],
+         "TEAMNAME":"Random Choices FC"
+      },
+      {  
+         "MANAGER":"Ross Anderson",
+         "WEEKS":[  
+            {  
+               "WK":"1",
+               "POS":"1",
+               "PTS":"1145",
+               "GOALS":"0"
+            }
+         ],
+         "TEAMNAME":"Norfolk N Way"
+      },
+      {  
+         "MANAGER":"Mark Riley",
+         "WEEKS":[  
+            {  
+               "WK":"1",
+               "POS":"12",
+               "PTS":"1138",
+               "GOALS":"0"
+            }
+         ],
+         "TEAMNAME":"Riley's Rovers"
+      },
+      {  
+         "MANAGER":"Tim Lewis",
+         "WEEKS":[  
+            {  
+               "WK":"1",
+               "POS":"13",
+               "PTS":"1127",
+               "GOALS":"0"
+            }
+         ],
+         "TEAMNAME":"Timbo's Terrors"
+      },
+      {  
+         "MANAGER":"Colin Cowpertwait",
+         "WEEKS":[  
+            {  
+               "WK":"1",
+               "POS":"14",
+               "PTS":"1125",
+               "GOALS":"0"
+            }
+         ],
+         "TEAMNAME":"Chad Choppers FC"
+      },
+      {  
+         "MANAGER":"Derek Lin",
+         "WEEKS":[  
+            {  
+               "WK":"1",
+               "POS":"15",
+               "PTS":"1098",
+               "GOALS":"0"
+            }
+         ],
+         "TEAMNAME":"Dezza's Gezzars"
+      }
+   ]
+}
