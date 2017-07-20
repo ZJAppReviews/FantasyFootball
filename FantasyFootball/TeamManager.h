@@ -27,6 +27,7 @@ enum LeagueMode {Points, Overall, StartingPoints, StartingGoals, Winnings, Count
 @property (nonatomic, strong) NSArray *cupRounds;
 @property (nonatomic, strong) NSArray *sideBets;
 @property (nonatomic, strong) NSArray *managerStats;
+@property (nonatomic, strong) NSDictionary<NSString *, NSNumber *> *prizeMoney;
 
 + (TeamManager *) getInstance;
 - (NSMutableArray *) loadData:(NSDictionary *) data cache:(BOOL) cache;

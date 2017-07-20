@@ -1,0 +1,78 @@
+{
+    "sideBets" : [
+    	{
+            "managerName1" : "Mr C Emmerson",
+            "name1" : "Carl",
+            "managerName2" : "Mr D Lin",
+            "name2" : "Del",
+            "amount" : 20,
+            "bet" : "Week 1 score",
+            "type" : "other",
+            "winning" : "managerName2"
+        },
+        {
+            "managerName1" : "Mr C Foxall",
+            "name1" : "Chris",
+            "managerName2" : "Miss J Bower",
+            "name2" : "Justine",
+            "amount" : 10,
+            "bet" : "Winner of 1st round FU Cup",
+            "type" : "other",
+            "winning" : "managerName2"
+        },
+        {
+            "managerName1" : "Mr C Cowpertwait",
+            "name1" : "Cowpers",
+            "managerName2" : "Mr C Attrill",
+            "name2" : "Wobbles",
+            "amount" : 10,
+            "type" : "league"
+        },
+        {
+            "managerName1" : "Mr C Cowpertwait",
+            "name1" : "Cowpers",
+            "managerName2" : "Mr J Appleby",
+            "name2" : "Enz",
+            "amount" : 10,
+            "type" : "league"
+        },
+        {
+            "managerName1" : "Mr C Cowpertwait",
+            "name1" : "Cowpers",
+            "managerName2" : "Mr D Lin",
+            "name2" : "Del",
+            "amount" : 10,
+            "type" : "league"
+        },
+        {
+            "managerName1" : "Mr C Emmerson",
+            "name1" : "Carl",
+            "managerName2" : "Mr S Dowe",
+            "name2" : "Steve",
+            "managerName3" : "Mr P Pritchard",
+            "name3" : "Phil P",
+            "amount" : 10,
+            "type" : "league"
+        },
+        {
+            "managerName1" : "Mr D Lin",
+            "name1" : "Del",
+            "managerName2" : "Mr J Appleby",
+            "name2" : "Enz",
+            "amount" : 100,
+            "bet" : "Del won't win league in 5 seasons",
+            "type" : "other",
+            "winning" : "managerName2"
+        },
+        {
+            "managerName1" : "Mr J Ransley",
+            "name1" : "Ransley",
+            "managerName2" : "Mr J Appleby",
+            "name2" : "Enz",
+            "amount" : 20,
+            "type" : "league",
+            "dorq" : "Mr J Ransley",
+            "bet" : "Double or quits (Ransley lost)"
+        }
+    ]
+}

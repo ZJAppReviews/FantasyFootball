@@ -263,8 +263,8 @@
     return league;
 }
 
-/* This is the manually created data which contains the months which make up MOTM and the cup draws */
-- (void) loadMonthsAndCupData:(NSDictionary *) data {
+/* This is the manually created data which contains the months which make up MOTM, the cup draws and prize money */
+- (void) loadLeagueData:(NSDictionary *) data {
     NSLog(@"Load months and cup data");
 
     NSArray *monthsJSON = [data objectForKey:@"months"];
@@ -322,12 +322,14 @@
     _cupRounds = [_cupRounds sortedArrayUsingComparator:^(id obj1, id obj2) {
         return -1 * [[NSNumber numberWithLong:((CupRound *) obj1).roundNumber] compare:[NSNumber numberWithLong:((CupRound *)obj2).roundNumber]];
     }];
+    
+    _prizeMoney = [data objectForKey:@"prizeMoney"];
 }
 
 - (NSMutableArray *) loadLeagueData:(NSDictionary *) staticData teamData:(NSArray *) teamRows overallData:(NSArray *) overallRows startingData:(NSArray *) startingRows cache:(BOOL) cache {
     NSLog(@"Load league data");
     
-    [self loadMonthsAndCupData:staticData];
+    [self loadLeagueData:staticData];
     
     NSArray *oldLeague = nil;
     if (_league)
@@ -798,6 +800,9 @@
             Team *team2 = [[TeamManager getInstance] getTeam:managerName2];
             NSString *winner = nil;
             
+            if (team1.weeks.count <= (cupRound.weekNumber - 1))
+                continue;
+            
             long team1Points = ((TeamWeek *) team1.weeks[cupRound.weekNumber - 1]).points;
             long team2Points = ((TeamWeek *) team2.weeks[cupRound.weekNumber - 1]).points;
             
@@ -916,28 +921,34 @@
     // league winnings
     // TODO update for past seasons
     switch (team.leaguePosition) {
-        case 1: winnings += 120; break;
-        case 2: winnings += 60; break;
-        case 3: winnings += 30; break;
-        case 4: winnings += 15; break;
-        case 5: winnings += 10; break;
-        case 6: winnings += 9; break;
-        case 7: winnings += 8; break;
-        case 8: winnings += 7; break;
-        case 9: winnings += 6; break;
-        case 10: winnings += 5; break;
-        case 11: winnings += 4; break;
-        case 12: winnings += 3; break;
-        case 13: winnings += 2; break;
-        case 14: winnings += 1; break;
+        case 1: winnings += [self getPrizeMoney:@"1"]; break;
+        case 2: winnings += [self getPrizeMoney:@"2"]; break;
+        case 3: winnings += [self getPrizeMoney:@"3"]; break;
+        case 4: winnings += [self getPrizeMoney:@"4"]; break;
+        case 5: winnings += [self getPrizeMoney:@"5"]; break;
+        case 6: winnings += [self getPrizeMoney:@"6"]; break;
+        case 7: winnings += [self getPrizeMoney:@"7"]; break;
+        case 8: winnings += [self getPrizeMoney:@"8"]; break;
+        case 9: winnings += [self getPrizeMoney:@"9"]; break;
+        case 10: winnings += [self getPrizeMoney:@"10"]; break;
+        case 11: winnings += [self getPrizeMoney:@"11"]; break;
+        case 12: winnings += [self getPrizeMoney:@"12"]; break;
+        case 13: winnings += [self getPrizeMoney:@"13"]; break;
+        case 14: winnings += [self getPrizeMoney:@"14"]; break;
+        case 15: winnings += [self getPrizeMoney:@"15"]; break;
+        case 16: winnings += [self getPrizeMoney:@"16"]; break;
+        case 17: winnings += [self getPrizeMoney:@"17"]; break;
+        case 18: winnings += [self getPrizeMoney:@"18"]; break;
+        case 19: winnings += [self getPrizeMoney:@"19"]; break;
+        case 20: winnings += [self getPrizeMoney:@"20"]; break;
     }
     
     // motm winnings
-    winnings += (team.motms.count * 10);
+    winnings += (team.motms.count * [self getPrizeMoney:@"motm"]);
     
     // golden boot winnings
     if (team.goldenBootPosition == 1)
-        winnings += 10;
+        winnings += [self getPrizeMoney:@"goldenBoot"];
     
     NSArray *sideBets = _sideBets;
     if (!_sideBets) {
@@ -985,11 +996,15 @@
     // fu cup is £45 winner / £15 runner up
     int cupRound = [self getCupRound:team];
     if (cupRound == 5)
-        winnings += 45;
+        winnings += [self getPrizeMoney:@"cupWinner"];
     else if (cupRound == 4)
-        winnings += 15;
+        winnings += [self getPrizeMoney:@"cupRunnerUp"];
     
     return winnings;
+}
+
+- (double) getPrizeMoney:(NSString *) achievement {
+    return [_prizeMoney[achievement] doubleValue];
 }
 
 + (NSArray *)managerNames

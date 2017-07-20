@@ -1,0 +1,183 @@
+{
+    "sideBets" : [
+    	{
+            "managerName1" : "Mr C Foxall",
+            "name1" : "Chris",
+            "managerName2" : "Mr J Appleby",
+            "name2" : "Enz",
+            "managerName3" : "Mr P Attrill",
+            "name3" : "Pebbles",
+            "amount" : 20,
+            "type" : "league"
+        },
+    	{
+            "managerName1" : "Mr C Emmerson",
+            "name1" : "Carl",
+            "managerName2" : "Mr T Lewis",
+            "name2" : "Tim",
+            "amount" : 5,
+            "type" : "league"
+        },
+        {
+            
+            "managerName1" : "Mr C Emmerson",
+            "name1" : "Carl",
+            "managerName2" : "Mr M Mitchell",
+            "name2" : "Mark M",
+            "amount" : 10,
+            "type" : "league"
+        },
+        {
+            "managerName1" : "Mr M Mitchell",
+            "name1" : "Mark M",
+            "managerName2" : "Mr J Hitchins",
+            "name2" : "Jason H",
+            "amount" : 10,
+            "type" : "league"
+        },
+        {
+            "managerName1" : "Mr J Appleby",
+            "name1" : "Enz",
+            "managerName2" : "Mr T Lewis",
+            "name2" : "Tim",
+            "amount" : 5,
+            "type" : "league"
+        },
+        {
+            "managerName1" : "Mr T Lewis",
+            "name1" : "Tim",
+            "managerName2" : "Mr M Mitchell",
+            "name2" : "Mark M",
+            "amount" : 10,
+            "type" : "league"
+        },
+        {
+            "managerName1" : "Mr C Attrill",
+            "name1" : "Wobbles",
+            "managerName2" : "Mr M Mitchell",
+            "name2" : "Mark M",
+            "amount" : 10,
+            "type" : "league"
+        },
+        {
+            "managerName1" : "Mr C Attrill",
+            "name1" : "Wobbles",
+            "managerName2" : "Mr J Appleby",
+            "name2" : "Enz",
+            "amount" : 5,
+            "type" : "league"
+        },
+        {
+            "managerName1" : "Mr T Lewis",
+            "name1" : "Tim",
+            "managerName2" : "Mr C Attrill",
+            "name2" : "Wobbles",
+            "amount" : 5,
+            "type" : "league"
+        },
+        {
+            "managerName1" : "Mr T Lewis",
+            "name1" : "Tim",
+            "managerName2" : "Mr C Cowpertwait",
+            "name2" : "Cowpers",
+            "amount" : 5,
+            "type" : "league"
+        },
+        {
+            "managerName1" : "Mr C Emmerson",
+            "name1" : "Carl",
+            "managerName2" : "Mr S Dowe",
+            "name2" : "Steve",
+            "managerName3" : "Mr P Pritchard",
+            "name3" : "Phil P",
+            "amount" : 10,
+            "type" : "league"
+        },
+        {
+            "managerName1" : "Mr P Attrill",
+            "name1" : "Pebbles",
+            "managerName2" : "Mr C Cowpertwait",
+            "name2" : "Cowpers",
+            "amount" : 10,
+            "type" : "league"
+        },
+        {
+            "managerName1" : "Mr C Attrill",
+            "name1" : "Wobbles",
+            "managerName2" : "Mr C Cowpertwait",
+            "name2" : "Cowpers",
+            "amount" : 10,
+            "type" : "league"
+        },
+        {
+            "managerName1" : "Mr J Appleby",
+            "name1" : "Enz",
+            "managerName2" : "Mr C Cowpertwait",
+            "name2" : "Cowpers",
+            "amount" : 20,
+            "type" : "league"
+        },
+        {
+            "managerName1" : "Mr M Mitchell",
+            "name1" : "Mark M",
+            "managerName2" : "Mr C Cowpertwait",
+            "name2" : "Cowpers",
+            "amount" : 20,
+            "type" : "league"
+        },
+        {
+            "managerName1" : "Mr C Emmerson",
+            "name1" : "Carl",
+            "managerName2" : "Mr C Cowpertwait",
+            "name2" : "Cowpers",
+            "amount" : 20,
+            "type" : "league"
+        },
+        { 
+        	"managerName1" : "Mr S Dowe",
+            "name1" : "Steve",
+            "managerName2" : "Mr P Attrill",
+            "name2" : "Pebbles",
+            "amount" : 10,
+            "bet" : "Highest of Ipswich and Notts Forest",
+            "type" : "other",
+            "winning" : "managerName2"
+        },
+        { 
+        	"managerName1" : "Mr J Hitchins",
+            "name1" : "Jason H",
+            "managerName2" : "Mr J Appleby",
+            "name2" : "Enz",
+            "amount" : 5,
+            "bet" : "Top scorer of RVP and Podolski",
+            "type" : "other",
+            "winning" : "managerName2"
+        },
+        { 
+        	"managerName1" : "Mr T Lewis",
+            "name1" : "Tim",
+            "managerName2" : "Mr P Gill",
+            "name2" : "Pap",
+            "amount" : 1,
+            "bet" : "Pap will finish bottom",
+            "type" : "other",
+            "winning" : "managerName2"
+        },
+        {
+            "managerName1" : "Mr C Foxall",
+            "name1" : "Chris",
+            "managerName2" : "Mr C Cowpertwait",
+            "name2" : "Cowpers",
+            "amount" : 20,
+            "type" : "league"
+        },
+        {
+            "managerName1" : "Mr J Appleby",
+            "name1" : "Enz",
+            "managerName2" : "Mr J Ransley",
+            "name2" : "Ransley",
+            "amount" : 5,
+            "type" : "league"
+        }
+    ]
+}

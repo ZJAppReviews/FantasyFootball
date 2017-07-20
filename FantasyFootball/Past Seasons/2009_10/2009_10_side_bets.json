@@ -1,0 +1,127 @@
+{
+    "sideBets" : [
+    	{
+            "managerName1" : "Mr M Mitchell",
+            "name1" : "Mark M",
+            "managerName2" : "Mr C Cowpertwait",
+            "name2" : "Cowpers",
+            "managerName3" : "Mr C Emmerson",
+            "name3" : "Carl",
+            "amount" : 20,
+         },
+        {
+            "managerName1" : "Mr M Mitchell",
+            "name1" : "Mark M",
+            "managerName2" : "Mr C Foxall",
+            "name2" : "Chris",
+            "amount" : 20,
+            "type" : "league"
+        },
+        {
+            "managerName1" : "Mr C Cowpertwait",
+            "name1" : "Cowpers",
+            "managerName2" : "Mr C Foxall",
+            "name2" : "Chris",
+            "amount" : 20,
+            "type" : "league"
+        },
+        {
+            "managerName1" : "Mr C Emmerson",
+            "name1" : "Carl",
+            "managerName2" : "Mr J Appleby",
+            "name2" : "Enz",
+            "amount" : 20,
+            "type" : "league"
+        },
+        {
+            "managerName1" : "Mr C Cowpertwait",
+            "name1" : "Cowpers",
+            "managerName2" : "Mr J Appleby",
+            "name2" : "Enz",
+            "amount" : 20,
+            "type" : "league"
+        },
+        {
+            "managerName1" : "Mr C Emmerson",
+            "name1" : "Carl",
+            "managerName2" : "Mr S Dowe",
+            "name2" : "Steve",
+            "managerName3" : "Mr P Pritchard",
+            "name3" : "Phil P",
+            "amount" : 10,
+            "type" : "league"
+        },
+        {
+            "managerName1" : "Mr C Foxall",
+            "name1" : "Chris",
+            "managerName2" : "Mr P Attrill",
+            "name2" : "Pebbles",
+            "amount" : 10,
+            "type" : "league"
+        },
+        {
+            "managerName1" : "Mr T Lewis",
+            "name1" : "Tim",
+            "managerName2" : "Mr C Emmerson",
+            "name2" : "Carl",
+            "amount" : 2,
+            "type" : "league"
+        },
+        {
+            "managerName1" : "Mr C Attrill",
+            "name1" : "Wobbles",
+            "managerName2" : "Mr J Appleby",
+            "name2" : "Enz",
+            "amount" : 20,
+            "type" : "league"
+        },
+        {
+            "managerName1" : "Mr C Foxall",
+            "name1" : "Chris",
+            "managerName2" : "Mr C Emmerson",
+            "name2" : "Carl",
+            "amount" : 5,
+            "bet" : "Highest finish Spurs and Man City",
+            "type" : "other",
+            "winning" : "managerName1"
+        },
+        {
+            "managerName1" : "Mr J Hitchins",
+            "name1" : "Jason H",
+            "managerName2" : "Mr J Appleby",
+            "name2" : "Enz",
+            "amount" : 5,
+            "bet" : "Winner of FU Cup Prelims",
+            "type" : "other",
+            "winning" : "managerName2"
+        },
+        {
+            "managerName1" : "Mr C Foxall",
+            "name1" : "Chris",
+            "managerName2" : "Mr C Emmerson",
+            "name2" : "Carl",
+            "amount" : 10,
+            "bet" : "Liverpool to finish in top four",
+            "type" : "other",
+            "winning" : "managerName2"
+        },
+        {
+            "managerName1" : "Mr J Ransley",
+            "name1" : "Ransley",
+            "managerName2" : "Mr J Appleby",
+            "name2" : "Enz",
+            "amount" : 10,
+            "type" : "league"
+        },
+        {
+            "managerName1" : "Mr C Emmerson",
+            "name1" : "Carl",
+            "managerName2" : "Mr C Attrill",
+            "name2" : "Wobbles",
+            "amount" : 10,
+            "bet" : "Ipswich to beat Southampton in FA Cup",
+            "type" : "other",
+            "winning" : "managerName2"
+        }
+    ]
+}

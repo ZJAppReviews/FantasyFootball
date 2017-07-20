@@ -1,0 +1,84 @@
+{
+    "sideBets" : [
+    	{
+            "managerName1" : "Mr J Appleby",
+            "name1" : "Enz",
+            "managerName2" : "Mr J Ransley",
+            "name2" : "Ransley",
+            "amount" : 10,
+            "bet" : "Winner of 2nd round FU Cup",
+            "type" : "other",
+            "winning" : "managerName2"
+        },
+        {
+            "managerName1" : "Mr C Emmerson",
+            "name1" : "Carl",
+            "managerName2" : "Mr T Lewis",
+            "name2" : "Tim",
+            "amount" : 5,
+            "bet" : "Enz won't win the league 2008/09 or 2009/10",
+            "type" : "other",
+            "winning" : "managerName2"
+        },
+        {
+            "managerName1" : "Mr M Mitchell",
+            "name1" : "Mark M",
+            "managerName2" : "Mr C Foxall",
+            "name2" : "Chris",
+            "amount" : 20,
+            "type" : "league"
+        },
+        {
+            "managerName1" : "Mr C Emmerson",
+            "name1" : "Carl",
+            "managerName2" : "Mr C Cowpertwait",
+            "name2" : "Cowpers",
+            "amount" : 20,
+            "type" : "league"
+        },
+        {
+            "managerName1" : "Mr C Foxall",
+            "name1" : "Chris",
+            "managerName2" : "Mr C Cowpertwait",
+            "name2" : "Cowpers",
+            "amount" : 20,
+            "type" : "league"
+        },
+        {
+            "managerName1" : "Mr C Emmerson",
+            "name1" : "Carl",
+            "managerName2" : "Mr S Dowe",
+            "name2" : "Steve",
+            "managerName3" : "Mr P Pritchard",
+            "name3" : "Phil P",
+            "amount" : 10,
+            "type" : "league"
+        },
+        {
+            "managerName1" : "Mr M Mitchell",
+            "name1" : "Mark M",
+            "managerName2" : "Mr C Cowpertwait",
+            "name2" : "Cowpers",
+            "amount" : 20,
+            "type" : "league"
+        },
+        {
+            "managerName1" : "Mr C Foxall",
+            "name1" : "Chris",
+            "managerName2" : "Mr J Hitchins",
+            "name2" : "Jason H",
+            "amount" : 10,
+            "bet" : "Winner of 1st round FU Cup",
+            "type" : "other",
+            "winning" : "managerName2"
+        },
+        {
+            "managerName1" : "Mr C Emmerson",
+            "name1" : "Carl",
+            "managerName2" : "Mr J Appleby",
+            "name2" : "Enz",
+            "amount" : 20,
+            "type" : "league"
+        }
+    ]
+}

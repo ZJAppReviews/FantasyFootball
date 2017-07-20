@@ -1,0 +1,252 @@
+{
+    "sideBets" : [
+    	{ 
+        	"managerName1" : "Mr J Hitchins",
+            "name1" : "Jason H",
+            "managerName2" : "Mr J Appleby",
+            "name2" : "Enz",
+            "amount" : 10,
+            "bet" : "Arsenal v Man Utd league finish",
+            "type" : "other",
+            "winning" : "managerName1"
+        },
+        {
+            
+            "managerName1" : "Mr J Hitchins",
+            "name1" : "Jason H",
+            "managerName2" : "Mr J Appleby",
+            "name2" : "Enz",
+            "amount" : 15,
+            "type" : "league"
+        },
+        {
+            "managerName1" : "Mr J Appleby",
+            "name1" : "Enz",
+            "managerName2" : "Mr C Cowpertwait",
+            "name2" : "Cowpers",
+            "amount" : 20,
+            "type" : "league"
+        },
+        {
+            "managerName1" : "Mr C Foxall",
+            "name1" : "Chris",
+            "managerName2" : "Mr C Cowpertwait",
+            "name2" : "Cowpers",
+            "amount" : 30,
+            "type" : "league"
+        },
+        {
+            "managerName1" : "Mr J Appleby",
+            "name1" : "Enz",
+            "managerName2" : "Mr C Emmerson",
+            "name2" : "Cowpers",
+            "amount" : 10,
+            "type" : "league"
+        },
+        {
+            "managerName1" : "Mr J Appleby",
+            "name1" : "Enz",
+            "managerName2" : "Mr C Foxall",
+            "name2" : "Chris",
+            "amount" : 20,
+            "type" : "league",
+            "bet" : "+ Anal",
+        },
+        {
+            "managerName1" : "Mr J Appleby",
+            "name1" : "Enz",
+            "managerName2" : "Mr J Free",
+            "name2" : "Freej",
+            "amount" : 10,
+            "type" : "league"
+        },
+        {
+            "managerName1" : "Mr J Appleby",
+            "name1" : "Enz",
+            "managerName2" : "Mr M Riley",
+            "name2" : "Riley",
+            "amount" : 10,
+            "type" : "league"
+        },
+        {
+            "managerName1" : "Mr M Mitchell",
+            "name1" : "Mark M",
+            "managerName2" : "Mr C Cowpertwait",
+            "name2" : "Cowpers",
+            "amount" : 20,
+            "type" : "league"
+        },
+        {
+            "managerName1" : "Mr C Emmerson",
+            "name1" : "Carl",
+            "managerName2" : "Mr S Dowe",
+            "name2" : "Steve",
+            "managerName3" : "Mr P Pritchard",
+            "name3" : "Phil P",
+            "amount" : 10,
+            "type" : "league"
+        },
+        {
+            "managerName1" : "Mr C Emmerson",
+            "name1" : "Carl",
+            "managerName2" : "Mr C Cowpertwait",
+            "name2" : "Cowpers",
+            "amount" : 20,
+            "type" : "league"
+        },
+        {
+            "managerName1" : "Mr J Free",
+            "name1" : "Freej",
+            "managerName2" : "Mr J Hitchins",
+            "name2" : "Jason H",
+            "amount" : 20,
+            "bet" : "Furthest in FU Cup",
+            "type" : "cup"
+        },
+        {
+            "managerName1" : "Mr C Foxall",
+            "name1" : "Chris",
+            "managerName2" : "Mr M Riley",
+            "name2" : "Riley",
+            "amount" : 40,
+            "type" : "league",
+            "dorq" : "Mr M Riley",
+            "bet" : "Double or quits (Riley lost)"
+        },
+        {
+            "managerName1" : "Mr M Mitchell",
+            "name1" : "Mark M",
+            "managerName2" : "Mr J Hitchins",
+            "name2" : "Jason H",
+            "amount" : 5,
+            "type" : "league"
+        },
+        {
+            "managerName1" : "Mr M Mitchell",
+            "name1" : "Mark M",
+            "managerName2" : "Mr C Foxall",
+            "name2" : "Chris",
+            "amount" : 10,
+            "type" : "league"
+        },
+        {
+            "managerName1" : "Mr T Lewis",
+            "name1" : "Tim",
+            "managerName2" : "Mr J Free",
+            "name2" : "Freej",
+            "amount" : 10,
+            "type" : "league"
+        },
+        { 
+        	"managerName1" : "Mr J Hitchins",
+            "name1" : "Jason H",
+            "managerName2" : "Mr C Foxall",
+            "name2" : "Chris",
+            "amount" : 10,
+            "type" : "cup"
+        },
+        { 
+        	"managerName1" : "Mr J Appleby",
+            "name1" : "Enz",
+            "managerName2" : "Mr C Attrill",
+            "name2" : "Wobbles",
+            "amount" : 10,
+            "type" : "league"
+        },
+        { 
+        	"managerName1" : "Mr M Riley",
+            "name1" : "Riley",
+            "managerName2" : "Mr M Mitchell",
+            "name2" : "Mark M",
+            "amount" : 20,
+            "type" : "league"
+        },
+        { 
+        	"managerName1" : "Mr C Cowpertwait",
+            "name1" : "Cowpers",
+            "managerName2" : "Mr C Attrill",
+            "name2" : "Wobbles",
+            "amount" : 10,
+            "type" : "league"
+        },
+        { 
+        	"managerName1" : "Mr C Attrill",
+            "name1" : "Wobbles",
+            "managerName2" : "Mr T Lewis",
+            "name2" : "Tim",
+            "amount" : 4.25,
+            "type" : "league"
+        },
+        { 
+        	"managerName1" : "Mr J Free",
+            "name1" : "Freej",
+            "managerName2" : "Mr C Foxall",
+            "name2" : "Chris",
+            "amount" : 10,
+            "type" : "league"
+        },
+        { 
+        	"managerName1" : "Mr J Free",
+            "name1" : "Freej",
+            "managerName2" : "Mr M Mitchell",
+            "name2" : "Mark M",
+            "amount" : 10,
+            "type" : "goals"
+        },
+        {
+            "managerName1" : "Mr C Cowpertwait",
+            "name1" : "Cowpers",
+            "managerName2" : "Mr M Riley",
+            "name2" : "Riley",
+            "amount" : 10,
+            "type" : "goals"
+        },
+        {
+            "managerName1" : "Mr C Cowpertwait",
+            "name1" : "Cowpers",
+            "managerName2" : "Mr P Attrill",
+            "name2" : "Pebbles",
+            "amount" : 10,
+            "type" : "league"
+        },
+        {
+            "managerName1" : "Mr S Dowe",
+            "name1" : "Steve",
+            "managerName2" : "Mr C Cowpertwait",
+            "name2" : "Cowpers",
+            "amount" : 10,
+            "type" : "league"
+        },
+        { 
+        	"managerName1" : "Mr C Emmerson",
+            "name1" : "Carl",
+            "managerName2" : "Mr C Cowpertwait",
+            "name2" : "Cowpers",
+            "amount" : 10,
+            "bet" : "Ipswich v Charlton league finish",
+            "type" : "other",
+            "winning" : "managerName1"
+        },
+        { 
+        	"managerName1" : "Mr S Dowe",
+            "name1" : "Steve",
+            "managerName2" : "Mr C Cowpertwait",
+            "name2" : "Cowpers",
+            "amount" : 10,
+            "bet" : "Ipswich v Charlton league finish",
+            "type" : "other",
+            "winning" : "managerName1"
+		},
+        { 
+        	"managerName2" : "Mr P Attrill",
+            "name2" : "Pebbles",
+            "managerName1" : "Mr S Dowe",
+            "name1" : "Steve",
+            "amount" : 20,
+            "bet" : "Forest v Ipswich league finish (double or quits)",
+            "type" : "other",
+            "winning" : "managerName1",
+            "dorq" : "Mr P Attrill"
+        }
+    ]
+}

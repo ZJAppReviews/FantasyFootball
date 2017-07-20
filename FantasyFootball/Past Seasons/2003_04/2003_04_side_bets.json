@@ -1,0 +1,56 @@
+{
+    "sideBets" : [
+    	{
+            "managerName1" : "Mr C Foxall",
+            "name1" : "Chris",
+            "managerName2" : "Mr C Emmerson",
+            "name2" : "Carl",
+            "amount" : 20,
+            "type" : "league"
+        },
+        {
+            "managerName1" : "Mr J Appleby",
+            "name1" : "Enz",
+            "managerName2" : "Mr R Anderson",
+            "name2" : "Ross",
+            "amount" : 20,
+            "type" : "league"
+        },
+        {
+            "managerName1" : "Mr J Hitchins",
+            "name1" : "Jason H",
+            "managerName2" : "Mr C Foxall",
+            "name2" : "Chris",
+            "amount" : 10,
+            "bet" : "Winner of 1st round FU Cup",
+            "type" : "other",
+            "winning" : "managerName2"
+        },
+        {
+            "managerName1" : "Mr M Mitchell",
+            "name1" : "Mark M",
+            "managerName2" : "Mr D Lin",
+            "name2" : "Del",
+            "amount" : 10,
+            "bet" : "Winner of 1st round FU Cup",
+            "type" : "other",
+            "winning" : "managerName1"
+        },
+        {
+            "managerName1" : "Mr D Lin",
+            "name1" : "Del",
+            "managerName2" : "Mr C Foxall",
+            "name2" : "Chris",
+            "amount" : 20,
+            "type" : "league"
+        },
+        {
+            "managerName1" : "Mr C Emmerson",
+            "name1" : "Carl",
+            "managerName2" : "Mr D Lin",
+            "name2" : "Del",
+            "amount" : 20,
+            "type" : "league"
+        }
+    ]
+}

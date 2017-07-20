@@ -1,0 +1,66 @@
+{
+    "sideBets" : [
+    	{
+            "managerName1" : "Mr M Mitchell",
+            "name1" : "Mark M",
+            "managerName2" : "Mr C Emmerson",
+            "name2" : "Carl",
+            "amount" : 20,
+            "type" : "league"
+        },
+        {
+            "managerName1" : "Mr C Cowpertwait",
+            "name1" : "Cowpers",
+            "managerName2" : "Mr D Lin",
+            "name2" : "Del",
+            "amount" : 100,
+            "type" : "league",
+            "dorq" : "Mr C Cowpertwait",
+            "bet" : "Double or quits (Cowpers lost)"
+        },
+        {
+            "managerName1" : "Mr C Cowpertwait",
+            "name1" : "Cowpers",
+            "managerName2" : "Mr J Appleby",
+            "name2" : "Enz",
+            "amount" : 80,
+            "type" : "league",
+            "dorq" : "Mr C Cowpertwait",
+            "bet" : "Double or quits (Cowpers lost)"
+        },
+        {
+            "managerName1" : "Mr M Mitchell",
+            "name1" : "Mark M",
+            "managerName2" : "Mr C Cowpertwait",
+            "name2" : "Cowpers",
+            "amount" : 20,
+            "type" : "league"
+        },
+        {
+            "managerName1" : "Mr C Foxall",
+            "name1" : "Chris",
+            "managerName2" : "Mr P Attrill",
+            "name2" : "Pebbles",
+            "amount" : 20,
+            "type" : "league"
+        },
+        {
+            "managerName1" : "Mr C Emmerson",
+            "name1" : "Carl",
+            "managerName2" : "Mr S Dowe",
+            "name2" : "Steve",
+            "managerName3" : "Mr P Pritchard",
+            "name3" : "Phil P",
+            "amount" : 10,
+            "type" : "league"
+        },
+        {
+            "managerName1" : "Mr C Foxall",
+            "name1" : "Chris",
+            "managerName2" : "Mr J Appleby",
+            "name2" : "Enz",
+            "amount" : 20,
+            "type" : "league"
+        }
+    ]
+}

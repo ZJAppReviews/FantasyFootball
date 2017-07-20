@@ -1,0 +1,106 @@
+{
+    "sideBets" : [
+    	{
+            "managerName1" : "Mr C Emmerson",
+            "name1" : "Chris",
+            "managerName2" : "Mr D Lin",
+            "name2" : "Del",
+            "amount" : 20,
+            "bet" : "Week 3 score",
+            "type" : "other",
+            "winning" : "managerName2"
+        },
+        {
+            "managerName1" : "Mr P Gill",
+            "name1" : "Pap",
+            "managerName2" : "Mr D Lin",
+            "name2" : "Del",
+            "amount" : 20,
+            "bet" : "Week 17 score",
+            "type" : "other",
+            "winning" : "managerName1"
+        },
+        {
+            "managerName1" : "Mr C Cowpertwait",
+            "name1" : "Cowpers",
+            "managerName2" : "Mr J Appleby",
+            "name2" : "Enz",
+            "amount" : 20,
+            "type" : "league"
+        },
+        {
+            "managerName1" : "Mr M Mitchell",
+            "name1" : "Mark M",
+            "managerName2" : "Mr S Dowe",
+            "name2" : "Steve",
+            "amount" : 10,
+            "type" : "league"
+        },
+        {
+            "managerName1" : "Mr D Lin",
+            "name1" : "Del",
+            "managerName2" : "Mr C Emmerson",
+            "name2" : "Carl",
+            "amount" : 20,
+            "type" : "league"
+        },
+        {
+            "managerName1" : "Mr M Mitchell",
+            "name1" : "Mark M",
+            "managerName2" : "Mr C Foxall",
+            "name2" : "Chris",
+            "amount" : 20,
+            "bet" : "Winner of 1st round FU Cup",
+            "type" : "other",
+            "winning" : "managerName2"
+        },
+        {
+            "managerName1" : "Mr D Lin",
+            "name1" : "Del",
+            "managerName2" : "Mr C Foxall",
+            "name2" : "Chris",
+            "managerName3" : "Mr M Mitchell",
+            "name3" :  "Mark M",
+            "amount" : 10,
+            "type" : "league"
+        },
+        {
+            "managerName1" : "Mr C Attrill",
+            "name1" : "Wobbles",
+            "managerName2" : "Mr J Appleby",
+            "name2" : "Enz",
+            "amount" : 20,
+            "bet" : "Overall winner (Enz 10pt start)",
+            "type" : "other",
+            "winning" : "managerName2"
+        },
+        {
+            "managerName1" : "Miss J Bower",
+            "name1" : "Justine",
+            "managerName2" : "Mr C Foxall",
+            "name2" : "Chris",
+            "amount" : 10,
+            "bet" : "Winner Cup QF",
+            "type" : "other",
+            "winning" : "managerName1"
+        },
+        {
+            "managerName1" : "Mr C Emmerson",
+            "name1" : "Carl",
+            "managerName2" : "Mr D Lin",
+            "name2" : "Del",
+            "amount" : 10,
+            "bet" : "Score weeks 37-40",
+            "type" : "other",
+            "winning" : "managerName1"
+        },
+        {
+            "managerName1" : "Mr J Ransley",
+            "name1" : "Ransley",
+            "managerName2" : "Mr J Appleby",
+            "name2" : "Enz",
+            "amount" : 10,
+            "type" : "league"
+        }
+    ]
+}
