@@ -87,24 +87,71 @@
     
     //NSDictionary *managerStats = _managers[indexPath.row];
     switch (indexPath.row) {
-        case 0: cell.textLabel.text = @"Current Season"; break;
-        case 1: cell.textLabel.text = @"2016/2017"; break;
-        case 2: cell.textLabel.text = @"2015/2016"; break;
-        case 3: cell.textLabel.text = @"2014/2015"; break;
-        case 4: cell.textLabel.text = @"2013/2014"; break;
-        case 5: cell.textLabel.text = @"2012/2013"; break;
-        case 6: cell.textLabel.text = @"2011/2012"; break;
-        case 7: cell.textLabel.text = @"2010/2011"; break;
-        case 8: cell.textLabel.text = @"2009/2010"; break;
-        case 9: cell.textLabel.text = @"2008/2009"; break;
-        case 10: cell.textLabel.text = @"2007/2008"; break;
-        case 11: cell.textLabel.text = @"2006/2007"; break;
-        case 12: cell.textLabel.text = @"2005/2006"; break;
-        case 13: cell.textLabel.text = @"2004/2005"; break;
-        case 14: cell.textLabel.text = @"2003/2004"; break;
+        case 0:
+            cell.textLabel.text = @"Current Season";
+            cell.detailTextLabel.text = @"Chairman ????";
+            break;
+        case 1:
+            cell.textLabel.text = @"2016/2017";
+            cell.detailTextLabel.text = @"Chairman Riley";
+            break;
+        case 2:
+            cell.textLabel.text = @"2015/2016";
+            cell.detailTextLabel.text = @"Chairman Pritchard";
+            break;
+        case 3:
+            cell.textLabel.text = @"2014/2015";
+            cell.detailTextLabel.text = @"Chairman Cowpertwait";
+            break;
+        case 4:
+            cell.textLabel.text = @"2013/2014";
+            cell.detailTextLabel.text = @"Chairman P Attrill";
+            break;
+        case 5:
+            cell.textLabel.text = @"2012/2013";
+            cell.detailTextLabel.text = @"Chairman Dowe";
+            break;
+        case 6:
+            cell.textLabel.text = @"2011/2012";
+            cell.detailTextLabel.text = @"Chairman C Attrill";
+            break;
+        case 7:
+            cell.textLabel.text = @"2010/2011";
+            cell.detailTextLabel.text = @"Chairman Gill";
+            break;
+        case 8:
+            cell.textLabel.text = @"2009/2010";
+            cell.detailTextLabel.text = @"Chairman Mitchell";
+            break;
+        case 9:
+            cell.textLabel.text = @"2008/2009";
+            cell.detailTextLabel.text = @"Chairman Emmerson";
+            break;
+        case 10:
+            cell.textLabel.text = @"2007/2008";
+            cell.detailTextLabel.text = @"Chairman Lewis";
+            
+            break;
+        case 11:
+            cell.textLabel.text = @"2006/2007";
+            cell.detailTextLabel.text = @"Chairman Lewis";
+            break;
+        case 12:
+            cell.textLabel.text = @"2005/2006";
+            cell.detailTextLabel.text = @"Chairman Appleby";
+            break;
+        case 13:
+            cell.textLabel.text = @"2004/2005";
+            cell.detailTextLabel.text = @"Chairman Appleby";
+            break;
+        case 14:
+            cell.textLabel.text = @"2003/2004";
+            cell.detailTextLabel.text = @"Chairman Appleby";
+            break;
     }
     
     cell.backgroundColor = getAppDelegate().rowBackground;
+    cell.detailTextLabel.textColor = [UIColor grayColor];
     
     UIView *bView = [[UIView alloc] initWithFrame:cell.bounds];
     bView.backgroundColor = [UIColor colorWithRed:224/255.0 green:228/255.0 blue:240/255.0 alpha:1.0];
