@@ -40,7 +40,7 @@
     //removeOptionForKey(@"season");
     
     // convert csv weeks data to json weeks data
-    NSMutableDictionary *weeksJSON = [NSMutableDictionary dictionary];
+    /*NSMutableDictionary *weeksJSON = [NSMutableDictionary dictionary];
     weeksJSON[@"SUCCESS"] = @1;
     NSMutableArray *teams = [NSMutableArray array];
     NSString *path = [[NSBundle mainBundle] pathForResource:@"Weeks" ofType:@"csv"];
@@ -59,20 +59,20 @@
         team[@"TEAMNAME"] = columns[2];
         
         NSMutableArray *weeks = [NSMutableArray array];
-        /*for (int j = 1; j <= 40; j++) {
-            NSMutableDictionary *week = [NSMutableDictionary dictionary];
-            week[@"WK"] = [NSString stringWithFormat:@"%d", j];
-            week[@"PTS"] = ([columns[j+1] isEqualToString:@""]) ? @"0" : columns[j+1];
+        //for (int j = 1; j <= 40; j++) {
+        //    NSMutableDictionary *week = [NSMutableDictionary dictionary];
+        //    week[@"WK"] = [NSString stringWithFormat:@"%d", j];
+        //    week[@"PTS"] = ([columns[j+1] isEqualToString:@""]) ? @"0" : columns[j+1];
             //if (j < 40)
             //    week[@"GOALS"] = @"0";
             //else
             //    week[@"GOALS"] = columns[7];
-            week[@"GOALS"] = @"0";
+        //    week[@"GOALS"] = @"0";
             //week[@"POS"] = columns[0];
-            week[@"POS"] = @"0";
+        //    week[@"POS"] = @"0";
             //week[@"POS"] = [NSString stringWithFormat:@"%d", i-1];
-            [weeks addObject:week];
-        }*/
+        //    [weeks addObject:week];
+        //}
         
         NSMutableDictionary *week = [NSMutableDictionary dictionary];
         week[@"WK"] = @"1";
@@ -88,7 +88,7 @@
     weeksJSON[@"DATA"] = teams;
     NSData *JSONData = [NSJSONSerialization dataWithJSONObject:weeksJSON options:0 error:nil];
     NSString *text = [[NSString alloc] initWithData:JSONData encoding:NSUTF8StringEncoding];
-    
+    */
     
     /*UIUserNotificationSettings* requestedSettings
         = [UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeBadge
