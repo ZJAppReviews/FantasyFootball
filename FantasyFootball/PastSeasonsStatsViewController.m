@@ -89,7 +89,7 @@
     switch (indexPath.row) {
         case 0:
             cell.textLabel.text = @"Current Season";
-            cell.detailTextLabel.text = @"Chairman ????";
+            cell.detailTextLabel.text = @"Chairman Foxall";
             break;
         case 1:
             cell.textLabel.text = @"2016/2017";
@@ -125,7 +125,7 @@
             break;
         case 9:
             cell.textLabel.text = @"2008/2009";
-            cell.detailTextLabel.text = @"Chairman Emmerson";
+            cell.detailTextLabel.text = @"Stool Emmerson";
             break;
         case 10:
             cell.textLabel.text = @"2007/2008";

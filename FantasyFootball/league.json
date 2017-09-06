@@ -1,7 +1,8 @@
 {
-	"leaguePin" : "8126507",
-	"chairman" : "Mr M Riley",
-	"startDate" : "11/08/2017",
+	"leaguePin" : "8131304",
+	"chairman" : "Mr C Foxall",
+	"startDate" : "08/08/2017",
+    "season" : "2017/18",
     "cup" : [
 
     ],
@@ -9,62 +10,94 @@
         {
 			"monthNumber" : 1,
 			"monthName" : "August",
-			"dateRange" : "11th Aug - 29th Aug",
-			"weeks" : 3
+			"dateRange" : "11th Aug - 4th Sep",
+			"weeks" : 4
         },
         {
 			"monthNumber" : 2,
 			"monthName" : "September",
-			"dateRange" : "30th Aug - 26th Sep",
+			"dateRange" : "5th Sep - 2nd Oct",
 			"weeks" : 4
         },
         {
 			"monthNumber" : 3,
 			"monthName" : "October",
-			"dateRange" : "27th Sep - 31st Oct",
+			"dateRange" : "3rd Oct - 6th Nov",
 			"weeks" : 5
         },
         {
 			"monthNumber" : 4,
 			"monthName" : "November",
-			"dateRange" : "1st Nov - 28th Nov",
-			"weeks" : 4
+			"dateRange" : "7th Nov - 11th Dec",
+			"weeks" : 5
         },
         {
 			"monthNumber" : 5,
 			"monthName" : "December",
-			"dateRange" : "29th Nov - 26th Dec",
-			"weeks" : 4
+			"dateRange" : "12th Dec - 1st Jan",
+			"weeks" : 3
         },
         {
 			"monthNumber" : 6,
 			"monthName" : "January",
-			"dateRange" : "27th Dec - 30th Jan",
-			"weeks" : 5
+			"dateRange" : "2nd Jan - 29th Jan",
+			"weeks" : 4
         },
         {
 			"monthNumber" : 7,
 			"monthName" : "February",
-			"dateRange" : "31st Jan - 27th Feb",
+			"dateRange" : "30th Jan - 26th Feb",
 			"weeks" : 4
         },
         {
 			"monthNumber" : 8,
 			"monthName" : "March",
-			"dateRange" : "28th Feb - 27th Mar",
-			"weeks" : 4
+			"dateRange" : "27th Feb - 2nd Apr",
+			"weeks" : 5
         },
         {
 			"monthNumber" : 9,
 			"monthName" : "April",
-			"dateRange" : "28th Mar - 24th Apr",
+			"dateRange" : "3rd Apr - 30th Apr",
 			"weeks" : 4
         },
         {
 			"monthNumber" : 10,
 			"monthName" : "May",
-			"dateRange" : "25th Apr - 27th May",
-			"weeks" : 5
+			"dateRange" : "1st May - 19th May",
+			"weeks" : 3
         }
-    ]
+    ],
+    "prizeMoney" : {
+        "cupWinner" : 30,
+        "cupRunnerUp" : 10,
+        "motm" : 10,
+        "motm1" : 0,
+        "motm2" : 5,
+        "motm3" : 10,
+        "motm4" : 10,
+        "motm5" : 20,
+        "motm6" : 10,
+        "motm7" : 10,
+        "motm8" : 10,
+        "motm9" : 20,
+        "motm10" : 5,
+        "goldenBoot" : 10,
+        "1" : 100,
+        "2" : 50,
+        "3" : 30,
+        "4" : 15,
+        "5" : 10,
+        "6" : 9,
+        "7" : 8,
+        "8" : 7,
+        "9" : 6,
+        "10" : 5,
+        "11" : 4,
+        "12" : 3,
+        "13" : 2, 
+        "14" : 1, 
+        "15" : 0
+    }
+
 }

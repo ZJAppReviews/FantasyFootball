@@ -335,6 +335,7 @@
     if (_league)
         oldLeague = _league;
     
+    // TODO @"week" may be wrong for first week of season since it never gets reset (run a full scenario to see what happens)
     int oldCompletedWeek = [getOptionValueForKey(@"week") intValue];
     if (teamRows.count == 0 || [[teamRows[0] objectForKey:@"WEEKS"] count] == 0)
         oldCompletedWeek = 0;
@@ -507,10 +508,20 @@
     // merge in the overall data
     for (TFHppleElement *team in overallRows) {
         NSString *managerName = [TeamManager managerNamesDictionary][((TFHppleElement *) team.children[2]).content];
+        NSString *teamName = ((TFHppleElement *) team.children[1]).content;
         
         NSString *overallPositionString = ((TFHppleElement *) team.children.lastObject).content;
         
         Team *team = [self getTeam:teams forManagerName:managerName];
+        
+        // if no teams yet, then add them in here
+        if (!team) {
+            team = [Team new];
+            team.managerName = managerName;
+            team.teamName = teamName;
+            team.chairman = [_chairman isEqualToString:team.managerName];
+            [teams addObject:team];
+        }
         team.overallPosition = (long) [overallPositionString longLongValue];
     }
     
@@ -919,7 +930,6 @@
     double winnings = 0;
     
     // league winnings
-    // TODO update for past seasons
     switch (team.leaguePosition) {
         case 1: winnings += [self getPrizeMoney:@"1"]; break;
         case 2: winnings += [self getPrizeMoney:@"2"]; break;
@@ -944,7 +954,14 @@
     }
     
     // motm winnings
-    winnings += (team.motms.count * [self getPrizeMoney:@"motm"]);
+    if ([_prizeMoney objectForKey:@"motm1"]) {
+        for (NSNumber *motm in team.motms) {
+            winnings += [self getPrizeMoney:[NSString stringWithFormat:@"motm%@", [motm stringValue]]];
+        }
+    }
+    else {
+        winnings += (team.motms.count * [self getPrizeMoney:@"motm"]);
+    }
     
     // golden boot winnings
     if (team.goldenBootPosition == 1)
