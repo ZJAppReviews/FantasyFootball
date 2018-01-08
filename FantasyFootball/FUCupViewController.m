@@ -152,17 +152,19 @@
     NSString *winner = nil;
     
     long team1Points = 0, team2Points = 0;
-    if ([TeamManager getInstance].completedWeekNumber >= round.weekNumber && team1.weeks.count >= round.weekNumber) {
+    if (team1.weeks.count >= round.weekNumber) {
         team1Points = ((TeamWeek *) team1.weeks[round.weekNumber - 1]).points;
         team2Points = ((TeamWeek *) team2.weeks[round.weekNumber - 1]).points;
         
-        if (team1Points > team2Points)
-            winner = managerName1;
-        else if (team2Points > team1Points)
-            winner = managerName2;
-        else {
-            // must have been a draw, so check manual flag
-            winner = tie[@"winner"];
+        if ([TeamManager getInstance].completedWeekNumber >= round.weekNumber) {
+            if (team1Points > team2Points)
+                winner = managerName1;
+            else if (team2Points > team1Points)
+                winner = managerName2;
+            else {
+                // must have been a draw, so check manual flag
+                winner = tie[@"winner"];
+            }
         }
     }
     

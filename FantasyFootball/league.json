@@ -143,14 +143,12 @@
             "round" : 2,
             "weekNumber" : 25,
             "dateRange" : "23rd Jan 2018 - 29th Jan 2018"
-        }
-        ,
+        },
         {
             "round" : 3,
             "weekNumber" : 37,
             "dateRange" : "17th Apr 2018 - 23rd Apr 2018"
-        }
-        ,
+        },
         {
             "round" : 4,
             "weekNumber" : 41,
