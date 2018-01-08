@@ -27,6 +27,7 @@
 		4D2F6C141D5362D4005FD9BE /* SoundEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2F6C111D5362D4005FD9BE /* SoundEffect.m */; };
 		4D2F6C151D5362D4005FD9BE /* SoundEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2F6C131D5362D4005FD9BE /* SoundEffects.m */; };
 		4D2F6C171D5363A3005FD9BE /* cash.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4D2F6C161D5363A3005FD9BE /* cash.wav */; };
+		4D327CE01FBF4B1A004A694A /* libCorePlot-CocoaTouch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D327CD71FBF4AFA004A694A /* libCorePlot-CocoaTouch.a */; };
 		4D384F3B1F1A625D00C8E5F5 /* 2015_16_league.json in Resources */ = {isa = PBXBuildFile; fileRef = 4D384F391F1A625D00C8E5F5 /* 2015_16_league.json */; };
 		4D384F3C1F1A625D00C8E5F5 /* 2015_16_weeks.json in Resources */ = {isa = PBXBuildFile; fileRef = 4D384F3A1F1A625D00C8E5F5 /* 2015_16_weeks.json */; };
 		4D384F421F1A6F3700C8E5F5 /* 2014_15_league.json in Resources */ = {isa = PBXBuildFile; fileRef = 4D384F401F1A6F3700C8E5F5 /* 2014_15_league.json */; };
@@ -130,7 +131,6 @@
 		4DEDB41C1E61DA3C00A7CDC3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DEDB41B1E61DA3C00A7CDC3 /* CoreGraphics.framework */; };
 		4DEDB41F1E61DAC700A7CDC3 /* UIBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DEDB41E1E61DAC700A7CDC3 /* UIBuilder.m */; };
 		4DEDB4241E61DC6700A7CDC3 /* CGPointUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DEDB4231E61DC6700A7CDC3 /* CGPointUtils.m */; };
-		4DEDB4281E61F6EF00A7CDC3 /* libCorePlot-CocoaTouch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DEDB3EC1E61D64000A7CDC3 /* libCorePlot-CocoaTouch.a */; };
 		4DF2411D1D461F0600AF4F1A /* MOTMViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DF2411C1D461F0600AF4F1A /* MOTMViewController.m */; };
 		4DF241201D46302100AF4F1A /* Month.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DF2411F1D46302100AF4F1A /* Month.m */; };
 		4DF241231D463F9900AF4F1A /* TeamDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DF241221D463F9900AF4F1A /* TeamDetailViewController.m */; };
@@ -151,75 +151,75 @@
 			remoteGlobalIDString = 494DD9561B0EB677009C134E;
 			remoteInfo = AirshipKit;
 		};
+		4D327CCE1FBF4AFA004A694A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4D327CBE1FBF4AF9004A694A /* CorePlot.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8DC2EF5B0486A6940098B216;
+			remoteInfo = "CorePlot Mac";
+		};
+		4D327CD01FBF4AFA004A694A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4D327CBE1FBF4AF9004A694A /* CorePlot.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 0730F600109492D800E95162;
+			remoteInfo = "UnitTests Mac";
+		};
+		4D327CD21FBF4AFA004A694A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4D327CBE1FBF4AF9004A694A /* CorePlot.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C38A09781A46185200D45436;
+			remoteInfo = "CorePlot iOS";
+		};
+		4D327CD41FBF4AFA004A694A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4D327CBE1FBF4AF9004A694A /* CorePlot.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C38A09821A46185300D45436;
+			remoteInfo = "UnitTests iOS";
+		};
+		4D327CD61FBF4AFA004A694A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4D327CBE1FBF4AF9004A694A /* CorePlot.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C38A09BA1A4619A900D45436;
+			remoteInfo = "CorePlot-CocoaTouch";
+		};
+		4D327CD81FBF4AFA004A694A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4D327CBE1FBF4AF9004A694A /* CorePlot.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C38A09C41A4619A900D45436;
+			remoteInfo = "CorePlot-CocoaTouchTests";
+		};
+		4D327CDA1FBF4AFA004A694A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4D327CBE1FBF4AF9004A694A /* CorePlot.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C37EA6921BC83F2A0091C8F7;
+			remoteInfo = "CorePlot tvOS";
+		};
+		4D327CDC1FBF4AFA004A694A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4D327CBE1FBF4AF9004A694A /* CorePlot.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C37EA6B71BC83F2D0091C8F7;
+			remoteInfo = "UnitTests tvOS";
+		};
+		4D327CDE1FBF4B13004A694A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4D327CBE1FBF4AF9004A694A /* CorePlot.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = C38A09B91A4619A900D45436;
+			remoteInfo = "CorePlot-CocoaTouch";
+		};
 		4D3B56811D44E1EA00267C95 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 4D3B565C1D44E1EA00267C95 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 4D3B56631D44E1EA00267C95;
 			remoteInfo = FantasyFootball;
-		};
-		4DEDB3E31E61D64000A7CDC3 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 4DEDB3D31E61D64000A7CDC3 /* CorePlot.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 8DC2EF5B0486A6940098B216;
-			remoteInfo = "CorePlot Mac";
-		};
-		4DEDB3E51E61D64000A7CDC3 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 4DEDB3D31E61D64000A7CDC3 /* CorePlot.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 0730F600109492D800E95162;
-			remoteInfo = "UnitTests Mac";
-		};
-		4DEDB3E71E61D64000A7CDC3 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 4DEDB3D31E61D64000A7CDC3 /* CorePlot.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = C38A09781A46185200D45436;
-			remoteInfo = "CorePlot iOS";
-		};
-		4DEDB3E91E61D64000A7CDC3 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 4DEDB3D31E61D64000A7CDC3 /* CorePlot.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = C38A09821A46185300D45436;
-			remoteInfo = "UnitTests iOS";
-		};
-		4DEDB3EB1E61D64000A7CDC3 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 4DEDB3D31E61D64000A7CDC3 /* CorePlot.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = C38A09BA1A4619A900D45436;
-			remoteInfo = "CorePlot-CocoaTouch";
-		};
-		4DEDB3ED1E61D64000A7CDC3 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 4DEDB3D31E61D64000A7CDC3 /* CorePlot.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = C38A09C41A4619A900D45436;
-			remoteInfo = "CorePlot-CocoaTouchTests";
-		};
-		4DEDB3EF1E61D64000A7CDC3 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 4DEDB3D31E61D64000A7CDC3 /* CorePlot.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = C37EA6921BC83F2A0091C8F7;
-			remoteInfo = "CorePlot tvOS";
-		};
-		4DEDB3F11E61D64000A7CDC3 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 4DEDB3D31E61D64000A7CDC3 /* CorePlot.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = C37EA6B71BC83F2D0091C8F7;
-			remoteInfo = "UnitTests tvOS";
-		};
-		4DEDB4261E61F6E800A7CDC3 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 4DEDB3D31E61D64000A7CDC3 /* CorePlot.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = C38A09B91A4619A900D45436;
-			remoteInfo = "CorePlot-CocoaTouch";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -266,6 +266,7 @@
 		4D2F6C121D5362D4005FD9BE /* SoundEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundEffects.h; sourceTree = "<group>"; };
 		4D2F6C131D5362D4005FD9BE /* SoundEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundEffects.m; sourceTree = "<group>"; };
 		4D2F6C161D5363A3005FD9BE /* cash.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = cash.wav; sourceTree = "<group>"; };
+		4D327CBE1FBF4AF9004A694A /* CorePlot.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CorePlot.xcodeproj; path = "../core-plot-release-2.3/framework/CorePlot.xcodeproj"; sourceTree = "<group>"; };
 		4D384F391F1A625D00C8E5F5 /* 2015_16_league.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 2015_16_league.json; sourceTree = "<group>"; };
 		4D384F3A1F1A625D00C8E5F5 /* 2015_16_weeks.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 2015_16_weeks.json; sourceTree = "<group>"; };
 		4D384F401F1A6F3700C8E5F5 /* 2014_15_league.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 2014_15_league.json; sourceTree = "<group>"; };
@@ -386,7 +387,6 @@
 		4DE26F931D64C0DB008DB3B8 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		4DE26F941D64C0DB008DB3B8 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		4DEDB3D11E61D60500A7CDC3 /* Charts.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Charts.xib; sourceTree = "<group>"; };
-		4DEDB3D31E61D64000A7CDC3 /* CorePlot.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CorePlot.xcodeproj; path = "../core-plot-release-2.2/framework/CorePlot.xcodeproj"; sourceTree = "<group>"; };
 		4DEDB4071E61D6D800A7CDC3 /* TeamCharts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeamCharts.h; sourceTree = "<group>"; };
 		4DEDB4081E61D6D800A7CDC3 /* TeamCharts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeamCharts.m; sourceTree = "<group>"; };
 		4DEDB40A1E61D78900A7CDC3 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -416,7 +416,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4DEDB4281E61F6EF00A7CDC3 /* libCorePlot-CocoaTouch.a in Frameworks */,
+				4D327CE01FBF4B1A004A694A /* libCorePlot-CocoaTouch.a in Frameworks */,
 				4DEDB41C1E61DA3C00A7CDC3 /* CoreGraphics.framework in Frameworks */,
 				4DEDB40D1E61D78E00A7CDC3 /* Accelerate.framework in Frameworks */,
 				4DEDB40B1E61D78900A7CDC3 /* QuartzCore.framework in Frameworks */,
@@ -474,6 +474,21 @@
 			isa = PBXGroup;
 			children = (
 				4D2A9A501D47DF2000DCDB15 /* AirshipKit.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4D327CBF1FBF4AF9004A694A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4D327CCF1FBF4AFA004A694A /* CorePlot.framework */,
+				4D327CD11FBF4AFA004A694A /* UnitTests.xctest */,
+				4D327CD31FBF4AFA004A694A /* CorePlot.framework */,
+				4D327CD51FBF4AFA004A694A /* UnitTests iOS.xctest */,
+				4D327CD71FBF4AFA004A694A /* libCorePlot-CocoaTouch.a */,
+				4D327CD91FBF4AFA004A694A /* CorePlot-CocoaTouchTests.xctest */,
+				4D327CDB1FBF4AFA004A694A /* CorePlot.framework */,
+				4D327CDD1FBF4AFA004A694A /* UnitTests tvOS.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -565,7 +580,7 @@
 				4D7054711D4A6EDB0039B4AE /* Crashlytics.framework */,
 				4D2A9A561D47DFC700DCDB15 /* AirshipConfig.plist */,
 				4D2A9A4B1D47DF2000DCDB15 /* AirshipKit.xcodeproj */,
-				4DEDB3D31E61D64000A7CDC3 /* CorePlot.xcodeproj */,
+				4D327CBE1FBF4AF9004A694A /* CorePlot.xcodeproj */,
 				4D2A9A471D47DEF600DCDB15 /* Airship */,
 				4D2A9A491D47DF0100DCDB15 /* AirshipKit */,
 				4D3B56661D44E1EA00267C95 /* FantasyFootball */,
@@ -813,21 +828,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		4DEDB3D41E61D64000A7CDC3 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				4DEDB3E41E61D64000A7CDC3 /* CorePlot.framework */,
-				4DEDB3E61E61D64000A7CDC3 /* UnitTests.xctest */,
-				4DEDB3E81E61D64000A7CDC3 /* CorePlot.framework */,
-				4DEDB3EA1E61D64000A7CDC3 /* UnitTests iOS.xctest */,
-				4DEDB3EC1E61D64000A7CDC3 /* libCorePlot-CocoaTouch.a */,
-				4DEDB3EE1E61D64000A7CDC3 /* CorePlot-CocoaTouchTests.xctest */,
-				4DEDB3F01E61D64000A7CDC3 /* CorePlot.framework */,
-				4DEDB3F21E61D64000A7CDC3 /* UnitTests tvOS.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		4DEDB4171E61D8FF00A7CDC3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -861,7 +861,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				4DEDB4271E61F6E800A7CDC3 /* PBXTargetDependency */,
+				4D327CDF1FBF4B13004A694A /* PBXTargetDependency */,
 				4D2A9A541D47DF6700DCDB15 /* PBXTargetDependency */,
 			);
 			name = FantasyFootball;
@@ -932,8 +932,8 @@
 					ProjectRef = 4D2A9A4B1D47DF2000DCDB15 /* AirshipKit.xcodeproj */;
 				},
 				{
-					ProductGroup = 4DEDB3D41E61D64000A7CDC3 /* Products */;
-					ProjectRef = 4DEDB3D31E61D64000A7CDC3 /* CorePlot.xcodeproj */;
+					ProductGroup = 4D327CBF1FBF4AF9004A694A /* Products */;
+					ProjectRef = 4D327CBE1FBF4AF9004A694A /* CorePlot.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -952,60 +952,60 @@
 			remoteRef = 4D2A9A4F1D47DF2000DCDB15 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		4DEDB3E41E61D64000A7CDC3 /* CorePlot.framework */ = {
+		4D327CCF1FBF4AFA004A694A /* CorePlot.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = CorePlot.framework;
-			remoteRef = 4DEDB3E31E61D64000A7CDC3 /* PBXContainerItemProxy */;
+			remoteRef = 4D327CCE1FBF4AFA004A694A /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		4DEDB3E61E61D64000A7CDC3 /* UnitTests.xctest */ = {
+		4D327CD11FBF4AFA004A694A /* UnitTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = UnitTests.xctest;
-			remoteRef = 4DEDB3E51E61D64000A7CDC3 /* PBXContainerItemProxy */;
+			remoteRef = 4D327CD01FBF4AFA004A694A /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		4DEDB3E81E61D64000A7CDC3 /* CorePlot.framework */ = {
+		4D327CD31FBF4AFA004A694A /* CorePlot.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = CorePlot.framework;
-			remoteRef = 4DEDB3E71E61D64000A7CDC3 /* PBXContainerItemProxy */;
+			remoteRef = 4D327CD21FBF4AFA004A694A /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		4DEDB3EA1E61D64000A7CDC3 /* UnitTests iOS.xctest */ = {
+		4D327CD51FBF4AFA004A694A /* UnitTests iOS.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = "UnitTests iOS.xctest";
-			remoteRef = 4DEDB3E91E61D64000A7CDC3 /* PBXContainerItemProxy */;
+			remoteRef = 4D327CD41FBF4AFA004A694A /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		4DEDB3EC1E61D64000A7CDC3 /* libCorePlot-CocoaTouch.a */ = {
+		4D327CD71FBF4AFA004A694A /* libCorePlot-CocoaTouch.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = "libCorePlot-CocoaTouch.a";
-			remoteRef = 4DEDB3EB1E61D64000A7CDC3 /* PBXContainerItemProxy */;
+			remoteRef = 4D327CD61FBF4AFA004A694A /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		4DEDB3EE1E61D64000A7CDC3 /* CorePlot-CocoaTouchTests.xctest */ = {
+		4D327CD91FBF4AFA004A694A /* CorePlot-CocoaTouchTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = "CorePlot-CocoaTouchTests.xctest";
-			remoteRef = 4DEDB3ED1E61D64000A7CDC3 /* PBXContainerItemProxy */;
+			remoteRef = 4D327CD81FBF4AFA004A694A /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		4DEDB3F01E61D64000A7CDC3 /* CorePlot.framework */ = {
+		4D327CDB1FBF4AFA004A694A /* CorePlot.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = CorePlot.framework;
-			remoteRef = 4DEDB3EF1E61D64000A7CDC3 /* PBXContainerItemProxy */;
+			remoteRef = 4D327CDA1FBF4AFA004A694A /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		4DEDB3F21E61D64000A7CDC3 /* UnitTests tvOS.xctest */ = {
+		4D327CDD1FBF4AFA004A694A /* UnitTests tvOS.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = "UnitTests tvOS.xctest";
-			remoteRef = 4DEDB3F11E61D64000A7CDC3 /* PBXContainerItemProxy */;
+			remoteRef = 4D327CDC1FBF4AFA004A694A /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -1184,15 +1184,15 @@
 			name = AirshipKit;
 			targetProxy = 4D2A9A531D47DF6700DCDB15 /* PBXContainerItemProxy */;
 		};
+		4D327CDF1FBF4B13004A694A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "CorePlot-CocoaTouch";
+			targetProxy = 4D327CDE1FBF4B13004A694A /* PBXContainerItemProxy */;
+		};
 		4D3B56821D44E1EA00267C95 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 4D3B56631D44E1EA00267C95 /* FantasyFootball */;
 			targetProxy = 4D3B56811D44E1EA00267C95 /* PBXContainerItemProxy */;
-		};
-		4DEDB4271E61F6E800A7CDC3 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "CorePlot-CocoaTouch";
-			targetProxy = 4DEDB4261E61F6E800A7CDC3 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1304,7 +1304,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = FantasyFootball/FantasyFootball.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Mark Riley (K7UL8BTV9C)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Mark Riley (K7UL8BTV9C)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = W2V2ML3BSE;
 				ENABLE_BITCODE = NO;
@@ -1314,7 +1315,7 @@
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(SDKROOT)/usr/include/libxml2",
-					"/Users/Mark/Documents/Apps/core-plot-release-2.2/framework/**",
+					"/Users/Mark/Documents/Apps/core-plot-release-2.3/framework/**",
 				);
 				INFOPLIST_FILE = FantasyFootball/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -1326,8 +1327,8 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mhriley.FantasyFootball;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "08ff67b4-a923-4767-803b-fe769b0fdb79";
-				PROVISIONING_PROFILE_SPECIFIER = com.mhriley.FantasyFootball;
+				PROVISIONING_PROFILE = "436b3191-87e5-4b42-b04b-f152d9b06096";
+				PROVISIONING_PROFILE_SPECIFIER = "Fantasy Football Dev";
 			};
 			name = Debug;
 		};
@@ -1338,6 +1339,7 @@
 				CODE_SIGN_ENTITLEMENTS = FantasyFootball/FantasyFootball.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = W2V2ML3BSE;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1346,7 +1348,7 @@
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(SDKROOT)/usr/include/libxml2",
-					"/Users/Mark/Documents/Apps/core-plot-release-2.2/framework/**",
+					"/Users/Mark/Documents/Apps/core-plot-release-2.3/framework/**",
 				);
 				INFOPLIST_FILE = FantasyFootball/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -1359,8 +1361,8 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mhriley.FantasyFootball;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "157815ca-befd-44a9-b765-65c0695e3772";
-				PROVISIONING_PROFILE_SPECIFIER = "XC Ad Hoc: com.mhriley.FantasyFootball";
+				PROVISIONING_PROFILE = "db163e7b-fb56-4014-ac10-c4e894fb1f1d";
+				PROVISIONING_PROFILE_SPECIFIER = "Fantasy Football Ad Hoc";
 			};
 			name = Release;
 		};

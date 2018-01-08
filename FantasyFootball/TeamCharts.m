@@ -1091,12 +1091,15 @@ enum {
 	if (currentPlot == kGoals || currentPlot == kPoints)
 		return NO;
 
-	if (self.snapshotTimer != nil)
-		[self.snapshotTimer invalidate];
-	self.snapshotTimer = nil;
-	
-    NSSet *touches = [event allTouches]; 
-    if ([touches count] > 1) { 
+	NSSet *touches = [event allTouches];
+    if ([touches count] > 1) {
+        if (self.snapshotTimer != nil)
+            [self.snapshotTimer invalidate];
+        self.snapshotTimer = nil;
+        
+        if (selectedIndex < NSUIntegerMax)
+            return NO;
+        
 		[self clearAnnotation];
 		
         NSArray *twoTouches = [touches allObjects]; 

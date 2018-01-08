@@ -98,6 +98,63 @@
         "13" : 2, 
         "14" : 1, 
         "15" : 0
-    }
-
+    },
+    "cup" : [
+        {
+            "round" : 1,
+            "weekNumber" : 22,
+            "dateRange" : "2nd Jan 2018 - 8th Jan 2018",
+            "ties" : [
+                {
+                    "managerName1" : "Mr C Cowpertwait",
+                    "managerName2" : "Mr P Gill"
+                },
+                {
+                    "managerName1" : "Mr J Free",
+                    "managerName2" : "Mr P Pritchard"
+                },
+                {
+                    "managerName1" : "Mr M Riley",
+                    "managerName2" : "Mr C Foxall"
+                },
+                {
+                    "managerName1" : "Mr C Emmerson",
+                    "managerName2" : "Mr C Attrill"
+                },
+                {
+                    "managerName1" : "Mr M Mitchell",
+                    "managerName2" : "Mr J Hitchins"
+                },
+                {
+                    "managerName1" : "Mr S Dowe",
+                    "managerName2" : "Mr D Lin"
+                },
+                {
+                    "managerName1" : "Mr J Appleby",
+                    "managerName2" : "Mr T Lewis"
+                },
+                {
+                    "managerName1" : "Mr P Attrill",
+                    "managerName2" : "Bye"
+                }
+            ]
+        },
+        {
+            "round" : 2,
+            "weekNumber" : 25,
+            "dateRange" : "23rd Jan 2018 - 29th Jan 2018"
+        }
+        ,
+        {
+            "round" : 3,
+            "weekNumber" : 37,
+            "dateRange" : "17th Apr 2018 - 23rd Apr 2018"
+        }
+        ,
+        {
+            "round" : 4,
+            "weekNumber" : 41,
+            "dateRange" : "15th May 2018 - 21st May 2018"
+        }
+    ]
 }
