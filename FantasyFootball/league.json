@@ -142,7 +142,25 @@
         {
             "round" : 2,
             "weekNumber" : 25,
-            "dateRange" : "23rd Jan 2018 - 29th Jan 2018"
+            "dateRange" : "23rd Jan 2018 - 29th Jan 2018",
+            "ties" : [
+                {
+                    "managerName1" : "Mr M Riley",
+                    "managerName2" : "Mr C Emmerson"
+                },
+                {
+                    "managerName1" : "Mr P Gill",
+                    "managerName2" : "Mr T Lewis"
+                },
+                {
+                    "managerName1" : "Mr M Mitchell",
+                    "managerName2" : "Mr P Pritchard"
+                },
+                {
+                    "managerName1" : "Mr P Attrill",
+                    "managerName2" : "Mr S Dowe"
+                }
+            ]
         },
         {
             "round" : 3,
