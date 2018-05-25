@@ -79,7 +79,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 15;
+    return 16;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -92,59 +92,62 @@
             cell.detailTextLabel.text = @"Chairman Foxall";
             break;
         case 1:
+            cell.textLabel.text = @"2017/2018";
+            cell.detailTextLabel.text = @"Chairman Foxall";
+            break;
+        case 2:
             cell.textLabel.text = @"2016/2017";
             cell.detailTextLabel.text = @"Chairman Riley";
             break;
-        case 2:
+        case 3:
             cell.textLabel.text = @"2015/2016";
             cell.detailTextLabel.text = @"Chairman Pritchard";
             break;
-        case 3:
+        case 4:
             cell.textLabel.text = @"2014/2015";
             cell.detailTextLabel.text = @"Chairman Cowpertwait";
             break;
-        case 4:
+        case 5:
             cell.textLabel.text = @"2013/2014";
             cell.detailTextLabel.text = @"Chairman P Attrill";
             break;
-        case 5:
+        case 6:
             cell.textLabel.text = @"2012/2013";
             cell.detailTextLabel.text = @"Chairman Dowe";
             break;
-        case 6:
+        case 7:
             cell.textLabel.text = @"2011/2012";
             cell.detailTextLabel.text = @"Chairman C Attrill";
             break;
-        case 7:
+        case 8:
             cell.textLabel.text = @"2010/2011";
             cell.detailTextLabel.text = @"Chairman Gill";
             break;
-        case 8:
+        case 9:
             cell.textLabel.text = @"2009/2010";
             cell.detailTextLabel.text = @"Chairman Mitchell";
             break;
-        case 9:
+        case 10:
             cell.textLabel.text = @"2008/2009";
             cell.detailTextLabel.text = @"Stool Emmerson";
             break;
-        case 10:
-            cell.textLabel.text = @"2007/2008";
-            cell.detailTextLabel.text = @"Chairman Lewis";
-            
-            break;
         case 11:
-            cell.textLabel.text = @"2006/2007";
+            cell.textLabel.text = @"2007/2008";
             cell.detailTextLabel.text = @"Chairman Lewis";
             break;
         case 12:
+            cell.textLabel.text = @"2006/2007";
+            cell.detailTextLabel.text = @"Chairman Lewis";
+            break;
+        case 13:
             cell.textLabel.text = @"2005/2006";
             cell.detailTextLabel.text = @"Chairman Appleby";
             break;
-        case 13:
+        case 14:
             cell.textLabel.text = @"2004/2005";
             cell.detailTextLabel.text = @"Chairman Appleby";
             break;
-        case 14:
+        case 15:
             cell.textLabel.text = @"2003/2004";
             cell.detailTextLabel.text = @"Chairman Appleby";
             break;
@@ -179,20 +182,21 @@
     
     switch (indexPath.row) {
         case 0: removeOptionForKey(@"season"); break;
-        case 1: setOptionValueForKey(@"season", @"2016_17"); break;
-        case 2: setOptionValueForKey(@"season", @"2015_16"); break;
-        case 3: setOptionValueForKey(@"season", @"2014_15"); break;
-        case 4: setOptionValueForKey(@"season", @"2013_14"); break;
-        case 5: setOptionValueForKey(@"season", @"2012_13"); break;
-        case 6: setOptionValueForKey(@"season", @"2011_12"); break;
-        case 7: setOptionValueForKey(@"season", @"2010_11"); break;
-        case 8: setOptionValueForKey(@"season", @"2009_10"); break;
-        case 9: setOptionValueForKey(@"season", @"2008_09"); break;
-        case 10: setOptionValueForKey(@"season", @"2007_08"); break;
-        case 11: setOptionValueForKey(@"season", @"2006_07"); break;
-        case 12: setOptionValueForKey(@"season", @"2005_06"); break;
-        case 13: setOptionValueForKey(@"season", @"2004_05"); break;
-        case 14: setOptionValueForKey(@"season", @"2003_04"); break;
+        case 1: setOptionValueForKey(@"season", @"2017_18"); break;
+        case 2: setOptionValueForKey(@"season", @"2016_17"); break;
+        case 3: setOptionValueForKey(@"season", @"2015_16"); break;
+        case 4: setOptionValueForKey(@"season", @"2014_15"); break;
+        case 5: setOptionValueForKey(@"season", @"2013_14"); break;
+        case 6: setOptionValueForKey(@"season", @"2012_13"); break;
+        case 7: setOptionValueForKey(@"season", @"2011_12"); break;
+        case 8: setOptionValueForKey(@"season", @"2010_11"); break;
+        case 9: setOptionValueForKey(@"season", @"2009_10"); break;
+        case 10: setOptionValueForKey(@"season", @"2008_09"); break;
+        case 11: setOptionValueForKey(@"season", @"2007_08"); break;
+        case 12: setOptionValueForKey(@"season", @"2006_07"); break;
+        case 13: setOptionValueForKey(@"season", @"2005_06"); break;
+        case 14: setOptionValueForKey(@"season", @"2004_05"); break;
+        case 15: setOptionValueForKey(@"season", @"2003_04"); break;
     }
     
     [DataManager loadData];

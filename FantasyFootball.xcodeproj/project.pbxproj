@@ -120,6 +120,11 @@
 		4DBCF0C91DBFB96200894B04 /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DBCF0C51DBFB8C400894B04 /* libxml2.tbd */; };
 		4DBCF0CD1DC125CF00894B04 /* league.json in Resources */ = {isa = PBXBuildFile; fileRef = 4DBCF0CC1DC125CF00894B04 /* league.json */; };
 		4DD47C991D4D3240008D64A7 /* StatsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DD47C981D4D3240008D64A7 /* StatsViewController.m */; };
+		4DD49F7620B5C005007FB56D /* 2017_18_side_bets.json in Resources */ = {isa = PBXBuildFile; fileRef = 4DD49F7120B5C005007FB56D /* 2017_18_side_bets.json */; };
+		4DD49F7720B5C005007FB56D /* 2017_18_overall.html in Resources */ = {isa = PBXBuildFile; fileRef = 4DD49F7220B5C005007FB56D /* 2017_18_overall.html */; };
+		4DD49F7820B5C005007FB56D /* 2017_18_league.json in Resources */ = {isa = PBXBuildFile; fileRef = 4DD49F7320B5C005007FB56D /* 2017_18_league.json */; };
+		4DD49F7920B5C005007FB56D /* 2017_18_weeks.json in Resources */ = {isa = PBXBuildFile; fileRef = 4DD49F7420B5C005007FB56D /* 2017_18_weeks.json */; };
+		4DD49F7A20B5C005007FB56D /* 2017_18_starting.html in Resources */ = {isa = PBXBuildFile; fileRef = 4DD49F7520B5C005007FB56D /* 2017_18_starting.html */; };
 		4DE26F951D64C0DB008DB3B8 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DE26F941D64C0DB008DB3B8 /* MBProgressHUD.m */; };
 		4DEDB3D21E61D60500A7CDC3 /* Charts.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DEDB3D11E61D60500A7CDC3 /* Charts.xib */; };
 		4DEDB4091E61D6D800A7CDC3 /* TeamCharts.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DEDB4081E61D6D800A7CDC3 /* TeamCharts.m */; };
@@ -384,6 +389,11 @@
 		4DBDCC731DC26315000EAFB9 /* FantasyFootball.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FantasyFootball.entitlements; sourceTree = "<group>"; };
 		4DD47C971D4D3240008D64A7 /* StatsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatsViewController.h; sourceTree = "<group>"; };
 		4DD47C981D4D3240008D64A7 /* StatsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatsViewController.m; sourceTree = "<group>"; };
+		4DD49F7120B5C005007FB56D /* 2017_18_side_bets.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 2017_18_side_bets.json; sourceTree = "<group>"; };
+		4DD49F7220B5C005007FB56D /* 2017_18_overall.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = 2017_18_overall.html; sourceTree = "<group>"; };
+		4DD49F7320B5C005007FB56D /* 2017_18_league.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 2017_18_league.json; sourceTree = "<group>"; };
+		4DD49F7420B5C005007FB56D /* 2017_18_weeks.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 2017_18_weeks.json; sourceTree = "<group>"; };
+		4DD49F7520B5C005007FB56D /* 2017_18_starting.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = 2017_18_starting.html; sourceTree = "<group>"; };
 		4DE26F931D64C0DB008DB3B8 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		4DE26F941D64C0DB008DB3B8 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		4DEDB3D11E61D60500A7CDC3 /* Charts.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Charts.xib; sourceTree = "<group>"; };
@@ -454,6 +464,7 @@
 				4D384F3F1F1A6F3700C8E5F5 /* 2014_15 */,
 				4D384F381F1A625D00C8E5F5 /* 2015_16 */,
 				4D03D00B1EE2EE8D00C38DAE /* 2016_17 */,
+				4DD49F7020B5BDF3007FB56D /* 2017_18 */,
 			);
 			path = "Past Seasons";
 			sourceTree = "<group>";
@@ -828,6 +839,18 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		4DD49F7020B5BDF3007FB56D /* 2017_18 */ = {
+			isa = PBXGroup;
+			children = (
+				4DD49F7320B5C005007FB56D /* 2017_18_league.json */,
+				4DD49F7220B5C005007FB56D /* 2017_18_overall.html */,
+				4DD49F7120B5C005007FB56D /* 2017_18_side_bets.json */,
+				4DD49F7520B5C005007FB56D /* 2017_18_starting.html */,
+				4DD49F7420B5C005007FB56D /* 2017_18_weeks.json */,
+			);
+			path = 2017_18;
+			sourceTree = "<group>";
+		};
 		4DEDB4171E61D8FF00A7CDC3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -1026,12 +1049,14 @@
 				4D48041F1F1CCDAB00E9D700 /* 2010_11_weeks.json in Resources */,
 				4D03D0141EE2EE8D00C38DAE /* 2016_17_starting.html in Resources */,
 				4D4D51301D5C8EB500CCED96 /* toilet.wav in Resources */,
+				4DD49F7720B5C005007FB56D /* 2017_18_overall.html in Resources */,
 				4D48044B1F20E56600E9D700 /* 2012_13_side_bets.json in Resources */,
 				4D4D512E1D5A405800CCED96 /* ooh_do_i_not_like_that.wav in Resources */,
 				4D4D51421D5C98D800CCED96 /* disgraceful.wav in Resources */,
 				4DEDB3D21E61D60500A7CDC3 /* Charts.xib in Resources */,
 				4D4D514E1D5C98D800CCED96 /* you_know_weve_been_cheated.wav in Resources */,
 				4D4804241F1CF84E00E9D700 /* 2009_10_weeks.json in Resources */,
+				4DD49F7620B5C005007FB56D /* 2017_18_side_bets.json in Resources */,
 				4DBCF0CD1DC125CF00894B04 /* league.json in Resources */,
 				4D4D51471D5C98D800CCED96 /* made_for_wrighty.wav in Resources */,
 				4D4D51441D5C98D800CCED96 /* hit_les.wav in Resources */,
@@ -1064,6 +1089,7 @@
 				4D48041A1F1CBD6B00E9D700 /* 2011_12_weeks.json in Resources */,
 				4D4D514C1D5C98D800CCED96 /* we_are_in_trouble.wav in Resources */,
 				4D4D514D1D5C98D800CCED96 /* you_cannot_wait.wav in Resources */,
+				4DD49F7920B5C005007FB56D /* 2017_18_weeks.json in Resources */,
 				4D03D0151EE2EE8D00C38DAE /* 2016_17_weeks.json in Resources */,
 				4D4804191F1CBD6B00E9D700 /* 2011_12_league.json in Resources */,
 				4D384F5F1F1F7FA200C8E5F5 /* 2006_07_league.json in Resources */,
@@ -1077,6 +1103,7 @@
 				4D4804451F20C8D100E9D700 /* 2009_10_side_bets.json in Resources */,
 				4D4D514B1D5C98D800CCED96 /* tuck_in_more.wav in Resources */,
 				4D4D511A1D5603A600CCED96 /* teams_debug.json in Resources */,
+				4DD49F7A20B5C005007FB56D /* 2017_18_starting.html in Resources */,
 				4D384F6E1F1F832B00C8E5F5 /* 2004_05_league.json in Resources */,
 				4D4D51431D5C98D800CCED96 /* gotta_go_big.wav in Resources */,
 				4D384F3C1F1A625D00C8E5F5 /* 2015_16_weeks.json in Resources */,
@@ -1094,6 +1121,7 @@
 				4D4804511F20F1B500E9D700 /* 2015_16_side_bets.json in Resources */,
 				4D3B56751D44E1EA00267C95 /* Main.storyboard in Resources */,
 				4D03D0111EE2EE8D00C38DAE /* 2016_17_league.json in Resources */,
+				4DD49F7820B5C005007FB56D /* 2017_18_league.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

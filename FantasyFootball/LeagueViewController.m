@@ -189,6 +189,7 @@
                                       destructiveButtonTitle:nil
                                            otherButtonTitles:
                          NSLocalizedString(@"Current Season", nil),
+                         NSLocalizedString(@"2017/18", nil),
                          NSLocalizedString(@"2016/17", nil),
                          NSLocalizedString(@"2015/16", nil),
                          NSLocalizedString(@"2014/15", nil),
@@ -217,20 +218,21 @@
     
     switch (buttonIndex) {
         case 0: removeOptionForKey(@"season"); break;
-        case 1: setOptionValueForKey(@"season", @"2016_17"); break;
-        case 2: setOptionValueForKey(@"season", @"2015_16"); break;
-        case 3: setOptionValueForKey(@"season", @"2014_15"); break;
-        case 4: setOptionValueForKey(@"season", @"2013_14"); break;
-        case 5: setOptionValueForKey(@"season", @"2012_13"); break;
-        case 6: setOptionValueForKey(@"season", @"2011_12"); break;
-        case 7: setOptionValueForKey(@"season", @"2010_11"); break;
-        case 8: setOptionValueForKey(@"season", @"2009_10"); break;
-        case 9: setOptionValueForKey(@"season", @"2008_09"); break;
-        case 10: setOptionValueForKey(@"season", @"2007_08"); break;
-        case 11: setOptionValueForKey(@"season", @"2006_07"); break;
-        case 12: setOptionValueForKey(@"season", @"2005_06"); break;
-        case 13: setOptionValueForKey(@"season", @"2004_05"); break;
-        case 14: setOptionValueForKey(@"season", @"2003_04"); break;
+        case 1: setOptionValueForKey(@"season", @"2017_18"); break;
+        case 2: setOptionValueForKey(@"season", @"2016_17"); break;
+        case 3: setOptionValueForKey(@"season", @"2015_16"); break;
+        case 4: setOptionValueForKey(@"season", @"2014_15"); break;
+        case 5: setOptionValueForKey(@"season", @"2013_14"); break;
+        case 6: setOptionValueForKey(@"season", @"2012_13"); break;
+        case 7: setOptionValueForKey(@"season", @"2011_12"); break;
+        case 8: setOptionValueForKey(@"season", @"2010_11"); break;
+        case 9: setOptionValueForKey(@"season", @"2009_10"); break;
+        case 10: setOptionValueForKey(@"season", @"2008_09"); break;
+        case 11: setOptionValueForKey(@"season", @"2007_08"); break;
+        case 12: setOptionValueForKey(@"season", @"2006_07"); break;
+        case 13: setOptionValueForKey(@"season", @"2005_06"); break;
+        case 14: setOptionValueForKey(@"season", @"2004_05"); break;
+        case 15: setOptionValueForKey(@"season", @"2003_04"); break;
     }
     
     [DataManager loadData];
