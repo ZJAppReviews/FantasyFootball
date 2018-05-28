@@ -290,6 +290,16 @@
           	"bet" : "Double or quits (Del lost)",
             "type" : "league",
             "dorq" : "Mr D Lin"
+        },
+        {
+        	"managerName1" : "Mr C Foxall",
+          	"name1" : "Chris",
+          	"managerName2" : "Mr J Appleby",
+          	"name2" : "Enz",
+          	"amount" : 10,
+          	"bet" : "Man City to get to 100 points (Enz)",
+            "type" : "other",
+            "winning" : "managerName2"
         }
     ]
 }
